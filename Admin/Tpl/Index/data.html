@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>欢迎页</title>
+<include file="Public:sss" />
+
+</head>
+
+<body>
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">站点数据</a></li>
+    </ul>
+    </div>
+    <div class="mainindex">
+        <div style="">
+        <form action="__APP__?m=Index&a=data" method="post" style="" >
+            <ul class="">
+                <li class="sarchbtn">
+                <button type="submit" name="data" value="1" class="scbtn" >当天</button>
+                <button type="submit" name="data" value="7" class="scbtn" >本周</button>
+                <button type="submit" name="data" value="30" class="scbtn2" >本月</button>
+                <button type="submit" name="data" value="90" class="scbtn2" >本季度</button>
+
+                {$repeat}{$repeat}{$repeat}自定义：<input type="text" name="day" value="" placeholder="请输入您要查询的天数" style="height:30px;line-height:30px;text-align:center;" >天
+                <button type="submit" class="scbtn2" >查询</button>
+                </li>  
+            </ul>
+        </form>
+        </div>
+        <div style="">
+            <div class="welinfo">
+                <span><img src="__IMG__/dp.png" alt="提醒" /></span>
+                <b><eq name="currentday" value='' ><em>所有</em><else /><em>{$currentday}日</em></eq> 数据：</b>
+            </div>
+            <table class="tablelist">
+                <thead>
+                    <tr>
+                    <th>作品数量</th>
+                    <th>会员数</th>
+                    <th>下载量</th>
+                    <!--<th>总积分</th>-->
+                    <!--<th>推广数</th>-->
+                    <th>会员总金(￥)</th>
+                    <th>成交额(￥)</th>
+                    <th>提现额(￥)</th>
+                    <th>站点余额(￥)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>{$sum.opus}</td>
+                    <td>{$sum.user}</td>
+                    <td>{$sum.down}</td>
+                    <!--<td>{$sum.points}</td>
+                    <td>{$sum.tuiguang}</td>-->
+                    <td>{$sum.usermoney}</td>
+                    <td>{$sum.trans}</td>
+                    <td>{$sum.cash}</td>
+                    <td>{$sum.duizhang}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>信息中心</title>
+    <link href="__CS__/style.css" rel="stylesheet" type="text/css" />
+    <style>
+        .money input{
+            display: none;
+        }
+
+        .money.focus input{
+            display: inline-block;
+            width: 45px;
+            height: 32px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+        .money.focus span{
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="__JS__/jquery-1.11.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".click").click(function(){
+                $(".tip").fadeIn(200);
+            });
+
+            $(".tiptop a").click(function(){
+                $(".tip").fadeOut(200);
+            });
+
+            $(".sure").click(function(){
+                $(".tip").fadeOut(100);
+            });
+
+            $(".cancel").click(function(){
+                $(".tip").fadeOut(100);
+            });
+
+        });
+    </script>
+
+
+</head>
+
+
+<body>
+
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">消息中心</a></li>
+        <li><a href="#">用户反馈</a></li>
+    </ul>
+</div>
+
+<div class="rightinfo">
+
+    <div class="tools">
+        <ul class="toolbar">
+            <!-- <li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li> -->
+            <!-- <li class="click tixian" onclick="tixian('true')"><span><img src="__IMG__/t02.png" /></span>允许</li>-->
+            <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>
+           <!-- <li><a href="{:U('User/count')}"><span><img src="__IMG__/t04.png" /></span>统计</a> </li>
+      -->  </ul>
+        <div style="float:right;width:500px;">
+
+
+
+            <form action="__APP__?m=Information&a=feedback" method="post"  >
+                <ul class="">
+                    <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、手机）</label>
+                    </li>
+                </ul>
+                <ul class="">
+                    <li class="sarchbtn"><label>&nbsp;</label>
+                        <!-- <input name="" type="button" class="scbtn2" value="导出"/> -->
+                    </li>
+                </ul>
+                <ul class="toolbar1" style="float:right;">
+                    <!-- <li><span><img src="__IMG__/t05.png" /></span>设置</li> -->
+                </ul>
+            </form>
+        </div>
+    </div>
+    <!--全选与全不选-->
+    <script type="text/javascript">
+
+        function select_all(){
+            var select_all = document.getElementById('select_all');
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+            var i =0;
+
+            if(select_all.checked==true){
+
+                for (i;i<length;i++){
+                    select[i].checked=true;
+
+                }
+
+
+            }else{
+                for (i;i<length;i++){
+                    select[i].checked=false;
+                }
+
+
+            }
+
+        }
+    </script>
+    <!--//单选-->
+    <script type='text/javascript'>
+
+        function select_it(id,d){
+            var select = document.getElementById('select_'+id);
+            select.checked=true;
+            var  d_o = document.getElementById('do');
+            if(d=='true'){
+                d_o.value = 'true';
+            }else{
+                d_o.value = 'false';
+            }
+            //alert(select.checked);
+        }
+
+
+    </script>
+    <!--cancel 全部取消-->
+    <script type='text/javascript'>
+
+        function cancel(){
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+            var i =0;
+            var  d_o = document.getElementById('do');
+            for (i;i<length;i++){
+                select[i].checked=false;
+
+            }
+
+        }
+        <!-- 表单提交 -->
+        function sure(){
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+            var i =0;
+
+            for (i;i<length;i++){
+                if(select[i].checked==true){
+
+                    var form = document.getElementById('form_select');
+
+                    form.submit();
+                };
+
+                // alert(select[i].checked);
+            }
+
+        }
+    </script>
+    <!--勾选-->
+    <script type="text/javascript">
+
+    </script>
+
+    <table class="tablelist">
+        <thead>
+        <tr>
+            <th><input type="checkbox" onclick="select_all()" id="select_all"/></th>
+            <th>编号
+                <!-- <i class="sort"><img src="__IMG__/px.gif" /></i> -->
+            </th>
+            <th>用户名</th>
+            <th>昵称</th>
+
+            <th>标题</th>
+            <!-- <th>籍贯</th> -->
+            <!-- <th>等级</th> -->
+            <!-- <th>用户权限</th> -->
+            <th>内容</th>
+            <th>回复</th>
+            <th>提交时间</th>
+
+            <th>状态</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody class="user-list">
+        <form action="{:U('Information/del')}" method='post' id='form_select'>
+            <volist name="list" id="vo" >
+                <tr>
+                    <td>
+                        <input type="checkbox" name="select[]" class="select " value="{$vo.id}" id='select_{$vo.id}'/>
+                    </td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.user_name}</td>
+                    <td>{$vo.user_nickname}</td>
+
+                    <td>{$vo.chat_title}</td>
+                    <td><span style="overflow: hidden; text-overflow: ellipsis;width: 200px;">{$vo.chat_content}</span></td>
+                    <td><span style="overflow: hidden; text-overflow: ellipsis;width: 200px;"><if condition="$vo['chat_replay'] eq null">
+                        暂无<else/>
+                    </if>{$vo.chat_replay}</span></td>
+                    <td class="money"><span>{$vo.chat_time}</span><input value="{$vo.gold_coin}" data-value="{$vo.gold_coin}" data-id="{$vo.user_id}"></td>
+
+                    <td>
+                        <if condition="$vo['chat_state'] eq '1'">
+                            未查看
+                            <elseif condition="$vo['chat_state'] eq '2'"/>已查看
+                            <elseif condition="$vo['chat_state'] eq '3'"/>已回复
+
+                        </if>
+                        </td>
+                    <td>
+                        <a href="{:U('Information/replay',array('id'=>$vo['id']))}"  class="tablelink" data='{$vo.id}'>{$repeat}回复</a>
+
+                        <a href="javascript:select_it({$vo.id})"  class="tablelink click select_it" data='{$vo.id}'>{$repeat}删除</a>
+
+                        <!--{:U('User/dodrawal',array('id'=>$vo['id'],'do'=>'true'))}--><!--{:U('User/dodrawal',array('id'=>$vo['id'],'do'=>'false'))})}-->
+                </tr>
+
+            </volist>
+            <input type="hidden" value="" id="do" name="do">
+        </form>
+        </tbody>
+    </table>
+    <div class="pagestyle"> {$page}</div>
+
+
+
+    <div class="tip">
+        <div class="tiptop"><span>提示信息</span><a class='cancel'></a></div>
+
+        <div class="tipinfo">
+            <span><img src="__IMG__/ticon.png" /></span>
+            <div class="tipright">
+                <p>是否确认对信息的修改 ？</p>
+                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+        </div>
+
+        <div class="tipbtn">
+            <input name="" type="button"  class="sure" value="确定" onclick='sure()'/>&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" onclick='cancel()'/>
+        </div>
+
+    </div>
+
+
+
+
+</div>
+
+<script type="text/javascript">
+    $('.tablelist tbody tr:odd').addClass('odd');
+</script>
+</body>
+
+</html>

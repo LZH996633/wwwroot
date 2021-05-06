@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>{$user_info.user_nickname}的个人店铺</title>
+    <include file="Public/head"/>
+</head>
+
+<body>
+
+<include file="Public/header"/>
+<div class="clearfix"></div>
+<!--<style>
+    body{background:#efefef}
+    .setstatus{color:#ccc}
+    a.editworks{display: inline-block;  width: 60px;  height: 30px;  line-height: 30px;  color: #fff;  font-size: 15px; margin: 0 47px;background:#38b351;left:0;top:85px;text-align:center}
+    a.delworks{display: inline-block;  width: 60px;  height: 30px;  line-height: 30px;    color: #fff;  font-size: 15px; margin: 0 47px;background:#de342f;right:0;top:85px;text-align:center}
+    a.addworks{  display: block;  height: 30px;  line-height: 30px;  margin-top: 7px;  padding: 5px 10px;  text-align: center;  color: #38b351; border:1px solid #dedede; font-size: 16px; float:right;}
+</style>-->
+<link  href="__CS__/custom.css" rel="stylesheet"  type="text/css">
+
+<div class="userinfos">
+    <div class="wrap">
+        <div class="pic"><i><img src="{$user_info.user_pic}"></i></div>
+        <div class="name"><i class="nonline">{$user_info.user_nickname}</i></div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="userbtn">
+      <!--  <a href="" target="_blank" class="a1" >点击交谈</a>
+        <a target="_blank" href="" class="a2">前去付款</a>-->
+    </div>
+    <div class="userpro">
+        <ul class="title clearfix">
+            <li class="on"><a href="javascript:void(0);">作品展示</a></li>
+         </ul>
+        <ul class="contsa clearfix">
+            <volist name="opus_list" id="list">
+                <li>
+                    <div class="pic pr"><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank"><img src="{$list.opus_pic}"></a>
+                    </div>
+                    <div class="info clearfix">
+                        <a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank"> <span style="white-space:nowrap;width:130px;overflow:hidden;" title="{$list.opus_title}">{$list.opus_title}</span></a>
+                        <i><?php  echo substr($list['opus_updatetime'],0,10) ?></i>
+                    </div>
+                    <span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i></span>
+                </li>
+            </volist>
+
+        </ul>
+        <div class="pages">
+            <a class="javascript:void(0)">{$count}</a> {$page} </div>
+    </div>
+</div>
+<!--<script>
+
+    function del(id){
+        layer.confirm('您真的要删除该作品吗？', {
+            btn: ['确定','取消']
+        }, function(){
+            window.location.href="http://www.ppt20.com/index.php?m=customize&c=member&a=delworks&id="+id;
+        }, function(){
+            layer.close();
+        });
+    }
+
+    function onlinestatus(){
+
+        layer.open({
+            type: 1,
+            title:'设置在线状态',
+            btn:['设置'],
+            content: '<div style="padding:10px 30px"><label>状态:&nbsp;&nbsp;</label><input type="radio" name="status" checked="checked" value=1 />在线 <input type="radio" name="status" value=0 />离开 </div>',
+            yes:function(index,layero){
+
+                layero.find("input[name=status]").each(function(){
+                    var status=$(this).val();
+                    if($(this).attr('checked')=="checked"){
+                        $.getJSON("http://www.ppt20.com/index.php?m=customize&c=index&a=set_status",{status:status,seller_id:262728},function(data){
+                            if(data.status==1){
+                                layer.msg(data.msg,{icon:1,time:1000},function(){
+                                    if(status==1){
+                                        $(".name i").attr("class","nonline");
+                                    }else{
+                                        $(".name i").attr("class","online");
+                                    }
+                                });
+
+                            }else{
+                                layer.msg(data.msg,{icon:2});
+                            }
+                        });
+                        //alert($(this).val());
+                    }
+                });
+                layer.close(index);
+            }
+        });
+    }
+</script>-->
+<include file="Public/footer"/>
+</body>
+</html>

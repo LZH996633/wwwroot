@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>账务管理</title>
+<link href="__CS__/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".click").click(function(){
+            $(".tip").fadeIn(200);
+        });
+
+        $(".tiptop a").click(function(){
+            $(".tip").fadeOut(200);
+        });
+
+        $(".sure").click(function(){
+            $(".tip").fadeOut(100);
+        });
+
+        $(".cancel").click(function(){
+            $(".tip").fadeOut(100);
+        });
+    });
+
+    
+</script>
+
+</head>
+
+
+<body>
+
+<div class="place">
+<span>位置：</span>
+<ul class="placeul">
+<li><a href="#">首页</a></li>
+    <li><a href="#">财务管理</a></li>
+<li><a href="#">银行转账</a></li>
+</ul>
+</div>
+    
+<div class="rightinfo">
+    
+
+    <div class="tools">
+        <ul class="toolbar">
+<!--            <li class="click"><span><img src="__IMG__/t01.png" /></span><button type="button" name="dt" value="1" style="background-color:#FFDCA9;">添加</button></li>
+            <li class="click"><span><img src="__IMG__/t02.png" /></span><button type="button" name="dt" value="2" style="background-color:#FFDCA9;">修改</button></li>-->
+            <li class="click"><span><img src="__IMG__/t02.png" /></span>确认收款</li>
+            
+            <li><span><img src="__IMG__/t04.png" /></span>统计</li>
+        </ul>
+       <!-- <ul class="toolbar1">
+            <li><span><img src="__IMG__/t05.png" /></span>设置</li>
+        </ul>-->
+        <div style="float:right;width:500px;">
+            <form action="__APP__?m=Account&a=recharge" method="post"  >
+                <ul class="">
+                    <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、交易编号）</label>
+                    </li>
+                </ul>
+                <ul class="">
+                    <li class="sarchbtn"><label>&nbsp;</label>
+                        <!-- <input name="" type="button" class="scbtn2" value="导出"/> -->
+                    </li>
+                </ul>
+                <ul class="toolbar1" style="float:right;">
+                    <!-- <li><span><img src="__IMG__/t05.png" /></span>设置</li> -->
+                </ul>
+            </form>
+        </div>
+    </div>
+
+
+    <!--全选与全不选-->
+    <script type="text/javascript">
+
+        function select_all(){
+            var select_all = document.getElementById('select_all');
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+            var i =0;
+            if(select_all.checked==true){
+
+                for (i;i<length;i++){
+                    select[i].checked=true;
+
+                }
+
+            }else{
+                for (i;i<length;i++){
+                    select[i].checked=false;
+                }
+            }
+
+        }
+    </script>
+    <!--//单选-->
+    <script type='text/javascript'>
+
+        function select_it(id){
+            var select = document.getElementById('select_'+id);
+            select.checked=true;
+            //alert(select.checked);
+        }
+
+
+    </script>
+    <!--cancel 全部取消-->
+    <script type='text/javascript'>
+
+        function cancel(){
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+            var i =0;
+
+            for (i;i<length;i++){
+                select[i].checked=false;
+
+            }
+
+        }
+
+
+    </script>
+    <!-- 表单提交 -->
+    <script type="text/javascript">
+        function sure(){
+
+            var  select = document.getElementsByClassName('select');
+            var length = select.length;
+
+            var i =0;
+
+            for (i;i<length;i++){
+                if(select[i].checked==true){
+
+                    var form = document.getElementById('form_select');
+
+                    form.submit();
+                }
+
+                // alert(select[i].checked);
+            }
+
+        }
+    </script>
+
+    <table class="table table-bordered table-striped tablelist">
+    	<thead>
+            <th><input type="checkbox" onclick="select_all()" id="select_all"/>全选</th>
+            <th>交易编号</th>
+            <th>用户名</th>
+            <th>开户名</th>
+            <th>开户行</th>
+            <th>用户账号</th>
+            <th>交易金额</th>
+            <th>交易状态</th>
+            <th>交易ip</th>
+            <th>交易时间</th>
+         <!--   <th>更新时间</th>
+            <th>备注</th>-->
+            <th>操作</th>
+        </thead>
+
+        <form method="post" action="{:U('Account/bank')}" id="form_select">
+        <volist name="list" id="vo" >
+        <tbody>
+            <tr>
+            <td><input type="checkbox" name="select[]" class="select " value="{$vo.id}" id='select_{$vo.id}'/></td>
+            <td>{$vo.acct_order}</td>
+            <td>{$vo.user_name}</td>
+            <td>{$vo.user_acct_name}</td>
+            <td>{$vo.user_bank}</td>
+            <td>{$vo.user_account}</td>
+            <td>{$vo.acct_money}</td>
+             <td> <switch name="vo.acct_status">
+                <case value="0"><i ><font color="red" class="onError">交易未支付</font></i></case>
+                <case value="1"><i ><font  class="onFocus">交易处理中</font></i></case>
+                <case value="2"><i ><font color="orange" class="onTime">等待付款</font></i></case>
+                <case value="3"><i class="status"><font  class="onCorrect">交易成功</font></i></case>
+                <default />系统的处理中
+            </switch></td>
+            <td>{$vo.ip}</td>
+            <td>{$vo.acct_time}</td>
+            <!--<td>{$vo.tran_updatetime}</td>
+            <td>{$vo.tran_remark}</td>-->
+            <td>
+                <a href="javascript:select_it({$vo.id})"  class="tablelink click select_it" data='{$vo.opus_id}'>{$repeat}确认收款</a>
+          </td>
+            </tr>
+        </tbody>
+        </volist>
+        </form>
+    </table>
+
+
+
+    <script src="__JS__/jquery-1.11.3.min.js"></script> 
+
+    <div class="pagestyle"> {$page}</div>
+
+
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+        
+        <div class="tipinfo">
+            <span><img src="__IMG__/ticon.png" /></span>
+            <div class="tipright">
+            <p>是否确认对信息的修改 ？</p>
+            <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+            </div>
+        </div>
+        
+        <div class="tipbtn">
+            <input name="" type="button"  class="sure" value="确定" onclick="sure()"/>&nbsp;
+            <input name="" type="button"  class="cancel" value="取消" onclick="cancel()"/>
+        </div>
+    
+    </div>
+    
+</div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+
+	</script>
+
+
+</body>
+
+</html>

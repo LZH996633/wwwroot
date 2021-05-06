@@ -1,0 +1,181 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, form, img, dl, dt, dd, table, th, td, blockquote, fieldset, div, strong, label, em{margin:0; padding:0; border:0; }
+ul, ol, li{list-style:none; }
+input, button{margin:0; font-size:12px; vertical-align:middle; }
+body{font:14px microsoft yahei, arial, helvetica, sans-serif  arial, helvetica, sans-serif; margin:0; color:#868686; }
+table{border-collapse:collapse; border-spacing:0; }
+a{text-decoration:none; outline:none; color:#868686; cursor:pointer; }
+img{-webkit-transition:all 400ms ease-out; -mozilla-transition:all 400ms ease-out; -ms-transition:all 400ms ease-out; -o-transition:all 400ms ease-out; transition:all 400ms ease-out; }
+a:hover{text-decoration:none; -moz-transition:color .4s linear; -webkit-transition:color .4s linear; transition:color .35s linear;  }
+.cl{height:0; font-size:1px; clear:both; line-height:0; }
+.none{display:none}
+*:focus{outline:none}
+i,em,ins,u{font-style:normal; text-decoration:none }
+nav,footer,section,header,article{display:block; }
+.wraps{width:1200px; margin:0 auto; }
+.fl{float:left}
+.fr{float:right}
+.pr{position:relative}
+.pa{position:absolute}
+.oh{ overflow:hidden; }
+.clearfix{*zoom:1; }
+.clearfix:before,.clearfix:after{display:table;content:"";line-height:0; }
+.clearfix:after{clear:both; }
+.bgfff{ background:#fff}
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button{-webkit-appearance:none; }
+::-webkit-scrollbar{width:10px;height:10px; }
+::-webkit-scrollbar-track{background:#f1f1f1; }
+::-webkit-scrollbar-track:hover{background:#eee; }
+::-webkit-scrollbar-thumb{border-radius:10px;background:#b9b9b9; }
+::-webkit-scrollbar-thumb:hover{background:#747474; }
+::-webkit-scrollbar-thumb:active{background:#555; }
+.wrap{width:1000px;margin:0 auto;}
+.mb-10{margin-bottom:10px;}
+.mb-20{margin-bottom:20px;}
+.mb-40{margin-bottom:40px;}
+
+.down-header{background:#1abd9b; height:71px;}
+.down-header-left{color:#fff;font-size:16px;line-height:71px;width:300px}
+.down-header-mid{color:#fff;font-size:30px;line-height:71px;text-align:center;margin:0 300px;}
+.down-header-right{color:#fff;font-size:14px;line-height:71px;width:300px;text-align:right;}
+
+.downinfo-left{width:210px;height:230px;overflow:hidden;padding:0 1px; border:1px solid #DEDEDE;}
+.downinfo-left img{width:210px;padding:1px}
+.downinfo-right{width:762px; }
+.downinfo-right .title{border-bottom:1px solid #DEDEDE;padding-bottom:10px}
+.downinfo-right .title a{font-size:20px;}
+.downinfo-right .scinfo span{margin-right:20px;color:#1abd9b}
+.downinfo-right .userinfo .amount{font-size:20px;color:#1abd9b}
+.downinfo-right .userinfo span{color:#1abd9b}
+
+.indcaselist{ }
+
+.indcaselist .cont{ margin: 0 -13px; padding-top: 20px;}
+.indcaselist .cont dl{ margin: 3px; width:250px; float: left;position:relative; padding-bottom:8px; overflow:hidden; top:0; -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease; transition: all 0.3s ease; border: 1px solid #e4ecf3; background: #fff; border-radius: 5px;}
+.indcaselist .cont dl:hover{ transform: translateY(-6px); -webkit-transform: translateY(-6px);  -moz-transform: translateY(-6px); box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);    -webkit-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3); -moz-box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3); -webkit-transition: all 0.3s ease; -moz-transition: all 0.3s ease;  -o-transition: all 0.3s ease;  transition: all 0.3s ease;}
+.indcaselist .cont dl dt{overflow:hidden; position:relative; border-bottom:1px solid #e6e6e6; height:128px;}
+.indcaselist .cont dl dt img{ width:100%}
+.indcaselist .cont dl dt .pic{ position:absolute;}
+.indcaselist .cont dl dt .upscr{ position:absolute; top:0; left:0; width:100%; height:50%; z-index:9}
+.indcaselist .cont dl dt .downscr{ position:absolute; bottom:0; left:0; width:100%; height:50%; z-index:9}
+.indcaselist .cont dl dd{ padding:0px 10px;}
+.indcaselist .cont dl dd p{ display:block; margin:8px 0; font-size:13px; color:#424242;}
+.indcaselist .cont dl dd p a{height:30px;line-height:30px;display:block;width:200px;overflow:hidden; color: #424242; white-space: nowrap; text-overflow: ellipsis;}
+.indcaselist .cont dl dd span{ overflow:hidden; font-size:12px; color:#757575; height:26px; line-height:26px;}
+.indcaselist .cont dl dd span img{ vertical-align:-3px; margin-right:6px}
+.indcaselist .cont dl dd span ins{ float:left; margin-right: 12px;}
+.indcaselist .cont dl dd span i{ float:left}
+.indcaselist .cont dl dd span em{ float:right}
+.indcaselist.main{ background:none}
+.index_hot dl a.wmxhji{ display:block; text-align:center; height:26px;line-height:26px; width:110px; background:#1abd9b; color:#fff;position:absolute;left:50%;top:20px;z-index:996; border-radius:3px; margin-left:-50px}
+
+.pay_down, .pay_down:hover{  display: block;
+    text-align:center;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 15px;
+    color: #fff;
+    background: #1abd9b;
+    margin-right:20px;
+    border-radius: 5px;}
+.fkmains{ display:none; overflow:hidden; width:900px; height:520px; margin-top:-260px; left:50%; top:50%; margin-left:-450px; background:#fff; z-index:9999; position:fixed; border-radius:4px; box-shadow:0 0 12px #666; display:}
+.fkmains .closed{ position:absolute; top:4px; right:4px; width:12px; height:12px; padding:10px; background:url(http://ss.ppt20.com/__IMG__/ppdt/bigclosed.png) no-repeat center; transition:All 0.4s ease-in-out; -webkit-transition:All 0.4s ease-in-out; -moz-transition:All 0.4s ease-in-out; -o-transition:All 0.4s ease-in-out; cursor:pointer; z-index:9999}
+.fkmains .closed:hover{transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -o-transform:rotate(90deg); -ms-transform:rotate(90deg);}
+@-webkit-keyframes zoomInDown{0%{opacity:0;-webkit-transform:scale(.1) translateY(-2000px);transform:scale(.1) translateY(-2000px);-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}60%{opacity:1;-webkit-transform:scale(.475) translateY(60px);transform:scale(.475) translateY(60px);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}
+@keyframes zoomInDown{0%{opacity:0;-webkit-transform:scale(.1) translateY(-2000px);-ms-transform:scale(.1) translateY(-2000px);transform:scale(.1) translateY(-2000px);-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}60%{opacity:1;-webkit-transform:scale(.475) translateY(60px);-ms-transform:scale(.475) translateY(60px);transform:scale(.475) translateY(60px);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}
+.pptanim{-webkit-animation-name:zoomInDown;animation-name:zoomInDown}
+.pptlayer{-webkit-animation-duration:.5s; animation-duration:.5s; -webkit-animation-fill-mode: both; animation-fill-mode: both;}
+.fkmains .banner{ width:330px; height:520px; background:#8ad17f}
+.fkmains .banner .flexslider{position:relative;height:520px;overflow:hidden;}
+.fkmains .banner .slides{position:relative;z-index:1;}
+.fkmains .banner .slides img{}
+.fkmains .banner .slides li{height:520px; background-size:100% !important}
+.fkmains .banner .slides li a{display:block; width:100%; height:520px; line-height:5000px; overflow:hidden}
+.fkmains .banner .flex-control-nav{position:absolute;top:480px;z-index:2;width:100%;text-align:center;}
+.fkmains .banner .flex-control-nav li{display:inline-block;width:14px;height:14px;margin:0 5px;*display:inline;zoom:1;}
+.fkmains .banner .flex-control-nav a{display:inline-block;width:12px;height:12px;line-height:40px;overflow:hidden;background:#8ad17f;cursor:pointer; border-radius:50%; border:1px solid #fff; box-shadow:0 0 3px #ccc}
+.fkmains .banner .flex-control-nav .flex-active{ background:#fff}
+.fkmains .banner .flex-direction-nav{position:absolute;z-index:3;width:100%;top:50%;  margin-top:-48px; display:none; height: 91px}
+.fkmains .mainct{ width:545px; height:520px;}
+.fkmains .mainct .title_pay{ padding-top:40px; height:30px; line-height:30px; overflow:hidden; font-size:16px; padding-right:12px}
+.fkmains .mainct .title_pay i{ display:block; float:left; color:#595959;}
+.fkmains .mainct .title_pay span{float:right;color:#9d9d9d; font-size:13px; overflow:hidden}
+.fkmains .mainct .title_pay a{ margin-right:12px; /*background:url(../http://ss.ppt20.com/__IMG__/ppdt/arrowr.png) no-repeat center right; */color:#9d9d9d; font-size:13px;}
+.fkmains .mainct .title_pay a:hover{ color:#6bc85c}
+.fkmains .mainct .contm{ padding-top:28px; position:relative}
+.fkmains .contm .tcul li{ width:106px; height:110px; border:1px solid #dfdfdf; cursor:pointer; float:left; margin-right:28px; position:relative}
+.fkmains .contm .tcul li .xz{ border:1px solid transparent; height:108px}
+.fkmains .contm .tcul li.on{ border:1px solid #6bc85c}
+.fkmains .contm .tcul li.on .xz{ border:1px solid #6bc85c}
+.fkmains .contm .tcul li .icon{ position:absolute; bottom:0; right:0; display:block}
+.fkmains .contm .tcul li img{ display:block}
+.fkmains .contm .tcul li .bz{ display:block; width:37px; height:37px; position:absolute; top:-18px; right:-18px;}
+.fkmains .contm .tcul li .mun{line-height:36px; padding:6px 0 3px; text-align:center; color:#717171; font-size:14px;}
+.fkmains .contm .tcul li .mun i{ font-size:30px; color:#6bc85c; padding-right:3px;}
+.fkmains .contm .tcul li .wd{ font-size:12px; color:#717171; padding:0 3px; line-height:18px;}
+.fkmains .contm .tcul li .wd i{ padding:0 2px; color:#6bc85c}
+.fkmains .contm .tcul li .wd em{ display:block; text-align:center;}
+.fkmains .contm .tcul li .wd1{ text-align:center; line-height:54px}
+.fkmains .contm .tcul li .wd2 em{ float:left; height:54px; line-height:54px; padding-left:8px;}
+.fkmains .contm .tcul li .wd2 span{ display:block; overflow:hidden; padding-left:5px; padding-top:9px}
+.fkmains .contm .tcul li .wd3 em{ float:left; height:54px; line-height:54px; padding-left:8px;}
+.fkmains .contm .tcul li .wd3 span{ display:block; overflow:hidden; padding-left:5px;}
+.fkmains .contm .zftle{ padding-top:32px; height:35px; overflow:hidden}
+.fkmains .contm .zftle i{ display:block; float:left; line-height:35px; color:#595959; font-size:16px;}
+.fkmains .contm .zftle span{ display:block; float:right; padding-right:26px;}
+.fkmains .contm .zftle span a{ display:inline-block; text-align:center; height:33px; line-height:33px; border-bottom:2px solid #e7e7e7; font-size:15px; color:#595959; padding:0 16px;}
+.fkmains .contm .zftle span a.on{ border-bottom:2px solid #6bc85c; color:#6bc85c}
+.fkmains .contm .zfstyle,.fkmains .contm .zf1style{ padding:22px 0 22px;}
+.fkmains .contm .zfstyle li,.fkmains .contm .zf1style li{ width:116px; height:45px; border:1px solid #e3e3e3; cursor:pointer; position:relative; float:left; margin-right:12px; border-radius:2px; overflow:hidden}
+.fkmains .contm .zfstyle li.on,.fkmains .contm .zf1style li.on{ border:1px solid #6bc85c}
+.fkmains .contm .zfstyle li .icon,.fkmains .contm .zf1style li .icon{ display:block; position:absolute; bottom:0; right:0;}
+.fkmains .contm .zfstyle li img,.fkmains .contm .zf1style li img{ display:block;}
+.fkmains .contm .btns{ text-align:center;}
+.fkmains .contm .btns span{ display:block; font-size:15px; color:#595959; line-height:30px; padding-bottom:5px;}
+.fkmains .contm .btns span i{ color:#ff0000; padding:0 3px;}
+.fkmains .contm .btns a{ display:block; border:none;width:128px; height:32px; color:#fff; font-size:15px; line-height:32px; margin:0 auto; border-radius:3px; text-align:center;cursor:pointer; background:#59ba39}
+.fkmains .lxkf{ height:60px; width:520px; border-top:1px solid #ddd; position:absolute; bottom:0; left:0; font-size:12px; color:#9c9c9c; line-height:60px;}
+.fkmains .lxkf a{ color:#9c9c9c}
+.tips-black{opacity:0.8; z-index:1000000; text-align:left; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; padding:8px 8px; color:#fff; background-color:#000;}
+.tips-black .tip-inner{font:11px/12px 'Lucida Grande',sans-serif;}
+.tips-black .tip-arrow-bottom{margin-top:0; margin-left:-5px; top:100%; left:50%; width:9px; height:5px; background:url(http://ss.ppt20.com/__IMG__/tip_arrows.gif) no-repeat -18px 0;}
+.xzdl{ border-top: 1px solid #eaeaea; padding-top: 46px;}
+.xzdl .ppdts{width: 592px;}
+.xzdl .pics{}
+.xzdl .pics img{display: block}
+.xzdl .ppdts dl{ background: #e8e8e8}
+.xzdl .ppdts dt{ background: #efefef; font-size: 29px; border-bottom: 1px solid #eaeaea; color: #626262; text-align: center; height: 66px; line-height: 66px;}
+.xzdl .ppdts dt img{display: block;}
+.xzdl .ppdts dd{ border-bottom:2px solid #fff; height:60px}
+.xzdl .ppdts dd span{ display: block; float: left; width: 20%; font-size: 13px; text-align: center;}
+.xzdl .ppdts dd span i{ border-right: 2px solid #fff; display: block; line-height: 60px; color: #4a4a4a; height: 60px}
+.xzdl .ppdts dd span.last i{border-right: none}
+.xzdl .ppdts dd span i.red{color: #ed6b15}
+.xzdl .ppdts dd span i.gry{color: #838383}
+.xzdl .ppdts dd span a{color: #4a4a4a; text-decoration: underline; margin: 0 5px}
+.xzdl .ppdts dd span ins{ border-right: 2px solid #fff; display: block; color: #4a4a4a; height: 60px;}
+.xzdl .ppdts dd span b{ display: block; padding:8px 0 2px; font-size: 15px; font-weight:normal;}
+.xzdl .ppdts dd span em{ display: block; font-size: 12px; }
+
+.ctkmain4{ width:636px; padding-bottom: 50px;}
+
+.ctkmain4 ul{ padding:0 50px;}
+.ctkmain4 li{ height:32px; padding-top:32px;}
+.ctkmain4 li label{ width:90px; padding-right:10px; float:left; text-align:right; color:#000; font-size:14px; line-height:32px;}
+.ctkmain4 li .webtxt{border:1px solid #f0f0f0; box-shadow:0px 1px 2px #ddd inset; background:#f4f4f4; width:258px; height:30px; line-height:30px; float:left; text-indent:10px}
+.ctkmain4 span{ display:block; padding-left:90px;}
+.ctkmain4 .webtn{display:block; margin:0 auto; width:120px; height:32px; line-height:32px; background:#1abd9b; font-size:14px; color:#fff; text-align:center; border-radius:4px; border:none}
+.ctkmain4 p{ display:block; text-align:center; font-size:13px; color:#1abd9b; padding-top:12px}
+.dn50{-webkit-animation:dn50 .7s .7s ease both;-moz-animation:dn50 .7s .7s ease both;animation:dn50 .7s .7s ease both;}
+.ctk{ position:fixed; z-index:999; background:#fff; top:50%; left:50%;}
+.chatrob{position:fixed; width:64px; height:60px; margin-left:530px; left:50%; bottom: 50px; visibility:visible; border: 0px;}
+
+.ppdtstable{background: url(__IMG__/table.jpg)no-repeat;width: 655px;height: 375px;}
+.ppdtstable .recharge{right:20px;top:15px;width:125px;height: 35px;display: block;}
+.ppdtstable .url1{left:9px;top:236px;width:80px;height: 20px;display: block;}
+.ppdtstable .url2{left:20px;top:292px;width:60px;height: 20px;display: block;}
+.ppdtstable .url3{left:52px;top:351px;width:60px;height: 20px;display: block;}

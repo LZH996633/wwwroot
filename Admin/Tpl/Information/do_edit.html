@@ -1,0 +1,93 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>信息中心</title>
+    <include file="Public:sss" />
+
+    <script type="text/javascript">
+        KE.show({
+            id : 'content_1',
+            cssPath : './index.css',
+            resizeMode:0
+        });
+        KE.show({
+            id : 'content_2',
+            cssPath : './index.css',
+            resizeMode:0
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">消息中心</a></li>
+        <li><a href="#">发送消息</a></li>
+    </ul>
+</div>
+
+<div class="formbody">
+
+
+    <div id="usual1" class="usual">
+
+        <div class="itab">
+            <ul>
+                <li><a href="#tab1" class="selected">发送站点消息</a></li>
+
+            </ul>
+        </div>
+        <div id="tab1" class="tabson">
+
+            <form  method="post" action="{:U('Information/do_edit')}" role="form" > 
+                <ul class="forminfo">
+                    <input type="hidden" name="select_send" value="{$select}">{$select}
+                    <li><label for="title">消息标题</label><input name="title" type="text"  class="dfinput" id="title" placeholder="请填写与此素材重复的另一个素材的链接或ID" /><i>标题不能超过30个字符</i></li>
+
+                    <li><label>消息内容：<b>*</b></label>
+                        <input type="hidden" name="single" value="about">
+                        <textarea  id="content_1" name="content" style="width:800px;height:400px;padding:20px;"></textarea>
+                    </li>
+                    <li><label></label><input name="" type="submit" class="btn" value="发送消息" onclick="return check()"/></li>
+                </ul>
+            </form>
+        </div>
+<script type="text/javascript">
+    function check(){
+        var title = document.getElementById('title').value;
+        //var content = document.getElementById('content_1');
+         if(title==null|| title==''){
+            return false
+         }
+
+        //alert(content)
+    }
+</script>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        $("#usual1 ul").idTabs();
+    </script>
+
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>

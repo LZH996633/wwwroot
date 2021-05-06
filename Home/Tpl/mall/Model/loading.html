@@ -1,0 +1,669 @@
+<!doctype html>
+<html>
+<head>
+	<title>{$OpusDetail.opus_title}</title>
+	<script language="javascript" type="text/javascript" src="__JS__/jquery.min.js"></script>
+	<script src="__JS__/login.js" type="text/javascript"></script>
+	<script src="__JS__/layer.js" type="text/javascript"></script>
+	<script src="__JS__/jquery.flexslider-min.js" type="text/javascript"></script>
+	<script src="__JS__/tips.js" type="text/javascript"></script>
+	<script src="__JS__/jquery.lazyload.mini.js"></script>
+
+
+	<include file="Public/head"/>
+	<link type="text/css" href="__CS__/loading.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="down-header mb-40 clearfix header">
+	<div class="wrap">
+		<div class="down-header-left fl"><a class="" href="javascript:history.back()" style="-webkit-text-fill-color: white">返回素材详情页</a></div>
+
+		<div class="is_login down-header-right font-color fr">
+			<a href='javascript:void(0);' class="logina" style="color:#FFFFFF;">登录</a>/
+			<a href='javascript:void(0);' class="zcy" style="color:#FFFFFF;">注册</a>
+		</div>
+
+		<div class="islogin down-header-right font-color fr" style="display: none">
+			<a href="{:U('Service/index')}" style="color:#FFFFFF;">会员中心</a>&nbsp;|&nbsp;
+			<a href="{:U('Public/login_out')}" style="color:#FFFFFF;">退出登录</a>
+
+		</div>
+		<div class="down-header-mid font-color">素材下载页</div>
+	</div>
+</div>
+<div class="wrap mb-20 clearfix">
+	<div class="downinfo-left fl">
+		<input type="hidden" id="down_id" value="{$OpusDetail.opus_id}">
+		<img src="{$OpusDetail.opus_pic}" title="" />
+		<img src="{$OpusDetail.opus_pic_cons}" title="" />
+	</div>
+	<div class="downinfo-right fr">
+		<div class="title mb-20"><a href="#" target="_blank">{$OpusDetail.opus_title}素材下载</a></div>
+		<div class="scinfo mb-20">
+			<label>素材格式：</label>
+			<span>
+				{$OpusDetail.tip_software}	</span>
+			<label>素材类型：</label>
+			<span>
+				{$OpusDetail.tip_type}	</span>
+		<!--	<label>文件大小：</label>
+			<span>
+				{$OpusDetail.opus_size} MB			</span>-->
+		</div>
+		<if condition="$OpusDetail.is_half eq 0">
+		<div class="userinfo mb-20">标价：<i class="amount">{$OpusDetail.price} </i>元</a></div>
+		<else/>
+			<div class="userinfo mb-20">
+				此素材免费，您下载此素材只需
+				<i class="amount">{$half_price}L币</i>
+				
+			</div>
+		</if>
+
+
+		<div class="down"><a class="pay_down fl download" href="javascript:void (0);" >立即下载</a></div>
+	</div>
+</div>
+<div class="wrap mb-20 clearfix">
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服电话：{$Contact_phone}
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="kfqqlink" title="联系客服" href="javascript:void(0)" style="color:#969696;">客服QQ：{$Contact_phone}</a>
+</div>
+<div class="wrap mb-20 clearfix">
+
+	<a href="{$ad_down.ad_piclink}" target="_blank" ><img src="{$ad_down.ad_pic}"  style="height:88px;width: 100%;"></a>
+</div>
+<div class="indcaselist">
+	<div class="wrap">
+		<div class="cont index_hot">
+		<!--	<p>同类别推荐：</p>   -->
+			<volist name="SameList" id="list">
+				<dl>
+					<a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="blank">
+					
+					
+					
+						<video id="video" poster="{$list.opus_pic_big}" onmouseover="videoPlayback()" onmouseout="videoStopped()" muted="muted" loop='loop' width="250" height="130">
+                        <source src="{$list.opus_video}" type="video/mp4">
+                         </video>
+						 
+						 <!--
+						<img class="lazy" src="{$list.opus_pic}" lazy-src="{$list.opus_pic}" style="display: inline;">
+						-->
+						
+						
+					
+					<div class="upscr"></div>
+					
+					
+					</a>
+					<dd style="text-align:center;font-size:16px;"><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></dd>
+					<!--<dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em></em></span></dd>  -->
+				</dl>
+			</volist>
+		</div>
+		
+		<div>
+		<ul style="padding-bottom:100px">
+		&nbsp;
+		</ul>
+		</div>
+		
+		
+	</div>
+</div>
+
+
+<div class="ctkmain4 none" id="yd_login">
+	<ul>
+		<li><label>验证码：</label><input type="text" id="verify" class="webtxt" />
+			<input  type="button" value="发送验证码"  class="webtn sendsms"/></li>
+	</ul>
+	<p>注：亲，由于您是异地登录用户，为了保障你的账户安全需发送验证码</p>
+</div>
+
+<link  href="__CS__/loginout.css" rel="stylesheet"  type="text/css">
+
+
+
+<style>
+	.gt_holder.popup .gt_mask {background-color:#000;  opacity: 0.2;z-index: 99999;}
+</style>
+<div class="logintk aoaoanim aoaolayer">
+	<div class="loginf">
+		<div class="closed"></div>
+		<ul class="tabbtn clearfix">
+			<li class="current logina">登录</li>
+			<li class="cz zcy">注册</li>
+		</ul>
+		<div class="tabcon">
+			<div class="sublist clearfix">
+				<form method="post" action="{:U('Public/login')}"   onsubmit="return save_username(this)" >
+					<div class="zcform fl">
+						<ul>
+							<li class="clearfix pr"><input type="text" class="webtxt"  name="username" id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" class="webtxt" name="password" id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+
+							<li class="clearfix pr"><input type="checkbox" value="2592000" name="cookie_time" id="cookietime" checked><label for="chd">记住我</label><i class="forget">
+								<a href="{:U('Public/ForgetShow')}" target="_blank">忘记密码?</a></i></li>
+							<li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+
+								
+								</li>
+						</ul>
+						<input type="hidden" name="forward" class="forward" value=""/>
+					<!--	<script language='javascript'>
+							var currentUrl = this.location.href;
+							$(".forward").val(currentUrl);
+						</script>-->
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<div class="zcf none">
+		<div class="closed"></div>
+		<ul class="tabbtn clearfix">
+			<li class="dl logina">登录</li>
+			<li class="current zcy">注册</li>
+		</ul>
+		<div class="tabcon">
+			<div class="sublist">
+				<div class="zcform">
+					<form method="post" action="{:U('Public/register')}"  id="down_form" name="myform" >
+						<ul>
+							<li class="clearfix pr"><input type="text" name="username" id="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" name="password" id="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" name="pwdconfirm" id="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="text" name="email" id="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="checkbox" name='protocol' id="protocol" checked="checked"><label for="protocol"><a href="#l" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="submit"  value="注册" class="webtn" style="width:150px">
+							</li>
+						</ul>
+						<input type="hidden" name="forward" class="forward" value=""/>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--第三方登陆{$wechat_login}
+<input type="hidden" value="{$qq_login}" id="qq_login">
+<input type="hidden" value="{$wechat_login}" id="wechat_login">
+-->
+
+<script type="text/javascript">
+
+
+
+        //鼠标移进去
+        function videoPlayback(){
+            //获取视频标签
+			var e = window.event ;
+			var obj = e.srcElement ;
+              obj.play();
+         }
+         
+        //鼠标离开
+         function videoStopped(){
+             //获取视频标签			
+			var a = window.event ;
+			var obj = a.srcElement ;
+             //停止播放
+			obj.pause();
+			obj.currentTime=0;   //停止播时回到开始
+         }
+   
+
+
+
+</script>
+
+
+
+<script language='javascript'>
+
+
+    head.ready('formvalidator',function(){
+        var SiteUrl = $('#SiteUrl').val();
+
+        head.load('__JS__/checkform_loginout.js');
+
+        $(".forward").val(SiteUrl);
+
+    });
+    function Oauth(i)
+    {
+        var url="";
+
+        $(".logintk").hide();
+        $(".graybg").hide();
+
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: 0.5,
+            area: ['55%', '65%'],
+            content: url, //iframe的url
+            end:function(){
+                window.location.reload();
+
+            }
+        });
+
+
+    }
+
+</script>
+<!--回到顶部-->
+<script type="text/javascript">
+	head.ready('jquery',function(){
+		$(".gotop").click(function(event){
+			$('html,body').animate({scrollTop:0},500);return false;});
+		$(window).scroll(function () {
+			if($(window).scrollTop()>=100) {
+				$(".gotop").fadeIn();
+			}else {
+				$(".gotop").fadeOut();
+			}
+		});});
+</script>
+<!--产品下载-->
+<script type="text/javascript">
+	//下载
+	$(".download").click(function(){
+       var opus_id = $("#down_id").val();
+
+		$.getJSON("/index.php/Ajax/download?opus_id="+opus_id+"&t="+ $.now(),function(data){
+			if(data.status==1){
+			  /*  layer.msg('sdfsd',{icon:4});*/
+				layer.confirm(data.msg, {
+					btn: ["下载","取消"],
+					title:"素材下载确认",
+					icon: 4
+				},function () {
+					 $.getJSON("/index.php/Ajax/pay?opus_id="+opus_id+"&t="+ $.now(),function (data) {
+						 var url =data.down_url;
+						 var sta = data.status;
+						 if(sta=='2'){
+                             layer.confirm('下载链接：'+"<a href="+data.url+" target='_blank'>"+data.url+"</a><br>密码："+data.pass, {
+                                 btn: ["确定"],
+                                 icon: 1
+                             });
+						 }else{
+                             layer.confirm(data.msg, {
+                                 btn: ["下载"],
+                                 icon: 1
+                             }, function(){
+                                 down(url);
+                                 layer.msg('下载完成');
+                             });
+						 }
+
+					  });
+					}
+				);
+			}
+			/*提示信息*/
+			else if(data.status==-1){
+				layer.msg(data.msg,{icon: 2,time: 1000});
+			}
+			/*未登录*/
+			else if(data.status==0){
+				$(".graybg").show();
+				layer.msg(data.msg,{icon: 2,time: 1000},function () {
+					$(".logintk").show();
+					$(".loginf").show();
+					$(".zcf").hide();
+				});
+			}
+			else if(data.status==2){
+                var url =data.down_url;
+                layer.confirm("点击下载",{
+                    btn: ["下载"],
+                    icon: 1,
+                    title:data.msg
+                },function () {
+                    down(url);
+                    layer.msg('下载完成',{time:2000});
+
+                });
+
+            }
+            else if(data.status==3){
+                var url =data.url;
+                var pass = data.pass;
+                layer.confirm('下载链接：'+"<a href="+url+" target='_blank'>"+url+"</a><br>密码："+pass, {
+                    btn: ["确定"],
+                    icon: 1,
+					title:data.msg
+                });
+
+            }
+		});
+	});
+function down(url){
+	location.href = url;
+}
+</script>
+<script type="text/javascript">
+	var times = 120;
+	var isinerval;
+	function CountDown(classid) {
+		if (--times < 1) {
+			$(classid).val("发送验证码").attr("disabled", false).css({'background-color':'#1abd9b'});
+			clearInterval(isinerval);
+			return;
+		}
+		$(classid).val(times+" 秒后可重发");
+
+	}
+	$(function(){
+		layer.config({
+			extend: 'extend/layer.ext.js'
+		});
+		$(".sendsms").click(function(){
+			$.post("index.php?m=sms&c=index&a=sendsms&t="+ $.now(),{type:15},function(data){
+				data=filtescript(data);
+				if(data.status==1){
+					layer.msg("验证码已发送",{icon: 1,time: 2000},function(){
+						times=120;
+						$(".sendsms").attr("disabled", true).css({'background-color':'#A9A9A9'});
+						isinerval = setInterval("CountDown('.sendsms')", 1000);
+					});
+				}else{
+					layer.msg(data.msg,{icon: 2,time: 2000});
+				}
+			});
+		});
+
+	});
+
+	function scrollpic(obj){
+		var scrollObj;
+		var currentTop = 0;
+		$(obj).children('div:eq(2)').mousemove(function () {
+			clearInterval(scrollObj);
+			scrollObj = setInterval(function () {
+				var mainH = $(obj).children('div:eq(0)').children().height();
+				if (currentTop + mainH > $(obj).height())
+				{
+					currentTop--;
+					currentTop--;
+					$(obj).children('div:eq(0)').css('top', currentTop);
+				}
+			}, 10);
+		}).mouseleave(function () {
+			clearInterval(scrollObj);
+		}).css('margin-top', $(obj).height() / 2);
+
+		$(obj).children('div:eq(1)').mouseover(function () {
+			clearInterval(scrollObj);
+
+			scrollObj = setInterval(function () {
+				var mainH = $(obj).children('div:eq(0)').children().height();
+
+				if (currentTop < 0) {
+					currentTop++;
+					currentTop++;
+
+					$(obj).children('div:eq(0)').css('top', currentTop);
+				}
+			}, 10);
+		}).mouseleave(function () {
+			clearInterval(scrollObj);
+		});
+
+
+	}
+	$(function(){
+		$(".scrollpic").each(function(){
+			scrollpic($(this));
+
+		});
+	});
+
+	function filtescript(data){
+		var result=data.replace(/<script.*?>.*?<\/script>/ig, '');
+		return JSON.parse(result);
+	}
+
+</script>
+<div class="graybg"></div>
+<!--登陆表单验证-->
+<script type="text/javascript">
+	function save_username(form) {
+		if(form.log_username.value==''){
+			$("#utip").attr("class","onError").html("用户名或邮箱不能为空");
+			form.log_username.focus();
+			return false;
+		}
+		if(form.log_password.value==''){
+			$("#ptip").html("密码不能为空").attr("class","onError");
+			form.log_password.focus();
+			return false;
+		}
+	}
+</script>
+<!--登录界面弹出-->
+<script type="text/javascript">
+	$(".logina").click(function(){
+		$(".logintk").slideDown();
+		$(".graybg").fadeIn();
+		$(".loginf").show();
+		$(".zcf").hide();
+	});
+	$(".zcy").click(function(){
+		$(".logintk").slideDown();
+		$(".graybg").fadeIn();
+		$(".loginf").hide();
+		$(".zcf").show();
+	});
+	$(".graybg,.closed").click(function(){
+		$(".logintk").slideUp();
+		$(".graybg").fadeOut();
+	});
+</script>
+<!--登陆状态-->
+<script type="text/javascript">
+	head.ready('jquery',function(){
+
+		var SiteUrl = $('#SiteUrl').val();
+
+		$("#logout").attr('href', "/index.php/public/login_out");
+
+
+		$.ajax({
+			type: "get",
+			async: true,
+			url: "/index.php/public/getlogininfo",
+			dataType: "json",
+			data: '',
+
+			success: function(msg) {
+
+				var d = new Date();
+				var t = d.getHours();
+				var welcome = "";
+				// var img_url="http://avatar.bihu20.com/";
+				if (msg.islogin) {
+
+					$('.is_login').hide();
+					$('.islogin').show();
+
+			}},
+			error: function(msg) {
+				////alert(msg.status);
+				//alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+			}
+		});
+	});
+</script>
+<!--注册表单验证-->
+<script type="text/javascript">
+	head.ready('formvalidator',function(){
+
+		$.formValidator.initConfig({autotip:true,formid:"down_form",onerror:function(msg){}});
+
+		$("#username")
+				.formValidator({
+					onshow:"请输入用户名",
+					onfocus:"3-20字符，字母开头，由数字、字母或下划线组成"})
+				.inputValidator({
+					min:3,max:20,onerror:"用户名在3-20字符之间"})
+				.regexValidator({regexp:"username",datatype:"enum",onerror:"格式错误"}).ajaxValidator({
+			type : "get",
+			url :"/index.php/public/check_name",
+			data :"",
+			datatype : "json",
+			async:'false',
+			success : function(data){
+
+				if( data.status == 'true') {
+
+					return true;
+				} else {
+					return false;
+				}
+			},
+			buttons: $("#dosubmit"),
+			onerror : "禁止注册或用户名已存在",
+			onwait : "验证中"
+		});
+		$("#password")
+				.formValidator({onshow:"请输入密码",onfocus:"6-20个字符，由数字、字母或下划线组成"})
+				.inputValidator({min:6,max:20,onerror:"密码在6-20个字符之间"})
+				.ajaxValidator({
+					type : "get",
+					url : "/index.php/public/check_pass",
+					data :"",
+					datatype : "json",
+					async:'false',
+					success : function(data){
+
+						if( data.status == 'true'  ) {
+							return true;
+						} else {
+							return false;
+						}
+					},
+					buttons: $("#dosubmit"),
+					onerror : "密码中有特殊字符",
+					onwait : "验证中"
+				});
+		$("#pwdconfirm")
+				.formValidator({onshow:"请输入重复密码",onfocus:"重复密码在6-20个字符之间"})
+				.inputValidator({min:6,max:20,onerror:"重复密码在6-20个字符之间"})
+				.compareValidator({desid:"password",operateor:"=",onerror:"密码不相同"});
+		$("#email")
+				.formValidator({onshow:"请输入邮箱",onfocus:"请输入邮箱"})
+				.regexValidator({regexp:"email",datatype:"enum",onerror:"邮箱格式不正确"})
+				.ajaxValidator({
+					type : "get",
+					url : "/index.php/public/check_email",
+					data :"",
+					datatype : "json",
+					async:'false',
+					success : function(data){
+
+						if( data.status == 'true' ) {
+							return true;
+						} else {
+							return false;
+						}
+					},
+					buttons: $("#dosubmit"),
+					onerror : "禁止注册或邮箱已存在",
+					onwait : "验证中"
+				});
+		$("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValidator({regexp:"code",datatype:"enum",onerror:"验证码错误"}).functionValidator({
+			fun: function (val) {
+
+				if ($(".gt_ajax_tip").hasClass("gt_success")) {
+
+					$("#codeTip").hide();
+					return true;
+
+				}
+				$(".gt_ajax_tip").addClass("gt_fail");
+				return false;
+			},
+			onerror:" "
+
+		});
+		$(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:" ",onfocus:" "}).inputValidator({min:1,onerror:"{L('请勾选并同意')}"});
+
+
+
+
+	});
+
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".tipstool").poshytip({className: "tips-black",showTimeout: 1,alignTo: "target",alignX: "center",offsetY: 5,allowTipHover: false});
+
+		/*$('.flexslider').flexslider({
+			directionNav: true,
+			pauseOnAction: false,
+			pauseOnHover:true,
+			animationLoop: true
+		});*/
+         /*关闭窗口*/
+		$(".fkmains .closed").click(function(){
+			$(".graybg").fadeOut();
+			$(".fkmains").hide("fast")
+		});
+		 /*支付平台*/
+		$(".zftle a").click(function(){
+			$(".zftle a").removeClass("on");
+			$(this).addClass("on");
+			if($(this).attr("data-online")=="1"){
+				$("input[name=pay_type]").val($(".zfstyle .on").attr("data-value"));
+				$(".zf1style").addClass("none");
+				$(".zfstyle").removeClass("none");
+			}else{
+				$("input[name=pay_type]").val("30");
+				$(".zf1style").removeClass("none");
+				$(".zfstyle").addClass("none");
+			}
+		});
+		$(".fkmains .contm .zfstyle li,.fkmains .contm .tcul li").click(function(){
+			$(this).addClass("on").append('<div class="icon"><img src="http://ss.ppt20.com/images/ppdt/tureico.png"></div>').siblings().removeClass("on").children('.icon').remove();
+			$(this).parent().find("input").val($(this).attr("data-value"));
+			//alert($(this).parent().attr('class'));
+			if($(this).parent().attr('class')=="tcul clearfix"){
+				$("#amount").html($(this).attr("data-value"));
+			}
+		});
+	});
+	/*提交表单*/
+	function dosubmit(){
+		$(".graybg").fadeOut();
+		$(".fkmains").hide("fast");
+		$("#pay_form").submit();
+		layer.confirm("请在支付页面完成付款。", {
+			btn: ["我已付款","付款遇到问题"],
+			icon: 7,
+			title:"账户充值等待付款"
+		}, function(){
+			window.location.reload();
+			layer.close();
+		}, function(){
+			window.open("/index.php?m=pay&c=deposit");
+			layer.close();
+		});
+
+	}
+
+</script>
+
+<include file="Public/right"/>
+
+</body>
+</html>

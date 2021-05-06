@@ -1,0 +1,65 @@
+/*****µÇÂ½×¢²áµ¯¿ò*****/
+
+.cl{height:0; font-size:1px; clear:both; line-height:0;}
+.none{display:none}
+*:focus{outline:none}
+i,em{font-style:normal;}
+.wm1000{ margin:0 auto; width:1000px }
+.wm320{margin:0 auto; width:320px }
+.w100{width:100px;}
+.w60{width:60px;}
+.w200{width:200px;}
+.w300{width:300px;}
+.w150{width:150px;}
+.bg_fff{background:#fff}
+.bor{border:1px solid #353535}
+.fl{float:left}
+.fr{float:right}
+.clearfix{*zoom:1;}
+.clearfix:before,.clearfix:after{display:table;content:"";line-height:0;}
+.clearfix:after{clear:both;}
+
+
+.graybg{ width:100%; height:100%; position:fixed; top:0; left:0; z-index:998; background:rgba(0,0,0,0.5); filter:progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = "#50000000",endColorstr = "#50000000"); display:none}
+.logintk{ position:fixed; width:100%; height:100%; top:0; left:0; z-index:999; display:none}
+.logintk .closed{ position:absolute; top:4px; right:4px; width:12px; height:12px; padding:10px; background:url(../images/bigclosed.png) no-repeat center; transition:All 0.4s ease-in-out; -webkit-transition:All 0.4s ease-in-out; -moz-transition:All 0.4s ease-in-out; -o-transition:All 0.4s ease-in-out; cursor:pointer; z-index:9999}
+.logintk .closed:hover{transform:rotate(90deg); -webkit-transform:rotate(90deg); -moz-transform:rotate(90deg); -o-transform:rotate(90deg); -ms-transform:rotate(90deg);}
+.loginf{ width:800px; height:270px; background:#fff; position:absolute; border-radius:5px; top:50%; left:30%;margin-left:-250px; margin-top:-135px; z-index:999;  }
+.zcf{ width:1000px; height:410px; background:#fff; border-radius:5px; position:absolute; top:50%; left:30%; margin-left:-250px; margin-top:-205px; z-index:999;  }
+@-webkit-keyframes zoomInDown{0%{opacity:0;-webkit-transform:scale(.1) translateY(-2000px);transform:scale(.1) translateY(-2000px);-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}60%{opacity:1;-webkit-transform:scale(.475) translateY(60px);transform:scale(.475) translateY(60px);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}@keyframes zoomInDown{0%{opacity:0;-webkit-transform:scale(.1) translateY(-2000px);-ms-transform:scale(.1) translateY(-2000px);transform:scale(.1) translateY(-2000px);-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}60%{opacity:1;-webkit-transform:scale(.475) translateY(60px);-ms-transform:scale(.475) translateY(60px);transform:scale(.475) translateY(60px);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}
+.aoaoanim{-webkit-animation-name:zoomInDown;animation-name:zoomInDown}
+.aoaolayer{-webkit-animation-duration:.5s; animation-duration:.5s; -webkit-animation-fill-mode: both; animation-fill-mode: both;}
+.tabbtn{ margin-top:10px; width:438px; margin-left:26px; height:42px; border-bottom:1px solid #d9d9d9}
+.tabbtn li{float:left;position:relative; margin-right:21px; width:90px; text-align:center; font-size:17px; color:#5b5b5b; height:42px; line-height:42px; cursor:pointer}
+.tabbtn li.current{ border-bottom:2px solid #1abd9b; top:1px; color:#1abd9b; height:40px; line-height:40px;}
+.tabcon{ padding:20px 10px 0px 26px}
+.tabcon .lgform{ height:202px; width:231px; border-right:1px solid #d6d6d6}
+.tabcon .lgform ul{ padding-top:4px;}
+.tabcon .lgform li{ margin-bottom:15px; height:auto !important; overflow:hidden; padding-right:18px;}
+.tabcon .lgform li .webtxt{ width:201px; height:22px; line-height:22px; padding:5px; border:1px solid #c1c1c1; border-radius:1px;}
+.tabcon .lgform li i{ float:left;}
+.tabcon .lgform li label{ padding-left:6px;}
+.tabcon .lgform li a{ color:#1abd9b; float:right; font-size:13px; padding-right:4px;}
+.tabcon .lgform li .webtn{ display:block; width:205px; height:37px; line-height:35px; background:#1abd9b; text-align:center; color:#fff; border:none; border-radius:4px; cursor:pointer; font-size:15px;}
+.tabcon .lgbtn{ width:198px;}
+.tabcon .lgbtn ul li{ margin-bottom:11px;}
+.tabcon .lgbtn ul li a.qqdl{ height:37px; display:block; border:1px solid #d9d9d9; border-radius:4px; line-height:37px; padding-left:42px; background:url(../images/qqico.gif) no-repeat 9px center; font-size:13px; color:#5b5b5b}
+.tabcon .lgbtn ul li a.sinadl{ height:37px; display:block; border:1px solid #d9d9d9; border-radius:4px; line-height:37px; padding-left:42px; background:url(../images/sinaico.gif) no-repeat 9px center; font-size:13px; color:#5b5b5b}
+.tabcon .lgbtn ul li a.jbdl{ text-decoration:underline; color:#8c8c8c; font-size:13px;}
+.tabcon .sublist .webtxt:focus{outline:none; border:#84d511 1px solid;box-shadow: 0 0 4px rgba(199, 253, 123, 0.6);}
+.tabcon .zcform li{ margin-bottom:14px;}
+.tabcon .zcform li .webtxt{ width:235px; height:22px; line-height:22px;margin-right:20px; padding:5px; border:1px solid #c1c1c1; border-radius:1px; float:left}
+.tabcon .zcform li span{ display:block; float:left; height:22px; line-height:22px; font-size:12px;   padding-left:20px;}
+.tabcon .zcform li span.onShow{}
+.tabcon .zcform li span.onError{color:#f95856;background:url(../images/icon_error.gif) no-repeat left center;}
+.tabcon .zcform li span.onFocus{}
+.tabcon .zcform li span.onLoad{}
+.tabcon .zcform li span.onCorrect{background:url(../images/icon_ok.gif) no-repeat left center;line-height:100px;overflow:hidden;}
+
+.tabcon .zcform li .webtn{ display:block; width:245px; height:37px; line-height:35px; background:#1abd9b; text-align:center; color:#fff; border:none; border-radius:4px; cursor:pointer; float:left; font-size:15px;}
+.tabcon .zcform li span{ display:block; padding-left:20px; padding-top:6px;}
+.tabcon .zcform li em{ display:block; float:left;width:100px;margin-left:8px;margin-bottom:20px;}
+.tabcon .zcform li .forget{margin-left:130px;}
+.tabcon .zcform li em a.qqdl{ height:37px; display:block; border:1px solid #d9d9d9; border-radius:4px; line-height:37px; padding-left:42px; background:url(../images//qqico.gif) no-repeat 9px center; font-size:13px; color:#5b5b5b}
+.tabcon .zcform li em a.weixindl{ height:37px; display:block; border:1px solid #d9d9d9; width: 80px; border-radius:4px; line-height:37px; padding-left:42px; background:url(../images/weixin24.png) no-repeat 9px center; font-size:13px; color:#5b5b5b}
+.tabcon .zcform li label{ font-size:14px; padding-left:6px;}

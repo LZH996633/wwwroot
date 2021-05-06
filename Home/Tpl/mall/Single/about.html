@@ -1,0 +1,73 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>关于我们</title>
+    <include file="Public/head"/>
+
+</head>
+<body>
+<include file="Public/header"/>
+<div class="clearfix"></div>
+<link href="__CS__/about.css" rel="stylesheet" type="text/css">
+<div class="banners">
+    <div class="wrap">
+        <h1>{$title}</h1>
+     <!--   <p>{$des}</p>   -->
+    </div>
+</div>
+<div class="navs">
+    <div class="wrap">
+        <ul class="clearfixv c_nav">
+            <li><a href="javascript:void (0)">关于我们</a></li>
+            <li><a href="javascript:void (0)" id="click">联系我们</a></li>
+        </ul>
+    </div>
+</div>
+<div class="wrap">
+    <div class="aboutmain" style="display: none">
+        <div class="part">
+            {$about}
+        </div>
+    </div>
+    <div class="aboutmain" style="display: none">
+    <div class="contactmain clearfix">
+        <p> <h1>联系方式&nbsp;&nbsp;:</h1></p><br/><br/>
+        <ul class="fl">
+            <!--<li><b>鹿酷办公地址和联络方式：</b></li>
+                 <li>安徽合肥市拓基广场B座2510室</li>
+                 <li>邮政编码：230000</li>
+                 -->
+            <li>电话：400-123-1234</li>
+            <li>邮箱：151000000</li>
+            <li>QQ ：150000000</li>
+        </ul>
+
+    </div>
+</div>
+</div>
+
+<input type="hidden" value="{$index}" id="show_it">
+<include file="Public/footer"/>
+<script type="text/javascript">
+    head.ready('jquery',function () {
+         $(document).ready(function () {
+             var i = $('#show_it').val();
+             $('.c_nav li').eq(i).children('a').addClass('active');
+             $('.aboutmain').eq(i).attr('style','display:block')
+         });
+
+        $('.c_nav li').click(function () {
+            var i = $(this).index();
+
+            $(this).children('a').addClass('active').parent('li').siblings().children('a').removeClass('active');
+            $('.aboutmain').eq(i).attr('style','display:block').siblings().attr('style','display:none');
+        })
+    })
+
+</script>
+
+
+
+</body>
+</html>

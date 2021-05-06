@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+<title>登录</title>
+<include file="Public/head"/>
+</head>
+<body>
+<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<include file="Piblic/header"/>
+<div class="clearfix"></div>
+
+<style type="text/css">
+    .float{float:left;}
+    .form-login{width:700px;margin:20px auto; font-size:14px;}
+    .input{height:30px;line-height:30px;margin-bottom:20px;}
+    .input label{width:100px;padding-right:20px;float:left;height:30px;text-align:right;display:block;}
+    .input input{float:left;height:20px;line-height:20px;border:1px solid #ddd;border-radius:5px;padding:5px;vertical-align:middle;}
+    /*.input .checkcode{display:block;float:left;width:80px;height:30px;margin-left:20px;}
+    .input .onFocus,.input .onShow{width:230px;margin-left:20px;float:left;}
+    .input .onCorrect{width:230px;height:30px;line-height:9999px;overflow:hidden;background:url("__IMG__/checkform.png") no-repeat;margin-left:12px;float:left;color:#f54545}
+    .input .onError{width:230px;margin-left:20px;float:left;color:#f54545}
+    .input .onWait{width:230px;margin-left:20px;float:left;color::#00f}*/
+    .input .submit{width:100px;height:30px;background:#1abd9b;color:#fff;cursor:pointer;}
+    .input #cookietime{height:32px;}
+    /*.input .qqbtn{display:block;float:left;padding:5px;}*/
+
+</style>
+<include file="Public/header"/>
+<div class="wrap centerm" style="margin-bottom:40px">
+    <div class="tablist">
+        <div class="titlem clearfix" >
+            <ul class="title clearfix fl">
+                <li class="active"><a href="">登录</a></li>
+                <li  class="normal"><a href="{:U('Public/RegisterShow')}">注册</a></li>
+                <li  class="normal"><a href="{:U('Public/ForgetShow')}">找回密码</a></li>
+            </ul>
+
+        </div>
+        <div class="cont">
+            <div class="form-login" id="logindiv" >
+                <form action="{:U('Public/login')}" method="post" id="login_form_one">
+                    <input type="hidden" name="forward" id="forward" value="">
+
+
+                    <div class="input">
+                        <label>用户名/邮箱：</label><input type="text" id="user_name"  name="username" class="w150" value="" >
+                    </div>
+
+                    <div class="input">
+                        <label>密码：</label><input type="password" id="pass_word" name="password" class="w150" >
+                    </div>
+
+                    <div class="input">
+                        <label></label><input type="checkbox" id="cookietime" checked name="cookie_time"><label  style="width:80px;"> 记住用户名</label>
+                    </div>
+                    <div class="input">
+                        <label></label><input class="submit" type="submit"  id="do_mit" name="dosubmit" value="登录">&nbsp;&nbsp;
+                        <a href="{:U('Public/RegisterShow')}"  style="font-size:12px;">会员注册 </a> | <a href="{:U('Public/ForgetShow')}" style="font-size:12px;">密码找回</a>
+                    </div>
+
+                </form>
+            </div>
+   </div>
+    </div>
+</div>
+
+<script language="JavaScript">
+    head.ready('jquery',function(){
+               $(function(){
+            $('#username').focus();
+            $('.in-out').hide();
+        });
+
+    });
+
+
+</script>
+
+<include file="Public/footer"/>
+<!--第三方登录-->
+<input type="hidden" value="{$qq_login}" id="qq_login">
+<input type="hidden" value="{$wechat_login}" id="wechat_login">
+
+<script language='javascript'>
+
+
+    head.ready('formvalidator',function(){
+        var SiteUrl = $('#SiteUrl').val();
+
+        head.load('__JS__/checkform_loginout.js');
+
+        $(".forward").val(SiteUrl);
+
+    });
+    function Oauth(i)
+    {
+        var url="";
+
+        $(".logintk").hide();
+        $(".graybg").hide();
+
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: 0.5,
+            area: ['55%', '65%'],
+            content: url, //iframe的url
+            end:function(){
+                window.location.reload();
+
+            }
+        });
+
+
+    }
+
+</script>
+</body>
+</html>

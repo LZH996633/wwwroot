@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>作品管理</title>
+<link href="__CS__/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+        <li><a href="#">上传管理</a></li>
+    <li><a href="#">作品列表</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">
+
+    <div class="tools">
+    	<ul class="toolbar">
+          <!-- <li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li>
+            <li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li>-->
+            <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>
+            <li><span><a href="{:U('Opus/count')}"><img src="__IMG__/t04.png" /></a></span>统计</li>
+        </ul>
+
+        <div style="float:right;width:400px;">
+        <form action="__APP__?m=Opus&a=index" method="post"  >
+            <ul class="">
+                <li><input type="submit" class="scbtn" value="查询"/> {$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（作品名、大类）</label></li>
+            </ul>
+            <ul class="">
+            <li class="sarchbtn"><label>&nbsp;</label>
+			<!-- <input name="" type="button" class="scbtn2" value="导出"/> -->
+			</li>  
+            </ul>
+            <ul class="toolbar1" style="float:right;">
+                <!--<li><span><img src="__IMG__/t05.png" /></span>设置</li>-->
+            </ul>
+            <br>
+        </form>
+        </div>
+    </div>
+
+        <!--全选与全不选-->
+        <script type="text/javascript">
+
+            function select_all(){
+                var select_all = document.getElementById('select_all');
+                var  select = document.getElementsByClassName('select');
+                var length = select.length;
+                var i =0;
+                if(select_all.checked==true){
+
+                    for (i;i<length;i++){
+                        select[i].checked=true;
+
+                    }
+
+                }else{
+                    for (i;i<length;i++){
+                        select[i].checked=false;
+                    }
+                }
+
+            }
+        </script>
+        <!--//单选-->
+        <script type='text/javascript'>
+
+            function select_it(id){
+                var select = document.getElementById('select_'+id);
+                select.checked=true;
+                //alert(select.checked);
+            }
+
+
+        </script>
+        <!--cancel 全部取消-->
+        <script type='text/javascript'>
+
+            function cancel(){
+                var  select = document.getElementsByClassName('select');
+                var length = select.length;
+                var i =0;
+
+                for (i;i<length;i++){
+                    select[i].checked=false;
+
+                }
+
+            }
+            <!-- 表单提交 -->
+            function sure(){
+
+                var  select = document.getElementsByClassName('select');
+                var length = select.length;
+
+                var i =0;
+
+                for (i;i<length;i++){
+                    if(select[i].checked==true){
+
+                        var form = document.getElementById('form_delect');
+
+                        form.submit();
+                    };
+
+                    // alert(select[i].checked);
+                }
+
+            }
+        </script>
+  
+    <table class="imgtable">
+        <thead>
+            <tr>
+            <th><input type="checkbox" onclick="select_all()" id="select_all"/>全选</th>
+            <th width="100px;">缩略图</th>
+            <th>标题</th>
+			<!--<th>opus_video</th>-->
+            <th>栏目</th>
+            <th>发布人</th>
+           <!-- <th>权限</th>-->
+            <th>是否审核</th>
+            <th>价格</th>
+            <th>推荐</th>
+            <th>统计</th>
+            <th>操作</th>
+            </tr>
+        </thead>
+        
+       
+        <tbody>
+
+
+		<form action="__APP__?m=Opus&a=delete" method="post" id='form_delect'>
+		<volist name="list" id="vo" >
+		     <tr>
+             <td>
+			 <input type="checkbox" name="select[]" class="select " value="{$vo.opus_id}" id='select_{$vo.opus_id}'/>
+			 </td>
+            <td class="imgtd"><img src="{$vo.opus_pic}" style="height: 80px;width: 60px"/></td>
+            <td><span  style="white-space:nowrap;width:250px;text-overflow:ellipsis; overflow:hidden"><a href="__ROOT__/index.php/model/model/cid/{$vo.opus_id}.html" target="_blank" style="white-space:nowrap;width:250px;text-overflow:ellipsis;">{$vo['opus_title']}</a></span><p>发布于：{$vo.opus_createtime}</p></td>
+            <td><span  style="white-space:nowrap;width:80px;text-overflow:clip; overflow:hidden">{$vo['cate']}</span><p>ID: {$vo.opus_id}</p></td>
+
+            <td><span  style="white-space:nowrap;width:60px;text-overflow:clip; overflow:hidden">{$vo['user_nickname']}</span></td>
+            
+            <!--<td><if condition="$vo.opus_power eq 1 "> 普通会员<elseif condition="$vo.opus_power eq 2"/>VIP会员<else /> 高级VIP会员</if></td>-->
+            <td><if condition="$vo.opus_verify eq 1">已审核<else/>
+			<if condition="$vo.opus_verify eq 2">已退回<else/>未审核
+			</if>
+			</if>
+			</td>
+            <!--<td><if condition="$vo.opus_verify eq 2">已退回<else/>未审核</if></td>	-->		
+            <td><p>金币：{$vo.price}</p><p>积分：{$vo.scoreprice}</p></td>
+			<td><if condition="$vo.recom eq 1">已推荐<else/>未推荐</if></td>		
+           <!-- <td><p><if condition="$vo.is_half eq 0">
+                否<else/>是
+            </if></p></td>-->
+            <td><p>访问数：{$vo.oext_views}</p><p>收藏数：{$vo.oext_favorite}</p><p>交易数：{$vo.oext_trade}</p></td>
+            <td>
+                <a href="__ROOT__/index.php?m=Model&a=model&cid={$vo.opus_id}" class="tablelink" target="_blank" >查看</a>
+                <a href="javascript:select_it({$vo.opus_id})"  class="tablelink click select_it" data='{$vo.opus_id}'>{$repeat}删除</a>
+
+				
+				
+			
+
+                <if condition="$vo.opus_verify eq 1">
+				 <if condition="$vo.recom eq 1">
+				  <else/>
+				<a href="{:U('Opus/checkroom','id='.$vo['opus_id'])}" class="tablelink">{$repeat}{$repeat}首页推荐</a>	
+				</if>
+                 <else/>
+				<if condition="$vo.opus_verify eq 2">	
+					<else />
+					<a href="{:U('Opus/check','id='.$vo['opus_id'])}" class="tablelink">{$repeat}{$repeat}通过审核</a>	
+					<a href="{:U('Opus/uncheck','id='.$vo['opus_id'])}" class="tablelink">{$repeat}{$repeat}退回</a>				
+					
+               </if>
+				</if>
+				
+			<!--
+		
+            <form  method="post" action="{:U('Information/do_edit')}" role="form" > 
+                <ul class="forminfo">
+                    <input type="hidden" name="select_send" value="{$select}">  
+                    <li><label for="title">消息标题</label><input name="title" type="text"  class="dfinput" id="title" placeholder="请填写与此素材重复的另一个素材的链接或ID" /><i>标题不能超过30个字符</i></li>
+
+                    <li><label>消息内容：<b>*</b></label>
+                        <input type="hidden" name="single" value="about">
+                        <textarea  id="content_1" name="content" style="width:800px;height:400px;padding:20px;"></textarea>
+                    </li>
+                    <li><label></label><input name="" type="submit" class="btn" value="发送消息" onclick="return check()"/></li>
+                </ul>
+            </form>
+
+-->
+
+		
+				
+				
+            </td>
+            </tr>
+			</volist>
+			</form>
+        </tbody>
+       
+    
+    </table>
+  
+    <div class="pagestyle"> {$page}</div>
+
+    
+    
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="__IMG__/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认删除源文件 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" onclick="sure()"/>&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" onclick="cancel()"/>
+        </div>
+    
+    </div>
+    
+    </div>
+
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+  
+</body>
+
+</html>

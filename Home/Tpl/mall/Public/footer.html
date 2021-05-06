@@ -1,0 +1,219 @@
+
+<div class="footer">
+    <div class="ftnemu">
+        <div class="wrap clearfix">
+            <div class="navmain clearfix fl">
+                <dl>
+                    <dt><img src="__IMG__/ftico1.png">关于我们</dt>
+                    <dd><a href="{:U('Single/aboutUS',array('show'=>'0'))}" target="_blank">网站介绍</a></dd>
+                   <!-- <dd><a href="#" target="_blank">版权声明</a></dd>-->
+                    <dd><a href="{:U('Single/aboutUS',array('show'=>'1'))}" target="_blank">联系我们</a></dd>
+                </dl>
+                <dl>
+                    <dt><img src="__IMG__/ftico2.png">我要充值</dt>
+                    <!--<dd><a href="{:U('Service/index')}" target="_blank">用户中心</a></dd>-->
+                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('AccountDetail')" target="_blank">账户明细</a></dd>
+                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('Recharge')" target="_blank">账户充值</a></dd>
+                </dl>
+                <dl>
+                    <dt><img src="__IMG__/ftico3.png">我是会员</dt>
+                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('ToBeSeller')" target="_blank">成为会员</a></dd>
+                    <!--<dd><a href="#" target="_blank">卖家必读</a></dd>-->
+                    <dd><a href="{:U('Service/materialupload', array('pid'=>1))}" onclick="chan_Page('MaterialUpload')" target="_blank">上传素材</a></dd>
+                </dl>
+      <!--          <dl>
+                    <dt><img src="__IMG__/ftico4.png">发现</dt>
+                    <dd><a href="#" target="_blank">推广赚钱</a></dd>
+                    <dd><a href="#" target="_blank">热销精品</a></dd>
+                    <dd><a href="#" target="_blank">加入我们</a></dd>
+                </dl>-->
+            </div>
+            <div class="ftel fr">
+                <b>{$Contact_phone}</b><i>{$Work_time}</i><a id="QQ_cha" title="联系客服" href="javascript:void(0)">联系客服</a>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="qq_ch" value="{$Contact_QQ}">
+    <script type="text/javascript">
+        head.ready('jquery',function () {
+            $('#QQ_cha').click(function () {
+                var qq = $('#qq_ch').val();
+                layer.confirm(qq,
+                        {title:'联系 QQ &nbsp;:',btn:['关闭']}
+                )
+            })
+        })
+
+    </script>
+     <script type="text/javascript">
+        function chan_Page(action){
+            document.cookie="action="+action+";path=/";
+            document.cookie="action_status=1;path=/";
+         }
+    </script>
+    <div class="copyright" style="height: 30px;">
+        <div class="wrap" >
+            <p><a href="#" target="_blank"><strong>{$title}&nbsp;&nbsp;<!--{$key_show}--></strong></a></p>
+               <p>  备案号：{$icp}</p>
+
+
+        </div>
+    </div>
+</div>
+<link  href="__CS__/loginout.css" rel="stylesheet"  type="text/css">
+
+<style>
+    .gt_holder.popup .gt_mask {background-color:#000;  opacity: 0.2;z-index: 99999;}
+</style>
+
+<div class="logintk aoaoanim aoaolayer" >
+    <div class="loginf">
+        <div class="closed"></div>
+        <ul class="tabbtn clearfix">
+            <li class="current">登录</li>
+            <li class="cz">注册</li>
+        </ul>
+        <div class="tabcon">
+            <div class="sublist clearfix">
+                <form action="{:U('Public/login')}" method="post" onsubmit="return save_username(this)">
+                    <div class="zcform fl">
+                        <ul>
+                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+
+                            <li class="clearfix pr"><input type="checkbox"  name="cookie_time" id="cookietime" checked>
+                                <label for="chd">记住我</label><i class="forget"><a href="{:U('Public/ForgetShow')}" target="_blank">忘记密码?</a></i></li>
+                            <li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+							
+									
+									</li>
+                      </ul>
+
+                        <input type="hidden" name="forward"  class="forward" value="" />
+
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="zcf none">
+        <div class="closed"></div>
+        <ul class="tabbtn clearfix">
+            <li class="dl">登录</li>
+            <li class="current">注册</li>
+        </ul>
+        <div class="tabcon">
+            <div class="sublist">
+                <div class="zcform">
+                    <form method="post" action="{:U('Public/register')}"  id="myform" name="myform" >
+                        <ul>
+                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>
+                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="输入验证码"><span id="emailwordTip" class="onShow"></span></li>
+
+                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="{:U('Single/agreement')}" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
+
+                            <li class="clearfix pr">
+                                <input type="submit"  value="注册" class="webtn" style="width:150px">
+
+								</li>
+                        </ul>
+                        <input type="hidden" name="forward"  class="forward" value=""/>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--第三方登录-->
+<input type="hidden" value="{$qq_login}" id="qq_login">
+<input type="hidden" value="{$wechat_login}" id="wechat_login">
+
+<script language='javascript'>
+
+
+
+btnsd1.onclick = function() { 
+
+  var oInpa = document.getElementById("email").value;
+
+if(oInpa==""){
+alert("邮箱未输入..");
+}else{
+alert("邮箱验证已发送，请注意查收..");
+
+
+//$('#imgbt').attr('style','display:block')	;	
+
+$.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
+ if(data.status==1){
+  layer.msg(data.msg,{time:1000});
+  }else{
+   layer.msg(data.msg,{time:1000})
+   }
+  });
+
+
+}
+
+
+
+
+
+		
+}
+
+
+
+
+    head.ready('formvalidator',function(){
+        var SiteUrl = $('#SiteUrl').val();
+
+        head.load('__JS__/checkform_loginout.js');
+
+        $(".forward").val(SiteUrl);
+
+    });
+    function Oauth(i)
+    {
+        var url="";
+        if(i==1){
+          url =  $("#qq_login").val();
+
+               var title='QQ登录';
+          // location.href = "/index.php/Login/QQ_login"
+        }else if(i==0){
+
+            url= $("#wechat_login").val();
+            var title="微信登录";
+
+        }else if(i==3){
+            url = "{:U('Public/phone')}";
+            var title = '手机登录'
+        }
+        $(".logintk").hide();
+        $(".graybg").hide();
+
+       layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: 0.5,
+            area: ['55%', '65%'],
+            content: url, //iframe的url
+            end:function(){
+               window.location.reload();
+
+            }
+        });
+
+
+    }
+
+</script>

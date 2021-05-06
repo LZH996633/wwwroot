@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>会员管理</title>
+<link href="__CS__/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__JS__/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+
+
+</head>
+
+
+<body>
+
+	<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">作品管理</a></li>
+    <li><a href="#">下载记录</a></li>
+    </ul>
+    </div>
+    
+    <div class="rightinfo">
+    
+    <div class="tools">
+        <ul class="toolbar">
+            <!--<li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li>-->
+            <!--<li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li>-->
+            <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>
+            <li><span><a href="{:U('Opus/count')}"><img src="__IMG__/t04.png" /></a></span>统计</li>
+        </ul>
+        <div style="float:right;width:470px;">
+        <form action="__APP__?m=Opus&a=down" method="post"  >
+            <ul class="" >
+                <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、作品名、订单号）</label></li>
+            </ul>
+            <!--<ul class="">
+            <li class="sarchbtn"><label>&nbsp;</label> <input name="" type="button" class="scbtn2" value="导出"/></li>
+            </ul>-->
+          <!--  <ul class="toolbar1" style="float:right;">
+                <li><span><img src="__IMG__/t05.png" /></span>设置</li>
+            </ul>-->
+        </form>
+        </div>
+    </div>
+
+        <!--全选与全不选-->
+        <script type="text/javascript">
+
+            function select_all(){
+                var select_all = document.getElementById('select_all');
+                var  select = document.getElementsByClassName('select');
+                var length = select.length;
+                var i =0;
+                if(select_all.checked==true){
+
+                    for (i;i<length;i++){
+                        select[i].checked=true;
+
+                    }
+
+                }else{
+                    for (i;i<length;i++){
+                        select[i].checked=false;
+                    }
+                }
+
+            }
+        </script>
+        <!--//单选-->
+        <script type='text/javascript'>
+
+            function select_it(id){
+                var select = document.getElementById('select_'+id);
+                select.checked=true;
+                //alert(select.checked);
+            }
+
+
+        </script>
+        <!--cancel 全部取消-->
+        <script type='text/javascript'>
+
+            function cancel(){
+                var  select = document.getElementsByTagName();
+                var length = select.length;
+                var i =0;
+
+                for (i;i<length;i++){
+                    select[i].checked=false;
+
+                }
+
+            }
+            <!-- 表单提交 -->
+            function sure(){
+                var  select = document.getElementsByClassName('select');
+                var length = select.length;
+                var i =0;
+
+                for (i;i<length;i++){
+                    if(select[i].checked==true){
+
+                        var form = document.getElementById('form_select');
+
+                        form.submit();
+                    };
+
+                    // alert(select[i].checked);
+                }
+
+            }
+        </script>
+
+   <div class="pagestyle"> {$page}</div>
+ 
+
+    
+    
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+        
+      <div class="tipinfo">
+        <span><img src="__IMG__/ticon.png" /></span>
+        <div class="tipright">
+        <p>删除后,已购用户需再次付费下载</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" onclick="sure()"/>&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" onclick="cancel()"/>
+        </div>
+    
+    </div>
+    
+    
+    
+    
+    </div>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,633 @@
+[ 2021-04-28T00:42:05+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.014001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:42:11+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.011000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.012001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2021-04-28T00:42:29+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.011000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.013001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:42:53+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.009000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:42:58+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.010000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.010000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2021-04-28T00:43:02+08:00 ] 127.0.0.1 /index.php/Ajax/FavorJudge?fa_id=14&0.6834363192201831
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of AjaxAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\AjaxAction.class.php 第 3 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.009000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.002000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_opus_favorite` [ RunTime:0.012001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_opus_favorite` WHERE ( `opus_id` = 14 ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:43:03+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.010000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.010001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.011000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:43:04+08:00 ] 127.0.0.1 /index.php/Ajax/FocusJudge?seller_id=&0.2652772001237931
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2048] Declaration of AjaxAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\AjaxAction.class.php 第 3 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.015001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.016001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserFocusModel::add() should be compatible with Model::add($data = '', $options = Array, $replace = false) F:\wwwroot\Home\Lib\Model\UserFocusModel.class.php 第 75 行.
+NOTIC: [2048] Declaration of UserFocusModel::delete() should be compatible with Model::delete($options = Array) F:\wwwroot\Home\Lib\Model\UserFocusModel.class.php 第 75 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_focus` [ RunTime:0.550031s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_focus` WHERE ( `befocus_id` = 0 ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:44:03+08:00 ] 127.0.0.1 /index.php/Ajax/FavorJudge?fa_id=14&0.7071816927394312
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of AjaxAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\AjaxAction.class.php 第 3 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_opus_favorite` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_opus_favorite` WHERE ( `opus_id` = 14 ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+
+[ 2021-04-28T00:44:04+08:00 ] 127.0.0.1 /index.php/public/getlogininfo
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of PublicAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\PublicAction.class.php 第 4 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.012000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.011001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserModel.class.php 第 128 行.
+SQL: SHOW COLUMNS FROM `sj_t_user` [ RunTime:0.013000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [2048] Declaration of UserAccountModel::save() should be compatible with Model::save($data = '', $options = Array) F:\wwwroot\Home\Lib\Model\UserAccountModel.class.php 第 25 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_account` [ RunTime:0.012001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_account` WHERE ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+
+[ 2021-04-28T00:44:05+08:00 ] 127.0.0.1 /index.php/Ajax/FocusJudge?seller_id=&0.0293327147662219
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008000s ]
+NOTIC: [2048] Declaration of AjaxAction::show() should be compatible with Action::show($content, $charset = '', $contentType = '', $prefix = '') F:\wwwroot\Home\Lib\Action\AjaxAction.class.php 第 3 行.
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead F:\wwwroot\ThinkPHP\Lib\Driver\Db\DbMysql.class.php 第 55 行.
+SQL: SHOW COLUMNS FROM `sj_t_classify` [ RunTime:0.011000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_classify` WHERE ( `pid` = 1 )  [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `sj_t_sys_config` [ RunTime:0.012001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_callback' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'QQ_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_id' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'WeChat_login_callback' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_phone' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_QQ' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Contact_email' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_address' ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( `name` = 'Work_time' ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=3 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=12 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=2 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=4 ) LIMIT 1   [ RunTime:0.001001s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=5 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=6 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=11 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=41 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=17 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=28 ) LIMIT 1   [ RunTime:0.001000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT `value` FROM `sj_t_sys_config` WHERE ( id=18 ) LIMIT 1   [ RunTime:0.000000s ]
+NOTIC: [2048] Declaration of UserFocusModel::add() should be compatible with Model::add($data = '', $options = Array, $replace = false) F:\wwwroot\Home\Lib\Model\UserFocusModel.class.php 第 75 行.
+NOTIC: [2048] Declaration of UserFocusModel::delete() should be compatible with Model::delete($options = Array) F:\wwwroot\Home\Lib\Model\UserFocusModel.class.php 第 75 行.
+SQL: SHOW COLUMNS FROM `sj_t_user_focus` [ RunTime:0.011000s ]
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead F:\wwwroot\ThinkPHP\Lib\Core\Db.class.php 第 605 行.
+SQL: SELECT * FROM `sj_t_user_focus` WHERE ( `befocus_id` = 0 ) AND ( `user_id` = 1 ) LIMIT 1   [ RunTime:0.000000s ]
+

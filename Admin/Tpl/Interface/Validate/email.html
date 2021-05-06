@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>接口</title>
+    <include file="Public:sss" />
+</head>
+
+<body>
+
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">验证接口</a></li>
+        <li><a href="#">邮箱</a></li>
+    </ul>
+</div>
+
+<div class="formbody">
+
+    <div class="formtitle"><span>邮箱设置</span></div>
+    <form  method="post" action="{:U('Interface/eMail_send')}" role="form" >
+        <ul class="forminfo">
+            <li><label for="smtp">SMTP 服务器</label><input name="eMail_SMTP" type="text" value="{$eMail_SMTP}" class="dfinput" id="smtp" /></li>
+            <li><label for="port">端口号</label><input name="eMail_port" type="text" value="{$eMail_port}" class="dfinput" id="port" /></li>
+            <li><label for="user">账号</label><input name="eMail_acc" type="text" value="{$eMail_acc}" class="dfinput" id="user" /></li>
+            <li><label for="key">密码</label><input name="eMail_key" type="text" value="{$eMail_key}" class="dfinput" id="key" /></li>
+            <li><label for="sender">发件人名称</label><input name="eMail_sender" type="text" value="{$eMail_sender}" class="dfinput" id="sender" /></li>
+            <li><label for="title">标题</label><input name="eMail_title" type="text" value="{$eMail_title}" class="dfinput" id="title" /></li>
+            <li><label for="content">内容</label><input name="eMail_content" type="text" value="{$eMail_content}" class="dfinput" id="content" /></li>
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+        </ul>
+    </form>
+</div>
+
+
+</body>
+
+</html>

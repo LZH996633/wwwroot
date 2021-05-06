@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>公告</title>
+    <include file="Public:sss" />
+</head>
+
+<body>
+
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="#">首页</a></li>
+        <li><a href="#">基本信息</a></li>
+    </ul>
+</div>
+
+<div class="formbody">
+
+    <div class="formtitle"><span>基本信息</span></div>
+    <form  method="post" action="{:U('Index/isform')}" role="form" >
+        <ul class="forminfo">
+            <li><label for="title">网站标题</label><input name="title" type="text" value="{$title}" class="dfinput" id="title" /><i>标题不能超过30个字符</i></li>
+            <li><label for="key">关键字</label><input name="key" type="text" value="{$key}" class="dfinput" id="key" /><i>多个关键字用,隔开</i></li>
+            <li><label for="icp">备案号</label><input name="icp" type="text" value="{$icp}" class="dfinput" id="icp" /><i></i></li>
+            <li><label for="icp">网址</label><input name="url" type="text" value="{$url}" class="dfinput" id="url" /><i>填写完整网址，例：https://www.baidu.com</i></li>
+
+            <li><label>网站开关</label><cite>
+                <switch name="ifopen">
+                    <case value="1">
+                        <input name="ifopen" type="radio" value="1" checked/>开{$repeat}
+                        <input name="ifopen" type="radio" value="2"/>关
+                    </case>
+                    <case value="2">
+                        <input name="ifopen" type="radio" value="1" />开{$repeat}
+                        <input name="ifopen" type="radio" value="2" checked/>关
+                    </case>
+                </switch>
+            </cite></li>
+            <li><label for="des">网站描述</label><textarea name="des" cols="" rows="" class="textinput" id="des">{$des}</textarea></li>
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+        </ul>
+    </form>
+</div>
+
+
+</body>
+
+</html>

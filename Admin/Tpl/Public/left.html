@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>左侧</title>
+
+<include file="Public:sss" />
+
+<script type="text/javascript">
+$(function(){
+	//导航切换
+	$(".menuson .header").click(function(){
+		var $parent = $(this).parent();
+		$(".menuson>li.active").not($parent).removeClass("active open").find('.sub-menus').hide();
+
+		$parent.addClass("active");
+		if(!!$(this).next('.sub-menus').size()){
+			if($parent.hasClass("open")){
+				$parent.removeClass("open").find('.sub-menus').hide();
+			}else{
+				$parent.addClass("open").find('.sub-menus').show();
+			}
+		}
+	});
+
+	// 三级菜单点击
+	$('.sub-menus li').click(function(e) {
+        $(".sub-menus li.active").removeClass("active")
+		$(this).addClass("active");
+    });
+
+	$('.title').click(function(){
+		var $ul = $(this).next('ul');
+		$('dd').find('.menuson').slideUp();
+		if($ul.is(':visible')){
+			$(this).next('.menuson').slideUp();
+		}else{
+			$(this).next('.menuson').slideDown();
+		}
+	});
+})
+</script>
+
+
+</head>
+
+<body style="background:#fff3e1;margin-top:-18px;">
+	<div class="lefttop"><span></span>通讯录</div>
+    
+    <dl class="leftmenu">
+    <dd>
+    <div class="title">
+    <span><img src="__IMG__/leftico01.png" /></span>管理信息
+    </div>
+    	<ul class="menuson">
+        
+        <li>
+            <div class="header">
+            <cite></cite>
+            <a href="{:U('Index/welcome')}" target="rightFrame">站点信息</a>
+            <i></i>
+            </div>
+            <ul class="sub-menus">
+            <li><a href="{:U('Index/form')}" target="rightFrame">基本内容</a></li>
+            <li><a href="{:U('Index/tab')}"  target="rightFrame">公告</a></li>
+            <li><a href="{:U('Index/detailset')}"  target="rightFrame">详细设置</a></li>
+			 </ul>
+        </li>
+        <li>
+            <div class="header">
+            <cite></cite>
+            <a href="javascript:void(0)" target="rightFrame">作品管理</a>
+            <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Opus/index')}" target="rightFrame">作品列表</a></li>               
+				<li><a href="{:U('Opus/upload')}"  target="rightFrame">上传列表</a></li>
+                <li><a href="{:U('Opus/down')}"  target="rightFrame">下载记录</a></li>
+				<li><a href="{:U('Opus/count')}"  target="rightFrame">作品统计</a></li>
+             </ul>
+        </li>
+        
+        <li>
+            <div class="header">
+            <cite></cite>
+            <a href="javascript:void(0)" target="rightFrame">会员管理</a>
+            <i></i>
+            </div>
+            <ul class="sub-menus">
+            <li><a href="{:U('User/index')}" target="rightFrame">会员列表</a></li>
+            <li><a href="{:U('User/Certa')}"  target="rightFrame">卖家认证</a></li>				
+                <li><a href="{:U('User/count')}"  target="rightFrame">会员统计</a>
+            </ul>
+        </li>
+        <li>
+            <div class="header">
+            <cite></cite>
+            <a href="{:U('Account/pay')}"  target="rightFrame">下载记录</a>
+            <i></i>
+            </div>
+
+        </li>
+
+
+        <li>
+                <div class="header">
+                    <cite></cite>
+                    <a href="javascript:void(0)" target="rightFrame">友情链接管理</a>
+                    <i></i>
+                </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Link/index')}" target="rightFrame">友情链接</a></li>
+            </ul>
+            </li>
+
+    </ul>
+    </dd>
+        
+    
+    <dd>
+    <div class="title">
+    <span><img src="__IMG__/leftico02.png" /></span>消息中心
+    </div>
+    <ul class="menuson">
+        <li>
+            <div class="header">
+                <cite></cite>
+                <a href="javascript:void(0)" target="rightFrame">编辑信息</a>
+                <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Information/edit')}" target="rightFrame">发送信息</a></li>
+
+            </ul>
+        </li>
+        <li>
+            <div class="header">
+                <cite></cite>
+                <a href="javascript:void(0)" target="rightFrame">信息列表</a>
+                <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Information/feedback')}" target="rightFrame">用户反馈</a></li>
+                <li><a href="{:U('Information/Withdrawal')}"  target="rightFrame">提现申请</a></li>
+            </ul>
+        </li>
+ </ul>
+    </dd> 
+    
+    
+    <dd><div class="title"><span><img src="__IMG__/leftico03.png" /></span>接口设置</div>
+    <ul class="menuson">
+
+
+        <li>
+            <div class="header">
+                <cite></cite>
+                <a href="javascript:void(0)" target="rightFrame">验证接口</a>
+                <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Interface/eMail_send_form')}" target="rightFrame">邮箱</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    </dd>  
+
+    <dd><div class="title"><span><img src="__IMG__/leftico04.png" /></span>系统设置</div>
+    <ul class="menuson">
+        <li>
+            <div class="header">
+                <cite></cite>
+                <a href="javascript:void(0)" target="rightFrame">管理员设置</a>
+                <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Admin/person')}" target="rightFrame">账号密码</a></li>
+
+                <li><a href="{:U('Admin/account')}" target="rightFrame">个人账户</a></li>
+
+
+            </ul>
+        </li>
+        <li>
+            <div class="header">
+                <cite></cite>
+                <a href="javascript:void(0)" target="rightFrame">缓存设置</a>
+                <i></i>
+            </div>
+            <ul class="sub-menus">
+                <li><a href="{:U('Admin/cache')}" target="rightFrame">清理缓存</a></li>
+               
+                                <li><a href="javascript:void(0)" target="rightFrame">修改密码</a></li>
+                
+
+            </ul>
+        </li>
+    </ul>
+    
+    </dd>   
+    
+    </dl>
+    
+</body>
+</html>

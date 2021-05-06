@@ -1,0 +1,220 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>注册</title>
+<include file="Public/head"/>
+</head>
+
+<body>
+
+<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<include file="Public/header"/>
+<div class="clearfix"></div>
+
+
+<script language="JavaScript">
+    head.ready('formvalidator',function(){
+        $(".in-out").hide();//隐藏顶部注册登录
+        $.formValidator.initConfig({autotip:true,formid:"reform",onerror:function(msg){}});
+
+        $("#user_name").formValidator({onshow:"请输入用户名",onfocus:"用户名应该为2-20位之间",oncorrect:" "}).inputValidator({min:2,max:20,onerror:"用户名应该为2-20位之间"}).regexValidator({regexp:"username",datatype:"enum",onerror:"用户名格式错误"}).ajaxValidator({
+            type : "get",
+            url : "/index.php/public/check_name",
+            data :"",
+            datatype : "json",
+            async:'false',
+            success : function(data){
+                if( data.status == 'true' ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            buttons: $("#dosubmit"),
+            onerror : "禁止注册或用户已存在。",
+            onwait : "请稍候..."
+        });
+        $("#pass_word").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间",oncorrect:" "}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"}).ajaxValidator({
+            type : "get",
+            url : "/index.php/public/check_pass",
+            data :"",
+            datatype : "json",
+            async:'false',
+            success : function(data){
+                if( data.status == 'true' ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            buttons: $("#dosubmit"),
+            onerror : "密码中有特殊字符",
+            onwait : "验证中"
+        });
+        $("#pwdcon_firm").formValidator({onshow:"请输入确认密码",onfocus:"两次密码不同。",oncorrect:" "}).compareValidator({desid:"pass_word",operateor:"=",onerror:"两次密码不同。"});
+        $("#em_ail").formValidator({onshow:"请输入邮箱",onfocus:"邮箱格式错误",oncorrect:" "}).inputValidator({min:2,max:32,onerror:"邮箱应该为2-32位之间"}).regexValidator({regexp:"email",datatype:"enum",onerror:"邮箱格式错误"}).ajaxValidator({
+            type : "get",
+            url : "/index.php/public/check_email",
+            data :"",
+            datatype : "json",
+            async:'false',
+            success : function(data){
+                if( data.status == 'true' ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            },
+            buttons: $("#dosubmit"),
+            onerror : "禁止注册或邮箱已存在",
+            onwait : "请稍候..."
+        });
+        $("#code").formValidator({onshow:" ",onfocus:" ",onerror:" "}).functionValidator({
+            fun: function (val) {
+
+                if ($(".gt_ajax_tip").hasClass("gt_success")) {
+
+                    $("#codeTip").hide();
+                    return true;
+
+                }
+                $(".gt_ajax_tip").addClass("gt_fail");
+                return false;
+            },
+            onerror:" "
+
+        });
+        $(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:"请阅读协议",onfocus:"请阅读协议"}).inputValidator({min:1,onerror:"请阅读协议"});
+
+
+
+    });
+
+  /*  function show_protocol() {
+        layer.open({
+            type:2,
+            content:'http://www.ppt20.com/index.php?m=member&c=index&a=register&protocol=1',
+            area:['500px','310px']
+        });
+    }*/
+
+</script>
+
+
+
+<style type="text/css">
+
+
+    .form-reg{width:700px;margin:20px auto; font-size:14px;}
+    .input{height:30px;line-height:30px;margin-bottom:20px;}
+    .input label{width:100px;padding-right:20px;float:left;height:30px;text-align:right;display:block;}
+    .input input{float:left;height:20px;line-height:20px;border:1px solid #ddd;border-radius:5px;padding:5px;vertical-align:middle;}
+    .input .checkcode{display:block;float:left;width:80px;height:30px;margin-left:20px;}
+    .input .onFocus,.input .onShow{width:230px;margin-left:20px;float:left;}
+    .input .onCorrect{width:230px;height:30px;line-height:9999px;overflow:hidden;background:url("__IMG__/checkform.png") no-repeat;margin-left:12px;float:left;color:#f54545}
+    .input .onError{width:230px;margin-left:20px;float:left;color:#f54545}
+    .input .onWait{width:230px;margin-left:20px;float:left;color::#00f}
+    .input .submit{height:30px;background:#1abd9b;color:#fff;cursor:pointer;}
+    .input #protocol{height:30px;}
+    .input .qqbtn{display:block;float:left;padding:5px;}
+    .float{float:left;}
+    .w200{width:245px;}
+
+</style>
+<div class="wrap centerm" style="margin-bottom:40px">
+    <div class="tablist">
+        <div class="titlem clearfix" >
+            <ul class="title clearfix fl">
+                <li class="normal"><a href="{:U('Public/LoginShow')}">登录</a></li>
+                <li  class="active"><a href="">注册</a></li>
+                <li  class="normal"><a href="{:U('Public/ForgetShow')}">找回密码</a></li>
+            </ul>
+        </div>
+        <div class="cont">
+            <form id="myform" action="{:U('Public/register')}" method="post">
+                <input type="hidden" value="1" />
+                <div class="form-reg">
+                    <div class="input"><label>用户名：</label><input type="text" id="user_name" name="username" class="w200" placeholder="输入用户名"><span id="user_nameTip" class="onShow"></span></div>
+                    <div class="input"><label>密码：</label><input type="password" id="pass_word" name="password" class="w200" placeholder="密码"><span id="pass_wordTip" class="onShow"></span></div>
+                    <div class="input"><label>确认密码：</label><input type="password" id="pwdcon_firm" name="pwdconfirm" class="w200" placeholder="再次输入密码"><span id="pwdcon_firmTip" class="onShow"></span></div>
+                    <div class="input"><label>邮箱：</label><input type="text" id="em_ail" name="email" class="w200" placeholder="输入邮箱"><span id="em_ailTip" class="onShow"></span></div>
+                    <div class="input"  style="display:none;"><label>昵称：</label><input type="text" id="nickname" class="w200" value="1490772594"></div>
+                    <div class="input">
+                        <label>协议：</label>
+                        <input type="checkbox" name="protocol" id="protocol" value="" checked><a href="{:U('Single/agreement')}" target="_blank"  class="blue fl">点击阅读并同意注册协议</a>
+                    </div>
+                    <div class="input">
+                        <label></label><input class="submit" id="dosubmit" type="submit" name="dosubmit" value="同意提交注册">
+
+                    </div>
+
+                </div>
+
+
+
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+<include file="Public/footer"/>
+
+<!--第三方登录-->
+<input type="hidden" value="{$qq_login}" id="qq_login">
+<input type="hidden" value="{$wechat_login}" id="wechat_login">
+
+<script language='javascript'>
+
+
+    head.ready('formvalidator',function(){
+        var SiteUrl = $('#SiteUrl').val();
+
+        head.load('__JS__/checkform_loginout.js');
+
+        $(".forward").val(SiteUrl);
+
+    });
+    function Oauth(i)
+    {
+        var url="";
+        if(i==1){
+            url =  $("#qq_login").val();
+
+            var title='QQ登录';
+            // location.href = "/index.php/Login/QQ_login"
+        }else if(i==0){
+
+            url= $("#wechat_login").val();
+            var title="微信登录";
+
+        }else if(i==3){
+            url = "{:U('Public/phone')}";
+            var title = '手机登录'
+        }
+        $(".logintk").hide();
+        $(".graybg").hide();
+
+        layer.open({
+            type: 2,
+            title: title,
+            shadeClose: true,
+            shade: 0.5,
+            area: ['55%', '65%'],
+            content: url, //iframe的url
+            end:function(){
+                window.location.reload();
+
+            }
+        });
+
+
+    }
+
+</script>
+</body>
+</html>

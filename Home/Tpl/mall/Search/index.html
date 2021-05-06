@@ -1,0 +1,380 @@
+
+<!doctype html>
+<html>
+<head>
+        <title>搜索页</title>
+    <link  href="__CS__/so.css" rel="stylesheet"  type="text/css">
+    <script type="text/javascript" src="__JS__/jquery.min.js"></script>
+    <include file="Public/head"/>
+    <script type="text/javascript" src="__JS__/so.js"></script>
+    <script src="__JS__/imgload.js" type="text/javascript"></script>
+    <script src="__JS__/jquery.placeholder.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="__JS__/masonry.pkgd.min-918.js"></script>
+    <script type="text/javascript">
+
+ head.ready('jquery',function(){
+
+       var SiteUrl = $('#SiteUrl').val();
+         $(function () {
+             $("#qs").keydown(function (e) {
+                 // 回车键事件
+
+                 if (e.which == 13) {
+                     go_search($(this).val());
+                 }
+             });
+             $("#seach").click(function(){
+                 var sea = $("#qs").val();
+                 go_search(sea);
+             });
+
+
+
+             $("#bjzq").click(function () {
+                 var q = $("#qs").val();
+                 if ($(this).val() == "查看免费素材") {
+                     window.location.href = "/index.php/search/index/?half=1&search="+q ;
+                     $(this).val("查看全部模板");
+                 } else {
+                     window.location.href = "/index.php/search/index/?half=0&search="+q ;
+                     $(this).val("查看免费素材");
+                 }
+             });
+
+         });
+
+         $(function () {
+             $('img.lazy').imglazyload({
+                 event: 'scroll',
+                 attr: 'lazy-src'
+             });
+         });
+
+
+         function go_search(q) {
+
+             var s = 0;
+
+             if ($("#is_and").attr('checked') == "checked") {
+                 s = 1;
+             }
+             if (q == '') {
+                 //alert('关键词不能为空！');
+                 $("#q").focus();
+                 return false;
+             }
+
+             q = stripscript(q);
+             if (s){
+                 window.location.href = "/index.php/search/index/?search=" + q + "&action=A";
+             }else{
+                 window.location.href = "/index.php/search/index/?search=" + q ;
+             }
+
+
+         }
+
+         function stripscript(s) {
+             var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%]")
+             var rs = "";
+             for (var i = 0; i < s.length; i++) {
+                 rs = rs + s.substr(i, 1).replace(pattern, '');
+             }
+             return rs;
+         }
+
+})
+
+
+    </script>
+    <input id="i" value="{$tip_index}" type="hidden" />
+    <script language="JavaScript">
+        head.ready('jquery',function(){
+
+            var i = $('input#i').val();
+
+            $('.orders a').eq(i).addClass('active')
+        })
+    </script>
+
+</head>
+
+<body>
+
+<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<div class="dthd">
+    <div class="zw"></div>
+    <div class="hdfx">
+        <div class="header">
+	<include file="Public/header" />
+        </div>
+        <!--<input type="hidden" value="{$SiteUrl}" id="SiteUrl"/>-->
+        <div class="searchmt">
+            <div class="wrap">
+                <div class="maincts">
+                    <div class="msct clearfix">
+                        <div class="sarcm fl clearfix">
+                           <!-- <div class="downlop fl pr">
+                                <span><i>全部模板</i><em></em></span>
+                                <ul>
+                                    <volist name="Cates" id="list">
+                                        <li style="overflow: hidden">{$list.name}</li>
+                                    </volist>
+
+                                </ul>
+                            </div>-->
+                            <div class="txts fl">
+                                <input type="search" class="webtxt " placeholder="请输入关键字"   data-name="original-font-color" id="qs" value="{$search}">
+                            </div>
+                            <div class="btns fr">
+
+                                <input type="button"  class="webtn" value="搜索"  id="seach">
+                            </div>
+                        </div>
+                        <div class="jzsea pr clearfix fr">
+                            <label><input type="checkbox" id="is_and" >精准搜索</label>
+                            <i><img src="__IMG__/wenh.png"></i>
+                            <ul>
+                                <li>勾选时，输入多个关键词，须同时包含全部关键词</li>
+                                <li>不勾选，则搜索结果只需满足其中一个关键词</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="word">
+
+                    </div>
+                </div>
+            </div>
+        </div></div></div>
+<div class="ptsecxs">
+    <div class="wrap clearfix">
+        <div class="orders fl">
+            <a href="{:U('Search/index',array('order'=>'recom','index'=>'0'))}"><span>推荐</span></a>
+            <a href="{:U('Search/index',array('order'=>'opus_updatetime','index'=>'1'))}">最新</a>
+
+            <a href="{:U('Search/index',array('order'=>'down','index'=>'2'))}"  >下载</a><ins class="ins"></ins>
+            <a href="{:U('Search/index',array('order'=>'price','index'=>'3'))}" >价格</a><ins class="ins1"></ins>
+
+        </div>
+        <div class="fr option">
+            <div class="sxpart o3">
+                <div class="title">色系<i></i></div>
+                <ul class="skmain">
+                    <volist name="sort_color['son']" id="color">
+                        <li class="" style="background-color:{$color.name}"><a href="{:U('Search/index',array($color['kind']=>$color['id']))}" title="{$color.name}">{$color.name}</a></li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="sxpart o1">
+                <div class="title">软件<i></i></div>
+                <ul class="namesd">
+                    <volist name="sort_software['son']" id="software">
+                        <li><a href="{:U('Search/index',array($software['kind']=>$software['id']))}">{$software.name}</a></li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="sxpart o2">
+                <div class="title">类型<i></i></div>
+                <ul class="proportion">
+                    <volist name="sort_type['son']" id="type">
+                        <li><a href="{:U('Search/index',array($type['kind']=>$type['id']))}">{$type.name}</a></li>
+                    </volist>
+                </ul>
+            </div>
+            <div class="sxpart o3">
+                <div class="title">比例<i></i></div>
+                <ul class="proportion">
+                    <volist name="sort_scale['son']" id="scale">
+                        <li><a href="{:U('Search/index',array('scale'=>$scale['id']))}">{$scale.name}</a></li>
+                    </volist>
+                </ul>
+            </div>
+            <if condition="$is_half eq 1">
+                <input type="button" value="查看全部模板" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+                <else/> <input type="button" value="查看半价模板" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+            </if>
+        </div>
+    </div>
+</div>
+<div class="aomainlit" >
+    <div class="wrap">
+        <div class="wbmap">
+            <a href="{:U('Index/index')}">首页</a>>&nbsp;&nbsp;<a href="">搜索</a>
+            <if condition="$search">
+            ><i>{$search}</i>&gt;<i>筛选：</i>
+                <div class="qingkong fr"><a href="{:U('Search/index',array('tip_clear'=>'all'))}">点击清空条件</a></div>
+               <if condition="$tip_show" >
+                <volist name="tip_show" id="tips">
+                    <ins>{$tips.name}<a href="{:U('Search/index',array('tip_clear'=>$tips['id']))}" title="删除此项"></a></ins>&nbsp;
+                </volist>
+               </if>
+            </if>
+
+
+        </div>
+    </div>
+</div>
+<div class="indcaselist">
+    <div class="wrap">
+        <div class="cont">
+            <div class="clearfix" id="container">
+                <volist name="SearchList" id="list">
+                    <dl class="items pr">
+                        <a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="blank">
+
+                            
+  
+							
+					<video id="video" poster="{$list.opus_pic_big}" onmouseover="videoPlayback()" onmouseout="videoStopped()" muted="muted" loop='loop' width="280" height="150" style="width:100%; height=100%; object-fit: fill">
+                     <source src="{$list.opus_video}" type="video/mp4">
+                         </video>		
+							
+						<img  class="lazy" src="{$list.opus_pic_cons}" lazy-src="{$list.opus_pic_cons}" height="150" > 	
+							
+							
+							
+							
+                            <div class="upscr"></div>
+                            <div class="downscr"></div>
+                            </a>
+                        <dd style="text-align:center;font-size:16px;"><p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></p></dd>
+                       <!-- <dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em></em></span></dd> -->
+                        <!--半价标识-->
+                        <if condition="$list['is_half'] eq '1'" >
+                            <img class="pa" style="left:0;top:0;z-index:10" src="__IMG__/bjicos.png" />
+                        </if>
+                    </dl>
+                </volist>
+            </div>
+            <div id="pages">
+                <if condition="$count eq 0">
+                    <h2 style="text-align:center;margin-bottom:40px">此筛选条件下无作品，请换个试试！</h2>
+                    <else/>
+                    <a class="a1">{$count}条</a>
+
+                    {$page}
+                </if>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<include file="Public/right"/>
+<script>
+    $(".gotop").click(function(event){
+        $('html,body').animate({scrollTop:0}, 500);
+        return false;
+    });
+    $(window).scroll(function () {
+        if($(window).scrollTop()>=100) {
+            $(".gotop").fadeIn();
+        }else {
+            $(".gotop").fadeOut();
+        }
+    });
+    $(".rightcolumn li").hover(function(){
+                $(this).find(".zxmain").show();
+            },
+            function(){
+                $(this).find(".zxmain").hide();
+            })
+
+</script>
+
+<script type="text/javascript">
+
+
+
+        //鼠标移进去
+        function videoPlayback(){
+            //获取视频标签
+			var e = window.event ;
+			var obj = e.srcElement ;
+              obj.play();
+         }
+         
+        //鼠标离开
+         function videoStopped(){
+             //获取视频标签			
+			var a = window.event ;
+			var obj = a.srcElement ;
+             //停止播放
+			obj.pause();
+			obj.currentTime=0;   //停止播时回到开始
+         }
+   
+
+
+
+</script>
+
+<include file="Public/footer"/>
+
+
+
+
+<script type="text/javascript">
+    var container = document.querySelector('#container');
+    $(function(){
+
+        var msnry = new Masonry( container, {
+            itemSelector: '.items',
+            singleMode: false, // 宽度固定不计算，由css控制
+
+        });
+    });
+    window.onresize= function(){
+        var msnry = new Masonry( container, {
+            itemSelector: '.items',
+            singleMode: false, // 宽度固定不计算，由css控制
+
+        });
+    };
+    function scrollpic(obj){
+        var scrollObj;
+        var currentTop = 0;
+        $(obj).children('div:eq(2)').mousemove(function () {
+            clearInterval(scrollObj);
+            scrollObj = setInterval(function () {
+                var mainH = $(obj).children('div:eq(0)').children().height();
+                if (currentTop + mainH > $(obj).height())
+                {
+                    currentTop--;
+                    currentTop--;
+                    $(obj).children('div:eq(0)').css('top', currentTop);
+                }
+            }, 10);
+        }).mouseleave(function () {
+            clearInterval(scrollObj);
+        }).css('margin-top', $(obj).height() / 2);
+
+        $(obj).children('div:eq(1)').mouseover(function () {
+            clearInterval(scrollObj);
+
+            scrollObj = setInterval(function () {
+                var mainH = $(obj).children('div:eq(0)').children().height();
+
+                if (currentTop < 0) {
+                    currentTop++;
+                    currentTop++;
+
+                    $(obj).children('div:eq(0)').css('top', currentTop);
+                }
+            }, 10);
+        }).mouseleave(function () {
+            clearInterval(scrollObj);
+        });
+
+
+    }
+    $(function(){
+        $(".scrollpic").each(function(){
+            scrollpic($(this));
+        });
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<div class="rtmain">
+    <div class="hdtitle clearfix">
+        <ul class="fl clearfix">
+            <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="Recharge">账户充值</a></li>
+            <li ><a href="javascript:void(0);" class="inter_chanView" data-value="AccountDetail">账务明细</a></li>
+            <li><a href="javascript:void(0);" class="inter_chanView" data-value="AccountSafe">账户安全</a></li>
+        </ul>
+        <span>账户余额：<i>{$AccInfo.gold_coin}</i> 金币</span>
+    </div>
+    <div class="paymaict">
+        <div class="xzney">
+            <div class="title clearfix"><i>请选择充值数额：</i><a href="" target="_blank" class="tipstool" >&nbsp;&nbsp;</a>
+                <a href="" target="_blank" class="tipstool">&nbsp;&nbsp;</a><a href="" target="_blank" class="tipstool" title="可兑换礼品">&nbsp;&nbsp;</a></div>
+            <ul class="clearfix">
+                <li class="on" data-value="5">
+				<span>充<b>5</b>金币</span>
+				<p>交易货币，支持<i>提现</i></p><em>5元</em>
+				<ins><img src="__IMG__/tureicos.png"></ins>
+				</li>
+                <li data-value="10"><span>充<b>10</b>金币</span><p>交易货币，支持<i>提现</i></p><em>10元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="20"><span>充<b>20</b>金币</span><p><p>交易货币，支持<i>提现</i></p></p><em>20元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="50"><span>充<b>50</b>金币</span><p>交易货币，支持<i>提现</i></p><em>50元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="100"><span>充<b>100</b>金币</span><p>交易货币，支持<i>提现</i></p><em>100元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="200"><span>充<b>200</b>金币</span><p>交易货币，支持<i>提现</i></p><em>200元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="300"><span>充<b>300</b>金币</span><p>交易货币，支持<i>提现</i></p><em>300元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+                <li data-value="500"><span>充<b>500</b>金币</span><p>交易货币，支持<i>提现</i></p><em>500元</em><ins><img src="__IMG__/tureicos.png"></ins></li>
+            </ul>
+        </div>
+        <div class="czsty">
+            <div class="title">请选择充值方式：</div>
+            <div class="cmtns">
+                <ul class="clearfix" id="tab">
+                    <li class="active" onClick="pay_tab(this,0);" id="fit">支付平台</li>
+                    <li class="normal" onClick="pay_tab(this,1);">转账汇款</li>
+                </ul>
+                <div class="tabcds">
+                    <div id="tab_cont0">
+                        <ul class="clearfix">
+                            <li  class="on" data-value="1"><img src="__IMG__/payico2.jpg"><i></i></li>
+                            <li data-value="2"><img src="__IMG__/payico1.jpg"><i></i></li>
+                            <!--<li data-value="3"><img src="__IMG__/payico3.jpg"><i></i></li>
+                            <li data-value="2"><img src="__IMG__/payico4.jpg"><i></i></li>-->
+                        </ul>
+
+                    </div>
+                    <div class="clearfix none" id="tab_cont1">
+                       <volist name="ac_list" id="list">
+                           <dl>
+                               <dt><img src="{$list.account_pic}"></dt>
+                               <dd>{$list.account_bank}</dd>
+                               <dd>户名：{$list.account_name}</dd>
+                               <dd>账号：{$list.account}</dd>
+                           </dl>
+                       </volist>
+
+                    </div>
+                    <form method="POST" action="{:U('Recharge/recharge')}" target="_blank" id="recharge">
+                        <input type="hidden" name="pay_type" id="pay_type" value="">
+                        <input type="hidden" name="type" id="type" value="">
+                        <div class="btn"><span>应付金额：<input type="text" class="amount" name="rec_num" value="5" readonly size="1" />元</span>
+                            <input type="submit" class="pay_button" value="确认提交" onclick="return check_bank()"/></div>
+                    </form>
+                </div>
+            </div>
+            <div class="word">
+                <ul>
+                    <li>关于账户充值生效时间：</li>
+                    <li>支付宝、微信支付：充值后，系统自动处理，即时到账，马上可用；</li>
+                    <li>线下汇款：请在付款后联系客服QQ，我们确认到账后，将及时为您处理，几分钟后即可生效。</li>
+                    <li>电话：{$Contact_phone}  QQ：{$Contact_QQ}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function check_bank(){
+        var bank = $("#pay_type").val();
+        if(bank=='1'){
+            return true;
+        }else if(bank=='2'){
+
+           var  url = "{:U('Service/set_acct')}";
+            layer.open({
+                 type:2,
+                 title:'请填写您的转账银行账户信息，避免充值到账误差',
+                 content: url,
+                 area:['450px','310px'],
+                 end:function(){
+                      $("#recharge").submit();
+                     layer.msg('提交成功！',{icon:1})
+                }
+            });
+            return false;
+
+        }
+    }
+
+</script>
+<!--选项卡-->
+<script type="text/javascript">
+
+    $(".title ul li").click(function(){
+        var i = $(this).index();
+        $('#show_project').attr('data-value',i);
+        $(this).attr('class','on').siblings().attr('class','');
+
+        $('.lists').eq(i).attr('style','display:block').siblings().attr('style','display:none');
+    })
+
+
+</script>
+
+<script type="text/javascript">
+    function pay_tab(thisObj,Num){
+
+        if(thisObj.className == "active")return;
+        var tabObj = thisObj.parentNode.id;
+        var tabList = document.getElementById(tabObj).getElementsByTagName("li");
+        for(i=0; i <tabList.length; i++)
+        {
+            if (i == Num)
+            {
+                thisObj.className = "active";
+                document.getElementById(tabObj+"_cont"+i).style.display = "block";
+
+            }else{
+                tabList[i].className = "normal";
+                document.getElementById(tabObj+"_cont"+i).style.display = "none";
+            }
+        }
+        if(Num==0){
+            $(".tabcds ul li:eq(0)").addClass("on").siblings().removeClass("on");
+            $("#pay_type").val("1");
+        }else if(Num==1){
+            $(".tabcds ul li").removeClass("on");
+            $("#pay_type").val("2");
+
+        }
+    }
+    $(function(){
+        $(".xzney ul li").each(function(){
+            $(this).click(function(){
+                $(".amount").val($(this).data("value"));
+                $(this).addClass("on").siblings().removeClass("on");
+            });
+        });
+        $(".tabcds ul li").each(function(){
+            $(this).click(function(){
+                var type = $(this).data("value");
+                $("#type").val(type);
+                $(this).addClass("on").siblings().removeClass("on");
+            });
+        });
+
+    });
+</script>
+<!--内部异步调用-->
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('.inter_chanView').click(function () {
+
+            var action = $(this).attr('data-value');
+
+            $.ajax({
+                type: "get",
+                async: true,
+                url: "/index.php/Service/Ajax?action="+action+"&b="+Math.random(),
+                dataType: "html",
+                data: '',
+                cache:false,
+
+                success: function (msg) {
+
+                    var show = $('.rtcnt');
+                    show.text('');
+                    show.prepend(msg)
+                },
+                error:  function (msg){
+                    ////alert(msg.status)
+                }
+            })
+        });
+    })
+
+</script>

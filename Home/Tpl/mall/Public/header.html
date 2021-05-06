@@ -1,0 +1,204 @@
+<div class="header normaltop">
+    <div class="wrap clearfix">
+        <div class="logo fl"><a href="{:U('Index/index')}"><img src="{$logo.ad_pic}"></a></div>
+        <div class="nav fl"></div>
+        <div class="subnav fl clearfix"><i><a href="{:U('Index/index')}" >首页</a></i>
+            <div class="downnav fl"> <em><a href="javascript:;">分类</a></em>
+                <div class="fixedw">
+                    <div class="plfs">
+                    <div class="plf">
+                    <ul>
+                        <volist name="Cates" id="list">
+                        <li>
+                             <if condition="$_COOKIE['cid'] eq $list['cid']">
+                                <a href="{:U('Model/index',array('cid'=>$list['cid']))}" class="active" target="_blank">{$list.name}</a>
+                                <else />
+                                 <a href="{:U('Model/index',array('cid'=>$list['cid']))}"  target="_blank">{$list.name}</a>
+                              </if>
+                        </li>
+                        </volist>
+                    </ul>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbarauser fr">
+
+<span class="fr"><div class="login">
+    <a href="javascript:void(0);" class="logina">登录</a> <a href="javascript:void(0);" class="zcy">注册</a>
+</div>
+
+<div class="logout">
+
+    <div class="hduserinfo">
+	       &nbsp;&nbsp;&nbsp; <a href="{:U('Service/materialupload', array('pid'=>1))}">上传</a>&nbsp;&nbsp;&nbsp;
+	<a href="javascript:void(0);" onclick="qiandao()">签到</a>&nbsp;&nbsp;&nbsp;
+        <img id="img_in" class="logout1" src="__IMG__/useravatar.png" onerror="this.src='__IMG__/useravatar.png'" />
+        <a href="{:U('Service/index')}" target="_blank"><i class="myName"></i></a>
+    </div>
+    <dl id="userinfo">
+        <dd> <a href="{:U('Service/index')}" target="_blank">个人中心</a></dd>
+		
+	        <dd> <a href="{:U('Service/main')}" target="_blank">会员中心</a></dd>	
+		
+		
+        <dd><a href="{:U('Service/index')}" onclick="chanPage('StationMsg')" target="_blank">收件箱({$new_chat})</a></dd>
+        <dd><a href="#" id="logout">退出</a></dd>
+    </dl>
+</div>
+
+    <script type="text/javascript">
+                   function chanPage(action){
+                document.cookie="action="+action+";path=/";
+                document.cookie="action_status=1;path=/";
+
+
+            }
+
+
+    </script>
+<input type="hidden" value="{$SiteUrl}" id="SiteUrl"/>
+<script type="text/javascript">
+    head.ready('jquery',function(){
+
+        var SiteUrl = $('#SiteUrl').val();
+
+        $("#logout").attr('href', "/index.php/public/login_out");
+
+
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "/index.php/public/getlogininfo",
+            dataType: "json",
+            data: '',
+
+          success: function(msg) {
+
+            var d = new Date();
+            var t = d.getHours();
+            var welcome = "";
+
+            if (msg.islogin) {
+
+                $('.login').hide();
+                $('#amount').html(msg.amount);
+                if (msg.avar) {
+                    $("#img_in").attr('src',msg.avar);
+                }
+                if (t >= 7 && t < 12) {
+                    welcome += "上午好，"
+                } else if (t >= 12 && t <= 13) {
+                    welcome += "中午好，"
+                } else if (t > 13 && t <= 17) {
+                    welcome += "下午好，"
+                } else {
+                    welcome += "晚上好，"
+                }
+               // $('.myName').html(welcome + msg.nickname);
+			   $('.myName').html( msg.nickname);
+                $('.login').hide();
+                $('.logout').show();
+            } else {
+
+                $('.login').show();
+                $('.logout').hide();
+            }
+        },
+        error: function(msg) {
+            ////alert(msg.status);
+             //alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+        }
+    });
+        $(".logout").hover(function() {
+            $("#userinfo").show();
+        }, function() {
+            $("#userinfo").hide();
+        });
+
+
+    });
+</script>
+<!--查询-->
+<script type="text/javascript">
+        head.ready('jquery',function() {
+            var SiteUrl = $('#SiteUrl').val();
+
+
+            $(".search").keydown(function(e) {
+                // 回车键事件
+
+                if(e.which == 13) {
+
+                    go_search($(this).val());
+                }
+            });
+
+            function go_search(q){
+
+                if(q==''){
+                    //alert('关键词不能为空！');
+                    $(".search").focus();
+                    return false;
+                }
+
+                q=stripscript(q);
+
+               window.location.href = "/index.php/search/index?search="+q;
+           }
+            function stripscript(s) {
+                var pattern = new RegExp("[`~!@#$^&*()=|{}':;',\\[\\].<>/?~！@#￥……&*（）——|{}【】‘；：”“'。，、？%]")
+                var rs = "";
+                for (var i = 0; i < s.length; i++) {
+                    rs = rs + s.substr(i, 1).replace(pattern, '');
+                }
+                return rs;
+            }
+
+});
+
+
+	
+		/* 签到*/
+		
+	        function qiandao() {
+			
+            $.getJSON('/index.php/Ajax/qiandao', '', function (data) {
+                if (data.status == '0') {
+                    layer.msg(data.msg, {
+                        icon: 4,
+                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                    })
+                }
+                else if (data.status == '2') {
+                    $("#tall").val(data.tall);
+                    $("#low").val(data.low);
+
+				      layer.msg(data.msg, {
+                        icon: 4,
+                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                   })
+               }
+
+
+            })
+        }
+			
+		
+		
+
+
+
+    </script>
+</span>
+
+       <div class="formgroup fr clearfix">
+                <input class="webtxt search"  placeholder="按回车搜索" name='search' data-name="original-font-color"  type="search">
+                <input type="button" class="webtns" value=" " />
+       </div>
+
+        </div>
+    </div>
+</div>
+

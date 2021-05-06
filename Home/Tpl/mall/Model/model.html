@@ -1,0 +1,608 @@
+<!DOCTYPE html5>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="__CS__/demo/styles/index.css" />
+    <link rel="stylesheet" type="text/css" href="__CS__/demo/styles/prism.css" />
+
+    
+
+
+    <include file="Public/head" />
+    <title>{$OpusDetail.opus_title}</title>
+	
+	
+	
+    <style type="text/css">
+ 
+
+		
+
+#div1{background: #FFF; color: #000; padding: 83px; font-size: 13px; border-width: 10px; border-radius: 10px; width:850px; display:none; position:absolute;}
+#div2{background:#FFF;color: #FFF; border:3px solid #1abd9b; width:850px;display:none; position:absolute;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+</head>
+
+<body>
+    <!--[if lte IE 10]>
+        <div style="text-align:center;background: #fce9cf none repeat scroll 0 0;    border: 1px solid #fbdeb6;    color: #915808;    font-size: 12px;    padding: 8px 12px;    position: relative;">
+            您正在使用IE低级浏览器，为了您的账号安全和更好的产品体验，<br />强烈建议您立即 <a class="blue" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">升级IE浏览器</a> 或者用更快更安全的 <a class="blue" href="https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank">谷歌浏览器Chrome</a> 。
+        </div>
+        <![endif]-->
+
+    <h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+    <include file="Public/header" />
+
+    <div class="clearfix"></div>
+
+
+
+    <div class="wrap pptdetails">
+        <div class="webmap">
+            <em><img src="__IMG__/wzbg.gif"></em><a href="{:U('Index/index')}">首页</a>><a
+                href="{:U('Model/index')}">视频素材</a>><i>{$OpusDetail['opus_title']}</i>
+        </div>
+
+        <div id="click1" class="clearfix showinfo">
+		
+
+		
+		
+		
+            <div class="leftcnt fl">
+
+            
+
+
+                <div class="pics">
+
+                    <video style="padding-top: -20px; width:100%; height:405px; object-fit: fill"
+                        controlsList="nodownload" oncontextmenu="return false" controls>
+                        
+                        <source src="{$OpusDetail.opus_video}" type="video/mp4">
+                        <object data="{$OpusDetail.opus_video}" width="720" height="405">
+                        </object>
+                    </video>
+                    <div class="title">
+                        <!-- <h1>{$OpusDetail.opus_title}</h1> -->
+                        <span><i class="view" id="hits">{$OpusDetail.oext_views}</i>
+                            <i class="down" id="xiazai">下载：{$OpusDetail.down} </i>
+                            <i class="down" id="xiazai">评论：{$coment} </i>
+                                <i class="collection"
+                                id="favorite">收藏：{$OpusDetail.oext_favorite}</i><i class="down" id="xiazai"><a
+                                    href="{$OpusDetail.opus_video}" rel="external nofollow"
+                                    download="web-001.mp4">下载小样</a></i>
+
+                            <li class="quality-checker-wrap"> 
+                                &nbsp; &nbsp;&nbsp;<input class="btn1" type="button" value="投诉举报"/>
+								
+                                &nbsp; &nbsp;
+								<!--
+								<input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
+								-->
+								<a href="{$OpusDetail.opus_pic_big}" title="由于系统随机提取任意帧作为画质检测，可能会出现模糊现象" target="_blank"><font size="3">画质检测</font></a>
+                            </li>
+                            
+                        </span>
+                    </div>
+					
+
+                    <div class="pics">
+                        <div style="padding-top: 10px">
+                            <img src="{$OpusDetail.opus_pic_cons}" onerror="this.src='__IMG__/con-img1.png'" alt="" />
+                        </div>
+						    <div style="padding-top: 10px"> 
+							 <volist name="OpusSearch" id="list">
+                           <span style="font-size:16px"> {$list}</span>
+                        </volist>
+                    </div>
+                  </div>
+					
+						
+		             <div id="div1" style="width: 700px;background-color: #fff; background-clip: padding-box;border-radius: 3px;outline: 0;">
+					 
+                    <div class="snd-dialog-header"> 
+					<h5 class="snd-dialog-title" node-dype="title">反馈工单</h5>
+					</div>
+					
+					<!--
+					addok页
+$sex=$_POST["sex"];   sex  就是 input type="radio"   的 名字   模块 判断 是否post传送过来值
+
+-->
+					
+				<div class="snd-dialog-body" node-dype="content">	
+					
+				<div class="user-ticket">
+			   <h3 class change-class >
+			   <span>对象：【原创】梦幻写意唯美粒子蝴蝶婚礼舞台背景  类型：视频素材<span>
+			   </h3>
+			   
+			  <div class="reason">
+		                    <form method="post" onsubmit="return  check_form();">
+						<ul>	
+						<li>
+					<label class="form-radio">
+                    <input type="radio" name="sex" id="title" value="0" onClick="selectTag('请填写与此素材重复的另一个素材的链接或ID')" checked />
+					<span class="form-radio-text">与站内素材重复</span>
+                   </label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="form-radio">
+				   <input type="radio" name="sex" id="title1" value="1" onClick="selectTag('请描写此素材违规情况，如：含商业水印、含广告信息、含违法信息等')"/>
+				   <span class="form-radio-text">内容违规</span>
+                </label>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="form-radio">
+				   <input type="radio" name="sex" id="title2" class="title11"  value="3" onClick="selectTag('请填写你的反馈内容！')"/>
+				   <span class="form-radio-text">侵权</span>
+                </label>
+&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="radio" name="sex" id="title3" value="2" onClick="selectTag('请填写你的反馈内容！')"/>其他
+				   </li>
+					</ul>
+							 </div>
+			<div id="tips" class="tips" style="display: none;">	
+         <h4>温馨提示</h4>			
+			<div class="content"><p>
+	如您发现该设计师侵犯您的权利，为了便于我们尽快为您处理，请及时将以下信息发送至邮箱：<span>admin@vjshi.com</span></p><p>
+	1，侵权素材链接或ID
+</p><p>
+	2，初步的作品权利证明材料
+</p><p>
+	3，权利人信息及联系方式
+</p><p>
+	VJshi网一直致力于保护原创作品，感谢您参与平台内容治理，我们将尽快回复及处理您的邮件
+</p><p><br></p><p>
+	VJshi网为保护原创作品采取的措施：
+</p><p>
+	1，加强审核培训，严格把好审核关
+</p><p>
+	2，建立信用系统，扶持优质设计师，打击失信设计师 <a href="http://help.vjshi.com/manual/37.html" target="_blank">查看信用系统规则</a></p><p>
+	3，提供畅通的投诉渠道及快速处理机制
+</p><p>
+	4，开发基于图像识别的视频查重系统，杜绝被投诉过的内容再次上传
+</p></div>				 
+							 
+	</div>						 
+							 
+							 
+							 
+							 
+							 
+							 
+                        <div class="forms">
+                            <ul>
+			  
+                                <li><textarea maxlength="255" class="form-control __web-inspector-hide-shortcut__"  id="content"  placeholder="请填写与此素材重复的另一个素材的链接或ID" ></textarea></li>
+								
+                                <li><input type="button" id="webtn" class="webtn" value="提  交" onclick="check_form()"></li>
+                            </ul>
+							
+							
+
+                        </div>
+                    </form>	   
+			      
+			     </div>
+			    </div>
+			   
+			   
+			   
+			   <li>
+                <a href=JavaScript:; onclick="Lock_CheckForm(this);">点这里关闭本窗口</a>			
+			    </li>
+                    
+
+					</div>	
+
+                </div>
+
+
+
+
+
+            </div>
+            <div class="rightct fr">
+
+                <div class="prodinfo">
+                    <dl>
+                        <dt>售价：
+
+						<if condition="$OpusDetail.is_half eq 0">
+						<em id="readpoint">{$OpusDetail.price}&nbsp;元</em>
+						<else/>
+						<em id="readpoint">{$OpusDetail.prices}&nbsp;L币</em>
+						</if>
+						&nbsp;&nbsp;<font color="#1abd9b"
+                                id="bjzq"></font>
+</dt>
+<if condition="$OpusDetail.is_half eq 0">
+ <a href="{:U('Model/loading',array('opus_id'=>$OpusDetail['opus_id']))}"style="    color: #fff;background-color: #02d4b1;display: block; margin: 20px 0;width: 300px; height: 56px;line-height: 56px;padding: 0;border-radius: 5px;font-size: 18px;text-align: center;
+">素材下载</a>
+<else/>
+ <a href="{:U('Model/loading',array('opus_id'=>$OpusDetail['opus_id']))}"style="    color: #fff;background-color: #02d4b1;display: block; margin: 20px 0;width: 300px; height: 56px;line-height: 56px;padding: 0;border-radius: 5px;font-size: 18px;text-align: center;
+    ">免费下载</a>
+</if>
+
+
+
+
+
+                        <dd>视频类型: {$OpusDetail.tip_style}</dd>
+                        <dd>音频: 仅供参考 禁止商用</dd>						
+						<dd>上传日期: {$OpusDetail.opus_createtime}</dd>
+                    </dl>
+                    <div class="btns bdsharebuttonbox">,
+
+                        <a href="javascript:favorite({$OpusDetail.opus_id},{$OpusDetail.user_id});" class="sc"
+                            id="showsc">收藏</a>
+                        <!-- <a href="javascript:share();" class="share bds_more" data-cmd="more" >分享</a>-->
+                        <script type="text/javascript">
+                            function share() {
+                                $('#share').attr('style', 'display:block');
+                            }
+                        </script>
+                        <!--
+                   <script type="text/javascript">
+                        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","weixin","renren"],"viewText":"分享到：","viewSize":"16"}};
+                        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/__JS__/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                    </script>
+                    -->
+                    </div>
+                    <div class="jiathis_style_24x24 fr" id='share' style="display: none">
+                        <a class="jiathis_button_qzone"></a>
+                        <a class="jiathis_button_tsina"></a>
+                        <a class="jiathis_button_tqq"></a>
+                        <a class="jiathis_button_weixin"></a>
+                        <a class="jiathis_button_renren"></a>
+                        <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis"
+                            target="_blank"></a>
+                        <a class="jiathis_counter_style"></a>
+                    </div>
+                    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+                </div>
+				                <div class="userinfo">
+                    <dl class="clearfix">
+                        <dt><img src="{$UserInfo.user_pic}" onerror="this.src='__IMG__/nophoto.gif'"></dt>
+                        <dd><b>{$UserInfo.user_nickname}</b><a href="javascript:follow({$UserInfo.user_id});"
+                                class="gz follow" id="follow">关注</a></dd>
+                        <dd><i>空间作品数：{$OpusCount} </i><a
+                                href="{:U('Single/personal',array('user_id'=>$UserInfo['user_id']))}" target="_blank"
+                                class="kj">【TA的空间】</a></dd>
+								<dd><i style="padding-left:72px;color: #44a0d5;">实名认证 </i></dd>
+
+                    </dl>
+                </div>
+				<!--
+                <div class="hotword">
+
+                    <div class="words">
+                        <volist name="OpusSearch" id="list">
+                            <a href="{:U('Search/index',array('search'=>$list))}" target="_blank">{$list}</a>
+                        </volist>
+                    </div>
+                </div>
+				-->
+            </div>
+        </div>
+
+
+        <div class="caselist">
+            <!-- <div class="titles">相关推荐</div>-->
+            <div class="contlist">
+                <div class="caselistcnt clearfix">
+
+                    <volist name="SameList" id="list" offset="0" length='4'>
+                        <dl class="items pr">
+                            <a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="blank">
+
+                                <dt class="scrollpic listheight">
+                                    
+
+
+                     <div style="position:relative;">
+
+                                        <video id="video" poster="{$list.opus_pic_big}" onmouseover="videoPlayback()"
+                                            onmouseout="videoStopped()" muted="muted" muted="muted" loop='loop' width="280" height="160" style="width:100%; height=100%; object-fit: fill">
+                                            <source src="{$list.opus_video}" type="video/mp4">
+                                        </video>
+
+
+　　                       <div style="position:absolute; z-index:2; left:140px; top:140px;font-size:15px;color:#fff;">
+
+　　　               <?php  echo substr($list['opus_updatetime'],0,10) ?>
+
+　　                   </div>
+
+                              </div>
+
+
+
+
+
+
+                                        <div class="pic"></div>
+                                        <div class="upscr"></div>
+                                        <div class="downscr"></div>
+                                </dt>
+                            </a>
+                            <dd style="text-align:center;font-size:16px;">
+                                <p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title"
+                                        target="_blank">{$list.opus_title}</a></p>
+                            </dd>
+                            <!-- <dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em><?php  echo substr($list['opus_updatetime'],0,10) ?></em></span></dd>
+                                       半价标识-->
+                            <if condition="$list['is_half'] eq 1">
+                                <img class="pa" style="left:0;top:0;z-index:10" src="__IMG__/bjicos.png" /></if>
+                        </dl>
+                    </volist>
+               
+
+            </div>
+        </div>
+    </div>
+
+
+	
+	
+    <!----->
+
+
+
+
+
+    </div>
+    <input type="hidden" value="{$OpusDetail.opus_id}" id="opus_id">
+    <input type="hidden" value="{$UerInfo.user_id}" id="seller_id">
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+    <!--检查状态-->
+	    <script src="__JS__/tips.js" type="text/javascript"></script>
+
+    <script type="text/javascript" src="__JS__/jquery.reveal.js"></script>
+    <script src="__JS__/jquery-2.1.1.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="__JS__/jquery.min.js"></script>
+	<script type="text/javascript" src="__JS__/blowup.min.js"></script>
+    <script type="text/javascript" src="__CS__/demo/scripts/prism.js"></script>
+    <script type="text/javascript">
+      //  var el = window.document.body;//声明一个变量，默认值为body
+     //   window.document.body.onmouseover = function (event) {
+     //       el = event.target;//鼠标每经过一个元素，就把该元素赋值给变量el
+      //      console.log('当前鼠标在', el, '元素上');//在控制台中打印该变量
+     //   }
+
+        var speed = 10;//设置速度
+
+        //var vdo = document.getElementById("视频的id");//获取id
+        //鼠标移进去
+        function videoPlayback() {
+            //获取视频标签
+            var e = window.event;
+            var obj = e.srcElement;
+            obj.playbackRate = speed;//改变速度
+            obj.play();
+
+        }
+
+        //鼠标离开
+        function videoStopped() {
+            //获取视频标签			
+            var e = window.event;
+            var obj = e.srcElement;
+            //停止播放
+            obj.pause();
+            obj.currentTime = 0;   //停止播时回到开始
+        }
+
+
+
+        $(document).ready(function () {
+		
+       
+     //   return false;
+            $(".demo-img").blowup({
+                //background : "#FFFFFF"
+            });
+
+        });
+	 </script>	
+		
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+
+    <!--收藏状态-->
+    <script type="text/javascript">
+        head.ready('jquery', function () {
+            var SiteUrl = $('#SiteUrl').val();
+            var opus_id = $('#opus_id').val();
+
+            $.getJSON(SiteUrl + '/index.php/Ajax/FavorJudge?fa_id=' + opus_id + "&" + Math.random(), function (data) {
+                if (data.judge == 'true') {
+                    $(".sc").html("已收藏");
+                } else {
+                    $(".sc").html("收藏");
+                }
+            });
+        })
+
+
+
+
+    </script>
+    <!--关注状态-->
+    <script type="text/javascript">
+        head.ready('jquery', function () {
+            var SiteUrl = $('#SiteUrl').val();
+            var seller_id = $('#seller_id').val();
+            $.getJSON(SiteUrl + '/index.php/Ajax/FocusJudge?seller_id=' + seller_id + "&" + Math.random(), function (data) {
+                if (data.judge == 'true') {
+                    $(".gz").html("已关注");
+                } else {
+                    $(".gz").html("关注");
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        head.load('__JS__/show.js', function () { });
+
+    </script>
+
+
+
+
+
+<Script type="text/javascript">
+
+
+function popup(popupName){	
+	_windowHeight = $(".wrap").height();//获取当前窗口高度
+	_windowWidth = $(".wrap").width();//获取当前窗口宽度
+	_popupHeight = popupName.height();//获取弹出层高度
+	_popupWeight = popupName.width();//获取弹出层宽度
+	_posiTop = (_windowHeight - _popupHeight)/10;
+	_posiLeft = (_windowWidth - _popupWeight)/8;
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position
+}	
+
+
+function popups(popupName){	
+
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"none"});//设置position
+}	
+	
+	
+
+$(function(){
+
+
+
+	$(".btn1").click(function(){
+		popup($("#div1"));
+	//	popups($("#div2"));
+	});
+
+//	$("#click1").click(function(){
+	//	popups($("#div1"));
+	//});
+
+	$(".btn2").click(function(){
+	//	popup($("#div2"));
+		popups($("#div1"));
+	});
+	
+
+	
+});
+ 
+
+
+
+function   Lock_CheckForm(theForm){
+
+//div2.style.display='none';
+div1.style.display='none';
+return   false;
+
+}
+
+	
+//点击弹出的批量设置以外的地方时隐藏弹出层
+//$(document).click(function(event){
+	//$('#div2').css('display','none');
+//	div2.style.display='none';
+//});
+ 
+
+ $(window).resize(); 
+ 
+ </script>
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        function edit(action, id) {
+            $.ajax({
+                type: "get",
+                async: true,
+                url: "/index.php/Service/" + action + " ?action=" + action + '&opus_id=' + id,
+                dataType: "html",
+                data: '',
+
+                success: function (msg) {
+
+                    var show = $('.rtcnt');
+                    show.text('');
+                    show.prepend(msg)
+                },
+                error: function (msg) {
+                    ////alert(msg.status)
+                }
+            })
+        }
+    </script>
+
+
+
+
+
+    <include file="Public/right" />
+
+
+    <include file="Public/footer" />
+    <div class="graybg"></div>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+ 
+
+
+ <title>会员实名认证</title>
+
+    <div class="rtmain">
+        <div class="hdtitle clearfix">
+            <ul class="fl clearfix">
+                <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">会员实名认证</a></li>
+            </ul>
+        </div>
+        <div class="uspictm clearfix">
+<p style="margin-left: 65px;color:red;font-size:16px;">发布作品请卖家先实名认证，保护个人作品安全</p>
+            <div class="list_show">
+                <div class="lists">
+                <div class="memo clearfix" >
+                <div class="clearfix fl" style="margin-bottom:20px">
+				
+				
+                    <div id="myContent" style="border:1px solid;width: 500px;height: 175px; no-repeat center ">
+                        <form action="" method="post" id="head_img" style="position:relative" enctype="multipart/form-data">
+                            <input type="hidden" class="inp" name="ad_pic" id="a-pic-url" readonly>
+                            <input type="file" name ="file" id="a-file" style="position:absolute; left:165px; z-index:999; top:148px;">
+                        </form>
+   <div style="position:absolute;height:130px;width:170px;border: dashed 1px;margin-top: 10px;margin-left: 165px;overflow: hidden">
+       <img id ="yulana" src="{$info.idcarda_pic}" onerror="this.src='__IMG__/useravatar.png'" style="clear: both; display: block; margin:auto">
+   </div>
+                    </div>
+					
+					
+                    <div id="myContent" style="border:1px solid;width: 500px;height: 175px;  margin-top: 6px; no-repeat center ">
+                        <form action="" method="post" id="head_img" style="position:relative" enctype="multipart/form-data">
+                            <input type="hidden" class="inp" name="ad_pic" id="b-pic-url" readonly>
+                            <input type="file" name ="file" id="b-file" style="position:absolute; left:165px; z-index:999; top:148px;">
+                        </form>
+   <div style="position:absolute;height:130px;width:170px;border: dashed 1px;margin-top: 10px;margin-left: 165px;overflow: hidden">
+       <img id ="yulanb" src="{$info.idcardb_pic}" onerror="this.src='__IMG__/useravatar.png'" style="clear: both; display: block; margin:auto">
+   </div>
+                    </div>
+							
+                    <div id="myContent" style="border:1px solid;width: 500px;height: 175px;  margin-top: 6px; no-repeat center ">
+                        <form action="" method="post" id="head_img" style="position:relative" enctype="multipart/form-data">
+                            <input type="hidden" class="inp" name="ad_pic" id="c-pic-url" readonly>
+                            <input type="file" name ="file" id="c-file" style="position:absolute; left:165px; z-index:999; top:148px;">
+                        </form>
+   <div style="position:absolute;height:130px;width:220px;border: dashed 1px;margin-top: 10px;margin-left: 165px;overflow: hidden">
+       <img id ="yulanc" src="{$info.idcardc_pic}" onerror="this.src='__IMG__/useravatar.png'" style="clear: both; display: block; margin:auto">
+   </div>
+                    </div>					
+					
+	              <div id="myContent" style="border:0px solid;width: 500px;height: 175px;  margin-top: 6px; no-repeat center ">
+
+   <div style="position:absolute;height:80px;width:180px;margin-top: 50px;margin-left: 175px;overflow: hidden">
+       		  <a class="pay-btn2" href="">提交审核</a>
+			
+   </div>
+                    </div>					
+						
+					
+					
+             </div>
+                <ul class="clearfix fl" id="avatarlist" style="margin-left:150px;" >
+                    <li>
+                        <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
+                        身份证正面 规格≤ 1M					</li>
+                    <li>
+                        <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
+                        身份证反面 规格≤ 1M			</li>
+                    <li>
+                       <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
+                        手持身份证 规格≤ 1M			</li>
+                    <li>
+                      <br /> <br /> <br />
+                       <span style="color:red;"> 请认真上传个人信息 资料不全不予通过 	</span>				</li>
+                </ul>
+            </div>
+                </div>
+     
+                <div class="lists" style="display: none;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+   <form action="{:U('Upload/uploads')}" method="post" enctype="multipart/form-data" id="a-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="a-uploadFile-iframe"></form>
+    <iframe id="a-uploadFile-iframe" name="a-uploadFile-iframe" style="position: absolute;left: -9999px;top: -9999px;"></iframe>
+	
+   <form action="{:U('Upload/uploads')}" method="post" enctype="multipart/form-data" id="b-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="b-uploadFile-iframe"></form>
+    <iframe id="b-uploadFile-iframe" name="b-uploadFile-iframe" style="position: absolute;left: -9999px;top: -9999px;"></iframe>
+
+   <form action="{:U('Upload/uploads')}" method="post" enctype="multipart/form-data" id="c-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="c-uploadFile-iframe"></form>
+    <iframe id="c-uploadFile-iframe" name="c-uploadFile-iframe" style="position: absolute;left: -9999px;top: -9999px;"></iframe>
+
+	
+    <script>
+	
+        $(function(){
+		
+            $('#a-file').change(function(){      //身份证正面
+                var oInp = $(this);
+                var oNewInp = oInp.clone(true);
+                var oForm = $('#a-uploadFile-form');
+                var oIframe = $('#a-uploadFile-iframe');
+                oInp.before(oNewInp);
+
+                oInp.removeAttr('id').removeAttr('class').appendTo(oForm);
+
+                oIframe.on('load', function(e){
+                    oIframe.off('load');
+                    var sRet = this.contentWindow.document.body.innerHTML;
+                    oForm.empty();
+                    if (sRet && sRet.length) {
+                        try {
+                            var oRet = $.parseJSON(sRet);
+                            if (oRet.error == 0) {
+
+                                $.getJSON('/index.php/Ajax/RenzhengPica?pic='+oRet.filePath,function (data) {
+                                 if(data.status==1){
+                                     layer.msg(data.msg,{time:1000});
+                                 }else{
+                                     layer.msg(data.msg,{time:1000})
+                                 }
+                                  });
+                                $('#a-pic-url').val(oRet.filePath);
+                                $("#yulana").attr('src',oRet.filePath)
+                              //  $("#img_in").attr('src',oRet.filePath)
+                              //  $("#service_img").attr('src',oRet.filePath)
+                            } else {
+                                //alert(oRet.message);
+                            }
+                        } catch (e) {
+                            //alert('上传失败，请重试!');
+                        }
+                    }
+                });
+
+                oForm.submit();
+            });
+
+
+
+   $('#b-file').change(function(){      //身份证反面
+                var oInp = $(this);
+                var oNewInp = oInp.clone(true);
+                var oForm = $('#b-uploadFile-form');
+                var oIframe = $('#b-uploadFile-iframe');
+                oInp.before(oNewInp);
+
+                oInp.removeAttr('id').removeAttr('class').appendTo(oForm);
+
+                oIframe.on('load', function(e){
+                    oIframe.off('load');
+                    var sRet = this.contentWindow.document.body.innerHTML;
+                    oForm.empty();
+                    if (sRet && sRet.length) {
+                        try {
+                            var oRet = $.parseJSON(sRet);
+                            if (oRet.error == 0) {
+
+                                $.getJSON('/index.php/Ajax/RenzhengPicb?pic='+oRet.filePath,function (data) {
+                                 if(data.status==1){
+                                     layer.msg(data.msg,{time:1000});
+                                 }else{
+                                     layer.msg(data.msg,{time:1000})
+                                 }
+                                  });
+                                $('#b-pic-url').val(oRet.filePath);
+                                $("#yulanb").attr('src',oRet.filePath)
+                              //  $("#img_in").attr('src',oRet.filePath)
+                              //  $("#service_img").attr('src',oRet.filePath)
+                            } else {
+                                //alert(oRet.message);
+                            }
+                        } catch (e) {
+                            //alert('上传失败，请重试!');
+                        }
+                    }
+                });
+
+                oForm.submit();
+            });
+
+		
+		
+            $('#c-file').change(function(){      //手持身份证正面
+                var oInp = $(this);
+                var oNewInp = oInp.clone(true);
+                var oForm = $('#c-uploadFile-form');
+                var oIframe = $('#c-uploadFile-iframe');
+                oInp.before(oNewInp);
+
+                oInp.removeAttr('id').removeAttr('class').appendTo(oForm);
+
+                oIframe.on('load', function(e){
+                    oIframe.off('load');
+                    var sRet = this.contentWindow.document.body.innerHTML;
+                    oForm.empty();
+                    if (sRet && sRet.length) {
+                        try {
+                            var oRet = $.parseJSON(sRet);
+                            if (oRet.error == 0) {
+
+                                $.getJSON('/index.php/Ajax/RenzhengPicc?pic='+oRet.filePath,function (data) {
+                                 if(data.status==1){
+                                     layer.msg(data.msg,{time:1000});
+                                 }else{
+                                     layer.msg(data.msg,{time:1000})
+                                 }
+                                  });
+                                $('#c-pic-url').val(oRet.filePath);
+                                $("#yulanc").attr('src',oRet.filePath)
+                            } else {
+                                //alert(oRet.message);
+                            }
+                        } catch (e) {
+                            //alert('上传失败，请重试!');
+                        }
+                    }
+                });
+
+                oForm.submit();
+            });
+				
+			
+			
+        });
+    </script>	
+
+	
+	
+	

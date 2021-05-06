@@ -1,0 +1,200 @@
+<div class="header1 normaltop1"">
+
+    <div class="wrap clearfix">
+
+		
+		
+		<div class="notification-bar">
+		<p>
+		<if condition="$msg eq 0">
+	<a href="javascript:void(0);" data-value="StationMsg" class="chanView detail list-style-blue"> 您有&nbsp;0&nbsp;条未读消息 &nbsp;(&nbsp;经常关注官方提示信息，即时处理信息提示问题...&nbsp;)</a><span class="shut" action-type="shut" action-data="nid=0&amp;name=message"></span>
+		<else/>
+
+
+
+	<a href="javascript:void(0);" data-value="StationMsg" class="chanView detail list-style-blue">
+	您有{$msg}条未读消息(<volist name="list1" id="vo" >
+	<input name="title" type="text" style="border:none; line-height:35px; background:#fff; color: #555; cursor:pointer" size="50" value="{$vo.chat_content}" maxlength="15"  onkeyup="javascript:setShowLength(this, 15, 'cost_tpl_title_length');"  disabled /> 
+	</volist>...)
+	</a>	
+	<span class="shut" action-type="shut" action-data="nid=0&amp;name=message"></span>
+		
+		</if>
+		</p>
+		</div>
+        
+		
+		<div class="subnav fl clearfix">
+		
+		<i onmouseover="display()"  onmouseout="disappear()" ><a style="color:red;" href="{:U('Service/index')}" class="active">会员中心</a></i>
+        <i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="Down_Upload">下载记录</a></i>
+		<i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="CollectFocus">收藏</a></i>
+
+	   
+
+		   <div id="box8" class="box8" onmouseover="display()" onmouseout="disappear()">
+                            <div id="box81" class="box81">              
+											<dd class="nav-list" style="font-size:16px;">
+											<dl style="margin-left:15px;"><a id="css" href="javascript:void(0);" data-value="ModifyData"><b>用户中心</b></a></dl>
+												<dl style="margin-left:15px;"><a id="css" href="javascript:void(0);" data-value="ModifyData">资料修改</a></dl>
+												<dl style="margin-left:15px;"><a href="javascript:void(0);" class="chanView" data-value="StationMsg">个人消息</a></dl>
+												<dl style="margin-left:15px;"><a href="javascript:void(0);" class="chanView" data-value="AnswerQuestion">反馈</a></dl>
+												<dl style="margin-left:15px;"><a href="javascript:void(0);" class="chanView" data-value="AccountSafe">账户安全</a></dl>
+											</dd>
+											
+											
+											<dd class="nav-list" style="font-size:16px;">
+												<dl style="margin-left:15px;"><a id="css" href="javascript:void(0);" data-value="ModifyData"><b>用户中心</b></a></dl>
+												<!--<dl style="margin-left:15px;"><a id="css" href="javascript:void(0);" data-value="MaterialUpload">作品发布</a></dl>-->
+												<dl style="margin-left:15px;">
+												<if condition="$idcard_sta eq 1">
+												<a id="css" href="{:U('Service/materialupload', array('pid'=>1))}">作品发布</a>
+												<else/>
+												<a href="javascript:void(0);" class="chanView" data-value="Renzhengdata">作品发布</a>
+												</if>
+												<!--
+												<a id="css" href="{:U('Service/material_upload', array('pid'=>1))}">作品发布</a>
+												-->
+												</dl>
+												<dl style="margin-left:15px;"><a href="javascript:void(0);" class="chanView" data-value="AccountDetail">账务明细</a></dl>
+												<dl style="margin-left:15px;"><a href="javascript:void(0);" class="chanView" data-value="AnswerQuestion">反馈</a></dl>
+											</dd>											
+											
+											
+											
+										</div>		   
+			</div>	
+
+
+
+
+        </div>
+		
+		
+	
+		
+
+		
+		
+		
+
+    </div>
+
+
+<script type="text/javascript" language="javascript">
+
+
+		function display() {
+
+		//	$(".box").css('display', 'block');
+          // popup($("#box8"));
+
+		//	$(".box").css('display', 'block');
+    document.getElementById('box8').style.display='block' ;
+
+		}
+		
+		
+		function disappear() {
+			$(".box8").css('display', 'none');
+
+		}
+		
+	
+		
+		
+</script>		
+
+
+
+<script>
+	var oDiv = document.getElementById('css'); //获取这个div元素
+	oDiv.style.background-image = '';   //将它的背景设置为空，这样就没有背景图了
+</script>
+
+
+
+
+
+    <!--左侧菜单选项卡-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var SiteUrl = $('#SiteUrl').val();
+            $('.ltnav li').click(function () {
+                var i = $(this).index() + 2;
+                $('.home a').attr('class', '');
+                $(this).attr('style', 'border-left:-300px solid #59ba39;')
+                    .children("i").children("a")
+                    .attr('style', 'color:#6bc85c;background:url(' + SiteUrl + '/Public/images/ltnavico' + i + 'h.png) no-repeat 36px center;')
+                    .parent().parent().siblings()
+                    .attr('style', '')
+                    .children("i").children("a").attr('style', '')
+
+            })
+        })
+
+    </script>
+    <!--异步调用-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var action_show = $("#action").val();
+            if (action_show != '') {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/index.php/Service/Ajax?action=" + action_show + "&b=" + Math.random(),
+                    dataType: "html",
+                    data: '',
+                    cache: false,
+
+                    success: function (msg) {
+
+                        var show = $('.rtcnt');
+                        show.text('');
+                        show.prepend(msg)
+                    },
+                    error: function (msg) {
+                        ////alert(msg.status)
+                    }
+                })
+            }
+            //var SiteUrl = $('#SiteUrl').val();
+
+            $('.chanView').click(function () {
+
+                var action = $(this).attr('data-value');
+
+                
+
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/index.php/Service/"+action+"?action=" + action + "&b=" + Math.random(),
+                    dataType: "html",
+                    data: '',
+                    cache: false,
+
+                    success: function (msg) {
+
+                        var show = $('.rtcnt');
+                        show.text('');
+                        show.prepend(msg)
+                    },
+                    error: function (msg) {
+                        ////alert(msg.status)
+                    }
+                })
+            });
+        })
+
+    </script>
+
+
+
+
+
+
+
+
+
+
