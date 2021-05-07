@@ -10,12 +10,6 @@
                     <dd><a href="{:U('Single/aboutUS',array('show'=>'1'))}" target="_blank">联系我们</a></dd>
                 </dl>
                 <dl>
-                    <dt><img src="__IMG__/ftico2.png">我要充值</dt>
-                    <!--<dd><a href="{:U('Service/index')}" target="_blank">用户中心</a></dd>-->
-                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('AccountDetail')" target="_blank">账户明细</a></dd>
-                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('Recharge')" target="_blank">账户充值</a></dd>
-                </dl>
-                <dl>
                     <dt><img src="__IMG__/ftico3.png">我是会员</dt>
                     <dd><a href="{:U('Service/index')}" onclick="chan_Page('ToBeSeller')" target="_blank">成为会员</a></dd>
                     <!--<dd><a href="#" target="_blank">卖家必读</a></dd>-->
@@ -131,9 +125,7 @@
     </div>
 
 </div>
-<!--第三方登录-->
-<input type="hidden" value="{$qq_login}" id="qq_login">
-<input type="hidden" value="{$wechat_login}" id="wechat_login">
+
 
 <script language='javascript'>
 
@@ -169,9 +161,6 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 		
 }
 
-
-
-
     head.ready('formvalidator',function(){
         var SiteUrl = $('#SiteUrl').val();
 
@@ -180,40 +169,5 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
         $(".forward").val(SiteUrl);
 
     });
-    function Oauth(i)
-    {
-        var url="";
-        if(i==1){
-          url =  $("#qq_login").val();
-
-               var title='QQ登录';
-          // location.href = "/index.php/Login/QQ_login"
-        }else if(i==0){
-
-            url= $("#wechat_login").val();
-            var title="微信登录";
-
-        }else if(i==3){
-            url = "{:U('Public/phone')}";
-            var title = '手机登录'
-        }
-        $(".logintk").hide();
-        $(".graybg").hide();
-
-       layer.open({
-            type: 2,
-            title: title,
-            shadeClose: true,
-            shade: 0.5,
-            area: ['55%', '65%'],
-            content: url, //iframe的url
-            end:function(){
-               window.location.reload();
-
-            }
-        });
-
-
-    }
 
 </script>

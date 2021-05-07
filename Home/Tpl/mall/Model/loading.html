@@ -63,17 +63,11 @@
 		</if>
 
 
-		<div class="down"><a class="pay_down fl download" href="javascript:void (0);" >立即下载</a></div>
+		<div class="down">&nbsp;&nbsp;<a class="pay_down fl download" href="javascript:void (0);" >立即下载</a></div>
 	</div>
 </div>
-<div class="wrap mb-20 clearfix">
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服电话：{$Contact_phone}
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a id="kfqqlink" title="联系客服" href="javascript:void(0)" style="color:#969696;">客服QQ：{$Contact_phone}</a>
-</div>
-<div class="wrap mb-20 clearfix">
 
-	<a href="{$ad_down.ad_piclink}" target="_blank" ><img src="{$ad_down.ad_pic}"  style="height:88px;width: 100%;"></a>
-</div>
+
 <div class="indcaselist">
 	<div class="wrap">
 		<div class="cont index_hot">
@@ -177,7 +171,7 @@
 							<li class="clearfix pr"><input type="text" name="username" id="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
 							<li class="clearfix pr"><input type="password" name="password" id="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
 							<li class="clearfix pr"><input type="password" name="pwdconfirm" id="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
-							<li class="clearfix pr"><input type="text" name="email" id="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>							
 							<li class="clearfix pr"><input type="checkbox" name='protocol' id="protocol" checked="checked"><label for="protocol"><a href="#l" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
 							<li class="clearfix pr"><input type="submit"  value="注册" class="webtn" style="width:150px">
 							</li>
@@ -190,10 +184,7 @@
 		</div>
 	</div>
 </div>
-<!--第三方登陆{$wechat_login}
-<input type="hidden" value="{$qq_login}" id="qq_login">
-<input type="hidden" value="{$wechat_login}" id="wechat_login">
--->
+
 
 <script type="text/javascript">
 
@@ -218,7 +209,35 @@
          }
    
 
+btnsd1.onclick = function() { 
 
+  var oInpa = document.getElementById("email").value;
+
+if(oInpa==""){
+alert("邮箱未输入..");
+}else{
+alert("邮箱验证已发送，请注意查收..");
+
+
+//$('#imgbt').attr('style','display:block')	;	
+
+$.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
+ if(data.status==1){
+  layer.msg(data.msg,{time:1000});
+  }else{
+   layer.msg(data.msg,{time:1000})
+   }
+  });
+
+
+}
+
+
+
+
+
+		
+}
 
 </script>
 

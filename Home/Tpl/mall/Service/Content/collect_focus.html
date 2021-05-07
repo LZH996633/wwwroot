@@ -6,7 +6,6 @@
                 <ul class="fl clearfix">
                      <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="CollectFocus">收藏关注</a></li>
                      <li ><a href="javascript:void(0);" class="inter_chanView" data-value="Down_Upload">下载上传</a></li>
-                     <li><a href="javascript:void(0);" class="inter_chanView" data-value="MyCustom">我的定制</a></li>
                 </ul>
             </div>
             <div class="userconts uspictm ">
@@ -227,7 +226,7 @@
             $.ajax({
                 type: "get",
                 async: true,
-                url: "/index.php/Service/"+action+"?action="+action+"&b="+Math.random(),
+                url: "/index.php/Service/"+action+"?action="+action+"&b="+Math.random(),			
                 dataType: "html",
                 data: '',
                 cache:false,

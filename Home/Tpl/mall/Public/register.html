@@ -139,7 +139,9 @@
                     <div class="input"><label>密码：</label><input type="password" id="pass_word" name="password" class="w200" placeholder="密码"><span id="pass_wordTip" class="onShow"></span></div>
                     <div class="input"><label>确认密码：</label><input type="password" id="pwdcon_firm" name="pwdconfirm" class="w200" placeholder="再次输入密码"><span id="pwdcon_firmTip" class="onShow"></span></div>
                     <div class="input"><label>邮箱：</label><input type="text" id="em_ail" name="email" class="w200" placeholder="输入邮箱"><span id="em_ailTip" class="onShow"></span></div>
-                    <div class="input"  style="display:none;"><label>昵称：</label><input type="text" id="nickname" class="w200" value="1490772594"></div>
+                    <div class="input"  style="display:none;"><label>昵称：</label><input type="text" id="nickname" class="w200" value="1490772594"></div>	
+
+					
                     <div class="input">
                         <label>协议：</label>
                         <input type="checkbox" name="protocol" id="protocol" value="" checked><a href="{:U('Single/agreement')}" target="_blank"  class="blue fl">点击阅读并同意注册协议</a>
@@ -164,57 +166,7 @@
 
 <include file="Public/footer"/>
 
-<!--第三方登录-->
-<input type="hidden" value="{$qq_login}" id="qq_login">
-<input type="hidden" value="{$wechat_login}" id="wechat_login">
-
-<script language='javascript'>
 
 
-    head.ready('formvalidator',function(){
-        var SiteUrl = $('#SiteUrl').val();
-
-        head.load('__JS__/checkform_loginout.js');
-
-        $(".forward").val(SiteUrl);
-
-    });
-    function Oauth(i)
-    {
-        var url="";
-        if(i==1){
-            url =  $("#qq_login").val();
-
-            var title='QQ登录';
-            // location.href = "/index.php/Login/QQ_login"
-        }else if(i==0){
-
-            url= $("#wechat_login").val();
-            var title="微信登录";
-
-        }else if(i==3){
-            url = "{:U('Public/phone')}";
-            var title = '手机登录'
-        }
-        $(".logintk").hide();
-        $(".graybg").hide();
-
-        layer.open({
-            type: 2,
-            title: title,
-            shadeClose: true,
-            shade: 0.5,
-            area: ['55%', '65%'],
-            content: url, //iframe的url
-            end:function(){
-                window.location.reload();
-
-            }
-        });
-
-
-    }
-
-</script>
 </body>
 </html>
