@@ -27,8 +27,7 @@ $(function(){
     <li><a href="{:U('Index/welcome')}" target="rightFrame" class="selected" style="text-decoration: none;" ><img src="__IMG__/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
     <li><a href="{:U('Opus/index')}" target="rightFrame"  style="text-decoration: none;"><img src="__IMG__/icon02.png" title="作品管理" /><h2>作品管理</h2></a></li>
     <li><a href="{:U('User/index')}"  target="rightFrame"  style="text-decoration: none;"><img src="__IMG__/icon03.png" title="会员管理" /><h2>会员管理</h2></a></li>
-    <li><a href="{:U('Account/recharge')}"  target="rightFrame"  style="text-decoration: none;"><img src="__IMG__/icon04.png" title="账务管理" /><h2>账务管理</h2></a></li>
-    <li><a href="{:U('Classify/index')}" target="rightFrame"  style="text-decoration: none;"><img src="__IMG__/icon05.png" title="分类管理" /><h2>分类管理</h2></a></li>
+
     <li><a href="{:U('Index/detailset')}"  target="rightFrame"  style="text-decoration: none;"><img src="__IMG__/icon06.png" title="具体设置" /><h2>详细设置</h2></a></li>
     </ul>
             
@@ -42,6 +41,7 @@ $(function(){
     <div class="user">
     <span>{$admin_name}</span>
         <a href="{:U('User/withdrawal')}" target="rightFrame">
+		<!--
     <i>提现</i>
     <b>{$num}</b>
     </a>
@@ -49,6 +49,7 @@ $(function(){
             <i>反馈</i>
             <b>{$num_back}</b>
         </a>
+		-->
     </div>    
     
     </div>
