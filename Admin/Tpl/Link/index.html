@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>合作管理</title>
+    <title>Cooperative management</title>
     <link href="__CS__/style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="__JS__/jquery-1.11.0.min.js"></script>
     <script language="javascript">
         $(function () {
-            //导航切换
+            //Navigation switch
             $(".imglist li").click(function () {
                 $(".imglist li.selected").removeClass("selected")
                 $(this).addClass("selected");
@@ -40,11 +40,11 @@
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">合作管理</a></li>
-        <li><a href="#">合作链接</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">Cooperative management</a></li>
+        <li><a href="#">Cooperation link</a></li>
     </ul>
 </div>
 
@@ -52,19 +52,19 @@
 
     <div class="tools">
         <ul class="toolbar">
-            <li class="btn-add"><a href="{:U('Link/add')}"><span><img src="__IMG__/t01.png"/></span>添加</a></li>
-            <li class="btn-edit" onclick="modify()"><span><img src="__IMG__/t02.png"/></span>修改</li>
-            <li class="btn-del click"><span><img src="__IMG__/t03.png"/></span>删除</li>
-            <!--<li class="btn-count"><span><img src="__IMG__/t04.png"/></span>统计</li>-->
+            <li class="btn-add"><a href="{:U('Link/add')}"><span><img src="__IMG__/t01.png"/></span>Add to</a></li>
+            <li class="btn-edit" onclick="modify()"><span><img src="__IMG__/t02.png"/></span>Modify</li>
+            <li class="btn-del click"><span><img src="__IMG__/t03.png"/></span>Delete</li>
+            <!--<li class="btn-count"><span><img src="__IMG__/t04.png"/></span>statistics</li>-->
         </ul>
         <!--
                 <ul class="toolbar1">
-                    <li><span><img src="__IMG__/t05.png"/></span>设置</li>
+                    <li><span><img src="__IMG__/t05.png"/></span>Set up</li>
                 </ul>-->
     </div>
 
     <p></p>
-    <!--修改-->
+    <!--modify-->
     <script type="text/javascript">
         function modify(){
             var  select = document.getElementsByClassName('select');
@@ -86,7 +86,7 @@
             }
         }
     </script>
-    <!--全选与全不选-->
+    <!--Select all or none-->
     <script type="text/javascript">
 
         function select_all(){
@@ -109,7 +109,7 @@
 
         }
     </script>
-    <!--//单选-->
+    <!--//Single choice-->
     <script type='text/javascript'>
 
         function select_it(id){
@@ -121,7 +121,7 @@
 
 
     </script>
-    <!--cancel 全部取消-->
+    <!--cancel cancel all of them-->
     <script type='text/javascript'>
 
         function cancel(){
@@ -136,7 +136,7 @@
             }
 
         }
-        <!-- 表单提交 -->
+        <!-- Form submission -->
         function sure(){
             var  select = document.getElementsByClassName('select');
             var length = select.length;
@@ -160,13 +160,13 @@
 
         <thead>
         <tr>
-            <th width="60px;"><input type="checkbox" onclick="select_all()" id="select_all"/>全选</th>
-            <th width="200px;">缩略图</th>
-            <th>标题</th>
-            <th>链接</th>
+            <th width="60px;"><input type="checkbox" onclick="select_all()" id="select_all"/>Select all</th>
+            <th width="200px;">Thumbnail</th>
+            <th>Title</th>
+            <th>Link</th>
 
-            <th>备注</th>
-            <th width="125px">操作</th>
+            <th>Remarks</th>
+            <th width="125px">Operating</th>
         </tr>
         </thead>
 
@@ -180,8 +180,8 @@
                     <td><a href="{$vo.link_url}" target="_blank">{$vo.link_url}</a></td>
 
                     <td><span style="white-space:nowrap;width:300px;text-overflow:ellipsis;overflow: hidden">{$vo.link_remark}</span></td>
-                    <td><a href="javascript:select_it({$vo.link_id})"  class="tablelink click select_it" data='{$vo.link_id}'>{$repeat}删除</a>
-                        <a href="{:U('Link/edit', array('id' =>$vo['link_id']))}"  class="tablelink " data='{$vo.link_id}'>{$repeat}编辑</a></td>
+                    <td><a href="javascript:select_it({$vo.link_id})"  class="tablelink click select_it" data='{$vo.link_id}'>{$repeat}Delete</a>
+                        <a href="{:U('Link/edit', array('id' =>$vo['link_id']))}"  class="tablelink " data='{$vo.link_id}'>{$repeat}Edit</a></td>
                 </tr>
             </volist>
         </form>
@@ -193,20 +193,20 @@
 
 
     <div class="tip">
-        <div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+        <div class="tiptop"><span>Prompt information</span><a onclick="cancel()"></a></div>
 
         <div class="tipinfo">
             <span><img src="__IMG__/ticon.png"/></span>
 
             <div class="tipright">
-                <p>是否确认对信息的修改 ？</p>
-                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+                <p>Do you confirm the modification of the information? ？</p>
+                <cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
             </div>
         </div>
 
         <div class="tipbtn">
-            <input name="" type="button" class="sure" value="确定" onclick="sure()"/>&nbsp;
-            <input name="" type="button" class="cancel" value="取消" onclick="cancel()"/>
+            <input name="" type="button" class="sure" value="Determine" onclick="sure()"/>&nbsp;
+            <input name="" type="button" class="cancel" value="Cancel" onclick="cancel()"/>
         </div>
 
     </div>

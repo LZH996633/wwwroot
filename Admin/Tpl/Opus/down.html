@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>会员管理</title>
+<title>Work management</title>
 <link href="__CS__/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 
@@ -34,11 +34,11 @@ $(document).ready(function(){
 <body>
 
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">作品管理</a></li>
-    <li><a href="#">下载记录</a></li>
+    <li><a href="#">Home page</a></li>
+    <li><a href="#">Work management</a></li>
+    <li><a href="#">Download record</a></li>
     </ul>
     </div>
     
@@ -46,27 +46,27 @@ $(document).ready(function(){
     
     <div class="tools">
         <ul class="toolbar">
-            <!--<li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li>-->
-            <!--<li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li>-->
-            <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>
-            <li><span><a href="{:U('Opus/count')}"><img src="__IMG__/t04.png" /></a></span>统计</li>
+            <!--<li class="click"><span><img src="__IMG__/t01.png" /></span>Add to</li>-->
+            <!--<li class="click"><span><img src="__IMG__/t02.png" /></span>modify</li>-->
+            <li class="click"><span><img src="__IMG__/t03.png" /></span>Delete</li>
+            <li><span><a href="{:U('Opus/count')}"><img src="__IMG__/t04.png" /></a></span>Statistics</li>
         </ul>
         <div style="float:right;width:470px;">
         <form action="__APP__?m=Opus&a=down" method="post"  >
             <ul class="" >
-                <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、作品名、订单号）</label></li>
+                <li><input type="submit" class="scbtn" value="Inquire"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（Member name, nickname, work name, order number）</label></li>
             </ul>
             <!--<ul class="">
-            <li class="sarchbtn"><label>&nbsp;</label> <input name="" type="button" class="scbtn2" value="导出"/></li>
+            <li class="sarchbtn"><label>&nbsp;</label> <input name="" type="button" class="scbtn2" value="Export"/></li>
             </ul>-->
           <!--  <ul class="toolbar1" style="float:right;">
-                <li><span><img src="__IMG__/t05.png" /></span>设置</li>
+                <li><span><img src="__IMG__/t05.png" /></span>Set up</li>
             </ul>-->
         </form>
         </div>
     </div>
 
-        <!--全选与全不选-->
+        <!--Select all or none-->
         <script type="text/javascript">
 
             function select_all(){
@@ -89,7 +89,7 @@ $(document).ready(function(){
 
             }
         </script>
-        <!--//单选-->
+        <!--//Single choice-->
         <script type='text/javascript'>
 
             function select_it(id){
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 
         </script>
-        <!--cancel 全部取消-->
+        <!--cancel cancel all of them-->
         <script type='text/javascript'>
 
             function cancel(){
@@ -114,7 +114,7 @@ $(document).ready(function(){
                 }
 
             }
-            <!-- 表单提交 -->
+            <!-- Form submission -->
             function sure(){
                 var  select = document.getElementsByClassName('select');
                 var length = select.length;
@@ -140,19 +140,19 @@ $(document).ready(function(){
     
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+    	<div class="tiptop"><span>Prompt information</span><a onclick="cancel()"></a></div>
         
       <div class="tipinfo">
         <span><img src="__IMG__/ticon.png" /></span>
         <div class="tipright">
-        <p>删除后,已购用户需再次付费下载</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        <p>After deletion, users who have purchased will need to pay to download again</p>
+        <cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" onclick="sure()"/>&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" onclick="cancel()"/>
+        <input name="" type="button"  class="sure" value="Determine" onclick="sure()"/>&nbsp;
+        <input name="" type="button"  class="cancel" value="Cancel" onclick="cancel()"/>
         </div>
     
     </div>

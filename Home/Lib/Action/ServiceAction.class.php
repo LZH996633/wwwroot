@@ -557,8 +557,8 @@ class ServiceAction extends CommonAction {
 	public function CollectFocus(){
 
         //获取传值
-		$user_id = $_GET['user_id'];
-
+		//$user_id = $_GET['user_id'];
+		$user_id = $_COOKIE['user_id'];
 		$show = $_GET['show'];
 		//页码
 		if ($_GET['p']=='') {
@@ -672,7 +672,7 @@ class ServiceAction extends CommonAction {
 	public function Down_Upload(){
 
 	//	$user_id = $_GET['user_id'];
-	
+		$user_id = $_COOKIE['user_id'];
 		$show = $_GET['show'];
 		$user_id = $_COOKIE['user_id'];
 		
@@ -770,67 +770,8 @@ class ServiceAction extends CommonAction {
 		$page = $this->getPageUrl($page);
 		$this->assign(array('count_car'=>$count,'list_car'=>$PptList,'page_car'=>$page));
 	}
-	/**
-	 * 我的定制页面显示
-	 */
-	public function MyCustom(){
-	//	$user_id = $_GET['user_id'];
 
-		$show = $_GET['show'];
 
-		$user_id = $_COOKIE['user_id'];
-		$start_time = $_GET['start'];
-		$end_time = $_GET['end'];
-
-		$sort = $start_time.','.$end_time;
-
-		$order = $_GET['order'];
-
-		//页码
-		if ($_GET['p']=='') {
-			$p = 1;
-		} else {
-			$p = $_GET['p'];
-		}
-
-		if ($show=='1'){
-			//显示上传
-			$this->Cartoon_custom($user_id,$p,$sort,$order);
-
-		}elseif ($show=='0'){
-			//显示下载
-			$this->Ppt_custom($user_id,$p,$sort,$order);
-		}
-		else{
-			//默认显示下载
-			$p =1;
-			$show =  '0';
-			$this->Ppt_custom($user_id,$p,$sort,$order);
-		}
-
-		//赋值显示标识
-		$this->assign('show_project',$show);
-
-      $this->display('Service/Content/my_custom');
-	}
-
-	//账户充值
-	public function Recharge(){
-
-		$user_id = $_GET['user_id'];
-		//账户信息
-		$where['user_id'] = $user_id;
-		$UserAcc = new UserAccountModel();
-		$AccInfo = $UserAcc->getAcountInfo($where);
-		$this->assign(array('AccInfo'=>$AccInfo));
-
-		//银行账户显示
-        $Admin_account = M('admin_account');
-        $ac_list = $Admin_account->select();
-        $this->assign(array('ac_list'=>$ac_list));
-
-		$this->display('Service/Account/recharge');
-	}
 
 	/**
 	 * 入账记录操作
@@ -1116,32 +1057,6 @@ class ServiceAction extends CommonAction {
 
 
 
-	/**
-	 * 有问必答显示
-	 */
-	public function AnswerQuestion(){
-	//	$user_id = $_GET['user_id'];
-	$user_id = $_COOKIE['user_id'];
-		$where['user_id'] = $user_id;
-		$where['chat_from'] = '1';
-		//页码
-		if ($_GET['p']=='') {
-			$p = 1;
-		} else {
-			$p = $_GET['p'];
-		}
-		$Chat = new ChatModel();
-		$ChatListShow = $Chat->getChatList($where,$num='5',$p);
-
-		$page = $ChatListShow['page'];
-		$page = $this->getPageUrl($page);
-		$ChatList = $ChatListShow['list'];
-		$count = $ChatListShow['count'];
-
-		$this->assign(array('page'=>$page,'ChatList'=>$ChatList,'count'=>$count));
-		
-          $this->display('Service/Information/answer_question');
-	}
 
     //成为卖家
 	public function ToBeSeller(){

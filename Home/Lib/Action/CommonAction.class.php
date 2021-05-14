@@ -130,23 +130,23 @@ class CommonAction extends Action {
 
     $mail->SMTPAuth   = true;                   // 启用 SMTP 验证功能
 
-  //  $mail->SMTPSecure = '';                  // 使用安全协议ssl
+    $mail->SMTPSecure = '';                  // 使用安全协议ssl
 
-	$mail->Host="ssl://smtp.qq.com";  //此处需要谨慎，本地测试时不需要放“ssl://”，
+     $mail->Host="ssl://smtp.qq.com";  //此处需要谨慎，本地测试时不需要放“ssl://”，
 
-  //  $mail->Port       = $eMail_port;                  //SMTP服务器的端口号   1
-      $mail->Port       = 465;                  //SMTP服务器的端口号   1
+    $mail->Port       = $eMail_port;                  //SMTP服务器的端口号   1
+       //  $mail->Port       = 465;                  //SMTP服务器的端口号   1
 
-  //  $mail->Username   = $eMail_acc;  // SMTP服务器用户名   1
-    $mail->Username   = 'ccw51@qq.com';  // SMTP服务器用户名   1	
+    $mail->Username   = $eMail_acc;  // SMTP服务器用户名   1
+       //  $mail->Username   = 'ccw51@qq.com';  // SMTP服务器用户名   1
 
- //   $mail->Password   = $eMail_key;           // SMTP服务器密码     1
-    $mail->Password   = 'fwlpzdowhubpbajd';           // SMTP服务器密码     1	
+   $mail->Password   = $eMail_key;           // SMTP服务器密码     1
+       //  $mail->Password   = 'fwlpzdowhubpbajd';           // SMTP服务器密码     1
 
     $mail->FromName = $eMail_sender;                  //发件人名称
 
-//    $mail->From = $eMail_acc;
-    $mail->From = 'ccw51@qq.com';	
+    $mail->From = $eMail_acc;
+       //  $mail->From = 'ccw51@qq.com';
 
     $mail->Subject    = $eMail_title;                //邮件标题
 

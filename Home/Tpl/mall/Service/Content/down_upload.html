@@ -10,17 +10,17 @@
 <div class="rtmain">
     <div class="hdtitle clearfix">
         <ul class="fl clearfix">
-            <li ><a href="javascript:void(0);" class="inter_chanView" data-value="CollectFocus">收藏关注</a></li>
-            <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="Down_Upload">下载上传</a></li>
-            <li ><a href="javascript:void(0);" class="inter_chanView" data-value="MyCustom">我的定制</a></li>
+            <li ><a href="javascript:void(0);" class="inter_chanView" data-value="CollectFocus">Collection attention</a></li>
+            <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="Down_Upload">Download upload</a></li>
+            
         </ul>
     </div>
     <div class="conts">
         <div class="tabconts">
             <ul class="title clearfix">
-                <li class="active" id="fit"><a href="javascript:void (0)">我的下载</a></li>
-                <li ><a href="javascript:void (0)">我的上传</a></li>
-                <!--<li><a href="">物流地址</a></li>-->
+                <li class="active" id="fit"><a href="javascript:void (0)">My download</a></li>
+                <li ><a href="javascript:void (0)">My upload</a></li>
+                <!--<li><a href="">Logistics address</a></li>-->
             </ul>
         </div>
         <div class="listshow">
@@ -32,12 +32,12 @@
                         <input type="hidden" value="member" name="c">
                         <input type="hidden" value="init" name="a">-->
                         <ul class="clearfix fl">
-                            <li>订单时间</li>
+                            <li>Order time</li>
                             <li><input type="text" value="{$down_start}" readonly id="start_one" name="stime"  class="laydate-icon" ></li>
-                            <li>到</li>
+                            <li>to</li>
                             <li><input type="text" value="{$down_end}" readonly id="end_one" name="etime" class="laydate-icon" ></li>
                         </ul>
-                        <a href="javascript:do_submit_one();">查询</a>
+                        <a href="javascript:do_submit_one();">Inquire</a>
                     </form>
                 </div>
 
@@ -45,26 +45,26 @@
                 <div class="tabs pt30">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <th width="20%">订单编号</th>
-                    <th width="25%">下载时间</th>
-                    <th width="25%">作品名称</th>
-                    <th width="15%">消耗金额</th>
-                     <th width="15%">操作</th>
+                    <th width="20%">Order number</th>
+                    <th width="25%">Download time</th>
+                    <th width="25%">Title</th>
+                    <th width="15%">Consumption amount</th>
+                     <th width="15%">Operating</th>
                 </tr>
                 <volist name="DownList" id="list">
                 <tr id="down{$list.id}">
                     <td class="ts">{$list.order_number}</td>
                     <td>{$list.down_time}</td>
                     <td ><span style="white-space:nowrap;width:250px;text-overflow:ellipsis;">{$list['opus_title']}</span></td>
-                    <td>{$list.down_price}金币</td>
-                    <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">查看</a>&nbsp;<a href="javascript:down_delete({$list.id},{$list.id})" >删除</a></td>
+                    <td>{$list.down_price}Gold</td>
+                    <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">View</a>&nbsp;<a href="javascript:down_delete({$list.id},{$list.id})" >删除</a></td>
                 </tr>
                 </volist>
             </table>
         </div>
                 <div class="pages">
                     <if condition="$count_download eq 0">
-                        <else/><a class="a1">共<span id="page_download">{$count_download}</span>条</a>
+                        <else/><a class="a1">A total of <span id="page_download">{$count_download}</span> piece</a>
                     </if>
                     {$page_download}
                 </div>
@@ -77,18 +77,18 @@
                             <input type="hidden" value="member" name="c">
                             <input type="hidden" value="init" name="a">-->
                             <ul class="clearfix fl">
-                                <li>订单时间</li>
+                                <li>Order time</li>
                                 <li><input type="text" value="{$up_start}" readonly id="start_two" name="stime"  class="laydate-icon" ></li>
-                                <li>到</li>
+                                <li>to</li>
                                 <li><input type="text" value="{$end_start}" readonly id="end_two" name="etime" class="laydate-icon" ></li>
                                 <li><select name="status" id="order">
-                                    <option value="" >全部</option>
-                                    <option value="oext_views" >查看量</option>
-                                    <option value="oext_favorite" >收藏量</option>
-                                    <option value="down" >下载量</option>
+                                    <option value="" >All</option>
+                                    <option value="oext_views" >Views</option>
+                                    <option value="oext_favorite" >Collection</option>
+                                    <option value="down" >Downloads</option>
                                 </select></li>
                             </ul>
-                            <a href="javascript:do_submit_two();" >查询</a>
+                            <a href="javascript:do_submit_two();" >Inquire</a>
                         </form>
                     </div>
 
@@ -97,13 +97,13 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
 
                         <tr>
-                            <th width="28%">作品名称</th>
-                            <th width="20%">上传时间</th>
-                            <th width="10%">作品定价</th>
-                            <th width="8%">查看次数</th>
-                            <th width="8%">收藏次数</th>
-                            <th width="8%">下载次数</th>
-                            <th width="20%">操作</th>
+                            <th width="28%">Title</th>
+                            <th width="20%">Upload time</th>
+                            <th width="10%">Work pricing</th>
+                            <th width="8%">view frequency</th>
+                            <th width="8%">Favorites</th>
+                            <th width="8%">Download times</th>
+                            <th width="20%">Operating</th>
                         </tr>
                         <volist name="UpList" id="list">
                         <tr id="up{$list.opus_id}">
@@ -113,14 +113,14 @@
                             <td>{$list.oext_views}</td>
                             <td>{$list.oext_favorite}</td>
                             <td>{$list.down}</td>
-                            <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">查看</a>&nbsp;<a href="javascript:edit('MaterialUpload',{$list.opus_id})">编辑</a>&nbsp;<a href="javascript:up_delete({$list.opus_id},{$list.opus_id})" >删除</a> </td>
+                            <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">View</a>&nbsp;<a href="javascript:edit('MaterialUpload',{$list.opus_id})">Edit</a>&nbsp;<a href="javascript:up_delete({$list.opus_id},{$list.opus_id})" >Delete</a> </td>
                         </tr>
                         </volist>
                     </table>
                 </div>
                 <div class="pages">
                     <if condition="$count_upload eq 0">
-                        <else/><a class="a1">共<span id="page_upload">{$count_upload}</span>条</a>
+                        <else/><a class="a1">A total of <span id="page_upload">{$count_upload}</span> piece</a>
                     </if>
                     {$page_upload}
                 </div>
@@ -129,7 +129,7 @@
     </div>
 
 </div>
-<!--上传排序-->
+<!--Upload sort-->
 <script type="text/javascript">
     $(document).ready(function () {
         var up_order = $("#up_order").attr("data-value");
@@ -139,9 +139,9 @@
 
              if (up_order == order){
                  var order_text = $(this).text();
-                 if(order_text!='全部'){
+                 if(order_text!='All'){
                      $("#order option").eq(0).attr("value",order).text(order_text);
-                     $("#order option").eq(0).after("<option value=''>全部</option>");
+                     $("#order option").eq(0).after("<option value=''>All</option>");
                  }
 
              }/*"<option value="+up_order+">"+order_text+"</option>"*/
@@ -149,7 +149,7 @@
 
     })
 </script>
-<!--编辑作品-->
+<!--Edit works-->
 <script type="text/javascript">
     function edit(action,id){
         $.ajax({
@@ -171,21 +171,21 @@
         })
     }
 </script>
-<!--下载删除-->
+<!--Download delete-->
 <script type="text/javascript">
     var SiteUrl = $('#SiteUrl').val();
 
     function down_delete(id,sid) {
-        layer.confirm("您确认删除吗？", {
-            btn: ['确认','取消'],
+        layer.confirm("Are you sure to delete？", {
+            btn: ['confirm','cancel'],
             icon: 3,
-            title:'放弃二次免费下载'
+            title:'Give up the second free download'
         },function(){
 
             $.getJSON('/index.php/Ajax/DownDel?down_id='+id+"&"+Math.random(), function(data){
 
                 if(data.status=='true'){
-                    layer.msg("删除成功！",{icon:1,time:1000},function(){
+                    layer.msg("successfully deleted！",{icon:1,time:1000},function(){
                         $("#down"+sid).remove();
                         var page_download = $('#page_download').text()-1;
                         $('#page_download').text(page_download)
@@ -195,13 +195,13 @@
 
                 }
 //                else if(data.status==-1){
-//                    layer.msg("请登录后收藏!",{icon:1,time:1000},function(){
+//                    layer.msg("Please log in to bookmark!",{icon:1,time:1000},function(){
 //                        $(".logintk").show();
 //                        $(".graybg").show();
 //                    });
 //                }
 //                else if(data.status==-3) {
-//                    layer.msg("不能收藏自己的素材!",{icon:2,time:2000});
+//                    layer.msg("Can't collect my own material!",{icon:2,time:2000});
 //
 //                }
 
@@ -211,37 +211,37 @@
 
 </script>
 
-<!--上传删除-->
+<!--Upload delete-->
 <script type="text/javascript">
     var SiteUrl = $('#SiteUrl').val();
 
     function up_delete(id,sid) {
-        layer.confirm("您确认删除吗？", {
-            btn: ['确认','取消'],
+        layer.confirm("Are you sure to delete？", {
+            btn: ['confirm','cancel'],
             icon: 3,
-            title:'删除已上传文件'
+            title:'Delete uploaded files'
         },function(){
 
             $.getJSON('/index.php/Ajax/UpDel?up_id='+id+"&"+Math.random(), function(data){
                 if(data.status=='true'){
-                    layer.msg("删除成功！",{icon:1,time:1000},function(){
+                    layer.msg("Successfully deleted！",{icon:1,time:1000},function(){
                         $("#up"+sid).remove();
                         var page_upload = $('#page_upload').text()-1;
                         $('#page_upload').text(page_upload)
                     });
                 }
 //                else if(data.status==-1){
-//                    layer.msg("请登录后收藏!",{icon:1,time:1000},function(){
+//                    layer.msg("Please log in to bookmark!",{icon:1,time:1000},function(){
 //                        $(".logintk").show();
 //                        $(".graybg").show();
 //                    });
 //                }
 //                else if(data.status==-3) {
-//                    layer.msg("不能收藏自己的素材!",{icon:2,time:2000});
+//                    layer.msg("Can't collect my own material!",{icon:2,time:2000});
 //
 //                }
                 else {
-                    layer.msg("删除失败!",{icon:1,time:2000});
+                    layer.msg("Failed to delete!",{icon:1,time:2000});
 
                 }
             });
@@ -250,7 +250,7 @@
 
 </script>
 
-<!--选项卡-->
+<!--Tab-->
 <script type="text/javascript">
     $(document).ready(function () {
             var i = $('#show_project').attr("data-value");
@@ -284,7 +284,7 @@
 
 
 </script>
-<!--下载日期-->
+<!--Download date-->
 <script type="text/javascript">
     var start = {
         elem: '#start_one',
@@ -325,7 +325,7 @@
 
 </script>
 
-<!--切换页面-->
+<!--Switch page-->
 <script type="text/javascript">
 
     var SiteUrl = $('#SiteUrl').val();
@@ -366,7 +366,7 @@
 
 </script>
 
-<!--上传日期-->
+<!--Upload date-->
 <script type="text/javascript">
     var start = {
         elem: '#start_two',
@@ -406,7 +406,7 @@
 
 </script>
 
-<!--内部异步调用-->
+<!--Internal asynchronous call-->
 <script type="text/javascript">
     $(document).ready(function () {
 

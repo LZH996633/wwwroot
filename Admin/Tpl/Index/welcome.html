@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>欢迎页</title>
+<title>Welcome page</title>
 <include file="Public:sss" />
 
 </head>
@@ -10,23 +10,23 @@
 <body>
 
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
+    <li><a href="#">Home page</a></li>
     </ul>
     </div>
     
     <div class="mainindex">
         <div class="welinfo">
-        <span><img src="__IMG__/sun.png" alt="天气" /></span>
-        <b>{$admin_name}<a href="javascript:void(0)" id="welcome">早上好，欢迎登录后台信息管理系统</a></b>
-        <a href="{:U('Admin/person')}">帐号设置</a>
+        <span><img src="__IMG__/sun.png" alt="the weather" /></span>
+        <b>{$admin_name}<a href="javascript:void(0)" id="welcome">Good morning, welcome to log in to the background information management system</a></b>
+        <a href="{:U('Admin/person')}">Account setting</a>
         </div>
 
 
         <div class="welinfo">
-        <span><img src="__IMG__/time.png" alt="时间" /></span>
-        <i>您上次登录的时间：{$lasttime}
+        <span><img src="__IMG__/time.png" alt="time" /></span>
+        <i>Last time you logged in:{$lasttime}
     </i> 
         </div>
         
@@ -37,16 +37,16 @@
         <div class="xline"></div>
         <div class="box"></div> 
         <div class="welinfo">
-        <span><img src="__IMG__/dp.png" alt="提醒" /></span>
-        <b>今日数据：</b>
+        <span><img src="__IMG__/dp.png" alt="remind" /></span>
+        <b>Today's data：</b>
         </div>
         <table class="tablelist">
             <thead>
                 <tr>
-                <th>访问数</th>
-                <th>作品数量</th>
-                <th>会员数</th>
-                <th>下载量</th>
+                <th>Number of visits</th>
+                <th>Number of works</th>
+                <th>Number of members</th>
+                <th>Downloads</th>
 
 
                 </tr>
@@ -61,7 +61,7 @@
             </tbody>
         </table>
 
-        <div class="" style="font-size:20px;margin-top:20px;color:#f00;"><b>更多数据请到站点数据查看。</b></div>
+        <div class="" style="font-size:20px;margin-top:20px;color:#f00;"><b>For more data, please go to the site data view.</b></div>
 
     </div>
 </body>

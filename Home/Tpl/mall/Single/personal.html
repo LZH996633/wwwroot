@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>{$user_info.user_nickname}的个人空间</title>
+    <title>{$user_info.user_nickname}'s personal space</title>
     <include file="Public/head"/>
 </head>
 
@@ -32,7 +32,7 @@
     </div>
     <div class="userpro">
         <ul class="title clearfix">
-            <li class="on"><a href="javascript:void(0);">作品展示</a></li>
+            <li class="on"><a href="javascript:void(0);">Exhibition works</a></li>
          </ul>
         <ul class="contsa clearfix">
             <volist name="opus_list" id="list">
@@ -52,52 +52,7 @@
             <a class="javascript:void(0)">{$count}</a> {$page} </div>
     </div>
 </div>
-<!--<script>
 
-    function del(id){
-        layer.confirm('您真的要删除该作品吗？', {
-            btn: ['确定','取消']
-        }, function(){
-            window.location.href="http://www.ppt20.com/index.php?m=customize&c=member&a=delworks&id="+id;
-        }, function(){
-            layer.close();
-        });
-    }
-
-    function onlinestatus(){
-
-        layer.open({
-            type: 1,
-            title:'设置在线状态',
-            btn:['设置'],
-            content: '<div style="padding:10px 30px"><label>状态:&nbsp;&nbsp;</label><input type="radio" name="status" checked="checked" value=1 />在线 <input type="radio" name="status" value=0 />离开 </div>',
-            yes:function(index,layero){
-
-                layero.find("input[name=status]").each(function(){
-                    var status=$(this).val();
-                    if($(this).attr('checked')=="checked"){
-                        $.getJSON("http://www.ppt20.com/index.php?m=customize&c=index&a=set_status",{status:status,seller_id:262728},function(data){
-                            if(data.status==1){
-                                layer.msg(data.msg,{icon:1,time:1000},function(){
-                                    if(status==1){
-                                        $(".name i").attr("class","nonline");
-                                    }else{
-                                        $(".name i").attr("class","online");
-                                    }
-                                });
-
-                            }else{
-                                layer.msg(data.msg,{icon:2});
-                            }
-                        });
-                        //alert($(this).val());
-                    }
-                });
-                layer.close(index);
-            }
-        });
-    }
-</script>-->
 <include file="Public/footer"/>
 </body>
 </html>

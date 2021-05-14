@@ -2,32 +2,32 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>公告</title>
+    <title>Announcement</title>
     <include file="Public:sss" />
 </head>
 
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">系统设置</a></li>
-        <li><a href="#">个人资料</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">System settings</a></li>
+        <li><a href="#">personal information</a></li>
     </ul>
 </div>
 
 <div class="formbody">
 
-    <div class="formtitle"><span>账号密码</span></div>
+    <div class="formtitle"><span>Account password</span></div>
     <form  method="post" action="{:U('Admin/person')}" role="form" >
         <ul class="forminfo">
-            <li><label for="yuan_name">原账号</label><input name="yuan_admin_username" type="text" value="{$admin_username}" class="dfinput" id="yuan_name" /><i></i></li>
-            <li><label for="yuan_key">原密码</label><input name="yuan_admin_pass" type="password" value="{$admin_pass}" class="dfinput" id="yuan_key" /><i></i></li>
+            <li><label for="yuan_name">Original account</label><input name="yuan_admin_username" type="text" value="{$admin_username}" class="dfinput" id="yuan_name" /><i></i></li>
+            <li><label for="yuan_key">Old password</label><input name="yuan_admin_pass" type="password" value="{$admin_pass}" class="dfinput" id="yuan_key" /><i></i></li>
 
-            <li><label for="title">新账号</label><input name="admin_username" type="text"  class="dfinput" id="title" /><i></i></li>
-            <li><label for="key">新密码</label><input name="admin_pass" type="password"  class="dfinput" id="key" /><i></i></li>
-           <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+            <li><label for="title">New account</label><input name="admin_username" type="text"  class="dfinput" id="title" /><i></i></li>
+            <li><label for="key">New password</label><input name="admin_pass" type="password"  class="dfinput" id="key" /><i></i></li>
+           <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="Confirm save"/></li>
         </ul>
     </form>
 </div>

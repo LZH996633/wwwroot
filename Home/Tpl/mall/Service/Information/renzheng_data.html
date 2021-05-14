@@ -1,16 +1,16 @@
  
 
 
- <title>会员实名认证</title>
+ <title>Member real-name authentication</title>
 
     <div class="rtmain">
         <div class="hdtitle clearfix">
             <ul class="fl clearfix">
-                <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">会员实名认证</a></li>
+                <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">Member real-name authentication</a></li>
             </ul>
         </div>
         <div class="uspictm clearfix">
-<p style="margin-left: 65px;color:red;font-size:16px;">发布作品请卖家先实名认证，保护个人作品安全</p>
+<p style="margin-left: 65px;color:red;font-size:16px;">When publishing works, sellers must first verify their real names to protect personal works</p>
             <div class="list_show">
                 <div class="lists">
                 <div class="memo clearfix" >
@@ -51,7 +51,7 @@
 	              <div id="myContent" style="border:0px solid;width: 500px;height: 175px;  margin-top: 6px; no-repeat center ">
 
    <div style="position:absolute;height:80px;width:180px;margin-top: 50px;margin-left: 175px;overflow: hidden">
-       		  <a class="pay-btn2" href="">提交审核</a>
+       		  <a class="pay-btn2" href="">Submit review</a>
 			
    </div>
                     </div>					
@@ -62,16 +62,16 @@
                 <ul class="clearfix fl" id="avatarlist" style="margin-left:150px;" >
                     <li>
                         <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
-                        身份证正面 规格≤ 1M					</li>
+                        Front of ID card, specifications≤ 1M					</li>
                     <li>
                         <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
-                        身份证反面 规格≤ 1M			</li>
+                        Reverse side of ID card, specifications≤ 1M			</li>
                     <li>
                        <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
-                        手持身份证 规格≤ 1M			</li>
+                        Holding ID card, specifications≤ 1M			</li>
                     <li>
                       <br /> <br /> <br />
-                       <span style="color:red;"> 请认真上传个人信息 资料不全不予通过 	</span>				</li>
+                       <span style="color:red;"> Please upload personal information seriously 	</span>				</li>
                 </ul>
             </div>
                 </div>
@@ -96,7 +96,7 @@
 	
         $(function(){
 		
-            $('#a-file').change(function(){      //身份证正面
+            $('#a-file').change(function(){      //Front of ID card
                 var oInp = $(this);
                 var oNewInp = oInp.clone(true);
                 var oForm = $('#a-uploadFile-form');
@@ -129,7 +129,7 @@
                                 //alert(oRet.message);
                             }
                         } catch (e) {
-                            //alert('上传失败，请重试!');
+                            //alert('Upload failed, please try again!');
                         }
                     }
                 });
@@ -139,7 +139,7 @@
 
 
 
-   $('#b-file').change(function(){      //身份证反面
+   $('#b-file').change(function(){      //Reverse side of ID card
                 var oInp = $(this);
                 var oNewInp = oInp.clone(true);
                 var oForm = $('#b-uploadFile-form');
@@ -172,7 +172,7 @@
                                 //alert(oRet.message);
                             }
                         } catch (e) {
-                            //alert('上传失败，请重试!');
+                            //alert('Upload failed, please try again!');
                         }
                     }
                 });
@@ -182,7 +182,7 @@
 
 		
 		
-            $('#c-file').change(function(){      //手持身份证正面
+            $('#c-file').change(function(){      //Hold the front of the ID card
                 var oInp = $(this);
                 var oNewInp = oInp.clone(true);
                 var oForm = $('#c-uploadFile-form');
@@ -213,7 +213,7 @@
                                 //alert(oRet.message);
                             }
                         } catch (e) {
-                            //alert('上传失败，请重试!');
+                            //alert('Upload failed, please try again!');
                         }
                     }
                 });

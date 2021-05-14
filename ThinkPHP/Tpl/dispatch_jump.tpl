@@ -56,7 +56,7 @@
 			<dl>
 				<dt><?php echo($message); ?></dt>
 				<dt><?php echo($error); ?></dt>
-				<dd><a href="javascript:history.back();" >返回上一页</a><a id="href" href="<?php echo($jumpUrl); ?>" >立即跳转</a>等待时间： <b id="wait"><?php echo($waitSecond); ?></b></dd>
+				<dd><a href="javascript:history.back();" >Go back</a><a id="href" href="<?php echo($jumpUrl); ?>" >Jump now</a>Waiting time： <b id="wait"><?php echo($waitSecond); ?></b></dd>
 			</dl>
 		</div>
 	</div>

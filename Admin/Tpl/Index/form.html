@@ -2,44 +2,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>公告</title>
+    <title>Announcement</title>
     <include file="Public:sss" />
 </head>
 
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">基本信息</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">Basic Information</a></li>
     </ul>
 </div>
 
 <div class="formbody">
 
-    <div class="formtitle"><span>基本信息</span></div>
+    <div class="formtitle"><span>Basic Information</span></div>
     <form  method="post" action="{:U('Index/isform')}" role="form" >
         <ul class="forminfo">
-            <li><label for="title">网站标题</label><input name="title" type="text" value="{$title}" class="dfinput" id="title" /><i>标题不能超过30个字符</i></li>
-            <li><label for="key">关键字</label><input name="key" type="text" value="{$key}" class="dfinput" id="key" /><i>多个关键字用,隔开</i></li>
-            <li><label for="icp">备案号</label><input name="icp" type="text" value="{$icp}" class="dfinput" id="icp" /><i></i></li>
-            <li><label for="icp">网址</label><input name="url" type="text" value="{$url}" class="dfinput" id="url" /><i>填写完整网址，例：https://www.baidu.com</i></li>
+            <li><label for="title">Site title</label><input name="title" type="text" value="{$title}" class="dfinput" id="title" /><i>Title cannot exceed 30 characters</i></li>
+            <li><label for="key">Keyword</label><input name="key" type="text" value="{$key}" class="dfinput" id="key" /><i>Used for multiple keywords, separated</i></li>
+            <li><label for="icp">Record number</label><input name="icp" type="text" value="{$icp}" class="dfinput" id="icp" /><i></i></li>
+            <li><label for="icp">URL</label><input name="url" type="text" value="{$url}" class="dfinput" id="url" /><i>Fill in the complete URL, for example: https://www.baidu.com</i></li>
 
-            <li><label>网站开关</label><cite>
+            <li><label>Website switch</label><cite>
                 <switch name="ifopen">
                     <case value="1">
-                        <input name="ifopen" type="radio" value="1" checked/>开{$repeat}
-                        <input name="ifopen" type="radio" value="2"/>关
+                        <input name="ifopen" type="radio" value="1" checked/>Turn on{$repeat}
+                        <input name="ifopen" type="radio" value="2"/>Turn off
                     </case>
                     <case value="2">
-                        <input name="ifopen" type="radio" value="1" />开{$repeat}
-                        <input name="ifopen" type="radio" value="2" checked/>关
+                        <input name="ifopen" type="radio" value="1" />Turn on{$repeat}
+                        <input name="ifopen" type="radio" value="2" checked/>Turn off
                     </case>
                 </switch>
             </cite></li>
-            <li><label for="des">网站描述</label><textarea name="des" cols="" rows="" class="textinput" id="des">{$des}</textarea></li>
-            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认保存"/></li>
+            <li><label for="des">Site description</label><textarea name="des" cols="" rows="" class="textinput" id="des">{$des}</textarea></li>
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="Confirm save"/></li>
         </ul>
     </form>
 </div>

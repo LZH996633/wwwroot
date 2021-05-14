@@ -18,19 +18,19 @@
 
 <div class="down-header mb-40 clearfix header">
 	<div class="wrap">
-		<div class="down-header-left fl"><a class="" href="javascript:history.back()" style="-webkit-text-fill-color: white">返回素材详情页</a></div>
+		<div class="down-header-left fl"><a class="" href="javascript:history.back()" style="-webkit-text-fill-color: white">Back to material details page</a></div>
 
 		<div class="is_login down-header-right font-color fr">
-			<a href='javascript:void(0);' class="logina" style="color:#FFFFFF;">登录</a>/
-			<a href='javascript:void(0);' class="zcy" style="color:#FFFFFF;">注册</a>
+			<a href='javascript:void(0);' class="logina" style="color:#FFFFFF;">Log in</a>/
+			<a href='javascript:void(0);' class="zcy" style="color:#FFFFFF;">Registered</a>
 		</div>
 
 		<div class="islogin down-header-right font-color fr" style="display: none">
-			<a href="{:U('Service/index')}" style="color:#FFFFFF;">会员中心</a>&nbsp;|&nbsp;
-			<a href="{:U('Public/login_out')}" style="color:#FFFFFF;">退出登录</a>
+			<a href="{:U('Service/index')}" style="color:#FFFFFF;">Member Centre</a>&nbsp;|&nbsp;
+			<a href="{:U('Public/login_out')}" style="color:#FFFFFF;">Sign out</a>
 
 		</div>
-		<div class="down-header-mid font-color">素材下载页</div>
+		<div class="down-header-mid font-color">Material download page</div>
 	</div>
 </div>
 <div class="wrap mb-20 clearfix">
@@ -40,30 +40,30 @@
 		<img src="{$OpusDetail.opus_pic_cons}" title="" />
 	</div>
 	<div class="downinfo-right fr">
-		<div class="title mb-20"><a href="#" target="_blank">{$OpusDetail.opus_title}素材下载</a></div>
+		<div class="title mb-20"><a href="#" target="_blank">{$OpusDetail.opus_title}Material download</a></div>
 		<div class="scinfo mb-20">
-			<label>素材格式：</label>
+			<label>Material format：</label>
 			<span>
 				{$OpusDetail.tip_software}	</span>
-			<label>素材类型：</label>
+			<label>Material type：</label>
 			<span>
 				{$OpusDetail.tip_type}	</span>
-		<!--	<label>文件大小：</label>
+		<!--	<label>File size：</label>
 			<span>
 				{$OpusDetail.opus_size} MB			</span>-->
 		</div>
 		<if condition="$OpusDetail.is_half eq 0">
-		<div class="userinfo mb-20">标价：<i class="amount">{$OpusDetail.price} </i>元</a></div>
+		<div class="userinfo mb-20">List price：<i class="amount">{$OpusDetail.price} </i>元</a></div>
 		<else/>
 			<div class="userinfo mb-20">
-				此素材免费，您下载此素材只需
-				<i class="amount">{$half_price}L币</i>
+				This material is free, you only need to download this material
+				<i class="amount">{$half_price}L coin</i>
 				
 			</div>
 		</if>
 
 
-		<div class="down">&nbsp;&nbsp;<a class="pay_down fl download" href="javascript:void (0);" >立即下载</a></div>
+		<div class="down">&nbsp;&nbsp;<a class="pay_down fl download" href="javascript:void (0);" >Download now</a></div>
 	</div>
 </div>
 
@@ -71,7 +71,7 @@
 <div class="indcaselist">
 	<div class="wrap">
 		<div class="cont index_hot">
-		<!--	<p>同类别推荐：</p>   -->
+		<!--	<p>Recommended in the same category：</p>   -->
 			<volist name="SameList" id="list">
 				<dl>
 					<a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="blank">
@@ -111,10 +111,10 @@
 
 <div class="ctkmain4 none" id="yd_login">
 	<ul>
-		<li><label>验证码：</label><input type="text" id="verify" class="webtxt" />
+		<li><label>Verification code：</label><input type="text" id="verify" class="webtxt" />
 			<input  type="button" value="发送验证码"  class="webtn sendsms"/></li>
 	</ul>
-	<p>注：亲，由于您是异地登录用户，为了保障你的账户安全需发送验证码</p>
+	<p>Note: Dear, since you are a remote login user, in order to protect your account security, you need to send a verification code</p>
 </div>
 
 <link  href="__CS__/loginout.css" rel="stylesheet"  type="text/css">
@@ -128,20 +128,20 @@
 	<div class="loginf">
 		<div class="closed"></div>
 		<ul class="tabbtn clearfix">
-			<li class="current logina">登录</li>
-			<li class="cz zcy">注册</li>
+			<li class="current logina">log in</li>
+			<li class="cz zcy">Registered</li>
 		</ul>
 		<div class="tabcon">
 			<div class="sublist clearfix">
 				<form method="post" action="{:U('Public/login')}"   onsubmit="return save_username(this)" >
 					<div class="zcform fl">
 						<ul>
-							<li class="clearfix pr"><input type="text" class="webtxt"  name="username" id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
-							<li class="clearfix pr"><input type="password" class="webtxt" name="password" id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="text" class="webtxt"  name="username" id="log_username" placeholder="Username or email address"><span id="utip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" class="webtxt" name="password" id="log_password" placeholder="Password"><span id="ptip" class="onShow"></span></li>
 
-							<li class="clearfix pr"><input type="checkbox" value="2592000" name="cookie_time" id="cookietime" checked><label for="chd">记住我</label><i class="forget">
-								<a href="{:U('Public/ForgetShow')}" target="_blank">忘记密码?</a></i></li>
-							<li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+							<li class="clearfix pr"><input type="checkbox" value="2592000" name="cookie_time" id="cookietime" checked><label for="chd">Remember me</label><i class="forget">
+								<a href="{:U('Public/ForgetShow')}" target="_blank">Forgot password?</a></i></li>
+							<li class="clearfix pr"><input value="Log in" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
 
 								
 								</li>
@@ -160,20 +160,20 @@
 	<div class="zcf none">
 		<div class="closed"></div>
 		<ul class="tabbtn clearfix">
-			<li class="dl logina">登录</li>
-			<li class="current zcy">注册</li>
+			<li class="dl logina">Log in</li>
+			<li class="current zcy">Registered</li>
 		</ul>
 		<div class="tabcon">
 			<div class="sublist">
 				<div class="zcform">
 					<form method="post" action="{:U('Public/register')}"  id="down_form" name="myform" >
 						<ul>
-							<li class="clearfix pr"><input type="text" name="username" id="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
-							<li class="clearfix pr"><input type="password" name="password" id="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
-							<li class="clearfix pr"><input type="password" name="pwdconfirm" id="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>							
-							<li class="clearfix pr"><input type="checkbox" name='protocol' id="protocol" checked="checked"><label for="protocol"><a href="#l" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
-							<li class="clearfix pr"><input type="submit"  value="注册" class="webtn" style="width:150px">
+							<li class="clearfix pr"><input type="text" name="username" id="username" class="webtxt" placeholder="Enter your user name"><span id="usernameTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" name="password" id="password" class="webtxt" placeholder="Password"><span id="passwordTip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="password" name="pwdconfirm" id="pwdconfirm" class="webtxt" placeholder="Enter the password again"><span id="pwdconfirmTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="Enter email"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>Send email verification</a></span> </li>							
+							<li class="clearfix pr"><input type="checkbox" name='protocol' id="protocol" checked="checked"><label for="protocol"><a href="#l" target="_blank" >Read and agree to the "User Service Agreement"</a></label><span id="protocoltip" class="onShow"></span></li>
+							<li class="clearfix pr"><input type="submit"  value="Registered" class="webtn" style="width:150px">
 							</li>
 						</ul>
 						<input type="hidden" name="forward" class="forward" value=""/>
@@ -190,22 +190,22 @@
 
 
 
-        //鼠标移进去
+        //Mouse in
         function videoPlayback(){
-            //获取视频标签
+            //Get video tags
 			var e = window.event ;
 			var obj = e.srcElement ;
               obj.play();
          }
          
-        //鼠标离开
+        //Mouse away
          function videoStopped(){
-             //获取视频标签			
+             //Get video tags			
 			var a = window.event ;
 			var obj = a.srcElement ;
-             //停止播放
+             //Stop play
 			obj.pause();
-			obj.currentTime=0;   //停止播时回到开始
+			obj.currentTime=0;   //Go back to the beginning when you stop broadcasting
          }
    
 
@@ -214,9 +214,9 @@ btnsd1.onclick = function() {
   var oInpa = document.getElementById("email").value;
 
 if(oInpa==""){
-alert("邮箱未输入..");
+alert("Email not entered..");
 }else{
-alert("邮箱验证已发送，请注意查收..");
+alert("Email verification has been sent, please check..");
 
 
 //$('#imgbt').attr('style','display:block')	;	
@@ -278,7 +278,7 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
     }
 
 </script>
-<!--回到顶部-->
+<!--back to the top-->
 <script type="text/javascript">
 	head.ready('jquery',function(){
 		$(".gotop").click(function(event){
@@ -291,9 +291,9 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 			}
 		});});
 </script>
-<!--产品下载-->
+<!--Product download-->
 <script type="text/javascript">
-	//下载
+	//download
 	$(".download").click(function(){
        var opus_id = $("#down_id").val();
 
@@ -301,25 +301,25 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 			if(data.status==1){
 			  /*  layer.msg('sdfsd',{icon:4});*/
 				layer.confirm(data.msg, {
-					btn: ["下载","取消"],
-					title:"素材下载确认",
+					btn: ["download","cancel"],
+					title:"Material download confirmation",
 					icon: 4
 				},function () {
 					 $.getJSON("/index.php/Ajax/pay?opus_id="+opus_id+"&t="+ $.now(),function (data) {
 						 var url =data.down_url;
 						 var sta = data.status;
 						 if(sta=='2'){
-                             layer.confirm('下载链接：'+"<a href="+data.url+" target='_blank'>"+data.url+"</a><br>密码："+data.pass, {
-                                 btn: ["确定"],
+                             layer.confirm('Download link：'+"<a href="+data.url+" target='_blank'>"+data.url+"</a><br>password："+data.pass, {
+                                 btn: ["determine"],
                                  icon: 1
                              });
 						 }else{
                              layer.confirm(data.msg, {
-                                 btn: ["下载"],
+                                 btn: ["Download"],
                                  icon: 1
                              }, function(){
                                  down(url);
-                                 layer.msg('下载完成');
+                                 layer.msg('Download completed');
                              });
 						 }
 
@@ -327,11 +327,11 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 					}
 				);
 			}
-			/*提示信息*/
+			/*Prompt information*/
 			else if(data.status==-1){
 				layer.msg(data.msg,{icon: 2,time: 1000});
 			}
-			/*未登录*/
+			/*Not logged in*/
 			else if(data.status==0){
 				$(".graybg").show();
 				layer.msg(data.msg,{icon: 2,time: 1000},function () {
@@ -342,13 +342,13 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 			}
 			else if(data.status==2){
                 var url =data.down_url;
-                layer.confirm("点击下载",{
-                    btn: ["下载"],
+                layer.confirm("click to download",{
+                    btn: ["download"],
                     icon: 1,
                     title:data.msg
                 },function () {
                     down(url);
-                    layer.msg('下载完成',{time:2000});
+                    layer.msg('Download completed',{time:2000});
 
                 });
 
@@ -356,8 +356,8 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
             else if(data.status==3){
                 var url =data.url;
                 var pass = data.pass;
-                layer.confirm('下载链接：'+"<a href="+url+" target='_blank'>"+url+"</a><br>密码："+pass, {
-                    btn: ["确定"],
+                layer.confirm('Download link：'+"<a href="+url+" target='_blank'>"+url+"</a><br>Password："+pass, {
+                    btn: ["determine"],
                     icon: 1,
 					title:data.msg
                 });
@@ -374,11 +374,11 @@ function down(url){
 	var isinerval;
 	function CountDown(classid) {
 		if (--times < 1) {
-			$(classid).val("发送验证码").attr("disabled", false).css({'background-color':'#1abd9b'});
+			$(classid).val("Send the verification code").attr("disabled", false).css({'background-color':'#1abd9b'});
 			clearInterval(isinerval);
 			return;
 		}
-		$(classid).val(times+" 秒后可重发");
+		$(classid).val(" Resend after "+times+" seconds");
 
 	}
 	$(function(){
@@ -389,7 +389,7 @@ function down(url){
 			$.post("index.php?m=sms&c=index&a=sendsms&t="+ $.now(),{type:15},function(data){
 				data=filtescript(data);
 				if(data.status==1){
-					layer.msg("验证码已发送",{icon: 1,time: 2000},function(){
+					layer.msg("Verification code sent",{icon: 1,time: 2000},function(){
 						times=120;
 						$(".sendsms").attr("disabled", true).css({'background-color':'#A9A9A9'});
 						isinerval = setInterval("CountDown('.sendsms')", 1000);
@@ -453,22 +453,22 @@ function down(url){
 
 </script>
 <div class="graybg"></div>
-<!--登陆表单验证-->
+<!--Login form verification-->
 <script type="text/javascript">
 	function save_username(form) {
 		if(form.log_username.value==''){
-			$("#utip").attr("class","onError").html("用户名或邮箱不能为空");
+			$("#utip").attr("class","onError").html("Username or email cannot be empty");
 			form.log_username.focus();
 			return false;
 		}
 		if(form.log_password.value==''){
-			$("#ptip").html("密码不能为空").attr("class","onError");
+			$("#ptip").html("password can not be blank").attr("class","onError");
 			form.log_password.focus();
 			return false;
 		}
 	}
 </script>
-<!--登录界面弹出-->
+<!--The login interface pops up-->
 <script type="text/javascript">
 	$(".logina").click(function(){
 		$(".logintk").slideDown();
@@ -487,7 +487,7 @@ function down(url){
 		$(".graybg").fadeOut();
 	});
 </script>
-<!--登陆状态-->
+<!--Login status-->
 <script type="text/javascript">
 	head.ready('jquery',function(){
 
@@ -522,7 +522,7 @@ function down(url){
 		});
 	});
 </script>
-<!--注册表单验证-->
+<!--Registration form verification-->
 <script type="text/javascript">
 	head.ready('formvalidator',function(){
 
@@ -530,11 +530,11 @@ function down(url){
 
 		$("#username")
 				.formValidator({
-					onshow:"请输入用户名",
-					onfocus:"3-20字符，字母开头，由数字、字母或下划线组成"})
+					onshow:"please enter user name",
+					onfocus:"3-20 characters, beginning with a letter, consisting of numbers, letters or underscores"})
 				.inputValidator({
-					min:3,max:20,onerror:"用户名在3-20字符之间"})
-				.regexValidator({regexp:"username",datatype:"enum",onerror:"格式错误"}).ajaxValidator({
+					min:3,max:20,onerror:"User name is between 3-20 characters"})
+				.regexValidator({regexp:"username",datatype:"enum",onerror:"wrong format"}).ajaxValidator({
 			type : "get",
 			url :"/index.php/public/check_name",
 			data :"",
@@ -550,12 +550,12 @@ function down(url){
 				}
 			},
 			buttons: $("#dosubmit"),
-			onerror : "禁止注册或用户名已存在",
-			onwait : "验证中"
+			onerror : "Registration is forbidden or user name already exists",
+			onwait : "Verifying"
 		});
 		$("#password")
-				.formValidator({onshow:"请输入密码",onfocus:"6-20个字符，由数字、字母或下划线组成"})
-				.inputValidator({min:6,max:20,onerror:"密码在6-20个字符之间"})
+				.formValidator({onshow:"Please enter the password",onfocus:"6-20 characters, composed of numbers, letters or underscores"})
+				.inputValidator({min:6,max:20,onerror:"Password is between 6-20 characters"})
 				.ajaxValidator({
 					type : "get",
 					url : "/index.php/public/check_pass",
@@ -571,16 +571,16 @@ function down(url){
 						}
 					},
 					buttons: $("#dosubmit"),
-					onerror : "密码中有特殊字符",
-					onwait : "验证中"
+					onerror : "There are special characters in the password",
+					onwait : "Verifying"
 				});
 		$("#pwdconfirm")
-				.formValidator({onshow:"请输入重复密码",onfocus:"重复密码在6-20个字符之间"})
-				.inputValidator({min:6,max:20,onerror:"重复密码在6-20个字符之间"})
-				.compareValidator({desid:"password",operateor:"=",onerror:"密码不相同"});
+				.formValidator({onshow:"Please enter a repeat password",onfocus:"Repeat password between 6-20 characters"})
+				.inputValidator({min:6,max:20,onerror:"Repeat password between 6-20 characters"})
+				.compareValidator({desid:"password",operateor:"=",onerror:"Passwords are not the same"});
 		$("#email")
-				.formValidator({onshow:"请输入邮箱",onfocus:"请输入邮箱"})
-				.regexValidator({regexp:"email",datatype:"enum",onerror:"邮箱格式不正确"})
+				.formValidator({onshow:"please input your email",onfocus:"please input your email"})
+				.regexValidator({regexp:"email",datatype:"enum",onerror:"E-mail format is incorrect"})
 				.ajaxValidator({
 					type : "get",
 					url : "/index.php/public/check_email",
@@ -596,10 +596,10 @@ function down(url){
 						}
 					},
 					buttons: $("#dosubmit"),
-					onerror : "禁止注册或邮箱已存在",
-					onwait : "验证中"
+					onerror : "Registration is forbidden or the mailbox already exists",
+					onwait : "Verifying"
 				});
-		$("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValidator({regexp:"code",datatype:"enum",onerror:"验证码错误"}).functionValidator({
+		$("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValidator({regexp:"code",datatype:"enum",onerror:"Verification code error"}).functionValidator({
 			fun: function (val) {
 
 				if ($(".gt_ajax_tip").hasClass("gt_success")) {
@@ -614,7 +614,7 @@ function down(url){
 			onerror:" "
 
 		});
-		$(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:" ",onfocus:" "}).inputValidator({min:1,onerror:"{L('请勾选并同意')}"});
+		$(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:" ",onfocus:" "}).inputValidator({min:1,onerror:"{L('Please check and agree')}"});
 
 
 

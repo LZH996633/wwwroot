@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>会员管理</title>
+<title>Member Management</title>
 <link href="__CS__/style.css" rel="stylesheet" type="text/css" />
 	<style>
 		.money input{
@@ -50,11 +50,11 @@ $(document).ready(function(){
 <body>
 
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">会员管理</a></li>
-    <li><a href="#">会员列表</a></li>
+    <li><a href="#">Home page</a></li>
+    <li><a href="#">Member Management</a></li>
+    <li><a href="#">User list</a></li>
     </ul>
     </div>
     
@@ -64,7 +64,7 @@ $(document).ready(function(){
         <ul class="toolbar">
             <!-- <li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li> -->
             <!-- <li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li> -->
-            <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>
+            <li class="click"><span><img src="__IMG__/t03.png" /></span>Delete</li>
             <!--  <li class="click"><span><img src="__IMG__/t04.png" /></span>统计</li>-->
         </ul>
         <div style="float:right;width:500px;">
@@ -73,7 +73,7 @@ $(document).ready(function(){
 
         <form action="__APP__?m=User&a=index" method="post"  >
             <ul class="">
-                <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、邮箱、手机）</label>
+                <li><input type="submit" class="scbtn" value="Inquire"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（Member name, nickname, email, mobile phone）</label>
 				 </li>
             </ul>
             <ul class="">
@@ -160,21 +160,21 @@ $(document).ready(function(){
     	<thead>
         	<tr>
             <th><input type="checkbox" onclick="select_all()" id="select_all"/></th>
-            <th>编号
+            <th>Numbering
 			<!-- <i class="sort"><img src="__IMG__/px.gif" /></i> -->
 			</th>
-            <th>用户名</th>
-            <th>昵称</th>
-            <th>邮箱</th>
-            <th>手机</th>
+            <th>Username</th>
+            <th>Nickname</th>
+            <th>Mailbox</th>
+            <th>Cell phone</th>
             <!-- <th>籍贯</th> -->
             <!-- <th>等级</th> -->
             <!-- <th>用户权限</th> -->
-            <th>账户余额（￥）</th>
+            <!--<th>账户余额（￥）</th>-->
             <!-- <th>剩余积分</th> -->
-            <th>注册时间</th>
-            <th>封禁状态</th>
-            <th>操作</th>
+            <th>Registration time</th>
+            <th>Banned status</th>
+            <th>Operating</th>
             </tr>
         </thead>
         <tbody class="user-list">
@@ -192,11 +192,11 @@ $(document).ready(function(){
             <!-- <td>{$vo.user_home}</td> -->
             <!-- <td>{$vo.user_grade}</td> -->
             <!-- <td>{$vo.user_power}</td> -->
-            <td class="money"><span>{$vo.user_money}</span><input value="{$vo.gold_coin}" data-value="{$vo.gold_coin}" data-id="{$vo.user_id}"></td>
+            <!--<td class="money"><span>{$vo.user_money}</span><input value="{$vo.gold_coin}" data-value="{$vo.gold_coin}" data-id="{$vo.user_id}"></td>-->
             <!-- <td>{$vo.user_points}</td> -->
             <td>{$vo.user_registertime}</td>
-            <td><if condition="$vo.user_state eq 1">正常使用<else/>封禁中...</if></td>
-            <td><if condition="$vo.user_state eq 1"><a href="{:U('User/ban','id='.$vo['user_id'])}" class="tablelink">封禁</a><else /><a href="{:U('User/unban','id='.$vo['user_id'])}" class="tablelink">解封</a></if> <a href="javascript:select_it({$vo.user_id})"  data='{$vo.user_id}' class="tablelink click select_it" >{$repeat}{$repeat}删除</a></td>
+            <td><if condition="$vo.user_state eq 1">Normal use<else/>Banned...</if></td>
+            <td><if condition="$vo.user_state eq 1"><a href="{:U('User/ban','id='.$vo['user_id'])}" class="tablelink">Ban</a><else /><a href="{:U('User/unban','id='.$vo['user_id'])}" class="tablelink">Unblock</a></if> <a href="javascript:select_it({$vo.user_id})"  data='{$vo.user_id}' class="tablelink click select_it" >{$repeat}{$repeat}Delete</a></td>
 
             </tr>
         </volist>
@@ -208,19 +208,19 @@ $(document).ready(function(){
     
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a onclick='cancel()'></a></div>
+    	<div class="tiptop"><span>Prompt information</span><a onclick='cancel()'></a></div>
         
       <div class="tipinfo">
         <span><img src="__IMG__/ticon.png" /></span>
         <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        <p>Do you confirm the modification of the information? ？</p>
+        <cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" onclick='sure()'/>&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" onclick='cancel()'/>
+        <input name="" type="button"  class="sure" value="Determine" onclick='sure()'/>&nbsp;
+        <input name="" type="button"  class="cancel" value="Cancel" onclick='cancel()'/>
         </div>
     
     </div>

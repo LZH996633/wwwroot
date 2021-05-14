@@ -41,7 +41,7 @@ function tpm_info(msg,callback){
 
 function tpm_confirm(msg,callback,title){
     title=title||'请确认';   
-    var $modal=$('<div><div class="tpm_modal_head"><h3>'+title+'</h3></div><div class="tpm_modal_body">'+msg+'</div><div class="tpm_modal_foot"><button class="tpm_modal_cancel"  type="button">取消</button><button class="tpm_modal_ok"  type="button">确认</button></div></div>');
+    var $modal=$('<div><div class="tpm_modal_head"><h3>'+title+'</h3></div><div class="tpm_modal_body">'+msg+'</div><div class="tpm_modal_foot"><button class="tpm_modal_cancel"  type="button">Cancel</button><button class="tpm_modal_ok"  type="button">确认</button></div></div>');
    var id=Modernizr.mq("(max-width:767px)")?'tpm_modal_phone':'tpm_modal';
     $modal.find('.tpm_modal_foot>button').on('click',function(){
         if($(this).is('.tpm_modal_ok')){

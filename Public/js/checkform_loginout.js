@@ -49,12 +49,12 @@ $(document).ready(function(){
 
 function save_username(form) {
 	if(form.username.value==''){
-		$("#utip").attr("class","onError").html("用户名或邮箱不能为空");
+		$("#utip").attr("class","onError").html("Username or email cannot be empty");
 		form.username.focus();
 		return false;
 	}
 	if(form.password.value==''){
-		$("#ptip").html("密码不能为空").attr("class","onError");
+		$("#ptip").html("password can not be blank").attr("class","onError");
 		form.password.focus();
 		return false;
 	}
@@ -76,11 +76,11 @@ $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}
 
 $("#username")
 	.formValidator({
-	onshow:"请输入用户名",
-	onfocus:"3-20字符，字母开头，由数字、字母或下划线组成"})
+	onshow:"please enter user name",
+	onfocus:"3-20 characters, beginning with a letter, consisting of numbers, letters or underscores"})
     .inputValidator({
-	min:3,max:20,onerror:"用户名在3-20字符之间"})
-	.regexValidator({regexp:"username",datatype:"enum",onerror:"格式错误"}).ajaxValidator({
+	min:3,max:20,onerror:"User name is between 3-20 characters"})
+	.regexValidator({regexp:"username",datatype:"enum",onerror:"wrong format"}).ajaxValidator({
 	type : "get",
 	url : "/index.php/public/check_name",
 	data :"",
@@ -96,12 +96,12 @@ $("#username")
 		}
 	},
 	 buttons: $("#dosubmit"),
-	 onerror : "禁止注册或用户名已存在",
-	 onwait : "验证中"
+	 onerror : "Registration is forbidden or user name already exists",
+	 onwait : "Verifying"
 });
 $("#password")
-	.formValidator({onshow:"请输入密码",onfocus:"6-20个字符，由数字、字母或下划线组成"})
-	.inputValidator({min:6,max:20,onerror:"密码在6-20个字符之间"})
+	.formValidator({onshow:"Please enter the password",onfocus:"6-20 characters, composed of numbers, letters or underscores"})
+	.inputValidator({min:6,max:20,onerror:"Password is between 6-20 characters"})
 .ajaxValidator({
 type : "get",
 	url : "/index.php/public/check_pass",
@@ -117,16 +117,16 @@ type : "get",
 		}
 	},
 	buttons: $("#dosubmit"),
-	onerror : "密码中有特殊字符",
-	onwait : "验证中"
+	onerror : "There are special characters in the password",
+	onwait : "Verifying"
 });
 $("#pwdconfirm")
-	.formValidator({onshow:"请输入重复密码",onfocus:"重复密码在6-20个字符之间"})
-	.inputValidator({min:6,max:20,onerror:"重复密码在6-20个字符之间"})
-	.compareValidator({desid:"password",operateor:"=",onerror:"密码不相同"});
+	.formValidator({onshow:"Please enter a repeat password",onfocus:"Repeat password between 6-20 characters"})
+	.inputValidator({min:6,max:20,onerror:"Repeat password between 6-20 characters"})
+	.compareValidator({desid:"password",operateor:"=",onerror:"Passwords are not the same"});
 $("#email")
-	.formValidator({onshow:"请输入邮箱",onfocus:"请输入邮箱"})
-	.regexValidator({regexp:"email",datatype:"enum",onerror:"邮箱格式不正确"})
+	.formValidator({onshow:"please input your email",onfocus:"please input your email"})
+	.regexValidator({regexp:"email",datatype:"enum",onerror:"E-mail format is incorrect"})
 	.ajaxValidator({
 	type : "get",
 	url : "/index.php/public/check_email",
@@ -142,17 +142,17 @@ $("#email")
 		}
 	},
 	buttons: $("#dosubmit"),
-	onerror : "禁止注册或邮箱已存在",
-	onwait : "验证中"
+	onerror : "Registration is forbidden or the mailbox already exists",
+	onwait : "Verifying"
 });
 
 
 $("#emailword")
-	.formValidator({onshow:"请输入验证码",onfocus:"验证码为5位纯数字"})
-	.inputValidator({min:5,max:5,onerror:"验证码为5位纯数字"});
+	.formValidator({onshow:"please enter verification code",onfocus:"The verification code is a 5-digit pure number"})
+	.inputValidator({min:5,max:5,onerror:"The verification code is a 5-digit pure number"});
 
 
-$("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValidator({regexp:"code",datatype:"enum",onerror:"验证码错误"}).functionValidator({
+$("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValidator({regexp:"code",datatype:"enum",onerror:"Verification code error"}).functionValidator({
             fun: function (val) {
 				
                 if ($(".gt_ajax_tip").hasClass("gt_success")) {
@@ -167,4 +167,4 @@ $("#code").formValidator({onshow:" 2131231",onfocus:" ",onerror:" "}).regexValid
 			onerror:" "
 			
         });
-$(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:" ",onfocus:" "}).inputValidator({min:1,onerror:"{L('请勾选并同意')}"});
+$(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:" ",onfocus:" "}).inputValidator({min:1,onerror:"{L('Please check and agree')}"});

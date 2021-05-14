@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>合作管理</title>
+	<title>Cooperative management</title>
 	<link href="__CS__/style.css" rel="stylesheet" type="text/css"/>
 	<style>
 		form p{
@@ -34,11 +34,11 @@
 <body>
 
 <div class="place">
-	<span>位置：</span>
+	<span>Position：</span>
 	<ul class="placeul">
-		<li><a href="#">首页</a></li>
-		<li><a href="#">系统设置</a></li>
-		<li><a href="#">个人账户</a></li>
+		<li><a href="#">Home page</a></li>
+		<li><a href="#">System settings</a></li>
+		<li><a href="#">personal account</a></li>
 	</ul>
 </div>
 <script type="text/javascript">
@@ -66,25 +66,25 @@
 </script>
 <div class="rightinfo">
 	<form action="{:U('Admin/ac_add')}" method="post">
-		<div class="formtitle"><span>添加</span></div>
+		<div class="formtitle"><span>Add to</span></div>
 		<ul class="forminfo">
 			<li>
-				开户行：<input name="account_bank" type="text" value="" class="dfinput" style="width:200px;" />
+				Account Bank：<input name="account_bank" type="text" value="" class="dfinput" style="width:200px;" />
 			</li>
 			<li>
-				户名&nbsp;&nbsp;&nbsp;：<input name="account_name" type="text" value="" class="dfinput" style="width:200px;" />
+				Account name&nbsp;&nbsp;&nbsp;：<input name="account_name" type="text" value="" class="dfinput" style="width:200px;" />
 			</li>
 			<li>
-			    账户&nbsp;&nbsp;&nbsp;：<input name="account" type="text" value="" class="dfinput" style="width:200px;" /><i>建议每4位使用空格，方便查看</i>
+			    Account&nbsp;&nbsp;&nbsp;：<input name="account" type="text" value="" class="dfinput" style="width:200px;" /><i>It is recommended to use spaces every 4 digits，方便查看</i>
 		   </li>
 			<li>
-				标示图：<input name="account_pic" id="j-pic-url" readonly class="dfinput" style="width:200px;" /><input type="file" name="file" id="j-file">
+				Mark map：<input name="account_pic" id="j-pic-url" readonly class="dfinput" style="width:200px;" /><input type="file" name="file" id="j-file">
 			</li>
 			<!--<li>
 				标识：<input name="ad_locationpic" type="text" value="{$ad.ad_locationpic}" class="dfinput" style="width:200px;" />
 			</li>-->
 
-			<li><input  type="submit" class="btn" value="确认保存"/></li>
+			<li><input  type="submit" class="btn" value="Confirm save"/></li>
 		</ul>
 	</form>
 </div>
@@ -114,7 +114,7 @@
                             alert(oRet.message);
                         }
                     } catch (e) {
-                        alert('上传失败，请重试!');
+                        alert('Upload failed, please try again!');
                     }
                 }
             });
@@ -124,20 +124,20 @@
     });
 </script>
 <div class="tip">
-	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+	<div class="tiptop"><span>Prompt information</span><a onclick="cancel()"></a></div>
 
 	<div class="tipinfo">
 		<span><img src="__IMG__/ticon.png"/></span>
 
 		<div class="tipright">
-			<p>是否确认对信息的修改 ？</p>
-			<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+			<p>Whether to confirm the modification of the information ？</p>
+			<cite>If yes, please click the OK button, otherwise please click Cancel。</cite>
 		</div>
 	</div>
 
 	<div class="tipbtn">
-		<input name="" type="button" class="sure" value="确定" onclick="sure()"/>&nbsp;
-		<input name="" type="button" class="cancel" value="取消" onclick="cancel()"/>
+		<input name="" type="button" class="sure" value="determine" onclick="sure()"/>&nbsp;
+		<input name="" type="button" class="cancel" value="cancel" onclick="cancel()"/>
 	</div>
 
 </div>

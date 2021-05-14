@@ -29,23 +29,23 @@
 <body>
 
 
-<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
-<!--公共头部-->
+<h1 id="seodw"LOGO-AE Video Material Download Platform</h1>
+<!--Public head-->
 <include file="Public/header"/>
 <div class="clearfix"></div>
 
 <div class="aomainlit wrap">
     <div class="wbmap">
-        <a href="{:U('Index/index')}">首页</a><i>></i><a href="{:U('Model/index',array('cid'=>$tip_info['cid']))}">{$tip_info.name}</a>
+        <a href="{:U('Index/index')}">Home page</a><i>></i><a href="{:U('Model/index',array('cid'=>$tip_info['cid']))}">{$tip_info.name}</a>
         <if condition="$tip_show">
-            &gt;<i>筛选：</i>
+            &gt;<i>Filter：</i>
             <volist name="tip_show" id="tips">
-            <ins>{$tips.name}<a href="{:U('Model/index',array('tip_clear'=>$tips['id']))}" title="删除此项"></a></ins>&nbsp;
+            <ins>{$tips.name}<a href="{:U('Model/index',array('tip_clear'=>$tips['id']))}" title="Delete this item"></a></ins>&nbsp;
             </volist>
             <else/>
-            <if condition="isset($_COOKIE['select'])"> &gt;<i>筛选：</i>
+            <if condition="isset($_COOKIE['select'])"> &gt;<i>Filter：</i>
                 <volist name="tip" id="tips">
-                <ins>{$tips.name}<a href="{:U('Model/index',array('tip_clear'=>$tips['url'],'cid'=>$_COOKIE['cateid']))}" title="删除此项"></a></ins>&nbsp;
+                <ins>{$tips.name}<a href="{:U('Model/index',array('tip_clear'=>$tips['url'],'cid'=>$_COOKIE['cateid']))}" title="Delete this item"></a></ins>&nbsp;
             </volist></if>
         </if>
 
@@ -59,9 +59,9 @@
          -->     
 			  <span>
                     <if condition=" in_array($list['id'],$sort_show)">
-                        <a href="{:U('Model/index',array($list['kind']=>$list['id']))}"  class="active">全部</a>
+                        <a href="{:U('Model/index',array($list['kind']=>$list['id']))}"  class="active">All</a>
                         <else />
-                        <a href="{:U('Model/index',array($list['kind']=>$list['id']))}" >全部</a>
+                        <a href="{:U('Model/index',array($list['kind']=>$list['id']))}" >All</a>
                     </if>
 
                         <!--{:U('Model/index',array('cid'=>$cates['cid']))}-->
@@ -72,7 +72,7 @@
                                 <a href="{:U('Model/index',array($list_son['kind']=>$list_son['id']))}" >{$list_son.name}</a>
                             </if>
                         </volist>
-						</span><i>更多</i>
+						</span><i>More</i>
             </li>
         </volist>
 
@@ -98,11 +98,11 @@
     <div class="wrap order-option">
         <div class="fl order">
 
-          <a href="{:U('Model/index',array('order'=>'recom','index'=>'0'))}"><span>推荐</span></a>
-                <a href="{:U('Model/index',array('order'=>'opus_updatetime','index'=>'1'))}">最新</a>
+          <a href="{:U('Model/index',array('order'=>'recom','index'=>'0'))}"><span>Recommend</span></a>
+                <a href="{:U('Model/index',array('order'=>'opus_updatetime','index'=>'1'))}">Up to date</a>
 
-            <a href="{:U('Model/index',array('order'=>'down','index'=>'2'))}">下载</a><ins class="ins"></ins>
-            <a href="{:U('Model/index',array('order'=>'price','index'=>'3'))}">价格</a><ins class="ins1"></ins>
+            <a href="{:U('Model/index',array('order'=>'down','index'=>'2'))}">Download</a><ins class="ins"></ins>
+            <a href="{:U('Model/index',array('order'=>'price','index'=>'3'))}">Price</a><ins class="ins1"></ins>
         </div>
         <div class="fr option">
             <div class="sxpart o3">
@@ -145,11 +145,11 @@
 
             <if condition="$is_half eq half">
 
-                    <input type="button" value="查看全部" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>   
+                    <input type="button" value="view all" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>   
 
             <else/> 
 
-            <input type="button" value="免费专区" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>
+            <input type="button" value="Free zone" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>
 
         
 
@@ -194,28 +194,28 @@
                         </a>
                     <dd style="text-align:center;font-size:16px;"><p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></p></dd>
                    <!-- <dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em></em></span></dd> -->
-                    <!--免费标识-->
+                    <!--Free logo-->
                     <if condition="$list['is_half'] eq '1'"  >
 
                     <div style="position:absolute; z-index:2; left:170px; top:3px;font-size:15px;color:#fff;">
 
-                            　　　             免费
+                            　　　             Free
                             
                             　　                   </div>
                 
                 
                 
                 </if>
-                    <!--测试显示-->
+                    <!--Test display-->
                     </dl>
          </volist>
 
             </div>
             <div id="pages">
                 <if condition="$count eq 0">
-                    <h2 style="text-align:center;margin-bottom:40px">此筛选条件下无作品，请换个试试！</h2>
+                    <h2 style="text-align:center;margin-bottom:40px">There are no works under this filter, please try another one！</h2>
                     <else/>
-                <a class="a1">{$count}条</a>
+                <a class="a1">{$count}piece</a>
 
               {$page}
                 </if>
@@ -229,26 +229,26 @@
 
 <script type="text/javascript">
 
- var speed = 10;//设置速度
+ var speed = 10;//Set speed
 
-        //鼠标移进去
+        //Mouse in
         function videoPlayback() {
-            //获取视频标签
+            //Get video tags
             var e = window.event;
             var obj = e.srcElement;
-            obj.playbackRate = speed;//改变速度
+            obj.playbackRate = speed;//Change speed
             obj.play();
 
         }
          
-        //鼠标离开
+        //Mouse away
         function videoStopped() {
-            //获取视频标签			
+            //Get video tags			
             var e = window.event;
             var obj = e.srcElement;
-            //停止播放
+            //Stop play
             obj.pause();
-            obj.currentTime = 0;   //停止播时回到开始
+            obj.currentTime = 0;   //Go back to the beginning when you stop broadcasting
         }
 
 

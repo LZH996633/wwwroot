@@ -68,43 +68,43 @@ head.ready('imgload', function() {
 	var SiteUrl = $('#SiteUrl').val();
 		var n=parseInt($("#favorite").text());
 
-		if($(".sc").text()=="收藏"){
+		if($(".sc").text()=="Favorites"){
 			
 			$.getJSON(SiteUrl+'/index.php/Ajax/Favor?fa_id='+opus_id+"&"+Math.random()+'&seller_id='+seller_id, function(data){
 
 				if(data.status==1)	{
-					 layer.msg("收藏成功！",{icon:1,time:1000},function(){
+					 layer.msg("Collection success！",{icon:1,time:1000},function(){
 						$("#favorite").html(n+1);
-						$(".sc").html("已收藏");
+						$(".sc").html("Collected");
 					 });				
 				}
 				else if(data.status==-1){
-					 layer.msg("请登录后收藏!",{icon:1,time:1000},function(){
+					 layer.msg("Please log in to bookmark!",{icon:1,time:1000},function(){
 						$(".logintk").show();
 						$(".graybg").show();
 					 });
 				}
 				else if(data.status==-3) {
-					layer.msg("不能收藏自己的模板!",{icon:2,time:2000});
+					layer.msg("Cannot bookmark my own template!",{icon:2,time:2000});
 				   
 				}
 				else {
-					layer.msg("收藏失败!",{icon:1,time:2000});
+					layer.msg("Collection failed!",{icon:1,time:2000});
 			   
 				}
 			});
 		}else{
 				
-			layer.confirm('确认取消收藏吗?', {icon: 3, title:'取消收藏'}, function(index){		  
+			layer.confirm('Are you sure to uncollect??', {icon: 3, title:'Unfavorite'}, function(index){
 			
 				$.getJSON(SiteUrl+'/index.php/Ajax/Favor?fa_id='+opus_id+"&"+Math.random(), function(data){
                   if(data.status==2){
-						 layer.msg("收藏已取消！",{icon:1,time:1000},function(){
+						 layer.msg("Collection canceled！",{icon:1,time:1000},function(){
 							$("#favorite").html(n-1);
-							$(".sc").html("收藏");
+							$(".sc").html("Favorites");
 						 });
 					}else {
-						layer.msg("取消收藏失败!",{icon:1,time:2000});
+						layer.msg("Failed to unfavorite!",{icon:1,time:2000});
 				   
 					}
 				});
@@ -114,39 +114,39 @@ head.ready('imgload', function() {
 	/*关注操作*/
 	function follow(seller_id) {
 		var SiteUrl = $('#SiteUrl').val();
-		if($(".follow").text()=="关注"){
+		if($(".follow").text()=="attention"){
 			$.getJSON(SiteUrl+'/index.php/Ajax/Focus?seller_id='+seller_id+"&"+Math.random(), function(data){
 				
 				if(data.status==1)	{
-					 layer.msg("关注成功！",{icon:1,time:1000},function(){						
-						$(".follow").html("已关注");					 });				
+					 layer.msg("Subscribed！",{icon:1,time:1000},function(){
+						$(".follow").html("Followed");					 });
 				}
 				else if(data.status==-1){
-					 layer.msg("请登录后关注!",{icon:1,time:1000},function(){
+					 layer.msg("Please log in and follow!",{icon:1,time:1000},function(){
 						$(".logintk").show();
 						$(".graybg").show();
 					 });
 				} else if(data.status==-3) {
-					layer.msg("不能关注自己!",{icon:2,time:2000});
+					layer.msg("Can't pay follow to yourself!",{icon:2,time:2000});
 			   
 				} else {
-					layer.msg("关注失败!",{icon:1,time:2000});
+					layer.msg("Follow failed!",{icon:1,time:2000});
 			   
 				}
 			});
 		}else{
 				
-			layer.confirm('确认取消关注吗?', {icon: 3, title:'取消关注'}, function(index){		  
+			layer.confirm('Confirm Unfollow it?', {icon: 3, title:'unsubscribe'}, function(index){
 			
 				$.getJSON(SiteUrl+'/index.php/Ajax/Focus?seller_id='+seller_id+"&"+Math.random(), function(data)
 				{
 					if(data.status==2){
-						 layer.msg("关注已取消！",{icon:1,time:1000},function(){							
-							$(".follow").html("关注");
+						 layer.msg("Follow has been cancelled！",{icon:1,time:1000},function(){
+							$(".follow").html("Attention");
 						 });
 					}else {
-						layer.msg("取消关注失败!",{icon:1,time:2000});
-				   
+						layer.msg("Unfollow failed!",{icon:1,time:2000});
+
 					}
 				});
 			});

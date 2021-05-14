@@ -2,39 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>系统设置</title>
+    <title>System settings</title>
     <include file="Public:sss" />
 </head>
 
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">系统设置</a></li>
-        <li><a href="#">清理缓存</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">System settings</a></li>
+        <li><a href="#">Clear cache</a></li>
     </ul>
 </div>
 
 <div class="formbody">
 
-    <div class="formtitle"><span>前端缓存</span></div>
+    <div class="formtitle"><span>Front-end cache</span></div>
     <form action="{:U('Admin/cache')}"  method="post" >
         <ul class="forminfo">
             <input type="hidden" name="cache" value="qian">
-            <li><label for="qian_cache">缓存大小</label><input  type="text" value="{$qian}" class="dfinput" id="qian_cache" disabled/><i></i></li>
-           <li><label>&nbsp;</label><input type="submit" class="btn" value="确认清除"/></li>
+            <li><label for="qian_cache">Cache size</label><input  type="text" value="{$qian}" class="dfinput" id="qian_cache" disabled/><i></i></li>
+           <li><label>&nbsp;</label><input type="submit" class="btn" value="Confirm clear"/></li>
         </ul>
     </form>
 </div>
 <div class="formbody">
-    <div class="formtitle"><span>后台缓存</span></div>
+    <div class="formtitle"><span>Background cache</span></div>
     <form  action="{:U('Admin/cache')}" method="post" >
         <ul class="forminfo">
             <input type="hidden" name="cache" value="hou">
-            <li><label for="hou_cache">缓存大小</label><input  type="text" value="{$hou}" class="dfinput" id="hou_cache" disabled/><i></i></li>
-            <li><label>&nbsp;</label><input type="submit" class="btn" value="确认清除"/></li>
+            <li><label for="hou_cache">Cache size</label><input  type="text" value="{$hou}" class="dfinput" id="hou_cache" disabled/><i></i></li>
+            <li><label>&nbsp;</label><input type="submit" class="btn" value="Confirm clear"/></li>
         </ul>
     </form>
 </div>

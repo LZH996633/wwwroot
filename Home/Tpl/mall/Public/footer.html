@@ -4,26 +4,20 @@
         <div class="wrap clearfix">
             <div class="navmain clearfix fl">
                 <dl>
-                    <dt><img src="__IMG__/ftico1.png">关于我们</dt>
-                    <dd><a href="{:U('Single/aboutUS',array('show'=>'0'))}" target="_blank">网站介绍</a></dd>
-                   <!-- <dd><a href="#" target="_blank">版权声明</a></dd>-->
-                    <dd><a href="{:U('Single/aboutUS',array('show'=>'1'))}" target="_blank">联系我们</a></dd>
+                    <dt><img src="__IMG__/ftico1.png">about Us</dt>
+                    <dd><a href="{:U('Single/aboutUS',array('show'=>'0'))}" target="_blank">Website Introduction</a></dd>
+
+                    <dd><a href="{:U('Single/aboutUS',array('show'=>'1'))}" target="_blank">Contact us</a></dd>
                 </dl>
                 <dl>
-                    <dt><img src="__IMG__/ftico3.png">我是会员</dt>
-                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('ToBeSeller')" target="_blank">成为会员</a></dd>
-                    <!--<dd><a href="#" target="_blank">卖家必读</a></dd>-->
-                    <dd><a href="{:U('Service/materialupload', array('pid'=>1))}" onclick="chan_Page('MaterialUpload')" target="_blank">上传素材</a></dd>
+                    <dt><img src="__IMG__/ftico3.png">I am a member</dt>
+                    <dd><a href="{:U('Service/index')}" onclick="chan_Page('ToBeSeller')" target="_blank">become member</a></dd>
+
+                    <dd><a href="{:U('Service/materialupload', array('pid'=>1))}" onclick="chan_Page('MaterialUpload')" target="_blank">Upload material</a></dd>
                 </dl>
-      <!--          <dl>
-                    <dt><img src="__IMG__/ftico4.png">发现</dt>
-                    <dd><a href="#" target="_blank">推广赚钱</a></dd>
-                    <dd><a href="#" target="_blank">热销精品</a></dd>
-                    <dd><a href="#" target="_blank">加入我们</a></dd>
-                </dl>-->
-            </div>
+			</div>
             <div class="ftel fr">
-                <b>{$Contact_phone}</b><i>{$Work_time}</i><a id="QQ_cha" title="联系客服" href="javascript:void(0)">联系客服</a>
+                <b>{$Contact_phone}</b><i>{$Work_time}</i><a id="QQ_cha" title="Customer Service" href="javascript:void(0)">Customer Service</a>
             </div>
         </div>
     </div>
@@ -33,7 +27,7 @@
             $('#QQ_cha').click(function () {
                 var qq = $('#qq_ch').val();
                 layer.confirm(qq,
-                        {title:'联系 QQ &nbsp;:',btn:['关闭']}
+                        {title:'Contact QQ &nbsp;:',btn:['Shut down']}
                 )
             })
         })
@@ -48,7 +42,7 @@
     <div class="copyright" style="height: 30px;">
         <div class="wrap" >
             <p><a href="#" target="_blank"><strong>{$title}&nbsp;&nbsp;<!--{$key_show}--></strong></a></p>
-               <p>  备案号：{$icp}</p>
+               <p>  record number：{$icp}</p>
 
 
         </div>
@@ -64,20 +58,20 @@
     <div class="loginf">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="current">登录</li>
-            <li class="cz">注册</li>
+            <li class="current">Log in</li>
+            <li class="cz">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist clearfix">
                 <form action="{:U('Public/login')}" method="post" onsubmit="return save_username(this)">
                     <div class="zcform fl">
                         <ul>
-                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="username or email address"><span id="utip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="Password"><span id="ptip" class="onShow"></span></li>
 
                             <li class="clearfix pr"><input type="checkbox"  name="cookie_time" id="cookietime" checked>
-                                <label for="chd">记住我</label><i class="forget"><a href="{:U('Public/ForgetShow')}" target="_blank">忘记密码?</a></i></li>
-                            <li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+                                <label for="chd">Remember me</label><i class="forget"><a href="{:U('Public/ForgetShow')}" target="_blank">Forgot password?</a></i></li>
+                            <li class="clearfix pr"><input value="Log in" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
 							
 									
 									</li>
@@ -95,24 +89,24 @@
     <div class="zcf none">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="dl">登录</li>
-            <li class="current">注册</li>
+            <li class="dl">Log in</li>
+            <li class="current">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist">
                 <div class="zcform">
                     <form method="post" action="{:U('Public/register')}"  id="myform" name="myform" >
                         <ul>
-                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>
-                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="输入验证码"><span id="emailwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="Enter your user name"><span id="usernameTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="Password"><span id="passwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="Enter the password again"><span id="pwdconfirmTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="Enter email"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>Send email verification</a></span> </li>
+                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="Enter confirmation code"><span id="emailwordTip" class="onShow"></span></li>
 
-                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="{:U('Single/agreement')}" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="{:U('Single/agreement')}" target="_blank" >Read and agree to the "User Service Agreement"</a></label><span id="protocoltip" class="onShow"></span></li>
 
                             <li class="clearfix pr">
-                                <input type="submit"  value="注册" class="webtn" style="width:150px">
+                                <input type="submit"  value="registered" class="webtn" style="width:150px">
 
 								</li>
                         </ul>
@@ -136,9 +130,9 @@ btnsd1.onclick = function() {
   var oInpa = document.getElementById("email").value;
 
 if(oInpa==""){
-alert("邮箱未输入..");
+alert("Email not entered..");
 }else{
-alert("邮箱验证已发送，请注意查收..");
+alert("Email verification has been sent, please check..");
 
 
 //$('#imgbt').attr('style','display:block')	;	

@@ -8,7 +8,7 @@
 <meta name="keywords" content="<?php echo ($key); ?> ">
 <meta name="description" content="<?php echo ($des); ?> "/>
 <link rel="shortcut icon" href="__IMG__/favicon.ico" >
-<!--首页截取-->
+<!--Homepage interception-->
 <link href="__CS__/ppts.css" rel="stylesheet" type="text/css">
 <link href="__CS__/layer.css" rel="stylesheet" type="text/css">
 <link href="__CS__/video/1555.css" rel="stylesheet" type="text/css">
@@ -16,14 +16,9 @@
 <script type="text/javascript" src="__JS__/video/vue.js"></script>
 <script type="text/javascript" src="__JS__/video/video.min.js"></script>
 <script type="text/javascript" src="__JS__/head.min.js" data-headjs-load="__JS__/init.js"></script>
-<!--    <link href="https://static.vjshi.com/dist/css/utils_cccb1876.css" rel="stylesheet">  -->
-<!--	<link href="https://static.vjshi.com/dist/css/total-commons_01e5d0e5.css" rel="stylesheet">
-	<link href="https://static.vjshi.com/dist/css/hero-commons_73cdd22e.css" rel="stylesheet">
-	<link href="https://static.vjshi.com/dist/css/hero_user_buyer_buyrecord_d8bb49a8.css" rel="stylesheet">
-	
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
-	-->
+
+
 	<script type="text/javascript" src="__JS__/jquery.min.js"></script>
 	
 	
@@ -147,14 +142,14 @@
 </head>
 
 <body>
-	<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
-	<!--公共头部-->
+	<h1 id="seodw">LOGO-AE Video Material Download Platform</h1>
+	<!--Public head-->
 	<div class="header normaltop">
     <div class="wrap clearfix">
         <div class="logo fl"><a href="<?php echo U('Index/index');?>"><img src="<?php echo ($logo["ad_pic"]); ?>"></a></div>
         <div class="nav fl"></div>
-        <div class="subnav fl clearfix"><i><a href="<?php echo U('Index/index');?>" >首页</a></i>
-            <div class="downnav fl"> <em><a href="javascript:;">分类</a></em>
+        <div class="subnav fl clearfix"><i><a href="<?php echo U('Index/index');?>" >Home page</a></i>
+            <div class="downnav fl"> <em><a href="javascript:;">Classification</a></em>
                 <div class="fixedw">
                     <div class="plfs">
                     <div class="plf">
@@ -173,25 +168,25 @@
         <div class="navbarauser fr">
 
 <span class="fr"><div class="login">
-    <a href="javascript:void(0);" class="logina">登录</a> <a href="javascript:void(0);" class="zcy">注册</a>
+    <a href="javascript:void(0);" class="logina">Log in</a> <a href="javascript:void(0);" class="zcy">Registered</a>
 </div>
 
 <div class="logout">
 
     <div class="hduserinfo">
-	       &nbsp;&nbsp;&nbsp; <a href="<?php echo U('Service/materialupload', array('pid'=>1));?>">上传</a>&nbsp;&nbsp;&nbsp;
-	<a href="javascript:void(0);" onclick="qiandao()">签到</a>&nbsp;&nbsp;&nbsp;
+	       &nbsp;<a href="<?php echo U('Service/materialupload', array('pid'=>1));?>">Upload</a>&nbsp;
+	<a href="javascript:void(0);" onclick="qiandao()">Sign in</a>
         <img id="img_in" class="logout1" src="__IMG__/useravatar.png" onerror="this.src='__IMG__/useravatar.png'" />
         <a href="<?php echo U('Service/index');?>" target="_blank"><i class="myName"></i></a>
     </div>
     <dl id="userinfo">
-        <dd> <a href="<?php echo U('Service/index');?>" target="_blank">个人中心</a></dd>
+        <dd> <a href="<?php echo U('Service/index');?>" target="_blank">Personal center</a></dd>
 		
-	        <dd> <a href="<?php echo U('Service/main');?>" target="_blank">会员中心</a></dd>	
+	        <dd> <a href="<?php echo U('Service/main');?>" target="_blank">Member centre</a></dd>	
 		
 		
-        <dd><a href="<?php echo U('Service/index');?>" onclick="chanPage('StationMsg')" target="_blank">收件箱(<?php echo ($new_chat); ?>)</a></dd>
-        <dd><a href="#" id="logout">退出</a></dd>
+        <dd><a href="<?php echo U('Service/index');?>" onclick="chanPage('StationMsg')" target="_blank">Inbox(<?php echo ($new_chat); ?>)</a></dd>
+        <dd><a href="#" id="logout">Sign out</a></dd>
     </dl>
 </div>
 
@@ -235,13 +230,13 @@
                     $("#img_in").attr('src',msg.avar);
                 }
                 if (t >= 7 && t < 12) {
-                    welcome += "上午好，"
+                    welcome += "Good morning，"
                 } else if (t >= 12 && t <= 13) {
-                    welcome += "中午好，"
+                    welcome += "Good afternoon，"
                 } else if (t > 13 && t <= 17) {
-                    welcome += "下午好，"
+                    welcome += "Good afternoon，"
                 } else {
-                    welcome += "晚上好，"
+                    welcome += "Good evening，"
                 }
                // $('.myName').html(welcome + msg.nickname);
 			   $('.myName').html( msg.nickname);
@@ -254,8 +249,7 @@
             }
         },
         error: function(msg) {
-            ////alert(msg.status);
-             //alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+
         }
     });
         $(".logout").hover(function() {
@@ -267,14 +261,14 @@
 
     });
 </script>
-<!--查询-->
+<!--Inquire-->
 <script type="text/javascript">
         head.ready('jquery',function() {
             var SiteUrl = $('#SiteUrl').val();
 
 
             $(".search").keydown(function(e) {
-                // 回车键事件
+                // Enter key event
 
                 if(e.which == 13) {
 
@@ -285,7 +279,7 @@
             function go_search(q){
 
                 if(q==''){
-                    //alert('关键词不能为空！');
+                    //alert('Keyword cannot be empty！');
                     $(".search").focus();
                     return false;
                 }
@@ -307,7 +301,7 @@
 
 
 	
-		/* 签到*/
+		/* Sign in*/
 		
 	        function qiandao() {
 			
@@ -315,7 +309,7 @@
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
                 else if (data.status == '2') {
@@ -324,7 +318,7 @@
 
 				      layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                    })
                }
 
@@ -341,7 +335,7 @@
 </span>
 
        <div class="formgroup fr clearfix">
-                <input class="webtxt search"  placeholder="按回车搜索" name='search' data-name="original-font-color"  type="search">
+                <input class="webtxt search"  placeholder="Press enter to search" name='search' data-name="original-font-color"  type="search">
                 <input type="button" class="webtns" value=" " />
        </div>
 
@@ -381,7 +375,7 @@
 		<div class="searchmain">
 			<form action="<?php echo U('Search/index');?>" method="post">
 
-				<input class="webtxt search" name="search" placeholder="请输入关键字、关键词" data-name="original-font-color"
+				<input class="webtxt search" name="search" placeholder="Please enter keywords, keywords" data-name="original-font-color"
 					type="text">
 				<input type="submit" class="webtn" value="" />
 			</form>
@@ -389,22 +383,16 @@
 		
 <div  style="width: 738px; height: 41px; overflow: hidden; position: absolute;top: 485px; left: 50%; margin-left: -372px; z-index: 999;">
 	
-<a href="<?php echo U('Search/index', array('search'=>'片头'));?>" title="片头">片头</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'科技'));?>" title="科技">科技</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'我和我的祖国'));?>" title="我和我的祖国">我和我的祖国</a>
-&nbsp;<a href="<?php echo U('Search/index', array('search'=>'水墨'));?>" title="水墨">水墨</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'粒子'));?>" title="粒子">粒子</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'地图'));?>" title="地图">地图</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'倒计时'));?>" title="倒计时">倒计时</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'酒吧开场'));?>" title="酒吧开场">酒吧开场</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Title'));?>" title="Title">Title</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Technology'));?>" title="Technology">Technology</a>&nbsp;
+&nbsp;<a href="<?php echo U('Search/index', array('search'=>'Ink and wash'));?>" title="Ink and wash">Ink and wash</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Particle'));?>" title="Particle">Particle</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Map'));?>" title="Map">Map</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Countdown'));?>" title="Countdown">Countdown</a>&nbsp;
 <a href="<?php echo U('Search/index', array('search'=>'logo'));?>" title="logo">logo</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'党建'));?>" title="党建">党建</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'文字'));?>" title="文字">文字</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'党政'));?>" title="党政">党政</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'星空'));?>" title="星空">星空</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'快闪'));?>" title="快闪">快闪</a>&nbsp;
-<a href="<?php echo U('Search/index', array('search'=>'党旗'));?>" title="党旗">党旗</a>&nbsp;&nbsp;
-<a href="<?php echo U('Search/index');?>" title="更多">更多></a>
+<a href="<?php echo U('Search/index', array('search'=>'Text'));?>" title="Text">Text</a>&nbsp;
+<a href="<?php echo U('Search/index', array('search'=>'Flash'));?>" title="Flash">Flash</a>&nbsp;
+<a href="<?php echo U('Search/index');?>" title="More">More></a>
 </div>		
 		
 		
@@ -438,8 +426,8 @@
 	
 	
 	<section class="slider-container common-section">
-	<h2 class="section-title">精工创作</h2>
-	<p class="section-des">源自每一位设计师对极致的追求</p>
+	<h2 class="section-title">Good at creation</h2>
+	<p class="section-des">From every designer's pursuit of the ultimate</p>
 	
 	
 
@@ -456,7 +444,7 @@
 				
 				<div class="cont">
 
-					<!--                             一周热门 开始                                -->
+					<!--                             Popular of the week starts                                -->
 
 
 
@@ -482,11 +470,11 @@
 										　　 <div
 											style="position:absolute; z-index:2; left:-30px; top:180px;font-size:15px;color:#fff;">
 
-											　　　 <?php echo ($list1["down"]); ?>下载
+											　　　 <?php echo ($list1["down"]); ?>download
 											
 				<span style="padding-left:280px">							
 				<?php if($list1["opus_source"] == 0): else: ?>
-                     原创<?php endif; ?>				
+                     Original<?php endif; ?>				
 				</span>							
 
 											　　 </div>
@@ -548,24 +536,24 @@
 				<div class="title clearfix tabtitle">
 				
 				<div class="slider-container">
-				<h2 class="section-title">实时更新，极速下载</h2><!-- 待填写数据 --><p class="section-des">鹿酷本周拦截3524件违规内容，上架21693件设计师作品</p>
+				<h2 class="section-title">Real-time update, extremely fast download</h2><!-- Data to be filled --><p class="section-des">This week, 3,524 pieces of illegal content were intercepted, and 21,693 pieces of designer work were put on the shelves</p>
 				</div>
 				
 				
 						  
 			
-					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a href="<?php echo U('Model/index',array('cid'=>3));?>" target="_blank">AE模板</a></span>
+					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a href="<?php echo U('Model/index',array('cid'=>3));?>" target="_blank">AE template</a></span>
 				
 
 				
 					
-					<!--<em><a href="<?php echo U('Model/index',array('cid'=>$info['cid']));?>" target="_blank">查看更多</a></em>-->
+					<!--<em><a href="<?php echo U('Model/index',array('cid'=>$info['cid']));?>" target="_blank">see more</a></em>-->
 				</div>
 				<div class="cont">
 
 					<div class="tabct clearfix index_hot">
 
-						<?php if(is_array($home_NewList)): $i = 0; $__LIST__ = $home_NewList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><!--                             最新发布   开始                                -->
+						<?php if(is_array($home_NewList)): $i = 0; $__LIST__ = $home_NewList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$list): $mod = ($i % 2 );++$i;?><!--                             Latest release   begin                                -->
 
 
 
@@ -587,7 +575,7 @@
 											　　　 <?php echo ($list["sjs"]); ?>
 															<span style="padding-left:185px">							
 				<?php if($list["recom"] == 0): else: ?>
-                     荐<?php endif; ?>				
+                     Recommend<?php endif; ?>				
 				</span>	
 
 											　　 </div>
@@ -615,25 +603,22 @@
 										<div class="tri_rig01"></div>
 
 											<ul>
-												<li>设计师:<?php echo ($list["user_nickname"]); ?></li>
-												<li>分类:<?php echo ($list["name"]); ?></li>
-												<li>分辨率:1920×1080</li>
-												<li>下载:<?php echo ($list["down"]); ?></li>
-												<li>售价:<?php echo ($list["price"]); ?>元</li>
-												<li>时间:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
+												<li>Designer:<?php echo ($list["user_nickname"]); ?></li>
+												<li>Classification:<?php echo ($list["name"]); ?></li>
+												<li>Resolution:1920×1080</li>
+												<li>Download:<?php echo ($list["down"]); ?></li>
+												<li>Selling price:<?php echo ($list["price"]); ?>Gold</li>
+												<li>Time:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
 											</ul>
 										</div>
 							
 							
 							
 							
-							</dl>
-							<!--  
-
-				 --><?php endforeach; endif; else: echo "" ;endif; ?>
+							</dl><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
-						<!--                             最新发布   jieshu                                -->
+						<!--                             Latest release   jieshu                                -->
 
 
 					</div>
@@ -667,10 +652,10 @@
 				
 				
 				
-				<!------------------------------3D模型------类目------------------------------>
+				<!------------------------------3D model------Category------------------------------>
 			  	<div class="title clearfix tabtitle">
 			
-					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>5));?>" target="_blank">Pr模板</a></span>
+					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>5));?>" target="_blank">Pr template</a></span>
 				</div>
 			  
 			  
@@ -695,7 +680,7 @@
 											　　　 <?php echo ($list["sjs1"]); ?>
 															<span style="padding-left:185px">							
 				                      <?php if($list["recom"] == 0): else: ?>
-                                      荐<?php endif; ?>				
+                                      Recommend<?php endif; ?>				
 			                                            	</span>	
 
 											　　 </div>
@@ -719,12 +704,12 @@
 										<div class="tri_rig02"></div>
 
 											<ul>
-												<li>设计师:<?php echo ($list["user_nickname1"]); ?></li>
-												<li>分类:<?php echo ($list["name1"]); ?></li>
-												<li>分辨率:1920×1080</li>
-												<li>下载:<?php echo ($list["down"]); ?></li>
-												<li>售价:<?php echo ($list["price"]); ?>元</li>
-												<li>时间:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
+												<li>Designer:<?php echo ($list["user_nickname"]); ?></li>
+												<li>Classification:<?php echo ($list["name"]); ?></li>
+												<li>Resolution:1920×1080</li>
+												<li>Download:<?php echo ($list["down"]); ?></li>
+												<li>Selling price:<?php echo ($list["price"]); ?>Gold</li>
+												<li>Time:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
 											</ul>
 										</div>
 							
@@ -745,10 +730,10 @@
 				
 				
 		
-				<!------------------------------达芬奇模板------类目------------------------------>
+				<!------------------------------Da Vinci template------Category------------------------------>
 			  	<div class="title clearfix tabtitle">
 			
-					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>2));?>" target="_blank">达芬奇模板</a></span>
+					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>2));?>" target="_blank">Da Vinci template</a></span>
 				</div>
 			  
 
@@ -773,7 +758,7 @@
 											　　　 <?php echo ($list["sjs1"]); ?>
 															<span style="padding-left:185px">							
 				                      <?php if($list["recom"] == 0): else: ?>
-                                      荐<?php endif; ?>				
+                                      Recommend<?php endif; ?>				
 			                                            	</span>	
 
 											　　 </div>
@@ -797,12 +782,12 @@
 										<div class="tri_rig03"></div>
 
 											<ul>
-												<li>设计师:<?php echo ($list["user_nickname1"]); ?></li>
-												<li>分类:<?php echo ($list["name1"]); ?></li>
-												<li>分辨率:1920×1080</li>
-												<li>下载:<?php echo ($list["down"]); ?></li>
-												<li>售价:<?php echo ($list["price"]); ?>元</li>
-												<li>时间:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
+												<li>Designer:<?php echo ($list["user_nickname"]); ?></li>
+												<li>Classification:<?php echo ($list["name"]); ?></li>
+												<li>Resolution:1920×1080</li>
+												<li>Download:<?php echo ($list["down"]); ?></li>
+												<li>Selling price:<?php echo ($list["price"]); ?>Gold</li>
+												<li>Time:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
 											</ul>
 										</div>
 							
@@ -823,11 +808,11 @@
 
 	
 				
-			<!------------------------------pr模板------类目------------------------------>
+			<!------------------------------pr template------Category------------------------------>
 
 			  	<div class="title clearfix tabtitle">
 			
-					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>4));?>" target="_blank">竖幅模板专区（手机）</a></span>
+					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>4));?>" target="_blank">Vertical template area</a></span>
 				</div>
 
 				<div class="cont">
@@ -851,7 +836,7 @@
 											　　　 <?php echo ($list["sjs1"]); ?>
 															<span style="padding-left:185px">							
 				                      <?php if($list["recom"] == 0): else: ?>
-                                      荐<?php endif; ?>				
+                                      Recommend<?php endif; ?>				
 			                                            	</span>	
 
 											　　 </div>
@@ -875,12 +860,12 @@
 										<div class="tri_rig04"></div>
 
 											<ul>
-												<li>设计师:<?php echo ($list["user_nickname1"]); ?></li>
-												<li>分类:<?php echo ($list["name1"]); ?></li>
-												<li>分辨率:1920×1080</li>
-												<li>下载:<?php echo ($list["down"]); ?></li>
-												<li>售价:<?php echo ($list["price"]); ?>元</li>
-												<li>时间:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
+												<li>Designer:<?php echo ($list["user_nickname"]); ?></li>
+												<li>Classification:<?php echo ($list["name"]); ?></li>
+												<li>Resolution:1920×1080</li>
+												<li>Download:<?php echo ($list["down"]); ?></li>
+												<li>Selling price:<?php echo ($list["price"]); ?>Gold</li>
+												<li>Time:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
 											</ul>
 										</div>
 							
@@ -900,12 +885,12 @@
 	
 
 				
-			<!------------------------------edius模板------类目------------------------------模板------类目------------------------------>
+			<!------------------------------edius template------Category------------------------------template------Category------------------------------>
 
 			  
 					<div class="title clearfix tabtitle">
 			
-					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>6));?>" target="_blank">视频素材</a></span>
+					<span><li class="list-style5"></li></span><span style="margin-top:-10px"><a style="color: #555" href="<?php echo U('Model/index',array('cid'=>6));?>" target="_blank">Video material</a></span>
 				</div>
 				<div class="cont">
 					<div class="tabct clearfix index_hot">
@@ -928,7 +913,7 @@
 											　　　 <?php echo ($list["sjs1"]); ?>
 															<span style="padding-left:185px">							
 				                      <?php if($list["recom"] == 0): else: ?>
-                                      荐<?php endif; ?>				
+                                      Recommend<?php endif; ?>				
 			                                            	</span>	
 
 											　　 </div>
@@ -952,12 +937,12 @@
 										<div class="tri_rig05"></div>
 
 											<ul>
-												<li>设计师:<?php echo ($list["user_nickname1"]); ?></li>
-												<li>分类:<?php echo ($list["name1"]); ?></li>
-												<li>分辨率:1920×1080</li>
-												<li>下载:<?php echo ($list["down"]); ?></li>
-												<li>售价:<?php echo ($list["price"]); ?>元</li>
-												<li>时间:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
+												<li>Designer:<?php echo ($list["user_nickname"]); ?></li>
+												<li>Classification:<?php echo ($list["name"]); ?></li>
+												<li>Resolution:1920×1080</li>
+												<li>Download:<?php echo ($list["down"]); ?></li>
+												<li>Selling price:<?php echo ($list["price"]); ?>Gold</li>
+												<li>Time:<?php  echo substr($list['opus_updatetime'],0,10) ?></li>
 											</ul>
 										</div>
 							
@@ -975,7 +960,7 @@
 				
                 <div class="btng">              
 
-               <a href="<?php echo U('Model/index',array('cid'=>1));?>" class="btngen btn-green" target="_blank">更多最新推荐</a>
+               <a href="<?php echo U('Model/index',array('cid'=>1));?>" class="btngen btn-green" target="_blank">More latest recommendations</a>
 
 	
 				</div>
@@ -1000,45 +985,28 @@
 
 <div class="rightcolumn">
     <ul>
-        <li class="li1"><a href="<?php echo U('Service/index');?>" target="_blank"><em></em><i>查看</i></a></li>
+        <li class="li1"><a href="<?php echo U('Service/index');?>" target="_blank"><em></em><i>View</i></a></li>
         <li class="li2">
-            <a href="javascript:;"><em></em><i>咨询</i></a>
+            <a href="javascript:;"><em></em><i>Advisor</i></a>
             <div class="zxmain" style="display: none;">
                 <i class="arrowrg"></i>
                 <dl>
-                    <dd>咨询电话:<br><i><?php echo ($Contact_phone); ?></i></dd>
+                    <dd>support hotline:<br><i><?php echo ($Contact_phone); ?></i></dd>
                     <dd><span>
-					<a id="QQ_con" href="javascript:void(0);"><img border="0" src="__IMG__/button_111.gif" alt="" title="联系客服" align="absmiddle"></a></span></dd>
-                    <dd>工作时间:<br></dd>
+					<a id="QQ_con" href="javascript:void(0);"><img border="0" alt="" title="Customer service" align="absmiddle"></a></span></dd>
+                    <dd>operating hours:<br></dd>
                     <dd><?php echo ($Work_time); ?></dd>
                 </dl>
             </div>
         </li>
-        <li class="li3"><a href="<?php echo U('Service/index');?>" onclick="chanPage('Recharge')" target="_blank"><em></em><i>充值</i></a></li>
-        <!--<li class="li4">
-            <a href="#"><em></em><i>微信</i></a>
-            <div class="zxmain">
-                <i class="arrowrg"></i>
-                <div class="pic"><img src="__IMG__/ewm.png" style="max-width:100%"></div>
-            </div>
-        </li>-->
+
+
     </ul>
-    <div class="gotop none">
-        <a href="javascript:;" title="返回顶部"><em>返回顶部</em></a>
+    <div class="gotop noneBack to top
+        <a href="javascript:;" title="Back to top"><em>Back to top</em></a>
     </div>
 </div>
-<input type="hidden" value="<?php echo ($Contact_QQ); ?>" id="qq_co"/>
-<script type="text/javascript">
-    head.ready('jquery',function () {
-        $('#QQ_con').click(function () {
-            var qq = $('#qq_co').val();
-            layer.confirm(qq,
-                    {title:'联系 QQ &nbsp;:',btn:['关闭']}
-            )
-        })
-    })
 
-</script>
 <!--<div class="chatrob">
     <a href="#" target="blank"><img src="" style="border:none;"></a>
 </div>-->
@@ -1070,26 +1038,26 @@
 	<script type="text/javascript">
 
 
-		var speed = 10;//设置速度
+		var speed = 10;//Set speed
 
-		//鼠标移进去
+		//Mouse in
 		function videoPlayback() {
-			//获取视频标签
+			//Get video tags
 			var e = window.event;
 			var obj = e.srcElement;
-			obj.playbackRate = speed;//改变速度
+			obj.playbackRate = speed;//Change speed
 			obj.play();
 
 		}
 
-		//鼠标离开
+		//Mouse away
 		function videoStopped() {
-			//获取视频标签			
+			//Get video tags			
 			var e = window.event;
 			var obj = e.srcElement;
-			//停止播放
+			//Stop play
 			obj.pause();
-			obj.currentTime = 0;   //停止播时回到开始
+			obj.currentTime = 0;   //Go back to the beginning when you stop broadcasting
 		}
 
 
@@ -1110,32 +1078,20 @@
         <div class="wrap clearfix">
             <div class="navmain clearfix fl">
                 <dl>
-                    <dt><img src="__IMG__/ftico1.png">关于我们</dt>
-                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">网站介绍</a></dd>
-                   <!-- <dd><a href="#" target="_blank">版权声明</a></dd>-->
-                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">联系我们</a></dd>
+                    <dt><img src="__IMG__/ftico1.png">about Us</dt>
+                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">Website Introduction</a></dd>
+
+                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">Contact us</a></dd>
                 </dl>
                 <dl>
-                    <dt><img src="__IMG__/ftico2.png">我要充值</dt>
-                    <!--<dd><a href="<?php echo U('Service/index');?>" target="_blank">用户中心</a></dd>-->
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('AccountDetail')" target="_blank">账户明细</a></dd>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('Recharge')" target="_blank">账户充值</a></dd>
+                    <dt><img src="__IMG__/ftico3.png">I am a member</dt>
+                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">become member</a></dd>
+
+                    <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">Upload material</a></dd>
                 </dl>
-                <dl>
-                    <dt><img src="__IMG__/ftico3.png">我是会员</dt>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">成为会员</a></dd>
-                    <!--<dd><a href="#" target="_blank">卖家必读</a></dd>-->
-                    <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">上传素材</a></dd>
-                </dl>
-      <!--          <dl>
-                    <dt><img src="__IMG__/ftico4.png">发现</dt>
-                    <dd><a href="#" target="_blank">推广赚钱</a></dd>
-                    <dd><a href="#" target="_blank">热销精品</a></dd>
-                    <dd><a href="#" target="_blank">加入我们</a></dd>
-                </dl>-->
-            </div>
+			</div>
             <div class="ftel fr">
-                <b><?php echo ($Contact_phone); ?></b><i><?php echo ($Work_time); ?></i><a id="QQ_cha" title="联系客服" href="javascript:void(0)">联系客服</a>
+                <b><?php echo ($Contact_phone); ?></b><i><?php echo ($Work_time); ?></i><a id="QQ_cha" title="Customer Service" href="javascript:void(0)">Customer Service</a>
             </div>
         </div>
     </div>
@@ -1145,7 +1101,7 @@
             $('#QQ_cha').click(function () {
                 var qq = $('#qq_ch').val();
                 layer.confirm(qq,
-                        {title:'联系 QQ &nbsp;:',btn:['关闭']}
+                        {title:'Contact QQ &nbsp;:',btn:['Shut down']}
                 )
             })
         })
@@ -1160,7 +1116,7 @@
     <div class="copyright" style="height: 30px;">
         <div class="wrap" >
             <p><a href="#" target="_blank"><strong><?php echo ($title); ?>&nbsp;&nbsp;<!--<?php echo ($key_show); ?>--></strong></a></p>
-               <p>  备案号：<?php echo ($icp); ?></p>
+               <p>  record number：<?php echo ($icp); ?></p>
 
 
         </div>
@@ -1176,20 +1132,20 @@
     <div class="loginf">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="current">登录</li>
-            <li class="cz">注册</li>
+            <li class="current">Log in</li>
+            <li class="cz">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist clearfix">
                 <form action="<?php echo U('Public/login');?>" method="post" onsubmit="return save_username(this)">
                     <div class="zcform fl">
                         <ul>
-                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="username or email address"><span id="utip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="Password"><span id="ptip" class="onShow"></span></li>
 
                             <li class="clearfix pr"><input type="checkbox"  name="cookie_time" id="cookietime" checked>
-                                <label for="chd">记住我</label><i class="forget"><a href="<?php echo U('Public/ForgetShow');?>" target="_blank">忘记密码?</a></i></li>
-                            <li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+                                <label for="chd">Remember me</label><i class="forget"><a href="<?php echo U('Public/ForgetShow');?>" target="_blank">Forgot password?</a></i></li>
+                            <li class="clearfix pr"><input value="Log in" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
 							
 									
 									</li>
@@ -1207,24 +1163,24 @@
     <div class="zcf none">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="dl">登录</li>
-            <li class="current">注册</li>
+            <li class="dl">Log in</li>
+            <li class="current">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist">
                 <div class="zcform">
                     <form method="post" action="<?php echo U('Public/register');?>"  id="myform" name="myform" >
                         <ul>
-                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>
-                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="输入验证码"><span id="emailwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="Enter your user name"><span id="usernameTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="Password"><span id="passwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="Enter the password again"><span id="pwdconfirmTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="Enter email"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>Send email verification</a></span> </li>
+                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="Enter confirmation code"><span id="emailwordTip" class="onShow"></span></li>
 
-                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="<?php echo U('Single/agreement');?>" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="<?php echo U('Single/agreement');?>" target="_blank" >Read and agree to the "User Service Agreement"</a></label><span id="protocoltip" class="onShow"></span></li>
 
                             <li class="clearfix pr">
-                                <input type="submit"  value="注册" class="webtn" style="width:150px">
+                                <input type="submit"  value="registered" class="webtn" style="width:150px">
 
 								</li>
                         </ul>
@@ -1237,9 +1193,7 @@
     </div>
 
 </div>
-<!--第三方登录-->
-<input type="hidden" value="<?php echo ($qq_login); ?>" id="qq_login">
-<input type="hidden" value="<?php echo ($wechat_login); ?>" id="wechat_login">
+
 
 <script language='javascript'>
 
@@ -1250,9 +1204,9 @@ btnsd1.onclick = function() {
   var oInpa = document.getElementById("email").value;
 
 if(oInpa==""){
-alert("邮箱未输入..");
+alert("Email not entered..");
 }else{
-alert("邮箱验证已发送，请注意查收..");
+alert("Email verification has been sent, please check..");
 
 
 //$('#imgbt').attr('style','display:block')	;	
@@ -1275,9 +1229,6 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 		
 }
 
-
-
-
     head.ready('formvalidator',function(){
         var SiteUrl = $('#SiteUrl').val();
 
@@ -1286,41 +1237,6 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
         $(".forward").val(SiteUrl);
 
     });
-    function Oauth(i)
-    {
-        var url="";
-        if(i==1){
-          url =  $("#qq_login").val();
-
-               var title='QQ登录';
-          // location.href = "/index.php/Login/QQ_login"
-        }else if(i==0){
-
-            url= $("#wechat_login").val();
-            var title="微信登录";
-
-        }else if(i==3){
-            url = "<?php echo U('Public/phone');?>";
-            var title = '手机登录'
-        }
-        $(".logintk").hide();
-        $(".graybg").hide();
-
-       layer.open({
-            type: 2,
-            title: title,
-            shadeClose: true,
-            shade: 0.5,
-            area: ['55%', '65%'],
-            content: url, //iframe的url
-            end:function(){
-               window.location.reload();
-
-            }
-        });
-
-
-    }
 
 </script>
 

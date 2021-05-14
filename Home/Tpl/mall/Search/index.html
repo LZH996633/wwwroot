@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-        <title>搜索页</title>
+        <title>Search page</title>
     <link  href="__CS__/so.css" rel="stylesheet"  type="text/css">
     <script type="text/javascript" src="__JS__/jquery.min.js"></script>
     <include file="Public/head"/>
@@ -17,7 +17,7 @@
        var SiteUrl = $('#SiteUrl').val();
          $(function () {
              $("#qs").keydown(function (e) {
-                 // 回车键事件
+                 // Enter key event
 
                  if (e.which == 13) {
                      go_search($(this).val());
@@ -32,12 +32,12 @@
 
              $("#bjzq").click(function () {
                  var q = $("#qs").val();
-                 if ($(this).val() == "查看免费素材") {
+                 if ($(this).val() == "View free material") {
                      window.location.href = "/index.php/search/index/?half=1&search="+q ;
-                     $(this).val("查看全部模板");
+                     $(this).val("View all templates");
                  } else {
                      window.location.href = "/index.php/search/index/?half=0&search="+q ;
-                     $(this).val("查看免费素材");
+                     $(this).val("View free material");
                  }
              });
 
@@ -59,7 +59,7 @@
                  s = 1;
              }
              if (q == '') {
-                 //alert('关键词不能为空！');
+                 //alert('Keyword cannot be empty！');
                  $("#q").focus();
                  return false;
              }
@@ -101,7 +101,7 @@
 
 <body>
 
-<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<h1 id="seodw">LOGO-AE video material download platform</h1>
 <div class="dthd">
     <div class="zw"></div>
     <div class="hdfx">
@@ -115,7 +115,7 @@
                     <div class="msct clearfix">
                         <div class="sarcm fl clearfix">
                            <!-- <div class="downlop fl pr">
-                                <span><i>全部模板</i><em></em></span>
+                                <span><i>All templates</i><em></em></span>
                                 <ul>
                                     <volist name="Cates" id="list">
                                         <li style="overflow: hidden">{$list.name}</li>
@@ -124,19 +124,19 @@
                                 </ul>
                             </div>-->
                             <div class="txts fl">
-                                <input type="search" class="webtxt " placeholder="请输入关键字"   data-name="original-font-color" id="qs" value="{$search}">
+                                <input type="search" class="webtxt " placeholder="Please enter key words"   data-name="original-font-color" id="qs" value="{$search}">
                             </div>
                             <div class="btns fr">
 
-                                <input type="button"  class="webtn" value="搜索"  id="seach">
+                                <input type="button"  class="webtn" value="search for"  id="seach">
                             </div>
                         </div>
                         <div class="jzsea pr clearfix fr">
-                            <label><input type="checkbox" id="is_and" >精准搜索</label>
+                            <label><input type="checkbox" id="is_and" >Precise search</label>
                             <i><img src="__IMG__/wenh.png"></i>
                             <ul>
-                                <li>勾选时，输入多个关键词，须同时包含全部关键词</li>
-                                <li>不勾选，则搜索结果只需满足其中一个关键词</li>
+                                <li>When checked, enter multiple keywords, all keywords must be included at the same time</li>
+                                <li>Uncheck, the search results only need to meet one of the keywords</li>
                             </ul>
                         </div>
                     </div>
@@ -149,16 +149,16 @@
 <div class="ptsecxs">
     <div class="wrap clearfix">
         <div class="orders fl">
-            <a href="{:U('Search/index',array('order'=>'recom','index'=>'0'))}"><span>推荐</span></a>
-            <a href="{:U('Search/index',array('order'=>'opus_updatetime','index'=>'1'))}">最新</a>
+            <a href="{:U('Search/index',array('order'=>'recom','index'=>'0'))}"><span>Recommend</span></a>
+            <a href="{:U('Search/index',array('order'=>'opus_updatetime','index'=>'1'))}">Up to date</a>
 
-            <a href="{:U('Search/index',array('order'=>'down','index'=>'2'))}"  >下载</a><ins class="ins"></ins>
-            <a href="{:U('Search/index',array('order'=>'price','index'=>'3'))}" >价格</a><ins class="ins1"></ins>
+            <a href="{:U('Search/index',array('order'=>'down','index'=>'2'))}"  >Download</a><ins class="ins"></ins>
+            <a href="{:U('Search/index',array('order'=>'price','index'=>'3'))}" >Price</a><ins class="ins1"></ins>
 
         </div>
         <div class="fr option">
             <div class="sxpart o3">
-                <div class="title">色系<i></i></div>
+                <div class="title">Color system<i></i></div>
                 <ul class="skmain">
                     <volist name="sort_color['son']" id="color">
                         <li class="" style="background-color:{$color.name}"><a href="{:U('Search/index',array($color['kind']=>$color['id']))}" title="{$color.name}">{$color.name}</a></li>
@@ -166,7 +166,7 @@
                 </ul>
             </div>
             <div class="sxpart o1">
-                <div class="title">软件<i></i></div>
+                <div class="title">Software<i></i></div>
                 <ul class="namesd">
                     <volist name="sort_software['son']" id="software">
                         <li><a href="{:U('Search/index',array($software['kind']=>$software['id']))}">{$software.name}</a></li>
@@ -174,7 +174,7 @@
                 </ul>
             </div>
             <div class="sxpart o2">
-                <div class="title">类型<i></i></div>
+                <div class="title">Types of<i></i></div>
                 <ul class="proportion">
                     <volist name="sort_type['son']" id="type">
                         <li><a href="{:U('Search/index',array($type['kind']=>$type['id']))}">{$type.name}</a></li>
@@ -182,7 +182,7 @@
                 </ul>
             </div>
             <div class="sxpart o3">
-                <div class="title">比例<i></i></div>
+                <div class="title">Proportion<i></i></div>
                 <ul class="proportion">
                     <volist name="sort_scale['son']" id="scale">
                         <li><a href="{:U('Search/index',array('scale'=>$scale['id']))}">{$scale.name}</a></li>
@@ -190,8 +190,8 @@
                 </ul>
             </div>
             <if condition="$is_half eq 1">
-                <input type="button" value="查看全部模板" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
-                <else/> <input type="button" value="查看半价模板" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+                <input type="button" value="View all templates" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+                <else/> <input type="button" value="View half price template" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
             </if>
         </div>
     </div>
@@ -199,13 +199,13 @@
 <div class="aomainlit" >
     <div class="wrap">
         <div class="wbmap">
-            <a href="{:U('Index/index')}">首页</a>>&nbsp;&nbsp;<a href="">搜索</a>
+            <a href="{:U('Index/index')}">Home page</a>>&nbsp;&nbsp;<a href="">search for</a>
             <if condition="$search">
-            ><i>{$search}</i>&gt;<i>筛选：</i>
-                <div class="qingkong fr"><a href="{:U('Search/index',array('tip_clear'=>'all'))}">点击清空条件</a></div>
+            ><i>{$search}</i>&gt;<i>Filter：</i>
+                <div class="qingkong fr"><a href="{:U('Search/index',array('tip_clear'=>'all'))}">Click to clear conditions</a></div>
                <if condition="$tip_show" >
                 <volist name="tip_show" id="tips">
-                    <ins>{$tips.name}<a href="{:U('Search/index',array('tip_clear'=>$tips['id']))}" title="删除此项"></a></ins>&nbsp;
+                    <ins>{$tips.name}<a href="{:U('Search/index',array('tip_clear'=>$tips['id']))}" title="Delete this item"></a></ins>&nbsp;
                 </volist>
                </if>
             </if>
@@ -239,7 +239,7 @@
                             </a>
                         <dd style="text-align:center;font-size:16px;"><p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></p></dd>
                        <!-- <dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em></em></span></dd> -->
-                        <!--半价标识-->
+                        <!--Half price sign-->
                         <if condition="$list['is_half'] eq '1'" >
                             <img class="pa" style="left:0;top:0;z-index:10" src="__IMG__/bjicos.png" />
                         </if>
@@ -248,9 +248,9 @@
             </div>
             <div id="pages">
                 <if condition="$count eq 0">
-                    <h2 style="text-align:center;margin-bottom:40px">此筛选条件下无作品，请换个试试！</h2>
+                    <h2 style="text-align:center;margin-bottom:40px">There are no works under this filter, please try another one！</h2>
                     <else/>
-                    <a class="a1">{$count}条</a>
+                    <a class="a1">{$count}piece</a>
 
                     {$page}
                 </if>
@@ -286,22 +286,22 @@
 
 
 
-        //鼠标移进去
+        //Mouse in
         function videoPlayback(){
-            //获取视频标签
+            //Get video tags
 			var e = window.event ;
 			var obj = e.srcElement ;
               obj.play();
          }
          
-        //鼠标离开
+        //Mouse away
          function videoStopped(){
-             //获取视频标签			
+             //Get video tags			
 			var a = window.event ;
 			var obj = a.srcElement ;
-             //停止播放
+             //Stop play
 			obj.pause();
-			obj.currentTime=0;   //停止播时回到开始
+			obj.currentTime=0;   //Go back to the beginning when you stop broadcasting
          }
    
 
@@ -320,14 +320,14 @@
 
         var msnry = new Masonry( container, {
             itemSelector: '.items',
-            singleMode: false, // 宽度固定不计算，由css控制
+            singleMode: false, // The width is fixed and not calculated, controlled by css
 
         });
     });
     window.onresize= function(){
         var msnry = new Masonry( container, {
             itemSelector: '.items',
-            singleMode: false, // 宽度固定不计算，由css控制
+            singleMode: false, // The width is fixed and not calculated, controlled by css
 
         });
     };

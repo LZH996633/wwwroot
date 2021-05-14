@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>左侧</title>
+<title>Left side</title>
 
 <include file="Public:sss" />
 
 <script type="text/javascript">
 $(function(){
-	//导航切换
+	//Navigation switch
 	$(".menuson .header").click(function(){
 		var $parent = $(this).parent();
 		$(".menuson>li.active").not($parent).removeClass("active open").find('.sub-menus').hide();
@@ -23,7 +23,7 @@ $(function(){
 		}
 	});
 
-	// 三级菜单点击
+	// Three-level menu click
 	$('.sub-menus li').click(function(e) {
         $(".sub-menus li.active").removeClass("active")
 		$(this).addClass("active");
@@ -45,62 +45,62 @@ $(function(){
 </head>
 
 <body style="background:#fff3e1;margin-top:-18px;">
-	<div class="lefttop"><span></span>通讯录</div>
+	<div class="lefttop"><span></span>Address book</div>
     
     <dl class="leftmenu">
     <dd>
     <div class="title">
-    <span><img src="__IMG__/leftico01.png" /></span>管理信息
+    <span><img src="__IMG__/leftico01.png" /></span>Management
     </div>
     	<ul class="menuson">
         
         <li>
             <div class="header">
             <cite></cite>
-            <a href="{:U('Index/welcome')}" target="rightFrame">站点信息</a>
+            <a href="{:U('Index/welcome')}" target="rightFrame">Site Information</a>
             <i></i>
             </div>
             <ul class="sub-menus">
-            <li><a href="{:U('Index/form')}" target="rightFrame">基本内容</a></li>
-            <li><a href="{:U('Index/tab')}"  target="rightFrame">公告</a></li>
-            <li><a href="{:U('Index/detailset')}"  target="rightFrame">详细设置</a></li>
+            <li><a href="{:U('Index/form')}" target="rightFrame">Basic content</a></li>
+            <li><a href="{:U('Index/tab')}"  target="rightFrame">Announcement</a></li>
+            <li><a href="{:U('Index/detailset')}"  target="rightFrame">Detailed settings</a></li>
 			 </ul>
         </li>
         <li>
             <div class="header">
             <cite></cite>
-            <a href="javascript:void(0)" target="rightFrame">作品管理</a>
+            <a href="javascript:void(0)" target="rightFrame">Work management</a>
             <i></i>
             </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Opus/index')}" target="rightFrame">作品列表</a></li>               
-				<li><a href="{:U('Opus/upload')}"  target="rightFrame">上传列表</a></li>
-                <li><a href="{:U('Opus/down')}"  target="rightFrame">下载记录</a></li>
-				<li><a href="{:U('Opus/count')}"  target="rightFrame">作品统计</a></li>
+                <li><a href="{:U('Opus/index')}" target="rightFrame">List of works</a></li>               
+				<li><a href="{:U('Opus/upload')}"  target="rightFrame">Upload list</a></li>
+                <li><a href="{:U('Opus/down')}"  target="rightFrame">Download record</a></li>
+				<li><a href="{:U('Opus/count')}"  target="rightFrame">Works Statistics</a></li>
              </ul>
         </li>
         
         <li>
             <div class="header">
             <cite></cite>
-            <a href="javascript:void(0)" target="rightFrame">会员管理</a>
+            <a href="javascript:void(0)" target="rightFrame">Member </a>
             <i></i>
             </div>
             <ul class="sub-menus">
-            <li><a href="{:U('User/index')}" target="rightFrame">会员列表</a></li>
-            <li><a href="{:U('User/Certa')}"  target="rightFrame">会员认证</a></li>				
-                <li><a href="{:U('User/count')}"  target="rightFrame">会员统计</a>
+            <li><a href="{:U('User/index')}" target="rightFrame">Member list</a></li>
+            <li><a href="{:U('User/Certa')}"  target="rightFrame">Certification</a></li>				
+                <li><a href="{:U('User/count')}"  target="rightFrame">Member Statistics</a>
             </ul>
         </li>
 
         <li>
                 <div class="header">
                     <cite></cite>
-                    <a href="javascript:void(0)" target="rightFrame">友情链接管理</a>
+                    <a href="javascript:void(0)" target="rightFrame">Friendly Link</a>
                     <i></i>
                 </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Link/index')}" target="rightFrame">友情链接</a></li>
+                <li><a href="{:U('Link/index')}" target="rightFrame">Management</a></li>
             </ul>
             </li>
 
@@ -110,17 +110,17 @@ $(function(){
     
     <dd>
     <div class="title">
-    <span><img src="__IMG__/leftico02.png" /></span>消息中心
+    <span><img src="__IMG__/leftico02.png" /></span>Message Center
     </div>
     <ul class="menuson">
         <li>
             <div class="header">
                 <cite></cite>
-                <a href="javascript:void(0)" target="rightFrame">编辑信息</a>
+                <a href="javascript:void(0)" target="rightFrame">Edit information</a>
                 <i></i>
             </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Information/edit')}" target="rightFrame">发送信息</a></li>
+                <li><a href="{:U('Information/edit')}" target="rightFrame">Send Message</a></li>
 
             </ul>
         </li>
@@ -129,34 +129,34 @@ $(function(){
     </dd> 
     
     
-    <dd><div class="title"><span><img src="__IMG__/leftico03.png" /></span>接口设置</div>
+    <dd><div class="title"><span><img src="__IMG__/leftico03.png" /></span>Interface settings</div>
     <ul class="menuson">
 
 
         <li>
             <div class="header">
                 <cite></cite>
-                <a href="javascript:void(0)" target="rightFrame">验证接口</a>
+                <a href="javascript:void(0)" target="rightFrame">Verification interface</a>
                 <i></i>
             </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Interface/eMail_send_form')}" target="rightFrame">邮箱</a></li>
+                <li><a href="{:U('Interface/eMail_send_form')}" target="rightFrame">Mailbox</a></li>
             </ul>
         </li>
 
     </ul>
     </dd>  
 
-    <dd><div class="title"><span><img src="__IMG__/leftico04.png" /></span>系统设置</div>
+    <dd><div class="title"><span><img src="__IMG__/leftico04.png" /></span>System settings</div>
     <ul class="menuson">
         <li>
             <div class="header">
                 <cite></cite>
-                <a href="javascript:void(0)" target="rightFrame">管理员设置</a>
+                <a href="javascript:void(0)" target="rightFrame">Administrator</a>
                 <i></i>
             </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Admin/person')}" target="rightFrame">账号密码</a></li>
+                <li><a href="{:U('Admin/person')}" target="rightFrame">Account password</a></li>
 
 
 
@@ -165,13 +165,13 @@ $(function(){
         <li>
             <div class="header">
                 <cite></cite>
-                <a href="javascript:void(0)" target="rightFrame">缓存设置</a>
+                <a href="javascript:void(0)" target="rightFrame">Cache settings</a>
                 <i></i>
             </div>
             <ul class="sub-menus">
-                <li><a href="{:U('Admin/cache')}" target="rightFrame">清理缓存</a></li>
+                <li><a href="{:U('Admin/cache')}" target="rightFrame">Clear cache</a></li>
                
-                                <li><a href="javascript:void(0)" target="rightFrame">修改密码</a></li>
+                                
                 
 
             </ul>

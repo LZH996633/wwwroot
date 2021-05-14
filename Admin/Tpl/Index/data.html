@@ -2,17 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>欢迎页</title>
+<title>Welcome page</title>
 <include file="Public:sss" />
 
 </head>
 
 <body>
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">站点数据</a></li>
+    <li><a href="#">Home page</a></li>
+    <li><a href="#">Site data</a></li>
     </ul>
     </div>
     <div class="mainindex">
@@ -20,34 +20,34 @@
         <form action="__APP__?m=Index&a=data" method="post" style="" >
             <ul class="">
                 <li class="sarchbtn">
-                <button type="submit" name="data" value="1" class="scbtn" >当天</button>
-                <button type="submit" name="data" value="7" class="scbtn" >本周</button>
-                <button type="submit" name="data" value="30" class="scbtn2" >本月</button>
-                <button type="submit" name="data" value="90" class="scbtn2" >本季度</button>
+                <button type="submit" name="data" value="1" class="scbtn" >That day</button>
+                <button type="submit" name="data" value="7" class="scbtn" >This week</button>
+                <button type="submit" name="data" value="30" class="scbtn2" >This month</button>
+                <button type="submit" name="data" value="90" class="scbtn2" >This quarter</button>
 
-                {$repeat}{$repeat}{$repeat}自定义：<input type="text" name="day" value="" placeholder="请输入您要查询的天数" style="height:30px;line-height:30px;text-align:center;" >天
-                <button type="submit" class="scbtn2" >查询</button>
+                {$repeat}{$repeat}{$repeat}Customize：<input type="text" name="day" value="" placeholder="Please enter the number of days you want to query" style="height:30px;line-height:30px;text-align:center;" >day
+                <button type="submit" class="scbtn2" >Inquire</button>
                 </li>  
             </ul>
         </form>
         </div>
         <div style="">
             <div class="welinfo">
-                <span><img src="__IMG__/dp.png" alt="提醒" /></span>
-                <b><eq name="currentday" value='' ><em>所有</em><else /><em>{$currentday}日</em></eq> 数据：</b>
+                <span><img src="__IMG__/dp.png" alt="Remind" /></span>
+                <b><eq name="currentday" value='' ><em>all</em><else /><em>{$currentday}day</em></eq> data：</b>
             </div>
             <table class="tablelist">
                 <thead>
                     <tr>
-                    <th>作品数量</th>
-                    <th>会员数</th>
-                    <th>下载量</th>
-                    <!--<th>总积分</th>-->
-                    <!--<th>推广数</th>-->
-                    <th>会员总金(￥)</th>
-                    <th>成交额(￥)</th>
-                    <th>提现额(￥)</th>
-                    <th>站点余额(￥)</th>
+                    <th>Number of works</th>
+                    <th>Number of members</th>
+                    <th>Downloads</th>
+                    <!--<th>Total points</th>-->
+                    <!--<th>Promotion number</th>-->
+                    <th>Member's total gold(￥)</th>
+                    <th>Turnover(￥)</th>
+                    <th>Withdrawal amount(￥)</th>
+                    <th>Site balance(￥)</th>
                     </tr>
                 </thead>
                 <tbody>

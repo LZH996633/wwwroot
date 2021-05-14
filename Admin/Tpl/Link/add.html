@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>合作管理</title>
+	<title>Cooperative management</title>
 	<link href="__CS__/style.css" rel="stylesheet" type="text/css"/>
 	<style>
 		form p{
@@ -34,11 +34,11 @@
 <body>
 
 <div class="place">
-	<span>位置：</span>
+	<span>position：</span>
 	<ul class="placeul">
-		<li><a href="#">首页</a></li>
-		<li><a href="#">合作管理</a></li>
-		<li><a href="#">合作链接</a></li>
+		<li><a href="#">Home page</a></li>
+		<li><a href="#">Cooperative management</a></li>
+		<li><a href="#">Cooperation link</a></li>
 	</ul>
 </div>
 <script type="text/javascript">
@@ -66,26 +66,26 @@
 </script>
 <div class="rightinfo">
 	<form action="{:U('add')}" method="post">
-		<div class="formtitle"><span>添加</span></div>
+		<div class="formtitle"><span>Add to</span></div>
 		<ul class="forminfo">
 			<li>
-				标题：<input name="link_name" type="text" value="{$link.link_name}" class="dfinput" style="width:200px;" />
+				Title：<input name="link_name" type="text" value="{$link.link_name}" class="dfinput" style="width:200px;" />
 			</li>
 			<li>
-				链接：<input name="link_url" type="text" value="{$link.link_url}" class="dfinput" style="width:200px;" />
+				Link：<input name="link_url" type="text" value="{$link.link_url}" class="dfinput" style="width:200px;" />
 			</li>
 			<li>
-				图片：<input name="link_logo" id="j-pic-url" readonly class="dfinput" style="width:200px;" value="{$link.link_logo}"/><input type="file" name="file" id="j-file">
+				Image：<input name="link_logo" id="j-pic-url" readonly class="dfinput" style="width:200px;" value="{$link.link_logo}"/><input type="file" name="file" id="j-file">
 			</li>
 			<!--<li>
-				标识：<input name="ad_locationpic" type="text" value="{$ad.ad_locationpic}" class="dfinput" style="width:200px;" />
+				Logo：<input name="ad_locationpic" type="text" value="{$ad.ad_locationpic}" class="dfinput" style="width:200px;" />
 			</li>-->
 			<li>
-				备注：	</li>
+				Remarks：	</li>
 			<li>
 				<textarea name="link_remark"  class="dfinput" style="width:300px;height: 150px;resize: none" ></textarea>
 			</li>
-			<li><input  type="submit" class="btn" value="确认保存"/></li>
+			<li><input  type="submit" class="btn" value="Confirm save"/></li>
 		</ul>
 	</form>
 </div>
@@ -115,7 +115,7 @@
                             alert(oRet.message);
                         }
                     } catch (e) {
-                        alert('上传失败，请重试!');
+                        alert('Upload failed, please try again!');
                     }
                 }
             });
@@ -125,20 +125,20 @@
     });
 </script>
 <div class="tip">
-	<div class="tiptop"><span>提示信息</span><a onclick="cancel()"></a></div>
+	<div class="tiptop"><span>Prompt information</span><a onclick="cancel()"></a></div>
 
 	<div class="tipinfo">
 		<span><img src="__IMG__/ticon.png"/></span>
 
 		<div class="tipright">
-			<p>是否确认对信息的修改 ？</p>
-			<cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+			<p>Do you confirm the modification of the information? ？</p>
+			<cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
 		</div>
 	</div>
 
 	<div class="tipbtn">
-		<input name="" type="button" class="sure" value="确定" onclick="sure()"/>&nbsp;
-		<input name="" type="button" class="cancel" value="取消" onclick="cancel()"/>
+		<input name="" type="button" class="sure" value="Determine" onclick="sure()"/>&nbsp;
+		<input name="" type="button" class="cancel" value="Cancel" onclick="cancel()"/>
 	</div>
 
 </div>

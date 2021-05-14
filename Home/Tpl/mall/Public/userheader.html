@@ -7,13 +7,13 @@
 		<div class="notification-bar">
 		<p>
 		<if condition="$msg eq 0">
-	<a href="javascript:void(0);" data-value="StationMsg" class="chanView detail list-style-blue"> 您有&nbsp;0&nbsp;条未读消息 &nbsp;(&nbsp;经常关注官方提示信息，即时处理信息提示问题...&nbsp;)</a><span class="shut" action-type="shut" action-data="nid=0&amp;name=message"></span>
+	<a href="javascript:void(0);" data-value="StationMsg" class="chanView detail list-style-blue"> You have&nbsp;0&nbsp;unread messages &nbsp;(&nbsp;Always pay attention to official reminders and deal with information prompts immediately...&nbsp;)</a><span class="shut" action-type="shut" action-data="nid=0&amp;name=message"></span>
 		<else/>
 
 
 
 	<a href="javascript:void(0);" data-value="StationMsg" class="chanView detail list-style-blue">
-	您有{$msg}条未读消息(<volist name="list1" id="vo" >
+	You have&nbsp;0&nbsp;unread messages(<volist name="list1" id="vo" >
 	<input name="title" type="text" style="border:none; line-height:35px; background:#fff; color: #555; cursor:pointer" size="50" value="{$vo.chat_content}" maxlength="15"  onkeyup="javascript:setShowLength(this, 15, 'cost_tpl_title_length');"  disabled /> 
 	</volist>...)
 	</a>	
@@ -26,10 +26,10 @@
 		
 		<div class="subnav fl clearfix">
 		
-		<i onmouseover="display()"  onmouseout="disappear()" ><a style="color:red;" href="{:U('Service/index')}" class="active">会员中心</a></i>
-        <i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="Down_Upload">下载记录</a></i>
-		<i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="CollectFocus">收藏</a></i>
-       <i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="StationMsg">个人消息</a></i>
+		<i onmouseover="display()"  onmouseout="disappear()" ><a style="color:red;" href="{:U('Service/index')}" class="active">Member Centre</a></i>
+        <i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="Down_Upload">Download record</a></i>
+		<i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="CollectFocus">Favorites</a></i>
+       <i onmouseover="display()"  onmouseout="disappear()" ><a href="javascript:void(0);" class="chanView" data-value="StationMsg">Personal message</a></i>
 	   
 
 
@@ -75,15 +75,15 @@
 
 
 <script>
-	var oDiv = document.getElementById('css'); //获取这个div元素
-	oDiv.style.background-image = '';   //将它的背景设置为空，这样就没有背景图了
+	var oDiv = document.getElementById('css'); //Get this div element
+	oDiv.style.background-image = '';   //Set its background to empty, so there is no background image
 </script>
 
 
 
 
 
-    <!--左侧菜单选项卡-->
+    <!--Left menu tab-->
     <script type="text/javascript">
         $(document).ready(function () {
             var SiteUrl = $('#SiteUrl').val();
@@ -101,7 +101,7 @@
         })
 
     </script>
-    <!--异步调用-->
+    <!--Asynchronous call-->
     <script type="text/javascript">
         $(document).ready(function () {
             var action_show = $("#action").val();

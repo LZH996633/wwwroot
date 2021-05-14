@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>信息中心</title>
+    <title>Information Center</title>
     <link href="__CS__/style.css" rel="stylesheet" type="text/css" />
     <style>
         .money input{
@@ -50,11 +50,11 @@
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">消息中心</a></li>
-        <li><a href="#">发送消息</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">Message Center</a></li>
+        <li><a href="#">Send a message</a></li>
     </ul>
 </div>
 
@@ -62,8 +62,8 @@
 
     <div class="tools">
         <ul class="toolbar">
-           <li class="click"><span><img src="__IMG__/t02.png" /></span>发送信息</li>
-            <li class="click"><a href="{:U('Information/do_edit',array('all'=>'true'))}"><span><img src="__IMG__/t02.png" /></span>一键群发</a></li>
+           <li class="click"><span><img src="__IMG__/t02.png" /></span>Send a message</li>
+            <li class="click"><a href="{:U('Information/do_edit',array('all'=>'true'))}"><span><img src="__IMG__/t02.png" /></span>One-click group sending</a></li>
             <!-- <li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li> -->
            <!-- <li class="click"><span><img src="__IMG__/t03.png" /></span>删除</li>-->
             <!--<li class="click"><span><img src="__IMG__/t04.png" /></span>统计</li>-->
@@ -74,21 +74,21 @@
 
             <form action="__APP__?m=Information&a=edit" method="post"  >
                 <ul class="">
-                    <li><input type="submit" class="scbtn" value="查询"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（会员名、昵称、邮箱、手机）</label>
+                    <li><input type="submit" class="scbtn" value="Inquire"/>{$repeat}<input name="searchop" type="text" class="scinput1" value="{$search}"/><label>{$repeat}（Member name, nickname, email, mobile phone）</label>
                     </li>
                 </ul>
                 <ul class="">
                     <li class="sarchbtn"><label>&nbsp;</label>
-                        <!-- <input name="" type="button" class="scbtn2" value="导出"/> -->
+                        <!-- <input name="" type="button" class="scbtn2" value="Export"/> -->
                     </li>
                 </ul>
                 <ul class="toolbar1" style="float:right;">
-                    <!-- <li><span><img src="__IMG__/t05.png" /></span>设置</li> -->
+                    <!-- <li><span><img src="__IMG__/t05.png" /></span>Set up</li> -->
                 </ul>
             </form>
         </div>
     </div>
-    <!--全选与全不选-->
+    <!--Select all or none-->
     <script type="text/javascript">
 
         function select_all(){
@@ -111,7 +111,7 @@
 
         }
     </script>
-    <!--//单选-->
+    <!--//Single choice-->
     <script type='text/javascript'>
 
         function select_it(id){
@@ -123,7 +123,7 @@
 
 
     </script>
-    <!--cancel 全部取消-->
+    <!--cancel Cancel all of them-->
     <script type='text/javascript'>
 
         function cancel(){
@@ -137,7 +137,7 @@
             }
 
         }
-        <!-- 表单提交 -->
+        <!-- Form submission -->
         function sure(){
             var  select = document.getElementsByClassName('select');
             var length = select.length;
@@ -161,21 +161,21 @@
         <thead>
         <tr>
             <th><input type="checkbox" onclick="select_all()" id="select_all"/></th>
-            <th>编号
+            <th>Numbering
                 <!-- <i class="sort"><img src="__IMG__/px.gif" /></i> -->
             </th>
-            <th>用户名</th>
-            <th>昵称</th>
-            <th>邮箱</th>
-            <th>手机</th>
-            <!-- <th>籍贯</th> -->
+            <th>username</th>
+            <th>nickname</th>
+            <th>mailbox</th>
+            <th>Cell phone</th>
+            <!-- <th>Hometown</th> -->
             <!-- <th>等级</th> -->
-            <!-- <th>用户权限</th> -->
-            <th>账户余额（￥）</th>
-            <!-- <th>剩余积分</th> -->
-            <th>注册时间</th>
-            <th>封禁状态</th>
-            <th>操作</th>
+            <!-- <th>grade</th> -->
+            <th>Account Balance（￥）</th>
+            <!-- <th>Remaining points</th> -->
+            <th>Registration time</th>
+            <th>Banned status</th>
+            <th>operating</th>
         </tr>
         </thead>
         <tbody class="user-list">
@@ -196,8 +196,8 @@
                     <td class="money"><span>{$vo.user_money}</span><input value="{$vo.gold_coin}" data-value="{$vo.gold_coin}" data-id="{$vo.user_id}"></td>
                     <!-- <td>{$vo.user_points}</td> -->
                     <td>{$vo.user_registertime}</td>
-                    <td><if condition="$vo.user_state eq 1">正常使用<else/>封禁中...</if></td>
-                    <td><a href="{:U('Information/do_edit',array('id'=>$vo['user_id']))}" class="tablelink">发送消息</a></td>
+                    <td><if condition="$vo.user_state eq 1">Normal use<else/>Banned...</if></td>
+                    <td><a href="{:U('Information/do_edit',array('id'=>$vo['user_id']))}" class="tablelink">Send a message</a></td>
 
                 </tr>
             </volist>
@@ -209,19 +209,19 @@
 
 
     <div class="tip">
-        <div class="tiptop"><span>提示信息</span><a onclick="cancel()" ></a></div>
+        <div class="tiptop"><span>Prompt information</span><a onclick="cancel()" ></a></div>
 
         <div class="tipinfo">
             <span><img src="__IMG__/ticon.png" /></span>
             <div class="tipright">
-                <p>是否确认对信息的修改 ？</p>
-                <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+                <p>Whether to confirm the modification of the information ？</p>
+                <cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
             </div>
         </div>
 
         <div class="tipbtn">
-            <input name="" type="button"  class="sure" value="确定" onclick='sure()'/>&nbsp;
-            <input name="" type="button"  class="cancel" value="取消" onclick='cancel()'/>
+            <input name="" type="button"  class="sure" value="Determine" onclick='sure()'/>&nbsp;
+            <input name="" type="button"  class="cancel" value="Cancel" onclick='cancel()'/>
         </div>
 
     </div>

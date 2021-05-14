@@ -17,7 +17,7 @@
 <meta name="keywords" content="<?php echo ($key); ?> ">
 <meta name="description" content="<?php echo ($des); ?> "/>
 <link rel="shortcut icon" href="__IMG__/favicon.ico" >
-<!--首页截取-->
+<!--Homepage interception-->
 <link href="__CS__/ppts.css" rel="stylesheet" type="text/css">
 <link href="__CS__/layer.css" rel="stylesheet" type="text/css">
 <link href="__CS__/video/1555.css" rel="stylesheet" type="text/css">
@@ -25,14 +25,9 @@
 <script type="text/javascript" src="__JS__/video/vue.js"></script>
 <script type="text/javascript" src="__JS__/video/video.min.js"></script>
 <script type="text/javascript" src="__JS__/head.min.js" data-headjs-load="__JS__/init.js"></script>
-<!--    <link href="https://static.vjshi.com/dist/css/utils_cccb1876.css" rel="stylesheet">  -->
-<!--	<link href="https://static.vjshi.com/dist/css/total-commons_01e5d0e5.css" rel="stylesheet">
-	<link href="https://static.vjshi.com/dist/css/hero-commons_73cdd22e.css" rel="stylesheet">
-	<link href="https://static.vjshi.com/dist/css/hero_user_buyer_buyrecord_d8bb49a8.css" rel="stylesheet">
-	
-	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 
-	-->
+
+
 	<script type="text/javascript" src="__JS__/jquery.min.js"></script>
 	
 	
@@ -69,19 +64,15 @@
 </head>
 
 <body>
-    <!--[if lte IE 10]>
-        <div style="text-align:center;background: #fce9cf none repeat scroll 0 0;    border: 1px solid #fbdeb6;    color: #915808;    font-size: 12px;    padding: 8px 12px;    position: relative;">
-            您正在使用IE低级浏览器，为了您的账号安全和更好的产品体验，<br />强烈建议您立即 <a class="blue" href="http://windows.microsoft.com/zh-cn/internet-explorer/download-ie" target="_blank">升级IE浏览器</a> 或者用更快更安全的 <a class="blue" href="https://www.baidu.com/s?ie=UTF-8&wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank">谷歌浏览器Chrome</a> 。
-        </div>
-        <![endif]-->
+
 
     <h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
     <div class="header normaltop">
     <div class="wrap clearfix">
         <div class="logo fl"><a href="<?php echo U('Index/index');?>"><img src="<?php echo ($logo["ad_pic"]); ?>"></a></div>
         <div class="nav fl"></div>
-        <div class="subnav fl clearfix"><i><a href="<?php echo U('Index/index');?>" >首页</a></i>
-            <div class="downnav fl"> <em><a href="javascript:;">分类</a></em>
+        <div class="subnav fl clearfix"><i><a href="<?php echo U('Index/index');?>" >Home page</a></i>
+            <div class="downnav fl"> <em><a href="javascript:;">Classification</a></em>
                 <div class="fixedw">
                     <div class="plfs">
                     <div class="plf">
@@ -100,25 +91,25 @@
         <div class="navbarauser fr">
 
 <span class="fr"><div class="login">
-    <a href="javascript:void(0);" class="logina">登录</a> <a href="javascript:void(0);" class="zcy">注册</a>
+    <a href="javascript:void(0);" class="logina">Log in</a> <a href="javascript:void(0);" class="zcy">Registered</a>
 </div>
 
 <div class="logout">
 
     <div class="hduserinfo">
-	       &nbsp;&nbsp;&nbsp; <a href="<?php echo U('Service/materialupload', array('pid'=>1));?>">上传</a>&nbsp;&nbsp;&nbsp;
-	<a href="javascript:void(0);" onclick="qiandao()">签到</a>&nbsp;&nbsp;&nbsp;
+	       &nbsp;<a href="<?php echo U('Service/materialupload', array('pid'=>1));?>">Upload</a>&nbsp;
+	<a href="javascript:void(0);" onclick="qiandao()">Sign in</a>
         <img id="img_in" class="logout1" src="__IMG__/useravatar.png" onerror="this.src='__IMG__/useravatar.png'" />
         <a href="<?php echo U('Service/index');?>" target="_blank"><i class="myName"></i></a>
     </div>
     <dl id="userinfo">
-        <dd> <a href="<?php echo U('Service/index');?>" target="_blank">个人中心</a></dd>
+        <dd> <a href="<?php echo U('Service/index');?>" target="_blank">Personal center</a></dd>
 		
-	        <dd> <a href="<?php echo U('Service/main');?>" target="_blank">会员中心</a></dd>	
+	        <dd> <a href="<?php echo U('Service/main');?>" target="_blank">Member centre</a></dd>	
 		
 		
-        <dd><a href="<?php echo U('Service/index');?>" onclick="chanPage('StationMsg')" target="_blank">收件箱(<?php echo ($new_chat); ?>)</a></dd>
-        <dd><a href="#" id="logout">退出</a></dd>
+        <dd><a href="<?php echo U('Service/index');?>" onclick="chanPage('StationMsg')" target="_blank">Inbox(<?php echo ($new_chat); ?>)</a></dd>
+        <dd><a href="#" id="logout">Sign out</a></dd>
     </dl>
 </div>
 
@@ -162,13 +153,13 @@
                     $("#img_in").attr('src',msg.avar);
                 }
                 if (t >= 7 && t < 12) {
-                    welcome += "上午好，"
+                    welcome += "Good morning，"
                 } else if (t >= 12 && t <= 13) {
-                    welcome += "中午好，"
+                    welcome += "Good afternoon，"
                 } else if (t > 13 && t <= 17) {
-                    welcome += "下午好，"
+                    welcome += "Good afternoon，"
                 } else {
-                    welcome += "晚上好，"
+                    welcome += "Good evening，"
                 }
                // $('.myName').html(welcome + msg.nickname);
 			   $('.myName').html( msg.nickname);
@@ -181,8 +172,7 @@
             }
         },
         error: function(msg) {
-            ////alert(msg.status);
-             //alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+
         }
     });
         $(".logout").hover(function() {
@@ -194,14 +184,14 @@
 
     });
 </script>
-<!--查询-->
+<!--Inquire-->
 <script type="text/javascript">
         head.ready('jquery',function() {
             var SiteUrl = $('#SiteUrl').val();
 
 
             $(".search").keydown(function(e) {
-                // 回车键事件
+                // Enter key event
 
                 if(e.which == 13) {
 
@@ -212,7 +202,7 @@
             function go_search(q){
 
                 if(q==''){
-                    //alert('关键词不能为空！');
+                    //alert('Keyword cannot be empty！');
                     $(".search").focus();
                     return false;
                 }
@@ -234,7 +224,7 @@
 
 
 	
-		/* 签到*/
+		/* Sign in*/
 		
 	        function qiandao() {
 			
@@ -242,7 +232,7 @@
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
                 else if (data.status == '2') {
@@ -251,7 +241,7 @@
 
 				      layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                    })
                }
 
@@ -268,7 +258,7 @@
 </span>
 
        <div class="formgroup fr clearfix">
-                <input class="webtxt search"  placeholder="按回车搜索" name='search' data-name="original-font-color"  type="search">
+                <input class="webtxt search"  placeholder="Press enter to search" name='search' data-name="original-font-color"  type="search">
                 <input type="button" class="webtns" value=" " />
        </div>
 
@@ -319,8 +309,8 @@
                                     download="web-001.mp4">下载小样</a></i>
 
                             <li class="quality-checker-wrap"> 
-                                &nbsp; &nbsp;&nbsp;<input class="btn1" type="button" value="投诉举报"/>
-								
+                                &nbsp; &nbsp;&nbsp;
+								&nbsp; &nbsp;
                                 &nbsp; &nbsp;
 								<!--
 								<input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
@@ -342,101 +332,7 @@
                   </div>
 					
 						
-		             <div id="div1" style="width: 700px;background-color: #fff; background-clip: padding-box;border-radius: 3px;outline: 0;">
-					 
-                    <div class="snd-dialog-header"> 
-					<h5 class="snd-dialog-title" node-dype="title">反馈工单</h5>
-					</div>
-					
-					<!--
-					addok页
-$sex=$_POST["sex"];   sex  就是 input type="radio"   的 名字   模块 判断 是否post传送过来值
 
--->
-					
-				<div class="snd-dialog-body" node-dype="content">	
-					
-				<div class="user-ticket">
-			   <h3 class change-class >
-			   <span>对象：【原创】梦幻写意唯美粒子蝴蝶婚礼舞台背景  类型：视频素材<span>
-			   </h3>
-			   
-			  <div class="reason">
-		                    <form method="post" onsubmit="return  check_form();">
-						<ul>	
-						<li>
-					<label class="form-radio">
-                    <input type="radio" name="sex" id="title" value="0" onClick="selectTag('请填写与此素材重复的另一个素材的链接或ID')" checked />
-					<span class="form-radio-text">与站内素材重复</span>
-                   </label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-radio">
-				   <input type="radio" name="sex" id="title1" value="1" onClick="selectTag('请描写此素材违规情况，如：含商业水印、含广告信息、含违法信息等')"/>
-				   <span class="form-radio-text">内容违规</span>
-                </label>
-				&nbsp;&nbsp;&nbsp;&nbsp;
-                <label class="form-radio">
-				   <input type="radio" name="sex" id="title2" class="title11"  value="3" onClick="selectTag('请填写你的反馈内容！')"/>
-				   <span class="form-radio-text">侵权</span>
-                </label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="radio" name="sex" id="title3" value="2" onClick="selectTag('请填写你的反馈内容！')"/>其他
-				   </li>
-					</ul>
-							 </div>
-			<div id="tips" class="tips" style="display: none;">	
-         <h4>温馨提示</h4>			
-			<div class="content"><p>
-	如您发现该设计师侵犯您的权利，为了便于我们尽快为您处理，请及时将以下信息发送至邮箱：<span>admin@vjshi.com</span></p><p>
-	1，侵权素材链接或ID
-</p><p>
-	2，初步的作品权利证明材料
-</p><p>
-	3，权利人信息及联系方式
-</p><p>
-	VJshi网一直致力于保护原创作品，感谢您参与平台内容治理，我们将尽快回复及处理您的邮件
-</p><p><br></p><p>
-	VJshi网为保护原创作品采取的措施：
-</p><p>
-	1，加强审核培训，严格把好审核关
-</p><p>
-	2，建立信用系统，扶持优质设计师，打击失信设计师 <a href="http://help.vjshi.com/manual/37.html" target="_blank">查看信用系统规则</a></p><p>
-	3，提供畅通的投诉渠道及快速处理机制
-</p><p>
-	4，开发基于图像识别的视频查重系统，杜绝被投诉过的内容再次上传
-</p></div>				 
-							 
-	</div>						 
-							 
-							 
-							 
-							 
-							 
-							 
-                        <div class="forms">
-                            <ul>
-			  
-                                <li><textarea maxlength="255" class="form-control __web-inspector-hide-shortcut__"  id="content"  placeholder="请填写与此素材重复的另一个素材的链接或ID" ></textarea></li>
-								
-                                <li><input type="button" id="webtn" class="webtn" value="提  交" onclick="check_form()"></li>
-                            </ul>
-							
-							
-
-                        </div>
-                    </form>	   
-			      
-			     </div>
-			    </div>
-			   
-			   
-			   
-			   <li>
-                <a href=JavaScript:; onclick="Lock_CheckForm(this);">点这里关闭本窗口</a>			
-			    </li>
-                    
-
-					</div>	
 
                 </div>
 
@@ -481,12 +377,7 @@ $sex=$_POST["sex"];   sex  就是 input type="radio"   的 名字   模块 判�
                                 $('#share').attr('style', 'display:block');
                             }
                         </script>
-                        <!--
-                   <script type="text/javascript">
-                        window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","weixin","renren"],"viewText":"分享到：","viewSize":"16"}};
-                        with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/__JS__/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-                    </script>
-                    -->
+
                     </div>
                     <div class="jiathis_style_24x24 fr" id='share' style="display: none">
                         <a class="jiathis_button_qzone"></a>
@@ -612,11 +503,7 @@ $sex=$_POST["sex"];   sex  就是 input type="radio"   的 名字   模块 判�
 	<script type="text/javascript" src="__JS__/blowup.min.js"></script>
     <script type="text/javascript" src="__CS__/demo/scripts/prism.js"></script>
     <script type="text/javascript">
-      //  var el = window.document.body;//声明一个变量，默认值为body
-     //   window.document.body.onmouseover = function (event) {
-     //       el = event.target;//鼠标每经过一个元素，就把该元素赋值给变量el
-      //      console.log('当前鼠标在', el, '元素上');//在控制台中打印该变量
-     //   }
+
 
         var speed = 10;//设置速度
 
@@ -812,45 +699,28 @@ return   false;
     
 <div class="rightcolumn">
     <ul>
-        <li class="li1"><a href="<?php echo U('Service/index');?>" target="_blank"><em></em><i>查看</i></a></li>
+        <li class="li1"><a href="<?php echo U('Service/index');?>" target="_blank"><em></em><i>View</i></a></li>
         <li class="li2">
-            <a href="javascript:;"><em></em><i>咨询</i></a>
+            <a href="javascript:;"><em></em><i>Advisor</i></a>
             <div class="zxmain" style="display: none;">
                 <i class="arrowrg"></i>
                 <dl>
-                    <dd>咨询电话:<br><i><?php echo ($Contact_phone); ?></i></dd>
+                    <dd>support hotline:<br><i><?php echo ($Contact_phone); ?></i></dd>
                     <dd><span>
-					<a id="QQ_con" href="javascript:void(0);"><img border="0" src="__IMG__/button_111.gif" alt="" title="联系客服" align="absmiddle"></a></span></dd>
-                    <dd>工作时间:<br></dd>
+					<a id="QQ_con" href="javascript:void(0);"><img border="0" alt="" title="Customer service" align="absmiddle"></a></span></dd>
+                    <dd>operating hours:<br></dd>
                     <dd><?php echo ($Work_time); ?></dd>
                 </dl>
             </div>
         </li>
-        <li class="li3"><a href="<?php echo U('Service/index');?>" onclick="chanPage('Recharge')" target="_blank"><em></em><i>充值</i></a></li>
-        <!--<li class="li4">
-            <a href="#"><em></em><i>微信</i></a>
-            <div class="zxmain">
-                <i class="arrowrg"></i>
-                <div class="pic"><img src="__IMG__/ewm.png" style="max-width:100%"></div>
-            </div>
-        </li>-->
+
+
     </ul>
-    <div class="gotop none">
-        <a href="javascript:;" title="返回顶部"><em>返回顶部</em></a>
+    <div class="gotop noneBack to top
+        <a href="javascript:;" title="Back to top"><em>Back to top</em></a>
     </div>
 </div>
-<input type="hidden" value="<?php echo ($Contact_QQ); ?>" id="qq_co"/>
-<script type="text/javascript">
-    head.ready('jquery',function () {
-        $('#QQ_con').click(function () {
-            var qq = $('#qq_co').val();
-            layer.confirm(qq,
-                    {title:'联系 QQ &nbsp;:',btn:['关闭']}
-            )
-        })
-    })
 
-</script>
 <!--<div class="chatrob">
     <a href="#" target="blank"><img src="" style="border:none;"></a>
 </div>-->
@@ -863,32 +733,20 @@ return   false;
         <div class="wrap clearfix">
             <div class="navmain clearfix fl">
                 <dl>
-                    <dt><img src="__IMG__/ftico1.png">关于我们</dt>
-                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">网站介绍</a></dd>
-                   <!-- <dd><a href="#" target="_blank">版权声明</a></dd>-->
-                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">联系我们</a></dd>
+                    <dt><img src="__IMG__/ftico1.png">about Us</dt>
+                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">Website Introduction</a></dd>
+
+                    <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">Contact us</a></dd>
                 </dl>
                 <dl>
-                    <dt><img src="__IMG__/ftico2.png">我要充值</dt>
-                    <!--<dd><a href="<?php echo U('Service/index');?>" target="_blank">用户中心</a></dd>-->
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('AccountDetail')" target="_blank">账户明细</a></dd>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('Recharge')" target="_blank">账户充值</a></dd>
+                    <dt><img src="__IMG__/ftico3.png">I am a member</dt>
+                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">become member</a></dd>
+
+                    <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">Upload material</a></dd>
                 </dl>
-                <dl>
-                    <dt><img src="__IMG__/ftico3.png">我是会员</dt>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">成为会员</a></dd>
-                    <!--<dd><a href="#" target="_blank">卖家必读</a></dd>-->
-                    <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">上传素材</a></dd>
-                </dl>
-      <!--          <dl>
-                    <dt><img src="__IMG__/ftico4.png">发现</dt>
-                    <dd><a href="#" target="_blank">推广赚钱</a></dd>
-                    <dd><a href="#" target="_blank">热销精品</a></dd>
-                    <dd><a href="#" target="_blank">加入我们</a></dd>
-                </dl>-->
-            </div>
+			</div>
             <div class="ftel fr">
-                <b><?php echo ($Contact_phone); ?></b><i><?php echo ($Work_time); ?></i><a id="QQ_cha" title="联系客服" href="javascript:void(0)">联系客服</a>
+                <b><?php echo ($Contact_phone); ?></b><i><?php echo ($Work_time); ?></i><a id="QQ_cha" title="Customer Service" href="javascript:void(0)">Customer Service</a>
             </div>
         </div>
     </div>
@@ -898,7 +756,7 @@ return   false;
             $('#QQ_cha').click(function () {
                 var qq = $('#qq_ch').val();
                 layer.confirm(qq,
-                        {title:'联系 QQ &nbsp;:',btn:['关闭']}
+                        {title:'Contact QQ &nbsp;:',btn:['Shut down']}
                 )
             })
         })
@@ -913,7 +771,7 @@ return   false;
     <div class="copyright" style="height: 30px;">
         <div class="wrap" >
             <p><a href="#" target="_blank"><strong><?php echo ($title); ?>&nbsp;&nbsp;<!--<?php echo ($key_show); ?>--></strong></a></p>
-               <p>  备案号：<?php echo ($icp); ?></p>
+               <p>  record number：<?php echo ($icp); ?></p>
 
 
         </div>
@@ -929,20 +787,20 @@ return   false;
     <div class="loginf">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="current">登录</li>
-            <li class="cz">注册</li>
+            <li class="current">Log in</li>
+            <li class="cz">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist clearfix">
                 <form action="<?php echo U('Public/login');?>" method="post" onsubmit="return save_username(this)">
                     <div class="zcform fl">
                         <ul>
-                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="用户名或邮箱"><span id="utip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="密码"><span id="ptip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" class="webtxt" name='username' id="log_username" placeholder="username or email address"><span id="utip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" class="webtxt" name='password' id="log_password" placeholder="Password"><span id="ptip" class="onShow"></span></li>
 
                             <li class="clearfix pr"><input type="checkbox"  name="cookie_time" id="cookietime" checked>
-                                <label for="chd">记住我</label><i class="forget"><a href="<?php echo U('Public/ForgetShow');?>" target="_blank">忘记密码?</a></i></li>
-                            <li class="clearfix pr"><input value="登录" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
+                                <label for="chd">Remember me</label><i class="forget"><a href="<?php echo U('Public/ForgetShow');?>" target="_blank">Forgot password?</a></i></li>
+                            <li class="clearfix pr"><input value="Log in" name="dosubmit" id="dosubmit" type="submit" class="webtn" style="width:150px">
 							
 									
 									</li>
@@ -960,24 +818,24 @@ return   false;
     <div class="zcf none">
         <div class="closed"></div>
         <ul class="tabbtn clearfix">
-            <li class="dl">登录</li>
-            <li class="current">注册</li>
+            <li class="dl">Log in</li>
+            <li class="current">Registered</li>
         </ul>
         <div class="tabcon">
             <div class="sublist">
                 <div class="zcform">
                     <form method="post" action="<?php echo U('Public/register');?>"  id="myform" name="myform" >
                         <ul>
-                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="输入用户名"><span id="usernameTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="密码"><span id="passwordTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="再次输入密码"><span id="pwdconfirmTip" class="onShow"></span></li>
-                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="输入邮箱"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>发送邮箱验证</a></span> </li>
-                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="输入验证码"><span id="emailwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="username" name="username" class="webtxt" placeholder="Enter your user name"><span id="usernameTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="password" name="password" class="webtxt" placeholder="Password"><span id="passwordTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="password" id="pwdconfirm" name="pwdconfirm" class="webtxt" placeholder="Enter the password again"><span id="pwdconfirmTip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="text" id="email" name="email" class="webtxt" placeholder="Enter email"><span id="emailTip" class="onShow"></span><span><a href="javascript:void(0);"  id="btnsd1" onclick=""/>Send email verification</a></span> </li>
+                            <li class="clearfix pr"><input type="text" id="emailword" name="emailword" class="webtxt" placeholder="Enter confirmation code"><span id="emailwordTip" class="onShow"></span></li>
 
-                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="<?php echo U('Single/agreement');?>" target="_blank" >阅读并同意《用户服务协议》</a></label><span id="protocoltip" class="onShow"></span></li>
+                            <li class="clearfix pr"><input type="checkbox" id="protocol" checked="checked"><label for="protocol"><a href="<?php echo U('Single/agreement');?>" target="_blank" >Read and agree to the "User Service Agreement"</a></label><span id="protocoltip" class="onShow"></span></li>
 
                             <li class="clearfix pr">
-                                <input type="submit"  value="注册" class="webtn" style="width:150px">
+                                <input type="submit"  value="registered" class="webtn" style="width:150px">
 
 								</li>
                         </ul>
@@ -990,9 +848,7 @@ return   false;
     </div>
 
 </div>
-<!--第三方登录-->
-<input type="hidden" value="<?php echo ($qq_login); ?>" id="qq_login">
-<input type="hidden" value="<?php echo ($wechat_login); ?>" id="wechat_login">
+
 
 <script language='javascript'>
 
@@ -1003,9 +859,9 @@ btnsd1.onclick = function() {
   var oInpa = document.getElementById("email").value;
 
 if(oInpa==""){
-alert("邮箱未输入..");
+alert("Email not entered..");
 }else{
-alert("邮箱验证已发送，请注意查收..");
+alert("Email verification has been sent, please check..");
 
 
 //$('#imgbt').attr('style','display:block')	;	
@@ -1028,9 +884,6 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
 		
 }
 
-
-
-
     head.ready('formvalidator',function(){
         var SiteUrl = $('#SiteUrl').val();
 
@@ -1039,41 +892,6 @@ $.getJSON('/index.php/Ajax/Renzhengemil?emil='+ oInpa,function (data) {
         $(".forward").val(SiteUrl);
 
     });
-    function Oauth(i)
-    {
-        var url="";
-        if(i==1){
-          url =  $("#qq_login").val();
-
-               var title='QQ登录';
-          // location.href = "/index.php/Login/QQ_login"
-        }else if(i==0){
-
-            url= $("#wechat_login").val();
-            var title="微信登录";
-
-        }else if(i==3){
-            url = "<?php echo U('Public/phone');?>";
-            var title = '手机登录'
-        }
-        $(".logintk").hide();
-        $(".graybg").hide();
-
-       layer.open({
-            type: 2,
-            title: title,
-            shadeClose: true,
-            shade: 0.5,
-            area: ['55%', '65%'],
-            content: url, //iframe的url
-            end:function(){
-               window.location.reload();
-
-            }
-        });
-
-
-    }
 
 </script>
 

@@ -1,45 +1,28 @@
 
 <div class="rightcolumn">
     <ul>
-        <li class="li1"><a href="{:U('Service/index')}" target="_blank"><em></em><i>查看</i></a></li>
+        <li class="li1"><a href="{:U('Service/index')}" target="_blank"><em></em><i>View</i></a></li>
         <li class="li2">
-            <a href="javascript:;"><em></em><i>咨询</i></a>
+            <a href="javascript:;"><em></em><i>Advisor</i></a>
             <div class="zxmain" style="display: none;">
                 <i class="arrowrg"></i>
                 <dl>
-                    <dd>咨询电话:<br><i>{$Contact_phone}</i></dd>
+                    <dd>support hotline:<br><i>{$Contact_phone}</i></dd>
                     <dd><span>
-					<a id="QQ_con" href="javascript:void(0);"><img border="0" src="__IMG__/button_111.gif" alt="" title="联系客服" align="absmiddle"></a></span></dd>
-                    <dd>工作时间:<br></dd>
+					<a id="QQ_con" href="javascript:void(0);"><img border="0" alt="" title="Customer service" align="absmiddle"></a></span></dd>
+                    <dd>operating hours:<br></dd>
                     <dd>{$Work_time}</dd>
                 </dl>
             </div>
         </li>
 
-        <!--<li class="li4">
-            <a href="#"><em></em><i>微信</i></a>
-            <div class="zxmain">
-                <i class="arrowrg"></i>
-                <div class="pic"><img src="__IMG__/ewm.png" style="max-width:100%"></div>
-            </div>
-        </li>-->
+
     </ul>
-    <div class="gotop none">
-        <a href="javascript:;" title="返回顶部"><em>返回顶部</em></a>
+    <div class="gotop noneBack to top
+        <a href="javascript:;" title="Back to top"><em>Back to top</em></a>
     </div>
 </div>
-<input type="hidden" value="{$Contact_QQ}" id="qq_co"/>
-<script type="text/javascript">
-    head.ready('jquery',function () {
-        $('#QQ_con').click(function () {
-            var qq = $('#qq_co').val();
-            layer.confirm(qq,
-                    {title:'联系 QQ &nbsp;:',btn:['关闭']}
-            )
-        })
-    })
 
-</script>
 <!--<div class="chatrob">
     <a href="#" target="blank"><img src="" style="border:none;"></a>
 </div>-->

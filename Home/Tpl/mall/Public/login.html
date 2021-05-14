@@ -1,11 +1,11 @@
 <!doctype html>
 <html>
 <head>
-<title>登录</title>
+<title>log in</title>
 <include file="Public/head"/>
 </head>
 <body>
-<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<h1 id="seodw">LOGO-AE video material download platform</h1>
 <include file="Piblic/header"/>
 <div class="clearfix"></div>
 
@@ -30,9 +30,9 @@
     <div class="tablist">
         <div class="titlem clearfix" >
             <ul class="title clearfix fl">
-                <li class="active"><a href="">登录</a></li>
-                <li  class="normal"><a href="{:U('Public/RegisterShow')}">注册</a></li>
-                <li  class="normal"><a href="{:U('Public/ForgetShow')}">找回密码</a></li>
+                <li class="active"><a href="">Log in</a></li>
+                <li  class="normal"><a href="{:U('Public/RegisterShow')}">Registered</a></li>
+                <li  class="normal"><a href="{:U('Public/ForgetShow')}">Retrieve password</a></li>
             </ul>
 
         </div>
@@ -43,19 +43,19 @@
 
 
                     <div class="input">
-                        <label>用户名/邮箱：</label><input type="text" id="user_name"  name="username" class="w150" value="" >
+                        <label>User name / Mailbox：</label><input type="text" id="user_name"  name="username" class="w150" value="" >
                     </div>
 
                     <div class="input">
-                        <label>密码：</label><input type="password" id="pass_word" name="password" class="w150" >
+                        <label>Password：</label><input type="password" id="pass_word" name="password" class="w150" >
                     </div>
 
                     <div class="input">
-                        <label></label><input type="checkbox" id="cookietime" checked name="cookie_time"><label  style="width:80px;"> 记住用户名</label>
+                        <label></label><input type="checkbox" id="cookietime" checked name="cookie_time"><label  style="width:80px;"> Remember Account Name</label>
                     </div>
                     <div class="input">
-                        <label></label><input class="submit" type="submit"  id="do_mit" name="dosubmit" value="登录">&nbsp;&nbsp;
-                        <a href="{:U('Public/RegisterShow')}"  style="font-size:12px;">会员注册 </a> | <a href="{:U('Public/ForgetShow')}" style="font-size:12px;">密码找回</a>
+                        <label></label><input class="submit" type="submit"  id="do_mit" name="dosubmit" value="Log in">&nbsp;&nbsp;
+                        <a href="{:U('Public/RegisterShow')}"  style="font-size:12px;">Sign Up </a> | <a href="{:U('Public/ForgetShow')}" style="font-size:12px;">Recover password</a>
                     </div>
 
                 </form>
@@ -77,7 +77,7 @@
 </script>
 
 <include file="Public/footer"/>
-<!--第三方登录-->
+<!--Sign in with-->
 <input type="hidden" value="{$qq_login}" id="qq_login">
 <input type="hidden" value="{$wechat_login}" id="wechat_login">
 
@@ -105,7 +105,7 @@
             shadeClose: true,
             shade: 0.5,
             area: ['55%', '65%'],
-            content: url, //iframe的url
+            content: url, //iframe url
             end:function(){
                 window.location.reload();
 

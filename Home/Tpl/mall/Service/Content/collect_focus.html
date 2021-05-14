@@ -1,18 +1,18 @@
-<title>会员管理中心</title>
+<title>Member Management Center</title>
 <!--显示标识-->
 <span id="show_project" data-value="{$show_project}"></span>
 <div class="rtmain">
             <div class="hdtitle clearfix">
                 <ul class="fl clearfix">
-                     <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="CollectFocus">收藏关注</a></li>
-                     <li ><a href="javascript:void(0);" class="inter_chanView" data-value="Down_Upload">下载上传</a></li>
+                     <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="CollectFocus">Collection attention</a></li>
+                     <li ><a href="javascript:void(0);" class="inter_chanView" data-value="Down_Upload">Download,upload</a></li>
                 </ul>
             </div>
             <div class="userconts uspictm ">
                 <div class="title">
                     <ul class="clearfix">
-                        <li class="on" id="fit" title=""><a href="javascript:void(0);" >我的收藏</a></li>
-                        <li ><a href="javascript:void(0);" >我的关注</a></li>
+                        <li class="on" id="fit" title=""><a href="javascript:void(0);" >My collection</a></li>
+                        <li ><a href="javascript:void(0);" >My followed</a></li>
                     </ul>
                 </div>
               <div class="showlist">
@@ -30,15 +30,15 @@
 
                             </dt></a>
                             <dd><p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></p></dd>
-                            <dd><span><i><img src="__IMG__/yangzf.png">{$list.price}</i><em><img src="__IMG__/downico.png">{$list.down}次</em></span></dd>
-                            <a class="optioner pa" href="javascript:favdelete({$list.opus_id},{$list.opus_id});">取消收藏</a>
+                            <dd><span><i><img src="__IMG__/yangzf.png">{$list.price}</i><em><img src="__IMG__/downico.png">{$list.down}Times</em></span></dd>
+                            <a class="optioner pa" href="javascript:favdelete({$list.opus_id},{$list.opus_id});">Unfavorite</a>
                     	</dl>
 
                     </volist>
                 </div>
                 <div class="pages">
                     <if condition="$count_collect eq 0">
-                   <else/><a class="a1">共<span id="page_collect">{$count_collect}</span>条</a>
+                   <else/><a class="a1">A total of <span id="page_collect">{$count_collect}</span> piece</a>
                     </if>
                     {$page_collect}
                 </div>
@@ -50,13 +50,13 @@
                           <volist name="FocusList" id="list">
                           <div class="cotb " id="follow{$list.user_id}">
                               <div class="pic pr"><a href="" target="_blank"><img src="{$list.user_pic}"><span><i>{$list.user_nickname}</i></span></a></div>
-                              <div class="name"><b><a href="" target="_blank"></a></b><i class="follow"><a href="javascript:follow({$list.user_id},{$list.user_id});">取消</a></i></div>
+                              <div class="name"><b><a href="" target="_blank"></a></b><i class="follow"><a href="javascript:follow({$list.user_id},{$list.user_id});">Cancel</a></i></div>
                           </div>
                           </volist>
                       </div>
                       <div class="pages">
                           <if condition="$count_focus eq 0">
-                              <else/><a class="a1">共<span id="page_focus">{$count_focus}</span>条</a>
+                              <else/><a class="a1">A total of <span id="page_focus">{$count_focus}</span> piece</a>
                           </if>
                           {$page_focus}
                       </div>
@@ -65,7 +65,7 @@
             </div>
       </div>
 
-<!--切换页面-->
+<!--Switch page-->
 <script type="text/javascript">
     var SiteUrl = $('#SiteUrl').val();
 
@@ -98,7 +98,7 @@
     }
 </script>
 
-<!--收藏-->
+<!--Favorites-->
 <script type="text/javascript">
     var SiteUrl = $('#SiteUrl').val();
 
@@ -108,32 +108,32 @@
         });
     });
     function favdelete(id,sid) {
-        layer.confirm("您确认取消收藏吗？", {
-            btn: ['确认','取消'],
+        layer.confirm("Are you sure to cancel the collection？", {
+            btn: ['confirm','cancel'],
             icon: 3,
-            title:'取消收藏'
+            title:'Unfavorite'
         },function(){
 
             $.getJSON(SiteUrl+'/index.php/Ajax/Favor?fa_id='+id+"&"+Math.random(), function(data){
                  if(data.status==2){
-                    layer.msg("收藏已取消！",{icon:1,time:1000},function(){
+                    layer.msg("Collection canceled！",{icon:1,time:1000},function(){
                         $("#sc"+sid).remove();
                         var page_collect = $('#page_collect').text()-1;
                         $('#page_collect').text(page_collect)
                     });
                 }
 //                else if(data.status==-1){
-//                    layer.msg("请登录后收藏!",{icon:1,time:1000},function(){
+//                    layer.msg("Please log in to bookmark!",{icon:1,time:1000},function(){
 //                        $(".logintk").show();
 //                        $(".graybg").show();
 //                    });
 //                }
 //                else if(data.status==-3) {
-//                    layer.msg("不能收藏自己的素材!",{icon:2,time:2000});
+//                    layer.msg("Can't collect my own material!",{icon:2,time:2000});
 //
 //                }
                 else {
-                    layer.msg("取消收藏失败!",{icon:1,time:2000});
+                    layer.msg("Failed to unfavorite!",{icon:1,time:2000});
 
                 }
             });
@@ -141,22 +141,22 @@
     }
 
 </script>
-<!--关注-->
+<!--attention-->
 <script type="text/javascript">
-    //关注操作
+    //Follow the operation
     var SiteUrl = $('#SiteUrl').val();
     function follow(seller_id,sid) {
 
-        layer.confirm('确认取消关注吗?', {
-            btn: ['确认','取消'],
+        layer.confirm('Confirm Unfollow it?', {
+            btn: ['confirm','cancel'],
             icon: 3,
-            title:'取消关注'
+            title:'Unsubscribe'
         }, function(){
 
             $.getJSON(SiteUrl+'/index.php/Ajax/Focus?seller_id='+seller_id+"&"+Math.random(), function(data){
 //                if(data.status==1)  {
-//                    layer.msg("关注成功！",{icon:1,time:1000},function(){
-//                        $(".follow").html("已关注").removeClass("followbg");
+//                    layer.msg("Subscribed！",{icon:1,time:1000},function(){
+//                        $(".follow").html("Followed").removeClass("followbg");
 //                    });
 //                }
                  if(data.status==2){
@@ -167,15 +167,15 @@
                     });
                 }
                  /*else if(data.status==-1){
-                    layer.msg("请登录后关注!",{icon:1,time:1000},function(){
+                    layer.msg("Please log in and follow!",{icon:1,time:1000},function(){
                         $(".graybg").show();
                     });
                 } else if(data.status==-3) {
-                    layer.msg("不能关注自己!",{icon:2,time:2000});
+                    layer.msg("Can't pay attention to yourself!",{icon:2,time:2000});
 
                 }*/
                  else {
-                    layer.msg("关注失败!",{icon:1,time:2000});
+                    layer.msg("Follow failed!",{icon:1,time:2000});
 
                 }
             });
@@ -187,7 +187,7 @@
 
 </script>
 
-<!--选项卡-->
+<!--Tab-->
 <script type="text/javascript">
     $(document).ready(function (){
                 var i= $("#show_project").attr("data-value");
@@ -215,7 +215,7 @@
 
 
 </script>
-<!--内部异步调用-->
+<!--Internal asynchronous call-->
 <script type="text/javascript">
     $(document).ready(function () {
 

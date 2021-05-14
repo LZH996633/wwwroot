@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>会员管理中心</title>
+    <title>Member Management Center</title>
     <script language="javascript" type="text/javascript" src="__JS__/jquery.min.js"></script>
     <script src="__JS__/layer.js" type="text/javascript"></script>
 
@@ -28,7 +28,7 @@
     </script>
 
 <?php
-        /*获取传值*/
+        /*Get pass value*/
             $pid = I('pid');
         if($pid!=''){
          cookie('pid',$pid);
@@ -246,8 +246,8 @@
     <div class="hdtitle clearfix">
         <ul class="fl clearfix">
             <if condition="$info">
-                <li class="on"><a href="javascript:void(0)">编辑作品</a></li>
-                <else/><li class="on"><a href="javascript:void(0)">上传作品</a></li>
+                <li class="on"><a href="javascript:void(0)">Edit works</a></li>
+                <else/><li class="on"><a href="javascript:void(0)">Upload work</a></li>
             </if>
 
         </ul>
@@ -266,10 +266,10 @@
             
     <div class="upload-des">
         <ul class="upload-des-list">
-            <li class="list-style-blue">上传AE模板、视频素材包等打包文件，请点击“添加模板/压缩包”，您需要同时添加压缩包及预览视频2个文件</li>
-            <li class="list-style-blue">账户中满10个未提交审核的素材，上传将停止，提交审核后“开始”可继续</li>
-            <li class="list-style-blue">上传素材后，请尽快完善素材信息，只有填写好信息的素材才会被审核</li>
-            <li class="list-style-blue">请确保作品为原创，视频清晰，上传违规内容将影响账户权重降低素材排名
+            <li class="list-style-blue">To upload packaged files such as AE template, video material package, etc., please click "Add template/compressed package", you need to add two files of compressed package and preview video at the same time</li>
+            <li class="list-style-blue">If the account is full of 10 materials that have not been submitted for review, the upload will stop, and the "start" can continue after submitting for review</li>
+            <li class="list-style-blue">After uploading the material, please complete the material information as soon as possible, only the material with the information filled in will be reviewed</li>
+            <li class="list-style-blue">Please ensure that the work is original and the video is clear. Uploading illegal content will affect the account weight and reduce the material ranking
 
 
 			</li>
@@ -301,11 +301,11 @@
 		    <form action="" method="" enctype="multipart/form-data">
 
 <a class="input-file input-fileup" href="JavaScript:void(0)">
-         + 上传源文件<input size="100" type="file" id="File" class="File" name="file" onchange="FileChangeFn1(event)">
+         + Upload source files<input size="100" type="file" id="File" class="File" name="file" onchange="FileChangeFn1(event)">
 		
 </a>
 <label id="file_size" class="sa-file1"></label> 
-<button type="button" name="file" id="a-file" class="send_btn" onclick="UploadFileFn()">开始上传</button>
+<button type="button" name="file" id="a-file" class="send_btn" onclick="UploadFileFn()">Start upload</button>
 <div class="fileerrorTip1"></div>
 <div class="showFileName1"></div>		
 
@@ -323,12 +323,12 @@
 	    <form action="" method="" enctype="multipart/form-data">
 
 <a class="input-file input-fileup1" href="JavaScript:void(0)">
-         + 上传预览视频<input size="100"  type="file" id="File1" class="File" name="file" onchange="FileChangeFn(event)">
+         + Upload preview video<input size="100"  type="file" id="File1" class="File" name="file" onchange="FileChangeFn(event)">
 		
 </a>
 <label id="file_size1" class="sa-file"></label> 
 
-<button type="button" name="file" id="a-file" class="send_btn1" onclick="UploadFileFns()">开始上传</button>
+<button type="button" name="file" id="a-file" class="send_btn1" onclick="UploadFileFns()">Start upload</button>
 <div class="fileerrorTip12"></div>
 <div class="showFileName12"></div>		
 
@@ -347,7 +347,7 @@
             </div>
 	
 
-            <div  id="imgbt" style="width:200px; height:160px;display:none">    <!--4图预览 显示控制框架-->
+            <div  id="imgbt" style="width:200px; height:160px;display:none">    <!--4Figure preview shows the control frame-->
 	
 				<li>
                    <a href="javascript:;" onClick="$('#yulan1').click();"> <img id="img1" width="280" height="160" src="{$info.opus_pic_big}" style="display:none" BORDER=0></a>
@@ -367,7 +367,7 @@
 			
 			 <div  id="imgb" style="width:100%; height:100px; background-color:#F5F5F5; text-align:center; ">    <!--上传 显示控制框架-->
 	
-                <p id="pid" style="padding-top:30px;">暂时没有上传任务..</p>
+                <p id="pid" style="padding-top:30px;">No upload tasks yet..</p>
   
 			          <div class="speed_box">
                   <div id="speed"></div>
@@ -379,18 +379,18 @@
 			  
 			</div>
 
-		     <div id="btnsd1" class="btnsd1" style="padding-left:230px; padding-top:30px; display:none" >&nbsp;<input value="提交作品" type="submit" class="pay-btn1" onclick=""/>
+		     <div id="btnsd1" class="btnsd1" style="padding-left:230px; padding-top:30px; display:none" >&nbsp;<input value="Submit works" type="submit" class="pay-btn1" onclick=""/>
 			 </div>	
 
     <form action="{:U('Service/MaterialUploads')}" method="post" id="up_form" target="_blank">
   <div class="ulfroms">			 
 			            <ul class="formsd biaoti" style="display:none">
 			
-                <li><label>作品标题：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
-                <li><label>作品标价：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">金币</span></li>
-                <li><label>搜索标签：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>Title of Work：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>The price of the work：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">Gold</span></li>
+                <li><label>Search tags：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
 
-                <li><label>所属栏目：</label>
+                <li><label>Belonging to the column：</label>
                    <select style="width:200px;height:30px;" name="cate" id="cate">
                        <if condition="$edit_cate">
                            <option value="{$edit_cate.path}-{$edit_cate.cid}" >{$edit_cate.name}</option>
@@ -424,19 +424,19 @@
 -->
 <div class="wordlist clearfix">
     <u style="padding-left:190px; font-size:16px;" >
-        <label>免费将转换为L币：</label>
+        <label>Free to convert to L coins：</label>
             <if condition="$info['is_half'] eq 1">
                 <input type="checkbox" id="is_half" name="is_half" checked></li>
                 <else/><input type="checkbox" id="is_half" name="is_half"></li>  
             </if>
             &nbsp;
-            <label>透明通道：</label>
+            <label>Transparent channel：</label>
 <if condition="$info['is_typ'] eq 1">
     <input type="checkbox" id="is_type" name="is_type" checked></li>
     <else/><input type="checkbox" id="is_type" name="is_type"></li>
 </if>
 &nbsp;
-<label>无缝循环：</label>
+<label>Seamless loop：</label>
 <if condition="$info['is_typ1'] eq 1">
     <input type="checkbox" id="is_type1" name="is_type1" checked></li>
     <else/><input type="checkbox" id="is_type1" name="is_type1"></li>
@@ -476,7 +476,7 @@
 	</div>	
 	
 	
-	<div class="btnsd" style="display:none"><input value="提交审核" type="submit" class="pay-btn" /></div>
+	<div class="btnsd" style="display:none"><input value="Submit review" type="submit" class="pay-btn" /></div>
 	
     </form>
     <form action="{:U('Upload/upload')}" method="post" enctype="multipart/form-data" id="j-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="j-uploadFile-iframe"></form>
@@ -499,21 +499,21 @@
 
 <script>
 
-        //文件选择完毕时
+        //When the file is selected
         function FileChangeFn(event) {
-         //   $('.opst_txt').text('重新选择文件');
+         //   $('.opst_txt').text('Reselect file');
             $('.send_btn1').show();
             var event = event || window.event,
                 dom = '',
                 file = $("#File1").get(0).files[0],
-                otype = file.type || '获取失败',
+                otype = file.type || 'Get failed',
                 osize = file.size / 1054000,
-                ourl = window.URL.createObjectURL(file); //文件临时地址
-            $('#file_type1').text("选择上传文件类型：" + otype);
-            $('#file_size1').text("上传文件大小，共" + osize.toFixed(2) + "MB。");
+                ourl = window.URL.createObjectURL(file); //Temporary file address
+            $('#file_type1').text("Choose upload file type：" + otype);
+            $('#file_size1').text("Upload file size, total" + osize.toFixed(2) + "MB。");
             pid.innerHTML = '<span style="color: red">准备上传</span>';
-            console.log("文件类型：" + otype); //文件类型
-            console.log("文件大小：" + osize); //文件大小
+            console.log("file type：" + otype); //file type
+            console.log("File size：" + osize); //File size
 
             if ('video/mp4' == otype || 'video/avi' == otype || 'video/mov' == otype || 'video/MOV' == otype) {
 			 $('.send_btn1').show();
@@ -525,21 +525,21 @@
 
         var uploadUrl = 'http://127.0.0.1/index.php/Upload/upload';
 
-        //侦查附件上传情况 ,这个方法大概0.05-0.1秒执行一次
+        //Investigate the attachment upload situation, this method is executed once every 0.05-0.1 seconds
         function OnProgRess(event) {
             var event = event || window.event;
-            console.log(event);  //事件对象
-         //   console.log("已经上传：" + event.loaded); //已经上传大小情况(已上传大小，上传完毕后就 等于 附件总大小)
-            //console.log(event.total);  //附件总大小(固定不变)
-            var loaded = Math.floor(100 * (event.loaded / event.total)); //已经上传的百分比  
+            console.log(event);  //Event object
+         //   console.log("Already uploaded：" + event.loaded); //Uploaded size (uploaded size, after uploading, it will be equal to the total size of attachments)
+            //console.log(event.total);  //Total size of attachments (fixed)
+            var loaded = Math.floor(100 * (event.loaded / event.total)); //Percentage already uploaded  
             $("#speed").html(loaded + "%").css("width", loaded + "%");
         };
 
-        //开始上传文件
+        //Start uploading files
         function UploadFileFns() {
 
             $('.speed_box').show();
-            var File = $("#File1").get(0).files[0]; //input file标签
+            var File = $("#File1").get(0).files[0]; //input file tag
 
             pid.innerHTML = '<span style="color: red">上传中..请不要随意点击按钮！</span>';
 
@@ -549,18 +549,18 @@
 
 
 			  if ($("#speed").html()=="100%") {
-			            pid.innerHTML = '<span style="color: red">开始做图片处理，请稍等..</span>';
+			            pid.innerHTML = '<span style="color: red">Please wait a moment to start image processing..</span>';
                }	
 
 			   
             $.ajax({
                 type: "POST",
-                url: uploadUrl, // 后端服务器上传地址
+                url: uploadUrl, // Backend server upload address
                 data: formData, // formData数据
-                cache: false, // 是否缓存
-                async: true, // 是否异步执行
-                processData: false, // 是否处理发送的数据  (必须false才会避开jQuery对 formdata 的默认处理)
-                contentType: false, // 是否设置Content-Type请求头
+                cache: false, // Whether to cache
+                async: true, // Whether to execute asynchronously
+                processData: false, // Whether to process the sent data (must be false to avoid jQuery's default processing of formdata)
+                contentType: false, // Whether to set the Content-Type request header
                 xhr: function () {
                     if (OnProgRess && xhr.upload) {
                         xhr.upload.addEventListener("progress", OnProgRess, false);
@@ -575,8 +575,8 @@
                     if (returndata.error == 0) {								
                     //  layer.msg(data.msg,{time:1000});
 					   alert(returndata.message);
-                        $("#speed").html("上传成功");
-            pid.innerHTML = '<span style="color: red">暂时没有上传任务..</span>';	
+                        $("#speed").html("Uploaded successfully");
+            pid.innerHTML = '<span style="color: red">No upload tasks yet..</span>';	
 
 						if(returndata.video1){
                                 $('#yulan_s').attr('value',returndata.img);
@@ -596,21 +596,21 @@
 			
                     } else if (returndata.error == 6) {
                         alert(returndata.message);
-            pid.innerHTML = '<span style="color: red">文件重复请重新选择文件！</span>';						
+            pid.innerHTML = '<span style="color: red">Duplicate file, please re-select file！</span>';						
                     } else {
                         alert(returndata.message);
                     }
                     //   } catch (e) {
-                    //alert('上传失败，请重试!');
+                    //alert('Upload failed, please try again!');
                     //   }
                     //  }
 
 
                 },
                 error: function (returndata) {
-                    $("#speed").html("上传失败");
+                    $("#speed").html("upload failed");
                     console.log(returndata)
-                    alert('请正确配置后台服务！');
+                    alert('Please configure the background service correctly！');
                 }
             });
 
@@ -630,21 +630,21 @@
     head.ready('formvalidator',function(){
 
       $.formValidator.initConfig({autotip:true,formid:"up_form",onerror:function(msg){}});
-     $("#opus_title").formValidator({onshow:"请使用简洁，鲜明的标题",onfocus:"输入作品名称",oncorrect:" 已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
-        $("#opus_price").formValidator({onshow:"价格",onfocus:"请输入价格",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
-      $("#opus_keyword").formValidator({onshow:"此项用于搜索作品，请填写短词语，用减号（-）隔开",onfocus:"添加关键词用减号（-）隔开",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+     $("#opus_title").formValidator({onshow:"Please use concise, clear headlines",onfocus:"Enter the name of the work",oncorrect:" Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
+        $("#opus_price").formValidator({onshow:"Price",onfocus:"Please enter the price",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
+      $("#opus_keyword").formValidator({onshow:"This item is used to search for works, please fill in short words, separated by (-)",onfocus:"Add keywords separated by (-)",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
        if($('.opus_method').eq(0).attr('checked')=='checked'){
-            $("#yuanjian_s").formValidator({onshow:"，支持 'rar', 'zip' 格式，体积在300MB以下",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+            $("#yuanjian_s").formValidator({onshow:"，支持 'rar', 'zip' 格式，体积在300MB以下",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
         }
-    // $("#zhanshi_s").formValidator({onshow:"等待上传，支持'flv', 'mov', 'mp4'格式",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+    // $("#zhanshi_s").formValidator({onshow:"Waiting to upload, support'flv','mov','mp4' format",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
 	 
-  //   $("#yulan1_s").formValidator({onshow:"等待上传，支持'flv', 'mov', 'mp4'格式",onfocus:"使用简洁的标题"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"})    
+  //   $("#yulan1_s").formValidator({onshow:"Waiting to upload, support'flv','mov','mp4' format",onfocus:"Use concise titles"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"})    
        if($('.opus_method').eq(1).attr('checked')=='checked'){
-             $("#down_url").formValidator({onshow:"文件下载链接",onfocus:"填写链接",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+             $("#down_url").formValidator({onshow:"File download link",onfocus:"Fill in the link",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
 
        }
 
-        // $("#cate").formValidator({onshow:"所属栏目，必选项",onfocus:"选择栏目",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+        // $("#cate").formValidator({onshow:"Owned column, required",onfocus:"Select Category",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
 
 
 
@@ -669,7 +669,7 @@
 				
                 }else{
                     $(".showFileName1").html("");
-                    $(".fileerrorTip1").html("您上传文件类型有误源码为rar zip 格式！").show();
+                    $(".fileerrorTip1").html("The type of the file you uploaded is incorrect. The source code is in rar zip format!").show();
                     return false
                 }
             })
@@ -685,7 +685,7 @@
                     $(".fileerrorTip12").html("").hide();					
                 }else{
                     $(".showFileName12").html("");
-                    $(".fileerrorTip12").html("您上传作品有误为mp4 mov avi 格式！").show();
+                    $(".fileerrorTip12").html("Your uploaded work is incorrectly in mp4 mov avi format!").show();
                     return false
                 }
             })
@@ -702,21 +702,21 @@
 
     <script>
 
-        //文件选择完毕时
+        //When the file is selected
         function FileChangeFn1(event) {
-            $('.opst_txt').text('重新选择文件');
+            $('.opst_txt').text('Reselect file');
             $('.send_btn').show();
             var event = event || window.event,
                 dom = '',
                 file = $("#File").get(0).files[0],
-                otype = file.type || '获取失败',
+                otype = file.type || 'Get failed',
                 osize = file.size / 1054000,
-                ourl = window.URL.createObjectURL(file); //文件临时地址
-            $('#file_type').text("选择上传文件类型：" + otype);
-            $('#file_size').text("上传文件大小，共" + osize.toFixed(2) + "MB。");
-            pid.innerHTML = '<span style="color: red">准备上传</span>';
-            console.log("文件类型：" + otype); //文件类型
-            console.log("文件大小：" + osize); //文件大小
+                ourl = window.URL.createObjectURL(file); //Temporary file address
+            $('#file_type').text("Choose upload file type：" + otype);
+            $('#file_size').text("Upload file size, total" + osize.toFixed(2) + "MB。");
+            pid.innerHTML = '<span style="color: red">Ready to upload</span>';
+            console.log("File type：" + otype); //file type
+            console.log("File size：" + osize); //File size
 
             if ('video/mp4' == otype || 'video/avi' == otype || 'video/x-msvideo' == otype) {
                 dom = '<video id="video" width="100%" height="100%" controls="controls" autoplay="autoplay" src=' + ourl + '></video>';
@@ -725,46 +725,46 @@
                 dom = '<audio id="audio" width="100%" height="100%" controls="controls" autoplay="autoplay" loop="loop" src=' + ourl + ' ></audio>';
             }
             if ('image/jpeg' == otype || 'image/png' == otype || 'image/gif' == otype) {
-                dom = '<img id="photo" width="100%" height="100%" alt="我是image图片文件" src=' + ourl + ' title="" />';
+                dom = '<img id="photo" width="100%" height="100%" alt="I am an image file" src=' + ourl + ' title="" />';
             }
             $('#file_box').html(dom);
         };
 
         var uploadUrl = 'http://127.0.0.1/index.php/Upload/upload';
 
-        //侦查附件上传情况 ,这个方法大概0.05-0.1秒执行一次
+        //Investigate the attachment upload situation, this method is executed once every 0.05-0.1 seconds
         function OnProgRess(event) {
             var event = event || window.event;
-            //console.log(event);  //事件对象
-            console.log("已经上传：" + event.loaded); //已经上传大小情况(已上传大小，上传完毕后就 等于 附件总大小)
-            //console.log(event.total);  //附件总大小(固定不变)
-            var loaded = Math.floor(100 * (event.loaded / event.total)); //已经上传的百分比  
+            //console.log(event);  //Event object
+            console.log("已经上传：" + event.loaded); //Uploaded size (uploaded size, after uploading, it will be equal to the total size of attachments)
+            //console.log(event.total);  //Total size of attachments (fixed)
+            var loaded = Math.floor(100 * (event.loaded / event.total)); //Percentage already uploaded  
             $("#speed").html(loaded + "%").css("width", loaded + "%");
         };
 
-        //开始上传文件
+        //Start uploading files
         function UploadFileFn() {
 
             $('.speed_box').show();
-            var File = $("#File").get(0).files[0]; //input file标签
+            var File = $("#File").get(0).files[0]; //input file tags
 
-            pid.innerHTML = '<span style="color: red">上传中..请不要随意点击按钮！</span>';
+            pid.innerHTML = '<span style="color: red">Uploading.. Please do not click the button arbitrarily!！</span>';
 
-            var formData = new FormData(); //创建FormData对象
-            var xhr = $.ajaxSettings.xhr(); //创建并返回XMLHttpRequest对象的回调函数(jQuery中$.ajax中的方法)
-            formData.append("file", File); //将上传name属性名(注意：一定要和 file元素中的name名相同)，和file元素追加到FormData对象中去
+            var formData = new FormData(); //Create FormData object
+            var xhr = $.ajaxSettings.xhr(); //Create and return the callback function of the XMLHttpRequest object (the method in $.ajax in jQuery)
+            formData.append("file", File); //Will upload the name attribute name (note: it must be the same as the name in the file element), and append the file element to the FormData object
 
     //  var xhrs = formData.append("file", File);
           //  console.log(xhrs);
 
             $.ajax({
                 type: "POST",
-                url: uploadUrl, // 后端服务器上传地址
-                data: formData, // formData数据
+                url: uploadUrl, // Backend server upload address
+                data: formData, // formData data
                 cache: false, // 是否缓存
-                async: true, // 是否异步执行
-                processData: false, // 是否处理发送的数据  (必须false才会避开jQuery对 formdata 的默认处理)
-                contentType: false, // 是否设置Content-Type请求头
+                async: true, // Whether to execute asynchronously
+                processData: false, // Whether to process the sent data (must be false to avoid jQuery's default processing of formdata)
+                contentType: false, // Whether to set the Content-Type request header
                 xhr: function () {
                     if (OnProgRess && xhr.upload) {
                         xhr.upload.addEventListener("progress", OnProgRess, false);
@@ -780,27 +780,27 @@
 
 					   alert(returndata.message);
 
-                        $("#speed").html("上传成功");
-            pid.innerHTML = '<span style="color: red">暂时没有上传任务..</span>';							
+                        $("#speed").html("Uploaded successfully");
+            pid.innerHTML = '<span style="color: red">No upload tasks yet..</span>';							
 					 $('#yuanjian_s').attr('value',returndata.filePath);
 						
                     } else if (returndata.error == 6) {
                         alert(returndata.message);
-            pid.innerHTML = '<span style="color: red">文件重复请重新选择文件！</span>';								
+            pid.innerHTML = '<span style="color: red">Duplicate file, please re-select file！</span>';								
                     } else {
                         alert(returndata.message);
                     }
                     //   } catch (e) {
-                    //alert('上传失败，请重试!');
+                    //alert('Upload failed, please try again!');
                     //   }
                     //  }
 
 
                 },
                 error: function (returndata) {
-                    $("#speed").html("上传失败");
+                    $("#speed").html("upload failed");
                     console.log(returndata)
-                    alert('请正确配置后台服务！');
+                    alert('Please configure the background service correctly！');
                 }
             });
 
@@ -849,7 +849,7 @@
         $('.down_url').attr('style','display:none')
     </script>
 </if>
-<!--文件方式-->
+<!--File way-->
 <script type="text/javascript">
 
   $('.opus_method').click(function () {
@@ -869,10 +869,10 @@
 $(function(){
 //var btn = document.getElementById("btn"); 
 
-//通用方法 
+//General method 
 btnsd1.onclick = function() { 
 
-alert("正在进入提交页面，请确定操作..");
+alert("Entering the submission page, please confirm the operation..");
 $('#imgbt').attr('style','display:block')				
 $('#img1').attr('style','display:block')
 $('.biaoti').attr('style','display:block')
@@ -887,17 +887,17 @@ $('#yuanjian_sTip').attr('style','display:none');
 
   yuanjian.onchange = function() { 
 
-//alert("正在上传，请确定操作..");
+//alert("Uploading, please confirm the operation..");
 //$('#imgbt').attr('style','display:block')		
 ajaxFileUpload('yuanjian')		
- pid.innerHTML = '<span style="color: red">正在上传</span>';
+ pid.innerHTML = '<span style="color: red">uploading</span>';
  $('#jiance').attr('src','__IMG__/s002.gif');
 }
 
   zhanshi.onchange = function() { 
 
 ajaxFileUpload('zhanshi')		
- pid.innerHTML = '<span style="color: red">正在上传</span>';
+ pid.innerHTML = '<span style="color: red">uploading</span>';
  $('#jiance').attr('src','__IMG__/s002.gif');
  $('.btnsd1').attr('style','display:block')
 }
@@ -905,7 +905,7 @@ ajaxFileUpload('zhanshi')
   yulan1.onchange = function() { 
 
 ajaxFileUpload('yulan1')		
- pid.innerHTML = '<span style="color: red">正在上传</span>';
+ pid.innerHTML = '<span style="color: red">uploading</span>';
  $('#jiance').attr('src','__IMG__/s002.gif');
  $('.btnsd1').attr('style','display:block')
 }
@@ -979,11 +979,11 @@ ajaxFileUpload('yulan1')
                             //  if($('#yuanjian_s').attr('value',oRet.filePath)!=""){
 							   
 							 
-                               pid.innerHTML = '暂时没有上传任务..';
+                               pid.innerHTML = 'No upload tasks yet..';
                                $('#jiance').attr('src','__IMG__/s001.png');
 							//  }
 
-							$('#yuanjian_sTip').html('<span style="color: red">上传完成</span>');
+							$('#yuanjian_sTip').html('<span style="color: red">upload completed</span>');
 							
 							
 							   
@@ -992,14 +992,14 @@ ajaxFileUpload('yulan1')
                                 $('#yulan1_s').attr('value',oRet.img5);
                                 $('#zhanshi_s').attr('value',oRet.video1);
                                 $('#img1').attr('src',oRet.img5);
-							   pid.innerHTML = '暂时没有上传任务..';
+							   pid.innerHTML = 'No upload tasks yet..';
                                $('#jiance').attr('src','__IMG__/s001.png');
                                }else if(oRet.img8){ 
 							   $('#img1').attr('src',oRet.img8);
 							   $('#yulan1_s').attr('value',oRet.img8);
 							   $('#img2').attr('style','display:block')
 							   $('#img1').attr('style','display:none')
-							   pid.innerHTML = '暂时没有上传任务..';
+							   pid.innerHTML = 'No upload tasks yet..';
                                $('#jiance').attr('src','__IMG__/s001.png');
 							  }  
 
@@ -1010,12 +1010,12 @@ ajaxFileUpload('yulan1')
                                $("#service_img").attr('src',oRet.filePath)*/
                            } else if(oRet.error == 6) {
                                layer.msg(oRet.message);
-							   pid.innerHTML = '暂时没有上传任务..';
+							   pid.innerHTML = 'No upload tasks yet..';
                                $('#jiance').attr('src','__IMG__/s001.png');
 							    $('.btnsd1').attr('style','display:none')
                            }
                        } catch (e) {
-                           //alert('上传失败，请重试!');
+                           //alert('Upload failed, please try again!');
                        }
                    }
                });

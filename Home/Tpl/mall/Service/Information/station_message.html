@@ -1,71 +1,71 @@
 <div class="rtmain">
     <div class="hdtitle clearfix">
         <ul class="fl clearfix">
-            <li ><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">信息修改</a></li>
-            <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="StationMsg">站内消息</a></li>
+            <<li ><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">信息修改</a></li>
+            <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="StationMsg">Station news</a></li>
             <li ><a href="javascript:void(0);" class="inter_chanView" data-value="AnswerQuestion">有问必答</a></li>
         </ul>
     </div>
     <div class="uspictm">
         <div class="title">
             <ul class="clearfix">
-                <li id="fit" class="on"><a href="javascript:void(0)">我的消息</a></li>
+                <li id="fit" class="on"><a href="javascript:void(0)">My message</a></li>
             </ul>
         </div>
         <div class="list_show">
             <div class="lists">
                 <div class="tabs">
                     <dl>
-                        <dt><i class="i1">标题</i><i class="i2">来源</i><i class="i3">状态</i><i class="i4">时间</i><i class="i5">操作</i></dt>
+                        <dt><i class="i1">Title</i><i class="i2">Source</i><i class="i3">Status</i><i class="i4">Time</i><i class="i5">Operational</i></dt>
                        <volist name="ChatList" id="list">
                         <dd id="chat{$list.id}"><span>
                         <i class="i1">{$list.chat_title}</i>
                         <i class="i2">
-                          站点信息
+                          Site Information
                              </i>
 	   					<i class="i3" id="sta_{$list.id}">
                             <if condition="$list['chat_state'] eq 1">
-                                未查看
+                                Not viewed
                                 <else/>
-                                已查看
+                                Viewed
                             </if>
 
                         </i>
 	   					<i class="i4">{$list.chat_time}</i>
-	   					<i class="i5"><a href="javascript:to_view({$list.id})">查看</a>&nbsp;&nbsp;&nbsp;<a href="javascript:to_del({$list.id})">删除</a></i>
+	   					<i class="i5"><a href="javascript:to_view({$list.id})">View</a>&nbsp;&nbsp;&nbsp;<a href="javascript:to_del({$list.id})">Delete</a></i>
 	   					</span></dd>
                        </volist>
                     </dl>
                     <div class="pages">
                         <if condition="$count eq 0">
-                            <else/><a class="a1">共<span id="page">{$count}</span>条</a>
+                            <else/><a class="a1">A total of <span id="page">{$count}</span>piece</a>
                         </if>
                         {$page}
                     </div>
                 </div>
 
             </div>
-            <!--问题详情-->
+            <!--Question details-->
             <div class="anser" style="display: none">
                 <div class="titles" id="msg_title"></div>
 
                 <div class="zpert">
 
                     <div class="stle clearfix">
-                        <b>消息内容</b>
+                        <b>Message content</b>
                         <i id="msg_time"></i>
                     </div>
                     <div class="ancnt" id="msg_content">
 
                     </div>
-                   <a class="pay-btn fr" href="javascript:void (0);" onclick="go_back()">返回</a>
+                   <a class="pay-btn fr" href="javascript:void (0);" onclick="go_back()">Return</a>
                 </div>
 
             </div>
         </div>
     </div>
 </div>
-<!--切换页面-->
+<!--Switch page-->
 <script type="text/javascript">
    function change_page(p) {
       $.ajax({
@@ -90,7 +90,7 @@
 
 </script>
 
-<!--选项卡-->
+<!--Tab-->
 <script type="text/javascript">
     $(document).ready(function () {
         $(".title ul li").click(function(){
@@ -102,23 +102,23 @@
     });
 
 </script>
-<!--查看-->
+<!--View-->
 <script type="text/javascript">
 function to_view(id){
 
     $('.lists').attr('style','display:none');
     $(".anser").attr('style','display:block');
-    $("#sta_"+id).text('已查看');
+    $("#sta_"+id).text('Viewed');
     $.getJSON('/index.php/Ajax/show_msg?id='+id,function (data) {
 
-        $("#msg_title").text("标题："+data.chat_title);
-        $("#msg_time").text("时间："+data.chat_time);
+        $("#msg_title").text("title："+data.chat_title);
+        $("#msg_time").text("time："+data.chat_time);
         $("#msg_content").text(data.chat_content);
 
     })
 }
 </script>
-<!--返回-->
+<!--return-->
 <script type="text/javascript">
 
         function go_back(){
@@ -127,7 +127,7 @@ function to_view(id){
         }
 
 </script>
-<!--删除-->
+<!--delete-->
 <script type="text/javascript">
     function to_del(id){
         $.getJSON('/index.php/Ajax/del_msg?id='+id,function (data) {
@@ -142,7 +142,7 @@ function to_view(id){
         });
     }
 </script>
-<!--内部异步调用-->
+<!--Internal asynchronous call-->
 <script type="text/javascript">
     $(document).ready(function () {
 

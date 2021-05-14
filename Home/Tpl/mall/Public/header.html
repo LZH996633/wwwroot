@@ -2,8 +2,8 @@
     <div class="wrap clearfix">
         <div class="logo fl"><a href="{:U('Index/index')}"><img src="{$logo.ad_pic}"></a></div>
         <div class="nav fl"></div>
-        <div class="subnav fl clearfix"><i><a href="{:U('Index/index')}" >首页</a></i>
-            <div class="downnav fl"> <em><a href="javascript:;">分类</a></em>
+        <div class="subnav fl clearfix"><i><a href="{:U('Index/index')}" >Home page</a></i>
+            <div class="downnav fl"> <em><a href="javascript:;">Classification</a></em>
                 <div class="fixedw">
                     <div class="plfs">
                     <div class="plf">
@@ -26,25 +26,25 @@
         <div class="navbarauser fr">
 
 <span class="fr"><div class="login">
-    <a href="javascript:void(0);" class="logina">登录</a> <a href="javascript:void(0);" class="zcy">注册</a>
+    <a href="javascript:void(0);" class="logina">Log in</a> <a href="javascript:void(0);" class="zcy">Registered</a>
 </div>
 
 <div class="logout">
 
     <div class="hduserinfo">
-	       &nbsp;&nbsp;&nbsp; <a href="{:U('Service/materialupload', array('pid'=>1))}">上传</a>&nbsp;&nbsp;&nbsp;
-	<a href="javascript:void(0);" onclick="qiandao()">签到</a>&nbsp;&nbsp;&nbsp;
+	       &nbsp;<a href="{:U('Service/materialupload', array('pid'=>1))}">Upload</a>&nbsp;
+	<a href="javascript:void(0);" onclick="qiandao()">Sign in</a>
         <img id="img_in" class="logout1" src="__IMG__/useravatar.png" onerror="this.src='__IMG__/useravatar.png'" />
         <a href="{:U('Service/index')}" target="_blank"><i class="myName"></i></a>
     </div>
     <dl id="userinfo">
-        <dd> <a href="{:U('Service/index')}" target="_blank">个人中心</a></dd>
+        <dd> <a href="{:U('Service/index')}" target="_blank">Personal center</a></dd>
 		
-	        <dd> <a href="{:U('Service/main')}" target="_blank">会员中心</a></dd>	
+	        <dd> <a href="{:U('Service/main')}" target="_blank">Member centre</a></dd>	
 		
 		
-        <dd><a href="{:U('Service/index')}" onclick="chanPage('StationMsg')" target="_blank">收件箱({$new_chat})</a></dd>
-        <dd><a href="#" id="logout">退出</a></dd>
+        <dd><a href="{:U('Service/index')}" onclick="chanPage('StationMsg')" target="_blank">Inbox({$new_chat})</a></dd>
+        <dd><a href="#" id="logout">Sign out</a></dd>
     </dl>
 </div>
 
@@ -88,13 +88,13 @@
                     $("#img_in").attr('src',msg.avar);
                 }
                 if (t >= 7 && t < 12) {
-                    welcome += "上午好，"
+                    welcome += "Good morning，"
                 } else if (t >= 12 && t <= 13) {
-                    welcome += "中午好，"
+                    welcome += "Good afternoon，"
                 } else if (t > 13 && t <= 17) {
-                    welcome += "下午好，"
+                    welcome += "Good afternoon，"
                 } else {
-                    welcome += "晚上好，"
+                    welcome += "Good evening，"
                 }
                // $('.myName').html(welcome + msg.nickname);
 			   $('.myName').html( msg.nickname);
@@ -107,8 +107,7 @@
             }
         },
         error: function(msg) {
-            ////alert(msg.status);
-             //alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+
         }
     });
         $(".logout").hover(function() {
@@ -120,14 +119,14 @@
 
     });
 </script>
-<!--查询-->
+<!--Inquire-->
 <script type="text/javascript">
         head.ready('jquery',function() {
             var SiteUrl = $('#SiteUrl').val();
 
 
             $(".search").keydown(function(e) {
-                // 回车键事件
+                // Enter key event
 
                 if(e.which == 13) {
 
@@ -138,7 +137,7 @@
             function go_search(q){
 
                 if(q==''){
-                    //alert('关键词不能为空！');
+                    //alert('Keyword cannot be empty！');
                     $(".search").focus();
                     return false;
                 }
@@ -160,7 +159,7 @@
 
 
 	
-		/* 签到*/
+		/* Sign in*/
 		
 	        function qiandao() {
 			
@@ -168,7 +167,7 @@
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
                 else if (data.status == '2') {
@@ -177,7 +176,7 @@
 
 				      layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                    })
                }
 
@@ -194,7 +193,7 @@
 </span>
 
        <div class="formgroup fr clearfix">
-                <input class="webtxt search"  placeholder="按回车搜索" name='search' data-name="original-font-color"  type="search">
+                <input class="webtxt search"  placeholder="Press enter to search" name='search' data-name="original-font-color"  type="search">
                 <input type="button" class="webtns" value=" " />
        </div>
 

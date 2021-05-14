@@ -2,34 +2,34 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>信息中心</title>
+    <title>Information Center</title>
     <include file="Public:sss" />
 </head>
 
 <body>
 
 <div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-        <li><a href="#">首页</a></li>
-        <li><a href="#">消息中心</a></li>
-        <li><a href="#">信息回复</a></li>
+        <li><a href="#">Home page</a></li>
+        <li><a href="#">Message Center</a></li>
+        <li><a href="#">Information reply</a></li>
     </ul>
 </div>
 
 <div class="formbody">
 
-    <div class="formtitle"><span>反馈信息</span></div>
+    <div class="formtitle"><span>Feedback</span></div>
 
     <form  method="post" action="{:U('Information/replay')}" role="form" >
         <ul class="forminfo">
             <input type="hidden" name="id" value="{$info.id}">
-            <li><label for="title">信息标题</label><input  type="text" value="{$info.chat_title}" class="dfinput" id="title" /></li>
+            <li><label for="title">Information title</label><input  type="text" value="{$info.chat_title}" class="dfinput" id="title" /></li>
 
-            <li><label for="des">信息内容</label><textarea  cols="" rows="" class="textinput" id="des"  style="resize: none">{$info.chat_content}</textarea></li>
-            <li><label for="replay">回复内容</label><textarea name="replay" cols="" rows="" class="textinput" id="replay" style="resize: none">{$info.chat_replay}</textarea></li>
+            <li><label for="des">Information</label><textarea  cols="" rows="" class="textinput" id="des"  style="resize: none">{$info.chat_content}</textarea></li>
+            <li><label for="replay">Reply content</label><textarea name="replay" cols="" rows="" class="textinput" id="replay" style="resize: none">{$info.chat_replay}</textarea></li>
 
-            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="确认回复"/>&nbsp;&nbsp;&nbsp;&nbsp;<button  class="btn" type="button" onclick="back()">返回</button></li>
+            <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="Confirm reply"/>&nbsp;&nbsp;&nbsp;&nbsp;<button  class="btn" type="button" onclick="back()">Return</button></li>
         </ul>
     </form>
 </div>

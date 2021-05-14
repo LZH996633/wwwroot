@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>公告</title>
+<title>Announcement</title>
 <include file="Public:sss" />
 
 <script type="text/javascript">
@@ -36,11 +36,11 @@ $(document).ready(function(e) {
 <body>
 
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">系统设置</a></li>
-    <li><a href="#">公告</a></li>
+    <li><a href="#">Home page</a></li>
+    <li><a href="#">System settings</a></li>
+    <li><a href="#">Announcement</a></li>
     </ul>
     </div>
     
@@ -51,19 +51,19 @@ $(document).ready(function(e) {
     
         <div class="itab">
       	<ul> 
-        <li><a href="#tab1" class="selected">关于我们</a></li>
-        <li><a href="#tab2">协议声明</a></li>
+        <li><a href="#tab1" class="selected">About Us</a></li>
+        <li><a href="#tab2">Agreement statement</a></li>
       	</ul>
         </div>
          <div id="tab1" class="tabson">
 
             <form  method="post" action="{:U('Index/tabform')}" role="form" >
                 <ul class="forminfo">
-                    <li><label>网站介绍：<b>*</b></label>
+                    <li><label>Website Introduction：<b>*</b></label>
                         <input type="hidden" name="single" value="about">
                     <textarea  id="content_1" name="content" style="width:800px;height:400px;padding:20px;">{$about}</textarea>
                     </li>
-                    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
+                    <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="Publish now"/></li>
                 </ul>
             </form>
         </div>
@@ -72,11 +72,11 @@ $(document).ready(function(e) {
       	<div id="tab2" class="tabson">
             <form  method="post" action="{:U('Index/tabform')}" role="form" >
             <ul class="forminfo">
-                <li><label>协议声明：<b>*</b></label>
+                <li><label>Agreement statement：<b>*</b></label>
                     <input type="hidden" name="single" value="agreement">
                     <textarea  id="content_2" name="content" style="width:800px;height:340px;padding:20px;">{$agreement}</textarea>
                 </li>
-                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="马上发布"/></li>
+                <li><label>&nbsp;</label><input name="" type="submit" class="btn" value="Publish now"/></li>
             </ul>
             </form>
         </div>  

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <include file="Public:head" />
-<title>鹿酷_用户中心_个人信息_联系方式</title>
+<title>LOGO_User Center_Personal Information_Contact Information</title>
 <link rel="stylesheet" type="text/css" href="__CS__/global.css"/>
 <link rel="stylesheet" type="text/css" href="__CS__/service.css" />
 <link rel="stylesheet" type="text/css" href="__CS__/style.css" />
@@ -23,18 +23,18 @@
         <form id="emailForm" action="__APP__?m=Info&a=modifyemail" method="post" name="modifyemail" >
             <dl class="infoList">
                 <font color="red" size="3"></font>
-                <dt>邮箱：</dt>
+                <dt>Mailbox：</dt>
                 <dd>{$email}&nbsp;&nbsp;&nbsp;
-                    <img src="/images/email_not_validate_flag.gif" title="邮箱未验证"> 
-                    <a href="javascript:sendValidateEmail();">发送验证邮件</a>
+                    <img src="/images/email_not_validate_flag.gif" title="Email is not verified"> 
+                    <a href="javascript:sendValidateEmail();">Send verification email</a>
                 </dd>
-                <dt>新邮箱：</dt>
+                <dt>new mail box：</dt>
                 <dd>
-                    <input id="email" name="email" class="input_public" style="float:left;width:242px;height:38px;padding:0px 10px;" type="text" datatype="e" nullmsg="请输入邮箱号！" errormsg="您输入的邮箱号不正确！">
+                    <input id="email" name="email" class="input_public" style="float:left;width:242px;height:38px;padding:0px 10px;" type="text" datatype="e" nullmsg="Please enter the mailbox number！" errormsg="The mailbox number you entered is incorrect！">
                     
                 </dd>
                 <dt>&nbsp;</dt>
-                <dd style="height:100px"><input id="btn_modifyEmail" class="btnPay" value="提交" type="submit"></dd>
+                <dd style="height:100px"><input id="btn_modifyEmail" class="btnPay" value="submit" type="submit"></dd>
             </dl>
         </form>
 

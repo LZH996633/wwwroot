@@ -2,23 +2,23 @@
 <!doctype html>
 <html>
 <head>
-    <title>注册</title>
+    <title>Registered</title>
 <include file="Public/head"/>
 </head>
 
 <body>
 
-<h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+<h1 id="seodw">LOGO-AE video material download platform</h1>
 <include file="Public/header"/>
 <div class="clearfix"></div>
 
 
 <script language="JavaScript">
     head.ready('formvalidator',function(){
-        $(".in-out").hide();//隐藏顶部注册登录
+        $(".in-out").hide();//Hide the top register and log in
         $.formValidator.initConfig({autotip:true,formid:"reform",onerror:function(msg){}});
 
-        $("#user_name").formValidator({onshow:"请输入用户名",onfocus:"用户名应该为2-20位之间",oncorrect:" "}).inputValidator({min:2,max:20,onerror:"用户名应该为2-20位之间"}).regexValidator({regexp:"username",datatype:"enum",onerror:"用户名格式错误"}).ajaxValidator({
+        $("#user_name").formValidator({onshow:"please enter user name",onfocus:"Username should be between 2-20 digits",oncorrect:" "}).inputValidator({min:2,max:20,onerror:"Username should be between 2-20 digits"}).regexValidator({regexp:"username",datatype:"enum",onerror:"Incorrect username format"}).ajaxValidator({
             type : "get",
             url : "/index.php/public/check_name",
             data :"",
@@ -32,10 +32,10 @@
                 }
             },
             buttons: $("#dosubmit"),
-            onerror : "禁止注册或用户已存在。",
-            onwait : "请稍候..."
+            onerror : "Registration is prohibited or the user already exists.",
+            onwait : "Please wait..."
         });
-        $("#pass_word").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间",oncorrect:" "}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"}).ajaxValidator({
+        $("#pass_word").formValidator({onshow:"Please enter the password",onfocus:"Password should be between 6-20 digits",oncorrect:" "}).inputValidator({min:6,max:20,onerror:"Password should be between 6-20 digits"}).ajaxValidator({
             type : "get",
             url : "/index.php/public/check_pass",
             data :"",
@@ -49,11 +49,11 @@
                 }
             },
             buttons: $("#dosubmit"),
-            onerror : "密码中有特殊字符",
-            onwait : "验证中"
+            onerror : "There are special characters in the password",
+            onwait : "Verifying"
         });
-        $("#pwdcon_firm").formValidator({onshow:"请输入确认密码",onfocus:"两次密码不同。",oncorrect:" "}).compareValidator({desid:"pass_word",operateor:"=",onerror:"两次密码不同。"});
-        $("#em_ail").formValidator({onshow:"请输入邮箱",onfocus:"邮箱格式错误",oncorrect:" "}).inputValidator({min:2,max:32,onerror:"邮箱应该为2-32位之间"}).regexValidator({regexp:"email",datatype:"enum",onerror:"邮箱格式错误"}).ajaxValidator({
+        $("#pwdcon_firm").formValidator({onshow:"Please enter confirm password",onfocus:"Two passwords are different.",oncorrect:" "}).compareValidator({desid:"pass_word",operateor:"=",onerror:"Two passwords are different"});
+        $("#em_ail").formValidator({onshow:"please input your email",onfocus:"Email format error",oncorrect:" "}).inputValidator({min:2,max:32,onerror:"Email should be between 2-32 digits"}).regexValidator({regexp:"email",datatype:"enum",onerror:"Email format error"}).ajaxValidator({
             type : "get",
             url : "/index.php/public/check_email",
             data :"",
@@ -67,8 +67,8 @@
                 }
             },
             buttons: $("#dosubmit"),
-            onerror : "禁止注册或邮箱已存在",
-            onwait : "请稍候..."
+            onerror : "Registration is forbidden or the mailbox already exists",
+            onwait : "Please wait..."
         });
         $("#code").formValidator({onshow:" ",onfocus:" ",onerror:" "}).functionValidator({
             fun: function (val) {
@@ -85,7 +85,7 @@
             onerror:" "
 
         });
-        $(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:"请阅读协议",onfocus:"请阅读协议"}).inputValidator({min:1,onerror:"请阅读协议"});
+        $(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:"Please read the agreement",onfocus:"Please read the agreement"}).inputValidator({min:1,onerror:"Please read the agreement"});
 
 
 
@@ -126,28 +126,28 @@
     <div class="tablist">
         <div class="titlem clearfix" >
             <ul class="title clearfix fl">
-                <li class="normal"><a href="{:U('Public/LoginShow')}">登录</a></li>
-                <li  class="active"><a href="">注册</a></li>
-                <li  class="normal"><a href="{:U('Public/ForgetShow')}">找回密码</a></li>
+                <li class="normal"><a href="{:U('Public/LoginShow')}">Log in</a></li>
+                <li  class="active"><a href="">Registered</a></li>
+                <li  class="normal"><a href="{:U('Public/ForgetShow')}">Retrieve password</a></li>
             </ul>
         </div>
         <div class="cont">
             <form id="myform" action="{:U('Public/register')}" method="post">
                 <input type="hidden" value="1" />
                 <div class="form-reg">
-                    <div class="input"><label>用户名：</label><input type="text" id="user_name" name="username" class="w200" placeholder="输入用户名"><span id="user_nameTip" class="onShow"></span></div>
-                    <div class="input"><label>密码：</label><input type="password" id="pass_word" name="password" class="w200" placeholder="密码"><span id="pass_wordTip" class="onShow"></span></div>
-                    <div class="input"><label>确认密码：</label><input type="password" id="pwdcon_firm" name="pwdconfirm" class="w200" placeholder="再次输入密码"><span id="pwdcon_firmTip" class="onShow"></span></div>
-                    <div class="input"><label>邮箱：</label><input type="text" id="em_ail" name="email" class="w200" placeholder="输入邮箱"><span id="em_ailTip" class="onShow"></span></div>
-                    <div class="input"  style="display:none;"><label>昵称：</label><input type="text" id="nickname" class="w200" value="1490772594"></div>	
+                    <div class="input"><label>Username：</label><input type="text" id="user_name" name="username" class="w200" placeholder="Enter your user name"><span id="user_nameTip" class="onShow"></span></div>
+                    <div class="input"><label>Password：</label><input type="password" id="pass_word" name="password" class="w200" placeholder="Password"><span id="pass_wordTip" class="onShow"></span></div>
+                    <div class="input"><label>Confirm password：</label><input type="password" id="pwdcon_firm" name="pwdconfirm" class="w200" placeholder="Enter the password again"><span id="pwdcon_firmTip" class="onShow"></span></div>
+                    <div class="input"><label>Mailbox：</label><input type="text" id="em_ail" name="email" class="w200" placeholder="Enter email"><span id="em_ailTip" class="onShow"></span></div>
+                    <div class="input"  style="display:none;"><label>Nickname：</label><input type="text" id="nickname" class="w200" value="1490772594"></div>	
 
 					
                     <div class="input">
-                        <label>协议：</label>
-                        <input type="checkbox" name="protocol" id="protocol" value="" checked><a href="{:U('Single/agreement')}" target="_blank"  class="blue fl">点击阅读并同意注册协议</a>
+                        <label>protocol：</label>
+                        <input type="checkbox" name="protocol" id="protocol" value="" checked><a href="{:U('Single/agreement')}" target="_blank"  class="blue fl">Click to read and agree to the registration agreement</a>
                     </div>
                     <div class="input">
-                        <label></label><input class="submit" id="dosubmit" type="submit" name="dosubmit" value="同意提交注册">
+                        <label></label><input class="submit" id="dosubmit" type="submit" name="dosubmit" value="Agree to submit for registration">
 
                     </div>
 

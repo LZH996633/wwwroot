@@ -115,7 +115,7 @@ class AccountAction extends CommonAction{
 			M('user') -> where($where) -> setField('user_money',$res['user_money']-$data['gold']);
 			$this->redirect("Account/gold");
 		}else{
-			$this->error('请登录');
+			$this->error('please sign in');
 		}	
 	}
 	

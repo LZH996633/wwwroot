@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>会员管理</title>
+<title>Member Management</title>
 <link href="__CS__/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="__JS__/jquery.js"></script>
 
@@ -49,11 +49,11 @@ higher:550px;
 <body>
 
 	<div class="place">
-    <span>位置：</span>
+    <span>Position：</span>
     <ul class="placeul">
-    <li><a href="#">首页</a></li>
-    <li><a href="#">会员管理</a></li>
-    <li><a href="#">实名认证</a></li>
+    <li><a href="#">Home page</a></li>
+    <li><a href="#">Member Management</a></li>
+    <li><a href="#">Real name authentication</a></li>
     </ul>
     </div>
     
@@ -61,20 +61,20 @@ higher:550px;
     
     <div class="tools">
         <ul class="toolbar">
-            <li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li>
-            <li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li>
-            <li><span><img src="__IMG__/t03.png" /></span>删除</li>
+            <li class="click"><span><img src="__IMG__/t01.png" /></span>Add to</li>
+            <li class="click"><span><img src="__IMG__/t02.png" /></span>Modify</li>
+            <li><span><img src="__IMG__/t03.png" /></span>Delete</li>
         </ul>
         <div style="float:right;width:400px;">
         <form action="__APP__?m=User&a=Certa" method="post"  >
             <ul class="">
-                <li>{$repeat}<input name="searchop" type="text" class="scinput1" /><label>{$repeat}（会员名、真实姓名、手机、QQ号）</label></li>
+                <li>{$repeat}<input name="searchop" type="text" class="scinput1" /><label>{$repeat}（Member name, real name, mobile phone）</label></li>
             </ul>
             <ul class="">
-            <li class="sarchbtn"><label>&nbsp;</label><input type="submit" class="scbtn" value="查询"/> <input name="" type="button" class="scbtn2" value="导出"/></li>  
+            <li class="sarchbtn"><label>&nbsp;</label><input type="submit" class="scbtn" value="Inquire"/> <input name="" type="button" class="scbtn2" value="Export"/></li>  
             </ul>
             <ul class="toolbar1" style="float:right;">
-                <li><span><img src="__IMG__/t05.png" /></span>设置</li>
+                <li><span><img src="__IMG__/t05.png" /></span>Set up</li>
             </ul>
         </form>
         </div>
@@ -85,16 +85,16 @@ higher:550px;
     	<thead>
         	<tr>
             <th><input name="" type="checkbox" value="" checked="checked"/></th>
-            <th>编号<i class="sort"><img src="__IMG__/px.gif" /></i></th>
-            <th>用户名</th>
-            <th>真实姓名</th>
-            <th>身份证</th>
-            <th>身份证正面</th>
-            <th>身份证反面</th>
-            <th>手持身份证</th>
-            <th>认证状态</th>
+            <th>Numbering<i class="sort"><img src="__IMG__/px.gif" /></i></th>
+            <th>Username</th>
+            <th>Actual name</th>
+            <th>ID card</th>
+            <th>Front of ID card</th>
+            <th>Reverse side of ID card</th>
+            <th>Holding ID card</th>
+            <th>Certification status</th>
     <!--        <th>注册时间</th>   -->
-            <th>操作</th>
+            <th>Operating</th>
             </tr>
         </thead>
         <volist name="list" id="vo" >
@@ -119,17 +119,17 @@ higher:550px;
 			 <td>
 	<a href="{$vo.idcardc_pic}" class="tooltip" target="_blank"><img src="{$vo.idcardc_pic}"  style="max-width:80px; max-height:80px;"/></a>
 		</td>	
-            <td><if condition="$vo.idcard_sta eq 0">未认证<else/>已认证</if></td>
+            <td><if condition="$vo.idcard_sta eq 0">Not certified<else/>Verified</if></td>
          <!--   <td>{$vo.user_registertime}</td>  -->
-            <td><a href="{:U('User/delete','id='.$vo['user_id'])}" onclick='return del();' class="tablelink">删除</a>
+            <td><a href="{:U('User/delete','id='.$vo['user_id'])}" onclick='return del();' class="tablelink">delete</a>
 			<if condition="$vo.idcard_sta eq 1">
 
 			<else/>
 			<if condition="$vo.idcard_sta eq 2">	
-				<a href="{:U('User/isCerta','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}重新审核</a>
+				<a href="{:U('User/isCerta','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}Re-review</a>
 				<else/>
-			<a href="{:U('User/isCerta','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}通过审核</a>
-			<a href="{:U('User/isCerts','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}退回</a>			
+			<a href="{:U('User/isCerta','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}Approved</a>
+			<a href="{:U('User/isCerts','id='.$vo['user_id'])}" class="tablelink">{$repeat}{$repeat}Return</a>			
 			</if>
 			</if>
 			</td>
@@ -141,19 +141,19 @@ higher:550px;
     <div class="pagestyle"> {$page}</div>
     
     <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
+    	<div class="tiptop"><span>Prompt information</span><a></a></div>
         
       <div class="tipinfo">
         <span><img src="__IMG__/ticon.png" /></span>
         <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        <p>Whether to confirm the modification of the information ？</p>
+        <cite>If yes, please click the OK button, otherwise please click Cancel.</cite>
         </div>
         </div>
         
         <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
+        <input name="" type="button"  class="sure" value="Determine" />&nbsp;
+        <input name="" type="button"  class="cancel" value="Cancel" />
         </div>
     
     </div>
@@ -169,7 +169,7 @@ higher:550px;
     <script>
         function del()
         {
-            if(confirm("确定要删除吗？"))
+            if(confirm("You sure you want to delete it？"))
             {
                 return true;
             }
