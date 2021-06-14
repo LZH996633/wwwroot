@@ -85,7 +85,7 @@
 
 	}else{
 		layer.open({
-			title:'提示信息',
+			title:'Prompt information',
 			closeBtn: 0,
 			type:1,
 			content:$("#main"),

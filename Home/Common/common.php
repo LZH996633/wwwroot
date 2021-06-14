@@ -4,44 +4,44 @@ function cut_str($sourcestr, $cutlength, $suffix = true)
     $returnstr = '';
     $i = 0;
     $n = 0;
-    $str_length = strlen($sourcestr); //字符串的字节数
+    $str_length = strlen($sourcestr); //The number of bytes of the string
     $str_length2 = (strlen($sourcestr) + mb_strlen($sourcestr, 'UTF8')) / 2;
     while (($n < $cutlength) and ($i <= $str_length)) {
         $temp_str = substr($sourcestr, $i, 1);
-        $ascnum = ord($temp_str); //得到字符串中第$i位字符的ascii码
-        if ($ascnum >= 224) //如果ASCII位高与224，
+        $ascnum = ord($temp_str); //Get the ascii code of the $i character in the string
+        if ($ascnum >= 224) //If the ASCII bit is higher than 224，
         {
             $returnstr = $returnstr . substr($sourcestr, $i, 3); //根据UTF-8编码规范，将3个连续的字符计为单个字符
-            $i = $i + 3; //实际Byte计为3
-            $n++; //字串长度计1
-        } elseif ($ascnum >= 192) //如果ASCII位高与192，
+            $i = $i + 3; //Actual Byte counts as 3
+            $n++; //String length meter 1
+        } elseif ($ascnum >= 192) //If the ASCII bit is higher than 192，
         {
-            $returnstr = $returnstr . substr($sourcestr, $i, 2); //根据UTF-8编码规范，将2个连续的字符计为单个字符
-            $i = $i + 2; //实际Byte计为2
-            $n++; //字串长度计1
-        } elseif ($ascnum >= 65 && $ascnum <= 90) //如果是大写字母，
-        {
-            $returnstr = $returnstr . substr($sourcestr, $i, 1);
-            $i = $i + 1; //实际的Byte数仍计1个
-            $n++; //但考虑整体美观，大写字母计成一个高位字符
-        } else //其他情况下，包括小写字母和半角标点符号，
+            $returnstr = $returnstr . substr($sourcestr, $i, 2); //According to the UTF-8 encoding specification, two consecutive characters are counted as a single character
+            $i = $i + 2; //Actual Byte counts as 2
+            $n++; //String length meter 1
+        } elseif ($ascnum >= 65 && $ascnum <= 90) //If it is a capital letter，
         {
             $returnstr = $returnstr . substr($sourcestr, $i, 1);
-            $i = $i + 1; //实际的Byte数计1个
-            $n = $n + 0.5; //小写字母和半角标点等与半个高位字符宽...
+            $i = $i + 1; //The actual number of Bytes still counts as 1
+            $n++; //But considering the overall aesthetics, capital letters are counted as a high character
+        } else //In other cases, including lowercase letters and half-width punctuation,
+        {
+            $returnstr = $returnstr . substr($sourcestr, $i, 1);
+            $i = $i + 1; //The actual number of Bytes is 1
+            $n = $n + 0.5; //Lowercase letters and half-width punctuation, etc. are as wide as half a high character...
         }
     }
     $cutlength = $cutlength * 2;
     if ($str_length2 > $cutlength) {
         $returnstr = substr($returnstr, 0, -3);
         if ($suffix) {
-            $returnstr = $returnstr . '...'; //超过长度时在尾处加上省略号
+            $returnstr = $returnstr . '...'; //Add an ellipsis at the end when it exceeds the length
         }
     }
     return $returnstr;
 }
 
-/*获取文件路径和价格（url,point,coin）*/
+/*Get file path and price（url,point,coin）*/
 function parse_price($priceInfo)
 {
     $arr = explode(',', $priceInfo);
@@ -50,16 +50,16 @@ function parse_price($priceInfo)
     $tmpPrice2 = $arr[2];
     $tmpStr = '';
     if ($tmpPrice1) {
-        $tmpStr = $tmpPrice1 . "积分";
+        $tmpStr = $tmpPrice1 . "Integral";
     } else if ($tmpPrice2) {
-        $tmpStr = $tmpPrice2 . "金币";
+        $tmpStr = $tmpPrice2 . "Gold";
     } else {
-        $tmpStr = "免费";
+        $tmpStr = "Free";
     }
 
     return $tmpStr;
 }
-//获取价格数字
+//Get price numbers
 function parse_price_num($priceInfo)
 {
     $arr = explode(',', $priceInfo);
@@ -77,7 +77,7 @@ function parse_price_num($priceInfo)
     return $tmpStr;
 }
 
-//获取价格数组
+//Get price array
 function parse_price_arr($priceInfo){
 
     $arr = explode(',', $priceInfo);
@@ -87,7 +87,7 @@ function parse_price_arr($priceInfo){
     return array($tmpPrice1, $tmpPrice2);
 }
 
-//从priceInfo中获取url
+//Get url from priceInfo
 function get_priceinfo_url($priceInfo)
 {
     $arr = explode(',', $priceInfo);
@@ -95,17 +95,17 @@ function get_priceinfo_url($priceInfo)
     return $tmpFile;
 }
 
-//获取软件分类
+//Get software classification
 function get_soft_cate($id)
 {
 
     $softCate = array(
-        '1' => 'AE模板',
-        '2' => '绘声绘影',
+        '1' => 'AE template',
+        '2' => 'Picture Sound and Picture Shadow',
         '3' => 'Edius',
         '4' => 'Vegas',
         '5' => 'Cinema 4D',
-        '6' => '其他'
+        '6' => 'other'
     );
 
     if(isset($softCate[$id])){
@@ -116,7 +116,7 @@ function get_soft_cate($id)
 }
 
 function get_catename_by_path($cateList, $path){
-    $name = '模板';
+    $name = 'template';
     foreach($cateList as $cate){
         if($path == $cate['path'] . '-' . $cate['cid']){
             $name = $cate['name'];

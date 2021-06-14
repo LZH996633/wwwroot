@@ -35,7 +35,7 @@
             onerror : "Registration is prohibited or the user already exists.",
             onwait : "Please wait..."
         });
-        $("#pass_word").formValidator({onshow:"Please enter the password",onfocus:"Password should be between 6-20 digits",oncorrect:" "}).inputValidator({min:6,max:20,onerror:"Password should be between 6-20 digits"}).ajaxValidator({
+        $("#pass_word").formValidator({onshow:"Please enter the password",onfocus:"Between 6-20 digits",oncorrect:" "}).inputValidator({min:6,max:20,onerror:"Between 6-20 digits"}).ajaxValidator({
             type : "get",
             url : "/index.php/public/check_pass",
             data :"",
@@ -128,7 +128,7 @@
             <ul class="title clearfix fl">
                 <li class="normal"><a href="{:U('Public/LoginShow')}">Log in</a></li>
                 <li  class="active"><a href="">Registered</a></li>
-                <li  class="normal"><a href="{:U('Public/ForgetShow')}">Retrieve password</a></li>
+                <li  class="normal"><a href="{:U('Public/ForgetShow')}">Retrieve pwd</a></li>
             </ul>
         </div>
         <div class="cont">

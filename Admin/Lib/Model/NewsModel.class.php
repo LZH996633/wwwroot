@@ -1,15 +1,15 @@
 <?php
 
 class NewsModel extends Model{
-	//文件上传类
+	//File upload class
     public function say(){
         echo 12312321312;
     }
 	function upimg($savepath){
-		   $upload = new \Think\Upload();// 实例化上传类    
-		   $upload->maxSize   =     3145728 ;// 设置附件上传大小    
-		   $upload->exts      =     array('jpg', 'gif', 'png','mp4', 'jpeg');// 设置附件上传类型    
-		   $upload->savePath  =     $savepath; // 设置附件上传目录    // 上传文件     
+		   $upload = new \Think\Upload();// Instantiate upload class
+		   $upload->maxSize   =     3145728 ;// Set attachment upload size
+		   $upload->exts      =     array('jpg', 'gif', 'png','mp4', 'jpeg');// Set attachment upload type
+		   $upload->savePath  =     $savepath; // Set attachment upload directory    // upload files
 		   $info   =   $upload->upload();  
 		   return $info;
 	}
@@ -17,15 +17,15 @@ class NewsModel extends Model{
 	//分页类
     public function getPageList($where, $order = 'id desc')
     {
-        $totalRows = $this->where($where)->count(); // 查询满足要求的总记录数
-        $page = new \Think\Page($totalRows, 10); // 实例化分页类 传入总记录数和每页显示的记录数
-        $page->setConfig('header', '条记录');
-        $page->setConfig('first', '第一页');
-        $page->setConfig('prev', '上一页');
-        $page->setConfig('next', '下一页');
-        $page->setConfig('last', '最后一页');
-        $page->setConfig('theme', '共 %TOTAL_ROW% %HEADER% 当前第  %NOW_PAGE%/%TOTAL_PAGE% 页 %FIRST% %UP_PAGE%  %LINK_PAGE% %DOWN_PAGE%  %END%');
-        $show = $page->show(); // 分页显示输出
+        $totalRows = $this->where($where)->count(); // Query the total number of records that meet the requirements
+        $page = new \Think\Page($totalRows, 10); // Instantiate the paging class, pass in the total number of records and the number of records displayed on each page
+        $page->setConfig('header', 'records');
+        $page->setConfig('first', 'The first page');
+        $page->setConfig('prev', 'Previous page');
+        $page->setConfig('next', 'Next page');
+        $page->setConfig('last', 'the last page');
+        $page->setConfig('theme', 'A total of %TOTAL_ROW% %HEADER% Current %NOW_PAGE%/%TOTAL_PAGE% page %FIRST% %UP_PAGE%  %LINK_PAGE% %DOWN_PAGE%  %END%');
+        $show = $page->show(); // Paging display output
         $list = $this->where($where)
             ->order($order)
             ->limit($page->firstRow . ',' . $page->listRows)

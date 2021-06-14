@@ -13,10 +13,10 @@ class UploadAction extends CommonAction{
     
      if ($file) {
 
-    $file_size = 1024*1024*1000;//限制大小1000M
+    $file_size = 1024*1024*500;//Limit size 500M
     $allowedExts = array('gif', 'jpeg', 'jpg', 'png', 'mp4', 'mpeg', 'avi', 'mov', 'zip', 'rar');
-    $video = array('mpeg','mp4','mov','avi');//视频
-    $compression = array('zip','rar');//压缩
+    $video = array('mpeg','mp4','mov','avi');//video
+    $compression = array('zip','rar');//compression
     $pic = array('gif','jpeg','jpg','png');
 	$md5file = md5_file($_FILES['file']['tmp_name']);
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
@@ -58,21 +58,21 @@ class UploadAction extends CommonAction{
             }
              $ip = get_client_ip();
 			$user_id = $_COOKIE['user_id'];
-		    $detection = M("detection"); // 验证其他用户是否也上传过相同文件
+		    $detection = M("detection"); // Verify that other users have also uploaded the same file
         
 		$condition['md5'] = $uid;
-        $jianyan = $detection->where($condition)->find(); //find  方法用于判断是否有数值
+        $jianyan = $detection->where($condition)->find(); //find  Method is used to determine whether there is a value
 			if($jianyan!= null){
 				$result['error'] = 6;
-				 $result['message'] = "上传失败，你的作品已上传或者重复！";
+				 $result['message'] = "Upload failed, your work has been uploaded or duplicated！";
 				 
 				 
 				 
 			}else if ($file['size']>$file_size){
                 $result['error'] = 5;
-                $result['message'] = "上传失败，文件最大1000M";
+                $result['message'] = "Upload failed, the maximum file size is 1000M";
             }else{
-              // $User = new M("User"); // 实例化User对象
+              // $User = new M("User"); // Instantiate the User object
                $data['name'] = $user_id;
                $data['md5'] = $uid;
                $data['ip'] = $ip;
@@ -84,13 +84,13 @@ class UploadAction extends CommonAction{
                 if (move_uploaded_file($file['tmp_name'], $newFile)) {
                    
 
-                //  每秒25帧速度截取1秒的图片并生产4位数的序列图片
+                //  Capture 1 second pictures at 25 frames per second and produce 4-digit sequence pictures
                 system("ffmpeg.exe -i F:\\wwwroot\\Uploads\\upload\\$fileName -r 1 -ss 00:00:02 -t 00:00:05 F:\\wwwroot\\Uploads\\images\\$uid%03d.jpg");
-       //每秒一帧的速度，从第 26 秒开始一直截取 4 秒长的时间，截取到的每一幅图像，都用 3 位数字自动生成从小到大的文件名。
+       //At the rate of one frame per second, it has been intercepted for 4 seconds from the 26th second, and each image intercepted is automatically generated with a 3-digit number in the file name from small to large.
 
 	   			   		$videoFilemp10= 'F:\\wwwroot\\Uploads\\images\\' . $uid . '005.jpg';
 
-			    if(is_file($videoFilemp10)){  //如果新文件已经生成  则 执行合并文件操作
+			    if(is_file($videoFilemp10)){  //If the new file has been generated, perform the merge file operation
 				
 				 $img1=  './Uploads/images/' . $uid . '002.jpg';
                  $img2=  './Uploads/images/' . $uid . '003.jpg';
@@ -106,29 +106,29 @@ class UploadAction extends CommonAction{
 				 $img4,
 				 ); 
 
-                 $pic_list = array_slice($pic_list, 0, 4); // 只操作4个图片 
+                 $pic_list = array_slice($pic_list, 0, 4); // Only operate 4 pictures
 
-                 $bg_w = 720; // 背景图片宽度 
-                 $bg_h = 406; // 背景图片高度 
+                 $bg_w = 720; // Background image width
+                 $bg_h = 406; // Background image height
 
-                 $background = imagecreatetruecolor($bg_w,$bg_h); // 背景图片 画布 
-                 $color = imagecolorallocate($background, 202, 201, 201); // 为真彩色画布创建白色背景，再设置为透明 
+                 $background = imagecreatetruecolor($bg_w,$bg_h); // Background image canvas
+                 $color = imagecolorallocate($background, 202, 201, 201); // 为真彩色画布创建白色背景，再设置为透明
                   imagefill($background, 0, 0, $color); 
                   imageColorTransparent($background, $color); 
                  $pic_count = count($pic_list); 
-                 $lineArr = array(); // 需要换行的位置 
+                 $lineArr = array(); // Where to wrap
 
                  $space_x = 0; 
 				 $space_y = 0; 
                  $line_x = 0;  
                   switch($pic_count) { 
-                  case 1: // 正中间 
-                 $start_x = intval($bg_w/4); // 开始位置X 
-                 $start_y = intval($bg_h/4); // 开始位置Y 
-                 $pic_w = intval($bg_w/2); // 宽度 
-                 $pic_h = intval($bg_h/2); // 高度 
+                  case 1: // The middle
+                 $start_x = intval($bg_w/4); // Start position X
+                 $start_y = intval($bg_h/4); // Start position Y
+                 $pic_w = intval($bg_w/2); // width
+                 $pic_h = intval($bg_h/2); // height
                   break; 
-                  case 2: // 中间位置并排 
+                  case 2: // Middle position side by side
                  $start_x = 2; 
                  $start_y = intval($bg_h/4); 
                  $pic_w = intval($bg_w/2) - 5; 
@@ -136,18 +136,18 @@ class UploadAction extends CommonAction{
                  $space_x = 0; 
                   break; 
                   case 3: 
-                 $start_x = 40; // 开始位置X 
-                 $start_y = 0; // 开始位置Y 
-                 $pic_w = intval($bg_w/2) ; // 宽度 
-                 $pic_h = intval($bg_h/2); // 高度 
+                 $start_x = 40; // Start position X
+                 $start_y = 0; // Start position Y
+                 $pic_w = intval($bg_w/2) ; // width
+                 $pic_h = intval($bg_h/2); // height
                  $lineArr = array(2); 
                  $line_x = 0; 
                   break; 
                   case 4: 
-                 $start_x = 0; // 开始位置X 
-                 $start_y = 0; // 开始位置Y 
-                 $pic_w = intval($bg_w/2); // 宽度 
-                 $pic_h = intval($bg_h/2); // 高度 
+                 $start_x = 0; // Start position X
+                 $start_y = 0; // Start position Y
+                 $pic_w = intval($bg_w/2); // width
+                 $pic_h = intval($bg_h/2); // height
                  $lineArr = array(3); 
                  $line_x = 0; 
                   break; 
@@ -178,7 +178,7 @@ class UploadAction extends CommonAction{
                  } 
 
                   $resource = $imagecreatefromjpeg($pic_path); 
-                  imagecopyresized($background,$resource,$start_x,$start_y,0,0,$pic_w,$pic_h,imagesx($resource),imagesy($resource)); //最后两个参数为原始图片宽度和高度，倒数两个参数为copy时的图片宽度和高度 
+                  imagecopyresized($background,$resource,$start_x,$start_y,0,0,$pic_w,$pic_h,imagesx($resource),imagesy($resource)); //The last two parameters are the width and height of the original image, and the last two parameters are the width and height of the image when copying
                   $start_x = $start_x + $pic_w + $space_x; 
                  } 
                    $img5=  './Uploads/images/' . $uid . '05.jpg';
@@ -186,19 +186,19 @@ class UploadAction extends CommonAction{
                  //imagejpeg($background,$img5);
                  imagegif($background,$img5); 
 				 
-//-----------------------------------------合成图片完成-------------------------------------------------------------------//	
+//-----------------------------------------The composite picture is complete-------------------------------------------------------------------//
 
                  }    
 				 
 
 			
-		//	   ignore_user_abort(true); // 后台运行
-       //        set_time_limit(0); // 取消脚本运行时间的超时上限
+		//	   ignore_user_abort(true); // Background process
+       //        set_time_limit(0); // Cancel the timeout limit of script running time
 	   
 	   
                  if(in_array($extension,$video)){ 
 				    $result['error'] = 7;
-                    $result['message'] =  "正在做视频处理请稍后！";
+                    $result['message'] =  "Video processing is in progress, please wait！";
 					
                     system("ffmpeg.exe -i F:\\wwwroot\\Uploads\\upload\\$fileName -i aaa.png -filter_complex overlay=60:120 -b:v 904k F:\\wwwroot\\Uploads\\video\\$uid.mp4");
 
@@ -209,8 +209,8 @@ class UploadAction extends CommonAction{
 				$videoFilemp8= 'F:\\wwwroot\\Uploads\\images\\' . $uid . '003.jpg';
 				$videoFilemp9= 'F:\\wwwroot\\Uploads\\images\\' . $uid . '004.jpg';	
                 $videoFilemp11= 'F:\\wwwroot\\Uploads\\images\\' . $uid . '005.jpg';				
-              if($videoFilemp4){  //如果新文件已经生成  则 执行删除老视频文件操作
-                if(is_file($videoFilemp4)){  //如果新文件已经生成  则 执行删除老视频文件操作               
+              if($videoFilemp4){  //If the new file has been generated, delete the old video file operation
+                if(is_file($videoFilemp4)){  //If the new file has been generated, delete the old video file operation
                     array_map("unlink", glob($videoFilemp5));
                     array_map("unlink", glob($videoFilemp7));
                     array_map("unlink", glob($videoFilemp8));					
@@ -259,14 +259,14 @@ class UploadAction extends CommonAction{
                //    dump($img5);
 
                     $result['error'] = 0;
-                    $result['message'] =  $img8."上传成功";
+                    $result['message'] =  $img8."Uploaded successfully";
                     
 
 
                    
                 } else {
                     $result['error'] = 1;
-                    $result['message'] = "保存失败，请重新上传";
+                    $result['message'] = "Save failed, please re-upload";
                 }
             }
            
@@ -280,11 +280,11 @@ class UploadAction extends CommonAction{
         }
     } else {
         $result['error'] = 3;
-        $result['message'] = "上传格式不正确";
+        $result['message'] = "Incorrect upload format";
     }
 } else {
     $result['error'] = 4;
-   // $result['message'] = "上传失败，请重新上传";
+   // $result['message'] = "Upload failed, please upload again";
     $result['message'] = $_FILES;
 	
 }
@@ -302,10 +302,10 @@ echo json_encode($result);
      $file = isset($_FILES['file']) ? $_FILES['file'] : null;
 if ($file) {
     
-    $file_size = 1024*1024*500;//限制大小500M
+    $file_size = 1024*1024*500;//Limit size 500M
     $allowedExts = array('gif', 'jpeg', 'jpg', 'png');
-    $video = array('flv','mp4');//视频
-    $compression = array('zip','rar');//压缩
+    $video = array('flv','mp4');//video
+    $compression = array('zip','rar');//compression
     $pic = array('gif','jpeg','jpg','png','psd');
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     
@@ -337,17 +337,17 @@ if ($file) {
 
             if ($file['size']>$file_size){
                 $result['error'] = 5;
-                $result['message'] = "上传失败，文件最大100M";
+                $result['message'] = "Upload failed, the maximum file size is 100M";
             }else{
                 $filePath = $dir_up . $fileName;
                 if (move_uploaded_file($file['tmp_name'], $newFile)) {
                     $result['error'] = 0;
-                    $result['message'] = "上传成功";
+                    $result['message'] = "Uploaded successfully";
                     $result['filePath'] = $filePath;
 
                 } else {
                     $result['error'] = 1;
-                    $result['message'] = "保存失败，请重新上传";
+                    $result['message'] = "Save failed, please re-upload";
                 }
             }
            
@@ -358,11 +358,11 @@ if ($file) {
         }
     } else {
         $result['error'] = 3;
-        $result['message'] = "上传格式不正确";
+        $result['message'] = "Incorrect upload format";
     }
 } else {
     $result['error'] = 4;
-    $result['message'] = "上传失败，请重新上传";
+    $result['message'] = "Upload failed, please upload again";
 }
 echo json_encode($result);
     }

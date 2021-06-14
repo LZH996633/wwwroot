@@ -66,7 +66,7 @@
 <body>
 
 
-    <h1 id="seodw">鹿酷-AE视频素材下载平台</h1>
+    <h1 id="seodw">LOGO-AE video material download platform</h1>
     <div class="header normaltop">
     <div class="wrap clearfix">
         <div class="logo fl"><a href="<?php echo U('Index/index');?>"><img src="<?php echo ($logo["ad_pic"]); ?>"></a></div>
@@ -274,8 +274,8 @@
 
     <div class="wrap pptdetails">
         <div class="webmap">
-            <em><img src="__IMG__/wzbg.gif"></em><a href="<?php echo U('Index/index');?>">首页</a>><a
-                href="<?php echo U('Model/index');?>">视频素材</a>><i><?php echo ($OpusDetail['opus_title']); ?></i>
+            <em><img src="__IMG__/wzbg.gif"></em><a href="<?php echo U('Index/index');?>">Home page</a>><a
+                href="<?php echo U('Model/index');?>">Video material</a>><i><?php echo ($OpusDetail['opus_title']); ?></i>
         </div>
 
         <div id="click1" class="clearfix showinfo">
@@ -301,21 +301,21 @@
                     <div class="title">
                         <!-- <h1><?php echo ($OpusDetail["opus_title"]); ?></h1> -->
                         <span><i class="view" id="hits"><?php echo ($OpusDetail["oext_views"]); ?></i>
-                            <i class="down" id="xiazai">下载：<?php echo ($OpusDetail["down"]); ?> </i>
-                            <i class="down" id="xiazai">评论：<?php echo ($coment); ?> </i>
-                                <i class="collection"
-                                id="favorite">收藏：<?php echo ($OpusDetail["oext_favorite"]); ?></i><i class="down" id="xiazai"><a
-                                    href="<?php echo ($OpusDetail["opus_video"]); ?>" rel="external nofollow"
-                                    download="web-001.mp4">下载小样</a></i>
+                            <i class="down" id="Down">Download：<?php echo ($OpusDetail["down"]); ?> </i>
+                            <!-- <i class="down" id="Down">Comment：<?php echo ($coment); ?> </i>-->
+                                 <i class="collection"
+                                 id="favorite">Favorites：<?php echo ($OpusDetail["oext_favorite"]); ?></i><i class="down" id="Down"><a
+                                     href="<?php echo ($OpusDetail["opus_video"]); ?>" rel="external nofollow"
+                                     download="web-001.mp4">Download sample</a></i>
 
-                            <li class="quality-checker-wrap"> 
-                                &nbsp; &nbsp;&nbsp;
-								&nbsp; &nbsp;
-                                &nbsp; &nbsp;
-								<!--
-								<input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
-								-->
-								<a href="<?php echo ($OpusDetail["opus_pic_big"]); ?>" title="由于系统随机提取任意帧作为画质检测，可能会出现模糊现象" target="_blank"><font size="3">画质检测</font></a>
+                             <li class="quality-checker-wrap">
+                                 &nbsp; &nbsp;&nbsp;
+                                 &nbsp; &nbsp;
+                                 &nbsp; &nbsp;
+                                 <!--
+                                 <input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
+                                 -->
+								<a href="<?php echo ($OpusDetail["opus_pic_big"]); ?>" title="Since the system randomly extracts any frame for image quality detection, blurring may occur" target="_blank"><font size="3">Image quality inspection</font></a>
                             </li>
                             
                         </span>
@@ -345,33 +345,33 @@
 
                 <div class="prodinfo">
                     <dl>
-                        <dt>售价：
+                        <dt>Selling price：
 
-						<?php if($OpusDetail["is_half"] == 0): ?><em id="readpoint"><?php echo ($OpusDetail["price"]); ?>&nbsp;元</em>
+						<?php if($OpusDetail["is_half"] == 0): ?><em id="readpoint"><?php echo ($OpusDetail["price"]); ?>&nbsp;Gold</em>
 						<?php else: ?>
-						<em id="readpoint"><?php echo ($OpusDetail["prices"]); ?>&nbsp;L币</em><?php endif; ?>
+						<em id="readpoint"><?php echo ($OpusDetail["prices"]); ?>&nbsp;gold coins</em><?php endif; ?>
 						&nbsp;&nbsp;<font color="#1abd9b"
                                 id="bjzq"></font>
 </dt>
 <?php if($OpusDetail["is_half"] == 0): ?><a href="<?php echo U('Model/loading',array('opus_id'=>$OpusDetail['opus_id']));?>"style="    color: #fff;background-color: #02d4b1;display: block; margin: 20px 0;width: 300px; height: 56px;line-height: 56px;padding: 0;border-radius: 5px;font-size: 18px;text-align: center;
-">素材下载</a>
+">Material download</a>
 <?php else: ?>
  <a href="<?php echo U('Model/loading',array('opus_id'=>$OpusDetail['opus_id']));?>"style="    color: #fff;background-color: #02d4b1;display: block; margin: 20px 0;width: 300px; height: 56px;line-height: 56px;padding: 0;border-radius: 5px;font-size: 18px;text-align: center;
-    ">免费下载</a><?php endif; ?>
+    ">Free download</a><?php endif; ?>
 
 
 
 
 
-                        <dd>视频类型: <?php echo ($OpusDetail["tip_style"]); ?></dd>
-                        <dd>音频: 仅供参考 禁止商用</dd>						
-						<dd>上传日期: <?php echo ($OpusDetail["opus_createtime"]); ?></dd>
+                        <dd>Video type: <?php echo ($OpusDetail["tip_style"]); ?></dd>
+                        <dd>Audio: for reference only</dd>						
+						<dd>Upload date: <?php echo ($OpusDetail["opus_createtime"]); ?></dd>
                     </dl>
                     <div class="btns bdsharebuttonbox">,
 
                         <a href="javascript:favorite(<?php echo ($OpusDetail["opus_id"]); ?>,<?php echo ($OpusDetail["user_id"]); ?>);" class="sc"
-                            id="showsc">收藏</a>
-                        <!-- <a href="javascript:share();" class="share bds_more" data-cmd="more" >分享</a>-->
+                            id="showsc">Favorites</a>
+                        <!-- <a href="javascript:share();" class="share bds_more" data-cmd="more" >share it</a>-->
                         <script type="text/javascript">
                             function share() {
                                 $('#share').attr('style', 'display:block');
@@ -395,11 +395,11 @@
                     <dl class="clearfix">
                         <dt><img src="<?php echo ($UserInfo["user_pic"]); ?>" onerror="this.src='__IMG__/nophoto.gif'"></dt>
                         <dd><b><?php echo ($UserInfo["user_nickname"]); ?></b><a href="javascript:follow(<?php echo ($UserInfo["user_id"]); ?>);"
-                                class="gz follow" id="follow">关注</a></dd>
-                        <dd><i>空间作品数：<?php echo ($OpusCount); ?> </i><a
+                                class="gz follow" id="follow">Follow</a></dd>
+                        <dd><i>Number of Works：<?php echo ($OpusCount); ?> </i><a
                                 href="<?php echo U('Single/personal',array('user_id'=>$UserInfo['user_id']));?>" target="_blank"
-                                class="kj">【TA的空间】</a></dd>
-								<dd><i style="padding-left:72px;color: #44a0d5;">实名认证 </i></dd>
+                                class="kj">【Homepage】</a></dd>
+								<dd><i style="padding-left:72px;color: #44a0d5;">Verified </i></dd>
 
                     </dl>
                 </div>
@@ -416,7 +416,7 @@
 
 
         <div class="caselist">
-            <!-- <div class="titles">相关推荐</div>-->
+            <!-- <div class="titles">related suggestion</div>-->
             <div class="contlist">
                 <div class="caselistcnt clearfix">
 
@@ -458,7 +458,7 @@
                                         target="_blank"><?php echo ($list["opus_title"]); ?></a></p>
                             </dd>
                             <!-- <dd><span><ins><img src="__IMG__/indicos1.png"><?php echo ($list["down"]); ?></ins><i><img src="__IMG__/indicos2.png"><?php echo ($list["oext_favorite"]); ?></i><em><?php  echo substr($list['opus_updatetime'],0,10) ?></em></span></dd>
-                                       半价标识-->
+                                       Half price sign-->
                             <?php if($list['is_half'] == 1): ?><img class="pa" style="left:0;top:0;z-index:10" src="__IMG__/bjicos.png" /><?php endif; ?>
                         </dl><?php endforeach; endif; else: echo "" ;endif; ?>
                
@@ -494,7 +494,7 @@
 
 
 
-    <!--检查状态-->
+    <!--Check status-->
 	    <script src="__JS__/tips.js" type="text/javascript"></script>
 
     <script type="text/javascript" src="__JS__/jquery.reveal.js"></script>
@@ -505,27 +505,27 @@
     <script type="text/javascript">
 
 
-        var speed = 10;//设置速度
+        var speed = 10;//Set speed
 
-        //var vdo = document.getElementById("视频的id");//获取id
-        //鼠标移进去
+        //var vdo = document.getElementById("Id of the video");//Get id
+        //Mouse in
         function videoPlayback() {
-            //获取视频标签
+            //Get video tags
             var e = window.event;
             var obj = e.srcElement;
-            obj.playbackRate = speed;//改变速度
+            obj.playbackRate = speed;//Change speed
             obj.play();
 
         }
 
-        //鼠标离开
+        //Mouse away
         function videoStopped() {
-            //获取视频标签			
+            //Get video tags			
             var e = window.event;
             var obj = e.srcElement;
-            //停止播放
+            //Stop play
             obj.pause();
-            obj.currentTime = 0;   //停止播时回到开始
+            obj.currentTime = 0;   //Go back to the beginning when you stop broadcasting
         }
 
 
@@ -552,7 +552,7 @@
 	
 	
 
-    <!--收藏状态-->
+    <!--Collection status-->
     <script type="text/javascript">
         head.ready('jquery', function () {
             var SiteUrl = $('#SiteUrl').val();
@@ -560,9 +560,9 @@
 
             $.getJSON(SiteUrl + '/index.php/Ajax/FavorJudge?fa_id=' + opus_id + "&" + Math.random(), function (data) {
                 if (data.judge == 'true') {
-                    $(".sc").html("已收藏");
+                    $(".sc").html("Collected");
                 } else {
-                    $(".sc").html("收藏");
+                    $(".sc").html("Favorites");
                 }
             });
         })
@@ -571,16 +571,16 @@
 
 
     </script>
-    <!--关注状态-->
+    <!--Follow state-->
     <script type="text/javascript">
         head.ready('jquery', function () {
             var SiteUrl = $('#SiteUrl').val();
             var seller_id = $('#seller_id').val();
             $.getJSON(SiteUrl + '/index.php/Ajax/FocusJudge?seller_id=' + seller_id + "&" + Math.random(), function (data) {
                 if (data.judge == 'true') {
-                    $(".gz").html("已关注");
+                    $(".gz").html("Followed");
                 } else {
-                    $(".gz").html("关注");
+                    $(".gz").html("Follow");
                 }
             });
         })
@@ -598,19 +598,19 @@
 
 
 function popup(popupName){	
-	_windowHeight = $(".wrap").height();//获取当前窗口高度
-	_windowWidth = $(".wrap").width();//获取当前窗口宽度
+	_windowHeight = $(".wrap").height();//Get the current window height
+	_windowWidth = $(".wrap").width();//Get the current window width
 	_popupHeight = popupName.height();//获取弹出层高度
-	_popupWeight = popupName.width();//获取弹出层宽度
+	_popupWeight = popupName.width();//Get the height of the pop-up layer
 	_posiTop = (_windowHeight - _popupHeight)/10;
 	_posiLeft = (_windowWidth - _popupWeight)/8;
-	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//设置position
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"block"});//Set position
 }	
 
 
 function popups(popupName){	
 
-	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"none"});//设置position
+	popupName.css({"left": _posiLeft + "px","top":_posiTop + "px","display":"none"});//Set position
 }	
 	
 	
@@ -649,7 +649,7 @@ return   false;
 }
 
 	
-//点击弹出的批量设置以外的地方时隐藏弹出层
+//Hide the pop-up layer when you click outside the pop-up batch settings
 //$(document).click(function(event){
 	//$('#div2').css('display','none');
 //	div2.style.display='none';
@@ -733,14 +733,14 @@ return   false;
         <div class="wrap clearfix">
             <div class="navmain clearfix fl">
                 <dl>
-                    <dt><img src="__IMG__/ftico1.png">about Us</dt>
+                    <dt><img src="__IMG__/ftico1.png">About Us</dt>
                     <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">Website Introduction</a></dd>
 
                     <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">Contact us</a></dd>
                 </dl>
                 <dl>
                     <dt><img src="__IMG__/ftico3.png">I am a member</dt>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">become member</a></dd>
+                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">Become member</a></dd>
 
                     <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">Upload material</a></dd>
                 </dl>

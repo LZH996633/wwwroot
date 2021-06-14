@@ -63,7 +63,7 @@ head.ready('imgload', function() {
 //
 // });
 
-     /*收藏操作*/
+     /*Collection operation*/
     function favorite(opus_id,seller_id) {
 	var SiteUrl = $('#SiteUrl').val();
 		var n=parseInt($("#favorite").text());
@@ -114,7 +114,7 @@ head.ready('imgload', function() {
 	/*关注操作*/
 	function follow(seller_id) {
 		var SiteUrl = $('#SiteUrl').val();
-		if($(".follow").text()=="attention"){
+		if($(".follow").text()=="Follow"){
 			$.getJSON(SiteUrl+'/index.php/Ajax/Focus?seller_id='+seller_id+"&"+Math.random(), function(data){
 				
 				if(data.status==1)	{
@@ -127,7 +127,7 @@ head.ready('imgload', function() {
 						$(".graybg").show();
 					 });
 				} else if(data.status==-3) {
-					layer.msg("Can't pay follow to yourself!",{icon:2,time:2000});
+					layer.msg("Can't pay attention to yourself!",{icon:2,time:2000});
 			   
 				} else {
 					layer.msg("Follow failed!",{icon:1,time:2000});
@@ -136,17 +136,17 @@ head.ready('imgload', function() {
 			});
 		}else{
 				
-			layer.confirm('Confirm Unfollow it?', {icon: 3, title:'unsubscribe'}, function(index){
+			layer.confirm('Confirm Unfollow it?', {icon: 3, title:'Unsubscribe'}, function(index){
 			
 				$.getJSON(SiteUrl+'/index.php/Ajax/Focus?seller_id='+seller_id+"&"+Math.random(), function(data)
 				{
 					if(data.status==2){
 						 layer.msg("Follow has been cancelled！",{icon:1,time:1000},function(){
-							$(".follow").html("Attention");
+							$(".follow").html("Follow");
 						 });
 					}else {
 						layer.msg("Unfollow failed!",{icon:1,time:2000});
-
+				   
 					}
 				});
 			});

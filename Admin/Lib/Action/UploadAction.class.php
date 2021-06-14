@@ -9,10 +9,10 @@ class UploadAction extends CommonAction{
      $file = isset($_FILES['file']) ? $_FILES['file'] : null;
 if ($file) {
     
-    $file_size = 1024*1024*800;//限制大小800M
+    $file_size = 1024*1024*800;//Limited size 800M
     $allowedExts = array('gif', 'jpeg', 'jpg', 'png', 'mp4', 'flv','zip','rar','psd');
-    $video = array('flv','mp4');//视频
-    $compression = array('zip','rar');//压缩
+    $video = array('flv','mp4');//video
+    $compression = array('zip','rar');//compression
     $pic = array('gif','jpeg','jpg','png','psd');
     $extension = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     
@@ -45,17 +45,17 @@ if ($file) {
 
             if ($file['size']>$file_size){
                 $result['error'] = 5;
-                $result['message'] = "上传失败，文件最大500M";
+                $result['message'] = "Upload failed, the file size is 500M";
             }else{
                 $filePath = $dir_up . $fileName;
                 if (move_uploaded_file($file['tmp_name'], $newFile)) {
                     $result['error'] = 0;
-                    $result['message'] = "上传成功";
+                    $result['message'] = "Uploaded successfully";
                     $result['filePath'] = $filePath;
 
                 } else {
                     $result['error'] = 1;
-                    $result['message'] = "保存失败，请重新上传";
+                    $result['message'] = "Save failed, please re-upload";
                 }
             }
            
@@ -66,11 +66,11 @@ if ($file) {
         }
     } else {
         $result['error'] = 3;
-        $result['message'] = "上传格式不正确";
+        $result['message'] = "Incorrect upload format";
     }
 } else {
     $result['error'] = 4;
-    $result['message'] = "上传失败，请重新上传";
+    $result['message'] = "Upload failed, please upload again";
 }
 echo json_encode($result);
     }

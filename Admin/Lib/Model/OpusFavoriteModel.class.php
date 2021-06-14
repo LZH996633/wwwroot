@@ -7,14 +7,14 @@ class OpusFavoriteModel extends Model{
         self::$OpusFavor = M('opus_favorite');
     }
     public function getPage($num,$Count){
-        import('ORG.Util.Page');// 导入分页类
-        //$count      = $User->where('opus_category="'.$where.'"')->count();// 查询满足要求的总记录数
-        $Page = new Page($Count,$num);// 实例化分页类 传入总记录数和每页显示的记录数
-        // $page -> setConfig('header','个会员');
-        $Page -> setConfig('prev', "上一页");//(对thinkphp自带分页的格式进行自定义▲▼)
-        $Page -> setConfig('next','下一页');
-        $Page -> setConfig('first','首');
-        $Page -> setConfig('last','尾');
+        import('ORG.Util.Page');// Import pagination class
+        //$count      = $User->where('opus_category="'.$where.'"')->count();// Query the total number of records that meet the requirements
+        $Page = new Page($Count,$num);// Instantiate the paging class, pass in the total number of records and the number of records displayed on each page
+        // $page -> setConfig('header','Members');
+        $Page -> setConfig('prev', "Previous page");//(Customize the format of thinkphp's own pagination▲▼)
+        $Page -> setConfig('next','Next page');
+        $Page -> setConfig('first','First');
+        $Page -> setConfig('last','Last');
         $Page -> setConfig('theme',"%first% %upPage% %linkPage% %downPage% %end%");
 
         $page = $Page->show();
@@ -23,7 +23,7 @@ class OpusFavoriteModel extends Model{
     }
 
     /**
-     * 获取收藏信息列表
+     * Get a list of favorite information
      * @param $where
      * @param $num
      * @param $p
@@ -38,7 +38,7 @@ class OpusFavoriteModel extends Model{
     }
 
     /**
-     * 获取用户收藏数目
+     * Get the number of user favorites
      * @param $where
      * @return int|string
      */
@@ -51,17 +51,17 @@ class OpusFavoriteModel extends Model{
 
     
     public function Favor($data){
-           //查询
+           //Inquire
        $result = self::$OpusFavor->where($data)->find();
         
 
           if ($result){
-              //已收藏,取消收藏
+              //Favorited, unfavored
               self::$OpusFavor->where($data)->delete();
               
               return 2;
         }else{
-              //未收藏，添加收藏
+              //Not favorite, add favorite
               $data['fav_time'] = date('Y-m-d H:i:s',time());
                self::$OpusFavor->data($data)->add();
 

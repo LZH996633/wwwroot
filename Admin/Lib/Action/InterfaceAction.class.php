@@ -3,7 +3,7 @@
 class InterfaceAction extends CommonAction{
 
     /**
-     * 支付宝支付 操作
+     * Alipay payment operation
      */
     public function Ali_pay(){
 
@@ -14,13 +14,13 @@ class InterfaceAction extends CommonAction{
         foreach ($post as $key=>$value){
             switch ($key){
                 case 'Ali_pay_id':
-                    $data_id = ['value'=>$value,'title'=>'支付宝开发ID','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_id = ['value'=>$value,'title'=>'Alipay Development ID','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
                 case 'Ali_pay_acc':
-                    $data_acc = ['value'=>$value,'title'=>'支付宝收款账号','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_acc = ['value'=>$value,'title'=>'Alipay receiving account','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
                 case 'Ali_pay_key':
-                    $data_key = ['value'=>$value,'title'=>'支付宝秘钥','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_key = ['value'=>$value,'title'=>'Alipay secret key','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
             }
 
@@ -38,7 +38,7 @@ class InterfaceAction extends CommonAction{
     }
 
     /**
-     * 支付宝支付信息 显示
+     * Alipay payment information display
      */
     public function Ali_pay_form(){
         $config=M('sys_config');
@@ -54,7 +54,7 @@ class InterfaceAction extends CommonAction{
     }
 
     /**
-     * 微信支付 操作
+     * WeChat payment operation
      */
     public function WeChat_pay(){
 
@@ -66,13 +66,13 @@ class InterfaceAction extends CommonAction{
         foreach ($post as $key=>$value){
             switch ($key){
                 case 'WeChat_pay_id':
-                    $data_id = ['value'=>$value,'title'=>'微信开发ID','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_id = ['value'=>$value,'title'=>'WeChat Development ID','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
                 case 'WeChat_pay_acc':
-                    $data_acc = ['value'=>$value,'title'=>'商户号','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_acc = ['value'=>$value,'title'=>'business number','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
                 case 'WeChat_pay_key':
-                    $data_key = ['value'=>$value,'title'=>'支付密钥','name'=>$key,'cate'=>1,'update_time'=>$time];
+                    $data_key = ['value'=>$value,'title'=>'Payment key','name'=>$key,'cate'=>1,'update_time'=>$time];
                     break;
             }
 
@@ -83,15 +83,15 @@ class InterfaceAction extends CommonAction{
 
         foreach ($data as $key=>$value){
             $where['name'] = $value['name'];
-            //$config->data($data)->add($value);//添加
-           $config->where($where)->save($value);//修改
+            //$config->data($data)->add($value);//Add to
+           $config->where($where)->save($value);//modify
 
         }
         $this->WeChat_pay_form();
     }
 
     /**
-     * 微信支付信息显示
+     * WeChat payment information display
      */
     public function WeChat_pay_form(){
 
@@ -107,7 +107,7 @@ class InterfaceAction extends CommonAction{
     }
 
     /**
-     * QQ登录 操作
+     * QQ login operation
      */
     public function QQ_login(){
 
@@ -135,15 +135,15 @@ class InterfaceAction extends CommonAction{
 
         foreach ($data as $key=>$value){
             $where['name'] = $value['name'];
-         //  $config->data($data)->add($value);//添加
-           $config->where($where)->save($value);//修改
+         //  $config->data($data)->add($value);//Add to
+           $config->where($where)->save($value);//modify
 
         }
         $this->QQ_login_form();
     }
 
     /**
-     * QQ登录信息 显示
+     * QQ login information display
      */
     public function QQ_login_form(){
 
@@ -161,7 +161,7 @@ class InterfaceAction extends CommonAction{
     }
 
     /**
-     * 微信登录 操作
+     * WeChat login operation
      */
     public function WeChat_login(){
         $post = $_POST;
@@ -171,13 +171,13 @@ class InterfaceAction extends CommonAction{
         foreach ($post as $key=>$value){
             switch ($key){
                 case 'WeChat_login_id':
-                    $data_id = ['value'=>$value,'title'=>'微信开发ID','name'=>$key,'cate'=>2,'update_time'=>$time];
+                    $data_id = ['value'=>$value,'title'=>'WeChat Development ID','name'=>$key,'cate'=>2,'update_time'=>$time];
                     break;
                 case 'WeChat_login_key':
-                    $data_acc = ['value'=>$value,'title'=>'微信秘钥','name'=>$key,'cate'=>2,'update_time'=>$time];
+                    $data_acc = ['value'=>$value,'title'=>'WeChat secret key','name'=>$key,'cate'=>2,'update_time'=>$time];
                     break;
                 case 'WeChat_login_callback':
-                    $data_key = ['value'=>$value,'title'=>'微信回调域','name'=>$key,'cate'=>2,'update_time'=>$time];
+                    $data_key = ['value'=>$value,'title'=>'WeChat callback domain','name'=>$key,'cate'=>2,'update_time'=>$time];
                     break;
             }
 
@@ -188,15 +188,15 @@ class InterfaceAction extends CommonAction{
 
         foreach ($data as $key=>$value){
             $where['name'] = $value['name'];
-            //$config->data($data)->add($value);//添加
-           $config->where($where)->save($value);//修改
+            //$config->data($data)->add($value);//Add to
+           $config->where($where)->save($value);//modify
 
         }
         $this->WeChat_login_form();
     }
 
     /**
-     * 微信登录信息 显示
+     * WeChat login information display
      */
 
     public function WeChat_login_form(){
@@ -214,7 +214,7 @@ class InterfaceAction extends CommonAction{
 
 
     /**
-     * 邮件发送 操作
+     * Mail sending operation
      */
     public  function eMail_send(){
 
@@ -227,25 +227,25 @@ class InterfaceAction extends CommonAction{
         foreach ($post as $key=>$value){
             switch ($key){
                 case 'eMail_SMTP':
-                    $data_id = ['value'=>$value,'title'=>'SMTP 服务器','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_id = ['value'=>$value,'title'=>'SMTP server','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_port':
-                    $data_port = ['value'=>$value,'title'=>'SMTP 端口号','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_port = ['value'=>$value,'title'=>'SMTP The port number','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_acc':
-                    $data_acc = ['value'=>$value,'title'=>'SMTP 账号','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_acc = ['value'=>$value,'title'=>'SMTP account number','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_key':
-                    $data_key = ['value'=>$value,'title'=>'SMTP 密码','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_key = ['value'=>$value,'title'=>'SMTP password','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_sender':
-                    $data_sender = ['value'=>$value,'title'=>'SMTP 发件人名称','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_sender = ['value'=>$value,'title'=>'SMTP Sender name','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_title':
-                    $data_title = ['value'=>$value,'title'=>'SMTP 标题','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_title = ['value'=>$value,'title'=>'SMTP title','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'eMail_content':
-                    $data_content = ['value'=>$value,'title'=>'SMTP 内容','name'=>$key,'cate'=>2,'update_time'=>$time];
+                    $data_content = ['value'=>$value,'title'=>'SMTP content','name'=>$key,'cate'=>2,'update_time'=>$time];
                     break;
             }
 
@@ -256,15 +256,15 @@ class InterfaceAction extends CommonAction{
 
         foreach ($data as $key=>$value){
             $where['name'] = $value['name'];
-           // $config->data($data)->add($value);//添加
-           $config->where($where)->save($value);//修改
+           // $config->data($data)->add($value);//Add to
+           $config->where($where)->save($value);//modify
 
         }
         $this->eMail_send_form();
     }
 
     /**
-     * 邮件发送信息 显示
+     * Email sending information display
      */
     public function eMail_send_form(){
 
@@ -283,7 +283,7 @@ class InterfaceAction extends CommonAction{
     }
 
     /**
-     * 短信发送 操作
+     * SMS sending operation
      */
     public function SMS_send(){
         $post = $_POST;
@@ -295,16 +295,16 @@ class InterfaceAction extends CommonAction{
         foreach ($post as $key=>$value){
             switch ($key){
                 case 'SMS_acc':
-                    $data_acc = ['value'=>$value,'title'=>'短信 账号','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_acc = ['value'=>$value,'title'=>'SMS account','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'SMS_key':
-                    $data_key = ['value'=>$value,'title'=>'短信 密码','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_key = ['value'=>$value,'title'=>'SMS password','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'SMS_sign':
-                    $data_sign= ['value'=>$value,'title'=>'短信 签名','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_sign= ['value'=>$value,'title'=>'SMS signature','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
                 case 'SMS_location':
-                    $data_location = ['value'=>$value,'title'=>'短信 提交地址','name'=>$key,'cate'=>3,'update_time'=>$time];
+                    $data_location = ['value'=>$value,'title'=>'SMS submission address','name'=>$key,'cate'=>3,'update_time'=>$time];
                     break;
 
             }
@@ -316,15 +316,15 @@ class InterfaceAction extends CommonAction{
 
         foreach ($data as $key=>$value){
             $where['name'] = $value['name'];
-           $config->data($data)->add($value);//添加
-          // $config->where($where)->save($value);//修改
+           $config->data($data)->add($value);//Add to
+          // $config->where($where)->save($value);//modify
 
         }
         $this->SMS_send();
     }
 
     /**
-     * 短信发送信息 显示
+     * SMS sending information display
      */
     public function SMS_send_form(){
 

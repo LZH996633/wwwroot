@@ -53,21 +53,7 @@ class OpusModel extends Model{
                   return $OpusListShow;
 
     }
-   /*public function create(){
-        for ($i=0;$i<20;$i++){
 
-
-    $data['user_id'] = '1';
-     $data['opus_sort'] = '0-1-2-11-15';
-     $data['opus_pic'] = '5.jpg';
-     $data['opus_title'] = '企业培训之沟通技巧PPT';
-      $data['opus_createtime']= date('Y-m-d H:i:s',time());
-       self::$Opus->data($data)->add();
-   }}*/
-   /* public function create(){
-        $where['use_id']='1';
-        self::$Opus->where($where)->setField(array('opus_picbig'=>'con-img1.png','opus_updatetime'=>date('Y-m-d H:i:s',time())));
-    }*/
 
     public function getOpusDetail($where){
   
@@ -75,26 +61,6 @@ class OpusModel extends Model{
       //  var_dump($OpusDetail);
        return $OpusDetail;
     }
-
-
-
-   
-                                            //  新添加商品评论
-  
-
-  //   `cmt_id` decimal(8,0) NOT NULL COMMENT '评论ID',
-  //   `opus_id` decimal(8,0) DEFAULT NULL COMMENT '作品编号',
-  //   `user_id` decimal(8,0) DEFAULT NULL COMMENT '用户编号',
-  //   `cmt_parentid` decimal(8,0) NOT NULL DEFAULT '0' COMMENT '评论父ID',
-   //  `cmt_path` varchar(200) NOT NULL COMMENT '评论路径（如：1/、2/、2.1/、2.2/、3/）',
-   //  `cmt_topic` char(1) NOT NULL DEFAULT '1' COMMENT '是否是主题',
-  //   `cmt_status` char(1) NOT NULL DEFAULT '1' COMMENT '评论状态（1显示0不显示）',
-  //   `cmt_content` varchar(500) NOT NULL COMMENT '评论内容',
-  //  `cmt_top` int(11) NOT NULL DEFAULT '0' COMMENT '顶、赞的次数',
-  //   `cmt_report` int(11) NOT NULL DEFAULT '0' COMMENT '举报次数',
- //   `cmt_createip` varchar(15) NOT NULL COMMENT '评论创建IP',
- //    `cmt_createtime` datetime NOT NULL COMMENT '评论创建时间',
-  //   `cmt_edittime` datetime DEFAULT NULL COMMENT '评论编辑时间（为空则说明此评论未被编辑过）',
 
 
 

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	
+
 	<title><?php echo ($title); ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="<?php echo ($key); ?> ">
@@ -24,7 +24,7 @@
 	
 
 	<style type="text/css">
-		
+
 
 
 		
@@ -348,12 +348,12 @@
 	<div class="clearfix"></div>
 
 	<div class="indsbanner">
-	
+
 	<div class="banners">
-	
+
     <div class="wrap">
     </div>
-	
+
 	<!--
 		<div class="flexslider">
 
@@ -364,14 +364,14 @@
 
 			</ul>
 		</div>
-		
+
 			<div  style="width: 738px; height: 41px; overflow: hidden; position: absolute;top: 175px; left: 50%; margin-left: -372px; z-index: 999;">
-	
+
 			<li><span style="font-size:36px;color:#000;opacity: .85;">视频设计师的自留地</span></li>
 
-		</div>	
+		</div>
 		-->
-		
+
 		<div class="searchmain">
 			<form action="<?php echo U('Search/index');?>" method="post">
 
@@ -380,9 +380,9 @@
 				<input type="submit" class="webtn" value="" />
 			</form>
 		</div>
-		
+
 <div  style="width: 738px; height: 41px; overflow: hidden; position: absolute;top: 485px; left: 50%; margin-left: -372px; z-index: 999;">
-	
+
 <a href="<?php echo U('Search/index', array('search'=>'Title'));?>" title="Title">Title</a>&nbsp;
 <a href="<?php echo U('Search/index', array('search'=>'Technology'));?>" title="Technology">Technology</a>&nbsp;
 &nbsp;<a href="<?php echo U('Search/index', array('search'=>'Ink and wash'));?>" title="Ink and wash">Ink and wash</a>&nbsp;
@@ -393,13 +393,13 @@
 <a href="<?php echo U('Search/index', array('search'=>'Text'));?>" title="Text">Text</a>&nbsp;
 <a href="<?php echo U('Search/index', array('search'=>'Flash'));?>" title="Flash">Flash</a>&nbsp;
 <a href="<?php echo U('Search/index');?>" title="More">More></a>
-</div>		
-		
-		
-		
-		
-		
-		
+</div>
+
+
+
+
+
+
 	</div>
 	</div>
 	
@@ -1078,14 +1078,14 @@
         <div class="wrap clearfix">
             <div class="navmain clearfix fl">
                 <dl>
-                    <dt><img src="__IMG__/ftico1.png">about Us</dt>
+                    <dt><img src="__IMG__/ftico1.png">About Us</dt>
                     <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'0'));?>" target="_blank">Website Introduction</a></dd>
 
                     <dd><a href="<?php echo U('Single/aboutUS',array('show'=>'1'));?>" target="_blank">Contact us</a></dd>
                 </dl>
                 <dl>
                     <dt><img src="__IMG__/ftico3.png">I am a member</dt>
-                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">become member</a></dd>
+                    <dd><a href="<?php echo U('Service/index');?>" onclick="chan_Page('ToBeSeller')" target="_blank">Become member</a></dd>
 
                     <dd><a href="<?php echo U('Service/materialupload', array('pid'=>1));?>" onclick="chan_Page('MaterialUpload')" target="_blank">Upload material</a></dd>
                 </dl>

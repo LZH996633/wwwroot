@@ -1,37 +1,25 @@
 <?php
 header('Content-Type:text/html;charset=UTF-8');
-// 业务基控制器
-//基础调用文件
+// Business-based controller
+//Basic call file
 class CommonAction extends Action {
     
     function _initialize() {
-        //加载扩展函数库
+        //Load the extension library
         // vendor('sliver.upload');
         // 
         $re=str_repeat('&nbsp;', 4);
         $this->assign('repeat',$re);
 
-        // 模块
+        // Module
         $path['pid'] = '1';
         $lei = M('classify')->where($path)->select();
         $this->assign('lei',$lei);
 
 
-        //qq登录
-        $Config = M('sys_config');
 
-        $qq_back = $Config->where(array('name'=>'QQ_login_callback'))->getField('value');
-        $qq_id = $Config->where(array('name'=>'QQ_login_id'))->getField('value');
-        $qq_url = " https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=".$qq_id."&redirect_uri=".$qq_back;
-        $this->assign(array('qq_login'=>$qq_url));
 
-       //微信登录
-        $WeChat_id=$Config-> getFieldByName('WeChat_login_id','value');
-        $WeChat_back=$Config-> getFieldByName('WeChat_login_callback','value');
-        $WeChat_url = "https://open.weixin.qq.com/connect/qrconnect?appid=".$WeChat_id."&redirect_uri=".$WeChat_back."&response_type=code&scope=snsapi_login&state=".md5('weixindenglu')."#wechat_redirect";
-
-        $this->assign(array('wechat_login'=>$WeChat_url));
-        // 网站信息
+        // Website information
         $site = M('sys_config');
 
         $Contact_phone = $site->where(array('name'=>'Contact_phone'))->getField('value');
@@ -66,11 +54,11 @@ class CommonAction extends Action {
         // $tj = $site->where('id=7')->getField('value');
         // $this->assign('tj',$tj);
 
-        //积分与金钱比率
+        //Points to money ratio
         $integral = $site->where('id=11')->getField('value');
         C('INTEGRAL_TO_POINT',$integral);
 
-        //最少提取金额[锭]
+        //Minimum withdrawal amount
         $minmoney = $site->where('id=41')->getField('value');
         C('MIN_MONEY',$minmoney);
 
@@ -82,7 +70,7 @@ class CommonAction extends Action {
 
         $webswitch = $site->where('id=28')->getField('value');
         if($webswitch=='2'){
-            echo "网站维护中。。。。";
+            echo "The website is under maintenance. . . .";
             die;
         }
         $this->assign('webswitch',$webswitch);
@@ -90,7 +78,7 @@ class CommonAction extends Action {
         $shortcut = $site->where('id=18')->getField('value');
         $this->assign('shortcut',$shortcut);
         
-        // footer底部信息
+        // footer bottom information
         // $z = M('sys_config');  
         
         // $pspay = $z -> where('id=16')->find();
@@ -103,7 +91,7 @@ class CommonAction extends Action {
 
     }
 
-//$r = think_send_mail('要发送的邮箱','发送人名称，即你的名称','文件标题','邮件内容');
+//$r = think_send_mail('Email to be sent','The name of the sender, which is your name','File title','content of email');
    public function send_mail($to,$url){
        $config=M('sys_config');
        $eMail_SMTP=$config-> getFieldByName('eMail_SMTP','value');
@@ -114,47 +102,47 @@ class CommonAction extends Action {
        $eMail_title=$config-> getFieldByName('eMail_title','value');
        $eMail_content=$config-> getFieldByName('eMail_content','value');
 
-    //  $body = $eMail_content.",<a href=$url>点击链接激活账号</a>";
+    //  $body = $eMail_content.",<a href=$url>Click the link to activate the account</a>";
 	  
-		  $body = $eMail_content.",$url 复制左边验证码到注册区域验证注册";
+		  $body = $eMail_content.",$url. Copy the verification code on the left to the registration area to verify registration";
 		  
-    vendor('PHPMailer.class#phpmailer'); //从PHPMailer目录导class.phpmailer.php类文件
+    vendor('PHPMailer.class#phpmailer'); //Import the class.phpmailer.php class file from the PHPMailer directory
 
-    $mail             = new PHPMailer(); //PHPMailer对象
+    $mail             = new PHPMailer(); //PHPMailer object
 
-    $mail->CharSet    = 'UTF-8'; //设定邮件编码，默认ISO-8859-1，如果发中文此项必须设置，否则乱码
+    $mail->CharSet    = 'UTF-8'; //Set the mail code, the default is ISO-8859-1, if you want to send Chinese, this must be set, otherwise the code is garbled
 
-    $mail->IsSMTP();  // 设定使用SMTP服务
+    $mail->IsSMTP();  // Set to use SMTP service
 
-    $mail->SMTPDebug  = 1;                      // 关闭SMTP调试功能// 1 = errors and messages  // 2 = messages only
+    $mail->SMTPDebug  = 1;                      // Turn off SMTP debugging// 1 = errors and messages  // 2 = messages only
 
-    $mail->SMTPAuth   = true;                   // 启用 SMTP 验证功能
+    $mail->SMTPAuth   = true;                   // Enable SMTP authentication
 
-    $mail->SMTPSecure = '';                  // 使用安全协议ssl
+  //  $mail->SMTPSecure = '';                  // Use secure protocol ssl
 
-     $mail->Host="ssl://smtp.qq.com";  //此处需要谨慎，本地测试时不需要放“ssl://”，
+	$mail->Host="ssl://smtp.qq.com";  //You need to be cautious here, you don’t need to put“ssl://”，
 
-    $mail->Port       = $eMail_port;                  //SMTP服务器的端口号   1
-       //  $mail->Port       = 465;                  //SMTP服务器的端口号   1
+  //  $mail->Port       = $eMail_port;                  //Port number of the SMTP server   1
+     $mail->Port       = "465";                  //Port number of the SMTP server   1  465
 
-    $mail->Username   = $eMail_acc;  // SMTP服务器用户名   1
-       //  $mail->Username   = 'ccw51@qq.com';  // SMTP服务器用户名   1
+  //  $mail->Username   = $eMail_acc;  // SMTP server user name   1
+    $mail->Username   = 'ccw51@qq.com';  // SMTP server user name   1
 
-   $mail->Password   = $eMail_key;           // SMTP服务器密码     1
-       //  $mail->Password   = 'fwlpzdowhubpbajd';           // SMTP服务器密码     1
+ //   $mail->Password   = $eMail_key;           // SMTP server password     1
+    $mail->Password   = 'dqsmxkehimnqbbbb';           // SMTP server password     1
 
-    $mail->FromName = $eMail_sender;                  //发件人名称
+    $mail->FromName = $eMail_sender;                  //Sender name
 
-    $mail->From = $eMail_acc;
-       //  $mail->From = 'ccw51@qq.com';
+//    $mail->From = $eMail_acc;
+    $mail->From = 'ccw51@qq.com';	
 
-    $mail->Subject    = $eMail_title;                //邮件标题
+    $mail->Subject    = $eMail_title;                //mail title
 
-    $mail->AltBody    = "为了查看该邮件，请切换到支持 HTML 的邮件客户端"; 
+    $mail->AltBody    = "In order to view the email, please switch to an email client that supports HTML";
 
     $mail->MsgHTML($body);
 
-    $mail->AddAddress($to); //发送邮件地址
+    $mail->AddAddress($to); //Send email address
     
 
 	if( $mail->send()){

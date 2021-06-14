@@ -166,7 +166,7 @@
                 </ul>
             </div>
             <div class="sxpart o1">
-                <div class="title">Software<i></i></div>
+                <div class="title">Resolution<i></i></div>
                 <ul class="namesd">
                     <volist name="sort_software['son']" id="software">
                         <li><a href="{:U('Search/index',array($software['kind']=>$software['id']))}">{$software.name}</a></li>
@@ -174,7 +174,7 @@
                 </ul>
             </div>
             <div class="sxpart o2">
-                <div class="title">Types of<i></i></div>
+                <div class="title">Type<i></i></div>
                 <ul class="proportion">
                     <volist name="sort_type['son']" id="type">
                         <li><a href="{:U('Search/index',array($type['kind']=>$type['id']))}">{$type.name}</a></li>
@@ -190,8 +190,8 @@
                 </ul>
             </div>
             <if condition="$is_half eq 1">
-                <input type="button" value="View all templates" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
-                <else/> <input type="button" value="View half price template" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+                <input type="button" value="All templates" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
+                <else/> <input type="button" value="Half price template" id="bjzq" style="width:125px;height:50px;line-height:50px;color:#1abd9b;background:#f1f1f1;border:none;border-left:1px solid #ccc; border-right:1px solid #ccc;font-size: 14px;"/>
             </if>
         </div>
     </div>
@@ -240,9 +240,9 @@
                         <dd style="text-align:center;font-size:16px;"><p><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" class="title" target="_blank" >{$list.opus_title}</a></p></dd>
                        <!-- <dd><span><ins><img src="__IMG__/indicos1.png">{$list.down}</ins><i><img src="__IMG__/indicos2.png">{$list.oext_favorite}</i><em></em></span></dd> -->
                         <!--Half price sign-->
-                        <if condition="$list['is_half'] eq '1'" >
-                            <img class="pa" style="left:0;top:0;z-index:10" src="__IMG__/bjicos.png" />
-                        </if>
+                        <!--<if condition="$list['is_half'] eq '1'" >
+                            <img class="pa" style="left:0;top:0;z-index:2" src="__IMG__/bjicos.png" />
+                        </if>-->
                     </dl>
                 </volist>
             </div>

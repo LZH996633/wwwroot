@@ -9,14 +9,14 @@ class OpusModel extends Model{
         self::$Opus = M('opus');
     }
     public function getPage($num,$Count){
-        import('ORG.Util.Page');// 导入分页类
-        //$count      = $User->where('opus_category="'.$where.'"')->count();// 查询满足要求的总记录数
-        $Page = new Page($Count,$num);// 实例化分页类 传入总记录数和每页显示的记录数
-        // $page -> setConfig('header','个会员');
-        $Page -> setConfig('prev', "<");//(对thinkphp自带分页的格式进行自定义▲▼)
+        import('ORG.Util.Page');// Import pagination class
+        //$count      = $User->where('opus_category="'.$where.'"')->count();// Query the total number of records that meet the requirements
+        $Page = new Page($Count,$num);// Instantiate the paging class, pass in the total number of records and the number of records displayed on each page
+        // $page -> setConfig('header','Members');
+        $Page -> setConfig('prev', "<");//(Customize the format of thinkphp's own pagination▲▼)
         $Page -> setConfig('next','>');
-        $Page -> setConfig('first','首');
-        $Page -> setConfig('last','尾');
+        $Page -> setConfig('first','First');
+        $Page -> setConfig('last','last');
         $Page -> setConfig('theme',"%first% %upPage% %linkPage% %downPage% %end%");
         
         $page = $Page->show();
@@ -38,17 +38,7 @@ class OpusModel extends Model{
                   return $OpusListShow;
 
     }
-  // public function create(){
-    //    for ($i=0;$i<20;$i++){
-//
 
-  //  $data['user_id'] = '1';
-  //   $data['opus_sort'] = '0-1-2-11-15';
-  //   $data['opus_pic'] = '5.jpg';
-  //   $data['opus_title'] = '企业培训之沟通技巧PPT';
-   //   $data['opus_createtime']= date('Y-m-d H:i:s',time());
-  //     self::$Opus->data($data)->add();
- // }}
     public function create(){
         $where['use_id']='1';
         self::$Opus->where($where)->setField(array('opus_picbig'=>'con-img1.png','opus_updatetime'=>date('Y-m-d H:i:s',time())));
@@ -73,10 +63,10 @@ class OpusModel extends Model{
     }
 
     /**
-     * 首页作品列表
-     * @param $order   /排序方式
-     * @param string $sort /查询条件
-     * @return mixed  /返回数组
+     * Homepage list of works
+     * @param $order   /Sort by
+     * @param string $sort /Query conditions
+     * @return mixed  /Return array
      */
     public function getHomeList($order,$sort='',$limit){
         if ($sort==null){
@@ -88,14 +78,14 @@ class OpusModel extends Model{
             return $list;
         }
     }
-//    //模糊搜索
+//    //Fuzzy search
 //    public function FuzzySearch($search){
 //        $where['opus_keyword|opus_title'] = array('like','%'.$search.'%');
 //        $result = self::$Opus->where($where)->order()->select();
 //        return $result;
 //
 //    }
-//    //精准搜索
+//    //Precise search
 //    public function AccurateSearch($search){
 //             $where['opus_title'] = $search;
 //        $result = self::$Opus->where($where)->order()->select();

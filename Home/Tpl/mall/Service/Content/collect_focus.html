@@ -1,5 +1,5 @@
 <title>Member Management Center</title>
-<!--显示标识-->
+<!--Display logo-->
 <span id="show_project" data-value="{$show_project}"></span>
 <div class="rtmain">
             <div class="hdtitle clearfix">
@@ -160,7 +160,7 @@
 //                    });
 //                }
                  if(data.status==2){
-                    layer.msg("关注已取消！",{icon:1,time:1000},function(){
+                    layer.msg("Follow has been cancelled！",{icon:1,time:1000},function(){
                         $("#follow"+sid).remove();
                         var page_collect = $('#page_focus').text()-1;
                         $('#page_focus').text(page_collect)

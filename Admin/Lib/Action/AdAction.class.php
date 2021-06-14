@@ -2,7 +2,7 @@
 // 本类由系统自动生成，仅供测试用途
 class AdAction extends CommonAction {
     /**
-     * 广告图片
+     * Ad Image
      */
     public function index(){
 
@@ -14,7 +14,7 @@ class AdAction extends CommonAction {
              $p = 1;
          }
         $where['ad_type'] = 2;
-        $List = $Ad->getAdList($where,$num='5',$p);
+        $List = $Ad->getAdList($where,$num='50',$p);
 
         $this->assign($List);
     	$this->display();
@@ -25,7 +25,7 @@ class AdAction extends CommonAction {
 	}
 
     /**
-     * 添加
+     * Add to
      */
     public function add(){
 
@@ -37,7 +37,7 @@ class AdAction extends CommonAction {
             if($ret){
                 $this->redirect('Ad/add?type='.$type);
             }else{
-                $this->redirect('Ad/add?type='.$type,'','2','添加失败');
+                $this->redirect('Ad/add?type='.$type,'','2','add failed');
             }
         }else{
           $type = $_GET['type'];
@@ -45,15 +45,15 @@ class AdAction extends CommonAction {
               $select = array(
                   array(
                       'value'=>'station_banner',
-                      'html'=>'站点-首页轮播图（5）'
+                      'html'=>'Site-Homepage Carousel Picture (5)'
                   ),
                   array(
                       'value'=>'station_logo',
-                      'html'=>'站点-logo（1）'
+                      'html'=>'Site-logo(1)'
                   ),
                   array(
                       'value'=>'station_jump',
-                      'html'=>'站点-跳转页面（1）'
+                      'html'=>'Site-Jump page (1)'
                   ),
 
               );
@@ -62,11 +62,11 @@ class AdAction extends CommonAction {
               $select = array(
                   array(
                       'value'=>'ad_user',
-                      'html'=>'广告-用户中心（3）'
+                      'html'=>'Site-Jump page (3)'
                   ),
                   array(
                       'value'=>'ad_down',
-                      'html'=>'广告-下载页面（1）'
+                      'html'=>'Site-Jump page (3)'
                   )
               );
           }
@@ -78,7 +78,7 @@ class AdAction extends CommonAction {
     }
 
     /**
-     * 编辑
+     * edit
      */
     public function edit(){
         $ad = M('sys_ads');
@@ -104,7 +104,7 @@ class AdAction extends CommonAction {
                 if($ret){
                     $this->redirect('Ad/edit?id='.$id);
                 }else{
-                    $this->redirect('Ad/edit?id='.$id,'','2','编辑失败');
+                    $this->redirect('Ad/edit?id='.$id,'','2','Edit failed');
                 }
             }else{
                 $this->assign('ad', $info);
@@ -139,9 +139,9 @@ class AdAction extends CommonAction {
 
             }else{
                 if($_POST['type']=='2'){
-                    $this->redirect('Ad/index','','2','删除失败');
+                    $this->redirect('Ad/index','','2','Failed to delete');
                 }elseif($_POST['type']=='1'){
-                    $this->redirect('Ad/station','','2','删除失败');
+                    $this->redirect('Ad/station','','2','Failed to delete');
                 }
             }
 
@@ -149,7 +149,7 @@ class AdAction extends CommonAction {
      }
 
     /**
-     * 站点图片
+     * Site pictures
      */
     public function station(){
         $Ad = new SysAdsModel();
@@ -160,7 +160,7 @@ class AdAction extends CommonAction {
             $p = 1;
         }
         $where['ad_type'] = 1;
-        $List = $Ad->getAdList($where,$num='6',$p);
+        $List = $Ad->getAdList($where,$num='60',$p);
 
         $this->assign($List);
         $this->display();

@@ -15,10 +15,10 @@ $ConfigAdmin = array(
 	// 'DB_PREFIX'	=>	'sj_t_',
    'DB_TYPE'	=>	'mysql',
 	'DB_HOST'	=>	'localhost',
-	'DB_NAME'	=>	'sucai',
+	'DB_NAME'	=>	'material',
 	'DB_USER'	=>	'root',
 	'DB_PWD'	=>	'root',
-	'DB_PORT'	=>	'3306',
+	'DB_PORT'	=>	'8306',
 	'DB_PREFIX'	=>	'sj_t_',
 	/* URL设置 */
     'URL_CASE_INSENSITIVE'  => true,   // 默认false 表示URL区分大小写 true不区分大小写

@@ -1,11 +1,11 @@
 
-<!--显示标识-->
+<!--Display logo-->
 <span id="show_project" data-value="{$show_project}"></span>
-<!--排序标识-->
+<!--Sort ID-->
 <span id="up_order" data-value="{$up_order}"></span>
-<!--开始时间-->
+<!--Starting time-->
 <span id="start_time" data-value="{$start_time}"></span>
-<!--结束时间-->
+<!--End Time-->
 <span id="end_time" data-value="{$end_time}"></span>
 <div class="rtmain">
     <div class="hdtitle clearfix">
@@ -57,7 +57,7 @@
                     <td>{$list.down_time}</td>
                     <td ><span style="white-space:nowrap;width:250px;text-overflow:ellipsis;">{$list['opus_title']}</span></td>
                     <td>{$list.down_price}Gold</td>
-                    <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">View</a>&nbsp;<a href="javascript:down_delete({$list.id},{$list.id})" >删除</a></td>
+                    <td><a href="{:U('Model/model',array('cid'=>$list['opus_id']))}" target="_blank">View</a>&nbsp;<a href="javascript:down_delete({$list.id},{$list.id})" >Delete</a></td>
                 </tr>
                 </volist>
             </table>
@@ -191,7 +191,7 @@
                         $('#page_download').text(page_download)
                     });
                 }else {
-                    layer.msg("删除失败!",{icon:1,time:2000});
+                    layer.msg("failed to delete!",{icon:1,time:2000});
 
                 }
 //                else if(data.status==-1){

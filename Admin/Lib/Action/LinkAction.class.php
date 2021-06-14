@@ -10,7 +10,7 @@ class LinkAction extends CommonAction {
             $p = 1;
         }
 
-        $ListShow = $Link->getLinkList($where='',$num=6,$p);
+        $ListShow = $Link->getLinkList($where='',$num=60,$p);
 
         $this->assign($ListShow);
 
@@ -18,7 +18,7 @@ class LinkAction extends CommonAction {
     }
 
     /**
-     * 添加
+     * Add to
      */
     public function add(){
 
@@ -29,7 +29,7 @@ class LinkAction extends CommonAction {
              if($ret){
                 $this->redirect('Link/add');
             }else{
-                $this->redirect('Link/add','','2','添加失败');
+                $this->redirect('Link/add','','2','Add failed');
             }
         }else{
             $this->display();
@@ -38,7 +38,7 @@ class LinkAction extends CommonAction {
     }
 
     /**
-     * 编辑
+     * edit
      */
     public function edit(){
         $link= M('sys_link');
@@ -65,7 +65,7 @@ class LinkAction extends CommonAction {
             if($ret){
                 $this->redirect('Link/edit?id='.$id);
             }else{
-                $this->redirect('Link/edit?id='.$id,'','2','编辑失败');
+                $this->redirect('Link/edit?id='.$id,'','2','Edit failed');
             }
         }else{
             $this->assign('link', $info);
@@ -75,7 +75,7 @@ class LinkAction extends CommonAction {
     }
 
     /**
-     * 删除
+     * delete
      */
     public function del(){
         if($_POST){
@@ -102,7 +102,7 @@ class LinkAction extends CommonAction {
 
             }else{
 
-                    $this->redirect('Link/index','','2','删除失败');
+                    $this->redirect('Link/index','','2','Failed to delete');
 
             }
 

@@ -6,25 +6,25 @@ class AjaxAction extends CommonAction{
     }
 
 	/**
-	 * 用户中心、详情页-收藏操作
+	 * User Center, Details Page-Favorite Operation
 	 */
 	public function Favor(){
-		//判断是否登录
+		//Determine whether to log in
 		if (!isset($_COOKIE['user_id'])){
 			$data = array('status'=>'-1');
 		}
 		else{
 			if ($_GET['seller_id']!=$_COOKIE['user_id']){
-				//构建查询条件及写入数据
+				//Build query conditions and write data
 				$where['opus_id'] = $_GET['fa_id'];
 				$where['user_id'] = $_COOKIE['user_id'];
 
 
-				//执行收藏操作
+				//Perform favorite operations
 				$Favor = new OpusFavoriteModel();
 				$data = $Favor->Favor($where);
 
-				//查询收藏次数信息
+				//Query collection times information
 				$where =null;
 				$where['opus_id']=$_GET['fa_id'];
 				$Opus = new OpusModel();
@@ -32,8 +32,8 @@ class AjaxAction extends CommonAction{
 				$oext_favorite = $info['oext_favorite'];
 
 				if ($data=='1'){
-					//收藏成功
-					//修改收藏次数
+					//Collection success
+					//Modify the number of favorites
 					$datas['oext_favorite'] = $oext_favorite+1;
 					$result = $Opus->Update($where,$datas);
 					if ($result){
@@ -41,8 +41,8 @@ class AjaxAction extends CommonAction{
 					}
 				}
 				elseif ($data=='2'){
-					//取消收藏
-					//修改收藏次数
+					//Unfavorite
+					//Modify the number of favorites
 					$datas['oext_favorite'] = $oext_favorite-1;
 					$result = $Opus->Update($where,$datas);
 					if ($result){
@@ -50,7 +50,7 @@ class AjaxAction extends CommonAction{
 					}
 				}
 			}else{
-				//收藏自己
+				//Collect yourself
 				$data = array('status'=>'-3');
 			}
 
@@ -62,24 +62,24 @@ class AjaxAction extends CommonAction{
 	}
 
 	/**
-	 * 详情页-收藏状态
+	 * Details page-collection status
 	 */
 	public function FavorJudge(){
-		//接收传值
+		//Receive value
 		$fa_id = $_GET['fa_id'];
 		$user_id = $_COOKIE['user_id'];
-		//构建查询条件
+		//Build query conditions
 		$where['opus_id'] = $fa_id;
 		$where['user_id'] = $user_id;
-		//执行查询
+		//Execute query
 		$Favor = new OpusFavoriteModel();
 		$result = $Favor->getFavorDetail($where);
 
 		if ($result){
-			//已收藏
+			//collected
 			$data = array('judge'=>'true');
 		}else{
-			//未收藏
+			//Not favorited
 			$data = array('judge'=>'false');
 		}
 
@@ -89,29 +89,29 @@ class AjaxAction extends CommonAction{
 	}
 
 	/**
-	 * 用户中心、详情页-关注操作
+	 * User Center, Details Page-Follow Operation
 	 */
 	public function Focus(){
-		//判断是否登录
+		//Determine whether to log in
 		if (!isset($_COOKIE['user_id'])){
 			$data = array('status'=>'-1');
 		}
 		else{
 			if ($_GET['seller_id']!=$_COOKIE['user_id'])
 			{
-				//构建查询条件及写入数据
+				//Build query conditions and write data
 				$where['befocus_id'] = $_GET['seller_id'];
 				$where['user_id'] = $_COOKIE['user_id'];
 
 
-				//执行关注操作
+				//Perform follow operations
 				$Focus = new UserFocusModel();
 				$data = $Focus->Focus($where);
-				//构建返回值
+				//Build the return value
 				$data = array('status'=>$data);
 			}
 			else{
-				//关注自己
+				//Pay attention to yourself
 				$data = array('status'=>'-3');
 			}
 		}
@@ -125,27 +125,27 @@ class AjaxAction extends CommonAction{
 	}
 
 	/**
-	 * 详情页-关注状态
+	 * Details page-follow status
 	 */
 	public function FocusJudge(){
-		//接收传值
+		//Receive value
 		$seller_id = $_GET['seller_id'];
 		$user_id = $_COOKIE['user_id'];
-		//构建查询条件
+		//Build query conditions
 		$where['befocus_id'] = $seller_id;
 		$where['user_id'] = $user_id;
-		//执行查询
+		//Execute query
 		$Focus = new UserFocusModel();
 		$result = $Focus->getFocusDetail($where);
 
 		if ($result){
-			//已关注
+			//Followed
 			$data = 'true';
 		}else{
-			//未关注
+			//Not followed
 			$data = 'false';
 		}
-		//构建返回值
+		//Build the return value
 		$data = array('judge'=>$data);
 		$data = json_encode($data);
 		echo $data;
@@ -153,10 +153,10 @@ class AjaxAction extends CommonAction{
 	}
 
 	/**
-	 * 用户中心-下载删除
+	 * User Center-Download Delete
 	 */
 	public function DownDel(){
-	    //接受传值
+	    //Accept pass value
 		$down_id = $_GET['down_id'];
 		$user_id = $_COOKIE['user_id'];
 
@@ -177,19 +177,19 @@ class AjaxAction extends CommonAction{
 	}
 
 	/**
-	 * 用户中心-上传删除
+	 * User Center-upload and delete
 	 */
 	public function UpDel(){
-		//接受传值
+		//Accept pass value
 		$up_id = $_GET['up_id'];
 		$user_id = $_COOKIE['user_id'];
-		//构建查询条件
+		//Build query conditions
 		$where['opus_id'] = $up_id;
 		$where['user_id'] = $user_id;
-		//执行删除
+		//Execute delete
 		$Opus = new OpusModel();
 		$result = $Opus->Delete($where);
-		//结果返回
+		//Result returned
 		if($result){
 			$data=array('status'=>'true');
 		}else{
@@ -202,7 +202,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 用户中心-修改昵称
+     * User Center-modify nickname
      */
 	public function ModifyNick(){
 		$nick_name = $_POST['nickname'];
@@ -211,7 +211,7 @@ class AjaxAction extends CommonAction{
 		$pre = "[\\!|@|#|\\$|%|\\^|&|\\*|\\(|\\)|_|\\+|\\||-|=|\\\\|~|`|:|\\\"|\\<|\\>|\\?|;|'|,|\\.|/|“|”|；|：|，|。|、|·|\\{|\\}|\\[|\\]]";
 
 		if (preg_match($pre, $nick_name)) {
-			$data=array('status'=>3,'msg'=>'有特殊字符');
+			$data=array('status'=>3,'msg'=>'Has special characters');
 
 		}else{
 			$where['user_id'] = $user_id;
@@ -219,9 +219,9 @@ class AjaxAction extends CommonAction{
 			$User = new UserModel();
 			$result = $User->save($where,$data);
 			if ($result){
-				$data=array('status'=>1,'msg'=>'修改成功');
+				$data=array('status'=>1,'msg'=>'Successfully modified');
 			}else{
-				$data=array('status'=>0,'msg'=>'修改失败');
+				$data=array('status'=>0,'msg'=>'Fail to edit');
 			}
 
 		}
@@ -232,7 +232,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 用户中心-修改头像
+     * User Center-Modify Avatar
      */
 	public function ModifyPic(){
 		$user_id = $_COOKIE['user_id'];
@@ -251,9 +251,9 @@ class AjaxAction extends CommonAction{
 		$result = $User->save($where,$data);
 		if ($result){
 
-			$data=array('status'=>1,'msg'=>'修改成功');
+			$data=array('status'=>1,'msg'=>'Successfully modified');
 		}else{
-			$data=array('status'=>0,'msg'=>'修改失败');
+			$data=array('status'=>0,'msg'=>'Fail to edit');
 		}
 
 		$data = json_encode($data);
@@ -265,7 +265,7 @@ class AjaxAction extends CommonAction{
 
 
     /**
-     * 用户中心-实名认证
+     * User Center-Real Name Authentication
      */
 	public function RenzhengPica(){
 		$user_id = $_COOKIE['user_id'];
@@ -283,9 +283,9 @@ class AjaxAction extends CommonAction{
 		$result = $User->save($where,$data);
 		if ($result){
 
-			$data=array('status'=>1,'msg'=>'上传成功');
+			$data=array('status'=>1,'msg'=>'Uploaded successfully');
 		}else{
-			$data=array('status'=>0,'msg'=>'上传失败');
+			$data=array('status'=>0,'msg'=>'Upload failed');
 		}
 
 		$data = json_encode($data);
@@ -308,9 +308,9 @@ class AjaxAction extends CommonAction{
 		$result = $User->save($where,$data);
 		if ($result){
 
-			$data=array('status'=>1,'msg'=>'上传成功');
+			$data=array('status'=>1,'msg'=>'Uploaded successfully');
 		}else{
-			$data=array('status'=>0,'msg'=>'上传失败');
+			$data=array('status'=>0,'msg'=>'Upload failed');
 		}
 
 		$data = json_encode($data);
@@ -335,9 +335,9 @@ class AjaxAction extends CommonAction{
 		$result = $User->save($where,$data);
 		if ($result){
 
-			$data=array('status'=>1,'msg'=>'上传成功');
+			$data=array('status'=>1,'msg'=>'Uploaded successfully');
 		}else{
-			$data=array('status'=>0,'msg'=>'上传失败');
+			$data=array('status'=>0,'msg'=>'Upload failed');
 		}
 
 		$data = json_encode($data);
@@ -350,7 +350,7 @@ class AjaxAction extends CommonAction{
 
 
     /**
-     * 用户注册-邮箱激活
+     * User registration-email activation
      */
 
 
@@ -358,12 +358,12 @@ class AjaxAction extends CommonAction{
 
 		$user_email = $_GET['emil'];
         $ip = get_client_ip();
-		 $sss = rand(11111,99999);  //随机L币		
-	 $emil = M("emil"); // 验证其他用户是否注册过邮箱 没有就添加并发送激活码
+		 $sss = rand(11111,99999);  //Random gold coins
+	 $emil = M("emil"); // Verify whether other users have registered their email addresses, add and send the activation code if they haven’t
 		
 		$where['user_email'] = $user_email;
 		
-     $jianyan = $emil->where($where)->find(); //  判断是否有注册邮箱		
+     $jianyan = $emil->where($where)->find(); //  Determine whether there is a registered email address
 	
                     if ($jianyan == null) {						
                         $data['user_email'] = $user_email;
@@ -373,7 +373,7 @@ class AjaxAction extends CommonAction{
                         $emil->add($data);
 						
 						
-	                //构建激活链接
+	                //Build activation link
                 $site = M('sys_config');
                 $SiteUrl = $site->where('id=3')->getField('value');
 
@@ -386,14 +386,14 @@ class AjaxAction extends CommonAction{
 
                 $send = $this->send_mail($user_email,$url);
             if ($send){
-          //   $this->success('邮件发送成功！请查看邮件，完成注册！',U('Index/index'));
-			$data=array('status'=>1,'msg'=>'邮件发送成功！请查看邮件，完成注册！');
+          //   $this->success('Mail sent successfully! Please check the email to complete the registration！',U('Index/index'));
+			$data=array('status'=>1,'msg'=>'Mail sent successfully! Please check the email to complete the registration!');
             }else{
                 $where['user_email'] = $user_email;
 
                 $emil->delData($where);
-                 $data=array('status'=>1,'msg'=>'邮件发送成功！请查看邮件，完成注册！');
-                $this->error('邮件发送失败！请检查您填写的邮箱！',U('Index/index'));
+                 $data=array('status'=>1,'msg'=>'Mail sent successfully! Please check the email to complete the registration!');
+                $this->error('Failed to send mail! Please check your email address!',U('Index/index'));
             }					
 						
 						
@@ -407,7 +407,7 @@ class AjaxAction extends CommonAction{
 
 
 			
-			                //构建激活链接
+			                //Build activation link
                 $site = M('sys_config');
                 $SiteUrl = $site->where('id=3')->getField('value');
 
@@ -415,16 +415,16 @@ class AjaxAction extends CommonAction{
 
                 $send = $this->send_mail($user_email,$url);
             if ($send){
-			$data=array('status'=>1,'msg'=>'邮件发送成功！请查看邮件，完成注册！');
+			$data=array('status'=>1,'msg'=>'Mail sent successfully! Please check the email to complete the registration!');
             }else{
                 $where['user_email'] = $user_email;
 
                 $emil->delData($where);
-                 $data=array('status'=>1,'msg'=>'邮件发送成功！请查看邮件，完成注册！');
-                $this->error('邮件发送失败！请检查您填写的邮箱！',U('Index/index'));
+                 $data=array('status'=>1,'msg'=>'Mail sent successfully! Please check the email to complete the registration!');
+                $this->error('Failed to send mail! Please check your email address!',U('Index/index'));
             }		
 
-			$data=array('status'=>0,'msg'=>'已发送验证码到邮箱，如果还没收到请更换邮箱试试');
+			$data=array('status'=>0,'msg'=>'The verification code has been sent to the mailbox, if you have not received it, please try changing the mailbox');
 
 
 					}
@@ -442,7 +442,7 @@ class AjaxAction extends CommonAction{
 
 
     /**
-     * 用户中心-显示消息
+     * User Center-Display Message
      */
 	public function show_msg(){
 		$id = $_GET['id'];
@@ -462,7 +462,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 用户中心-删除消息
+     * User Center-Delete Message
      */
 	public function del_msg(){
 		$id = $_GET['id'];
@@ -475,9 +475,9 @@ class AjaxAction extends CommonAction{
 		$result = $Chat->delete($where);
 		
 		if($result){
-			$data=array('status'=>1,'msg'=>'删除成功');
+			$data=array('status'=>1,'msg'=>'Successfully deleted');
 		}else{
-			$data=array('status'=>0,'msg'=>'删除失败');
+			$data=array('status'=>0,'msg'=>'Failed to delete');
 		}
 		$data = json_encode($data);
 		
@@ -485,7 +485,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 用户中心-提问
+     * User Center-Question
      */
 	public function ask_question(){
 		$title = $_GET['title'];
@@ -503,57 +503,15 @@ class AjaxAction extends CommonAction{
 		$result = $Chat->add($data);
 
 		if($result){
-			$data=array('status'=>1,'msg'=>'提交成功');
+			$data=array('status'=>1,'msg'=>'Submitted successfully');
 		}else{
-			$data=array('status'=>0,'msg'=>'提交失败');
+			$data=array('status'=>0,'msg'=>'Submission Failed');
 		}
 		$data = json_encode($data);
 
 		echo $data;
 	}
 
-
-
-   /**
-     * 用户评论-信息提交
-     */
-	public function discuss(){
-		$kw = $_GET['kw'];
-	//	$content = $_GET['content'];
-	if (!isset($_COOKIE['user_id'])){
-		$data=array('status'=>3,'msg'=>"提交失败,请先登录..");
-
-	   
-		$data = json_encode($data);
-
-		echo $data;
-	}
-	else{
-		$user_id = $_COOKIE['user_id'];
-		
-		$data['user_id'] = $user_id;
-		$data['cmt_content'] = $kw;
-        $data['cmt_status'] = '1';
-		$data['opus_id'] = $_GET['id'];      //作品id
-		$data['cmt_createtime'] = date('Y-m-d H:i:s',time());
-
-		$Comment = M ('opus_comment');
-		$result = $Comment->add($data);
-
-		if($result){
-			$data=array('status'=>1,'msg'=>'提交成功');
-		}else{
-			$data=array('status'=>0,'msg'=>'提交失败');
-		}
-	//	$data = json_encode($data);
-
-		//echo $data;
-
-		$this->ajaxReturn($data);
-        echo $data;
-	}
-
-  }
 
 
 
@@ -563,10 +521,10 @@ class AjaxAction extends CommonAction{
 
 
     /**
-     * 作品下载-判断
+     * Works download-judgment
      */
 	public function download(){
-//		$data=array('status'=>'2','msg'=>'您已下载过此文件，此次免费','flag'=>'1');
+//		$data=array('status'=>'2','msg'=>'You have already downloaded this file, it’s free this time','flag'=>'1');
 //		echo json_encode($data);die;
 
 		$opus_id = I('opus_id');
@@ -574,10 +532,10 @@ class AjaxAction extends CommonAction{
 
 
 		if ($user_id=='' || $user_id==null){
-			$data = array('status'=>'0','msg'=>'尚未登录');
+			$data = array('status'=>'0','msg'=>'Not logged in yet');
 		}else{
 
-			//查询作品信息
+			//Query work information
 			$Opus = new OpusModel();
 			$Opus_info = $Opus->getOpusDetail(array('opus_id'=>$opus_id));
 
@@ -589,7 +547,7 @@ class AjaxAction extends CommonAction{
 			if ($is_half=='1'){
 				$prices = $Opus_info['prices'];; 
 			}
-			//查询账户
+			//Check account
 
 			$User = M('user');
 
@@ -606,7 +564,7 @@ class AjaxAction extends CommonAction{
 			
 			cookie('de',$gold_coin);
 			cookie('de1',$gold_coins);
-			//查询下载
+			//Query download
 			$OpusDown = new OpusDownloadModel();
 
 			$result = $OpusDown->getDownInfo(array('user_id'=>$user_id,'opus_id'=>$opus_id));
@@ -615,35 +573,35 @@ class AjaxAction extends CommonAction{
 			if($result){
 				if($result['down_price']!='0'|| $price=='0'){
 					//cookie('de',$result);
-					//已下载，此次免费
+					//Downloaded, this time for free
 					$down_url = $result['down_url'];
 					if($down_url==null || $down_url==''){
 					    $down_place = $result['down_place'];
 					    $down_pass = $result['down_pass'];
-					    $data = array('msg'=>'此次下载免费','status'=>'3','url'=>$down_place,'pass'=>$down_pass);
+					    $data = array('msg'=>'This download is free','status'=>'3','url'=>$down_place,'pass'=>$down_pass);
                     }else{
-                        $data = array('status'=>'2','msg'=>'此次下载免费','down_url'=>$down_url);
+                        $data = array('status'=>'2','msg'=>'This download is free','down_url'=>$down_url);
                     }
 
 				}elseif($result['down_price']=='0' && $price!='0'){
-					$data = array('status'=>'2','msg'=>'此次下载需要付费');
+					$data = array('status'=>'2','msg'=>'This download requires payment');
 					$OpusDown->delete(array('user_id'=>$user_id,'opus_id'=>$opus_id));
 				}
 			}else{
-				//未下载
+				//Not downloaded
 				if ($is_half=='0'){
 				if ($gold_coin<$price){
-					$data = array('status'=>'-1','msg'=>'金币不足，请充值');
+					$data = array('status'=>'-1','msg'=>'Not enough gold coins to download');
 				}else{
-					$data = array('status'=>'1','msg'=>'下载扣除'.$price.'元');
+					$data = array('status'=>'1','msg'=>'You will deduct'.$price.'gold coin for this download');
 
 
 				}
 			}else{
 				if($gold_coins<$prices){
-					$data = array('status'=>'-1','msg'=>'L币不足，请做任务或者签到积攒L币 或者加入VIP会员永久免费');
+					$data = array('status'=>'-1','msg'=>'Insufficient gold coins, please sign in to accumulate gold coins');
 				}else{
-					$data = array('status'=>'1','msg'=>'下载扣除'.$prices.'L币');	
+					$data = array('status'=>'1','msg'=>'You will deduct'.$prices.'gold coin for this download');
 				}
 
 			}
@@ -664,7 +622,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 作品下载-执行
+     * Work download-execution
      */
 	public function down(){
 		$file_path = I('path');
@@ -675,28 +633,28 @@ class AjaxAction extends CommonAction{
 		header("Content-type:text/html;charset=utf-8");
 // $file_name="cookie.jpg";
 		$file_name=basename($file_path);
-//用以解决中文不能显示出来的问题
+//Used to solve the problem that Chinese cannot be displayed
 		$file_name=iconv("utf-8","gb2312",$file_name);
-//首先要判断给定的文件存在与否
+//First of all, it is necessary to determine whether the given file exists or not
 
        /* var_dump($file_path);
         var_dump($file_name);
         //var_dump($file_size);
         echo $_SERVER['DOCUMENT_ROOT'];die;*/
 		if(!file_exists($file_path)){
-			echo $data=array('msg'=>'该文件已被删除');
+			echo $data=array('msg'=>'The file has been deleted');
 			return ;
 		}
 		$fp=fopen($file_path,"r");
 		$file_size=filesize($file_path);
-//下载文件需要用到的头
+//Headers needed to download the file
 		header("Content-type: application/octet-stream");
 		header("Accept-Ranges: bytes");
 		header("Accept-Length:".$file_size);
 		header("Content-Disposition: attachment; filename=".$file_name);
 		$buffer=1024;
 		$file_count=0;
-//向浏览器返回数据
+//Return data to the browser
 		while(!feof($fp) && $file_count<$file_size){
 			$file_con=fread($fp,$buffer);
 			$file_count+=$buffer;
@@ -707,7 +665,7 @@ class AjaxAction extends CommonAction{
 	}
 
     /**
-     * 作品下载-付款
+     * Work Download-Payment
      */
 	public function pay(){
 		$opus_id = I('opus_id');
@@ -755,7 +713,7 @@ class AjaxAction extends CommonAction{
 		);
 
 
-		if ($is_half=='1'){      ///////////////////////////////////////免费下载
+		if ($is_half=='1'){      ///////////////////////////////////////free download
 
 
 
@@ -765,7 +723,7 @@ class AjaxAction extends CommonAction{
 $result = $OpusDown->add($data);
 if ($result){
 
-	//卖家//买家账户操作
+	//Seller//Buyer account operation
 
 	$User = new UserModel();
 	
@@ -793,7 +751,7 @@ if ($result){
 
 
 
-	//交易操作
+	//Trading operations
 	$Class = M('classify');
 	preg_match("/[0-9]+-[0-9]+-([0-9]+)/",$cate,$match);
 	$cid= $match[1];
@@ -801,7 +759,7 @@ if ($result){
 	$data_c_b=array(
 		'order'=>$order_num,
 		'user_id'=>$user_id,
-		'content'=>'下载'.$title,
+		'content'=>'Download'.$title,
 		'time'=>$time,
 		'ip'=>$ip,
 		'model_type'=>$cates,
@@ -813,7 +771,7 @@ if ($result){
 	$data_c_s=array(
 		'order'=>$order_num,
 		'user_id'=>$seller_id,
-		'content'=>'出售'.$title,
+		'content'=>'Sell'.$title,
 		'time'=>$time,
 		'ip'=>$ip,
 		'model_type'=>$cates,
@@ -833,15 +791,15 @@ if ($result){
    if($down_url==null || $down_url==''){
 	   $data = array('url'=>$fileurl,'pass'=>$zippass,'status'=>'2');
    }else{
-		$data = array('down_url'=>$down_url,'msg'=>'下载扣除' . $prices . 'L币','status'=>'1');
+		$data = array('down_url'=>$down_url,'msg'=>'Download deduction' . $prices . 'gold','status'=>'1');
  }
 	
 }else{
-	$data = array('msg'=>'下载失败，请刷新后重试');
+	$data = array('msg'=>'Download failed, please refresh and try again');
 
 
 
-}                 ///////////////////////////////////////////免费下载
+}                 ///////////////////////////////////////////free download
 
 
 
@@ -850,10 +808,10 @@ if ($result){
 
 		}else{
 
-$result = $OpusDown->add($data);      //////////收费下载
+$result = $OpusDown->add($data);      //////////Download for a fee
 if ($result){
 	$UserAcc = new UserAccountModel();
-	//卖家//买家账户操作
+	//Seller//Buyer account operation
 	$seller = $UserAcc->getAcountInfo(array('user_id'=>$seller_id));
 	$buyer = $UserAcc->getAcountInfo(array('user_id'=>$user_id));
 
@@ -884,7 +842,7 @@ if ($result){
 
 
 
-	//交易操作
+	//Trading operations
 	$Class = M('classify');
 	preg_match("/[0-9]+-[0-9]+-([0-9]+)/",$cate,$match);
 	$cid= $match[1];
@@ -892,7 +850,7 @@ if ($result){
 	$data_c_b=array(
 		'order'=>$order_num,
 		'user_id'=>$user_id,
-		'content'=>'下载'.$title,
+		'content'=>'Download'.$title,
 		'time'=>$time,
 		'ip'=>$ip,
 		'model_type'=>$cates,
@@ -904,7 +862,7 @@ if ($result){
 	$data_c_s=array(
 		'order'=>$order_num,
 		'user_id'=>$seller_id,
-		'content'=>'出售'.$title,
+		'content'=>'sell'.$title,
 		'time'=>$time,
 		'ip'=>$ip,
 		'model_type'=>$cates,
@@ -925,28 +883,18 @@ if ($result){
 	   $data = array('url'=>$fileurl,'pass'=>$zippass,'status'=>'2');
    }else{
 
-	   $data = array('down_url'=>$down_url,'msg'=>'下载扣除' . $price . '元','status'=>'1');
+	   $data = array('down_url'=>$down_url,'msg'=>'Download will deduction' . $price . 'gold','status'=>'1');
 
  }
 	
 }else{
-	$data = array('msg'=>'下载失败，请刷新后重试');
-}                                                         //收费下载
+	$data = array('msg'=>'Download failed, please refresh and try again');
+}                                                         //Download for a fee
 
 
 
 
 		}
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -962,63 +910,10 @@ if ($result){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /**
-     * 用户中心-提现-判断
-     */
-	public function withdrawal(){
-	    $user_id = $_COOKIE['user_id'];
-
-	    $User = M('user');
-	    $Acc = M('user_account');
-	    $Config = M('sys_config');
-
-        $Withdrawal_lowest = $Config->where(array('name'=>'Withdrawal_lowest'))->getField('value');
-        $Withdrawal_tallest = $Config->where(array('name'=>'Withdrawal_tallest'))->getField('value');
-
-	    $info = $User->where(array('user_id'=>$user_id))->find();
-	    if($info['user_mobilephoneState']==1){
-            $acc_info = $Acc->where(array('user_id'=>$user_id))->find();
-            $gold_coin = $acc_info['gold_coin'];
-
-            $data = array(
-                'status'=>'2',
-                'coin'=>$gold_coin,
-                'tall'=>$Withdrawal_tallest,
-                'low'=>$Withdrawal_lowest
-            );
-            echo json_encode($data);exit;
-        }else{
-	        $data = array(
-                'status'=>'0',
-	            'msg'=>'财务=>安全=>绑定手机'
-            );
-	        echo json_encode($data);exit;
-        }
-
-	}
 	
 
     /**
-     * 用户中心-签到-判断
+     * User Center-Sign in-Judgment
      */
 	public function qiandao(){
 	    $user_id = $_COOKIE['user_id'];
@@ -1027,7 +922,7 @@ if ($result){
 		 $t=time();
 		 $endtimestr = "23:59:59";
 		 $endtime = strtotime($endtimestr);
-		 $ssss = rand(1,5);  //随机L币
+		 $ssss = rand(1,5);  //Random gold coins
 	    $info = $User->where(array('user_id'=>$user_id))->find();
 
 		 $newtime=$info['qiandao_data'];		 		 
@@ -1038,20 +933,20 @@ if ($result){
 			$data['gold_coins'] = $info['gold_coins'] + $ssss;		
 			$data['qiandao_data'] = $endtime ;			
 
-			$User->where("user_id = $user_id")->save($data); // 根据条件更新记录
+			$User->where("user_id = $user_id")->save($data); // Update records based on conditions
 
 
 
            $data = array(
                'status'=>'2',
            //  'coins'=>$gold_coins,
-		  'msg'=> '签到成功领取' . $ssss . 'L币'
+		  'msg'=> 'Sign in successfully to receive' . $ssss . 'gold'
            );
            echo json_encode($data);exit;
         }else{
 	        $data = array(
                 'status'=>'0',
-	            'msg'=> '每天一次哦!'
+	            'msg'=> 'Once a day!'
             );
 	        echo json_encode($data);exit;
         }
@@ -1065,215 +960,7 @@ if ($result){
 
 
     /**
-     * 用户中心-提现-执行
-     */
-    public function do_withdrawal(){
-
-        if($_GET){
-            $user_id = $_COOKIE['user_id'];
-            $cash = $_GET['cash'];
-            $acc = $_GET['acc'];
-            $bank = $_GET['bank'];
-            $name = $_GET['name'];
-
-            $order_num = date('YmdHis').$user_id;
-            $time = date('Y-m-d H:i:s');
-            //消息
-            $Chat = M('chat');
-            $chat_data = array(
-                'user_id'=>$user_id,
-                'chat_state'=>'1',
-                'chat_title'=>$order_num,
-                'chat_content'=>'金额：'.$cash.',开户行：'.$bank.',户名：'.$name.'，账号：'.$acc,
-                'chat_time'=>$time,
-                'chat_from'=>'2'
-                );
-            $Chat->data($chat_data)->add();
-            //记录
-            $Con = M('user_consume');
-            $con_data = array(
-                'order'=>$order_num,
-                'user_id'=>$user_id,
-                'time'=>$time,
-                'model_type'=>'银行转账',
-                'money'=>$cash,
-                'method_status'=>'0',
-                'method'=>'3',
-                'ip'=>get_client_ip(),
-                'over'=>'0'
-            );
-            $result =  $Con->data($con_data)->add();
-
-             if($result){
-                 $data = array(
-                     'status'=>'1',
-                     'msg'=>'提交成功'
-                 );
-
-             }else{
-                 $data = array(
-                     'status'=>'0',
-                     'msg'=>'提交失败,请重试！'
-                 );
-             }
-        }else{
-            $data = array(
-                'status'=>'0',
-                'msg'=>'提交失败,请重试！'
-            );
-        }
-
-        echo json_encode($data);exit;
-    }
-
-    /**
-     * 用户中心-安全-发送
-     */
-    public function send_msg(){
-        $User = M('user');
-        $config = M('sys_config');
-
-        $SMS_acc=$config-> getFieldByName('SMS_acc','value');
-        $SMS_key=$config-> getFieldByName('SMS_key','value');
-        $SMS_sign=$config-> getFieldByName('SMS_sign','value');
-        $SMS_location=$config-> getFieldByName('SMS_location','value');
-
-        $user_id = $_COOKIE['user_id'];
-        $mobile = $_POST['mobile'];
-
-        $info  =$User->where(array('user_id'=>$user_id))->find();
-        //$title = $Config->where(array('name'=>'title'))->getField('name');
-        //生成验证码
-        $arr = array('1','2','3','4','5','6','7','8','9','0');
-        $send_code = array_rand($arr).array_rand($arr).array_rand($arr).array_rand($arr).array_rand($arr).array_rand($arr);
-
-        session('send_code',$send_code);
-        session('mobile',$mobile);
-
-        $send_code = session('send_code');
-
-        $flag = 0;
-        $params='';//要post的数据
-        $argv = array(
-            'name'=> $SMS_acc,     //必填参数。用户账号
-            'pwd'=>$SMS_key,     //必填参数。（web平台：基本资料中的接口密码）
-            'content'=>'您登陆的验证码为：'.$send_code,
-            'mobile'=>$mobile,   //必填参数。手机号码。多个以英文逗号隔开
-            'stime'=>'',   //可选参数。发送时间，填写时已填写的时间发送，不填时为当前时间发送
-            'sign'=>$SMS_sign,    //必填参数。用户签名。
-            'type'=>'pt',  //必填参数。固定值 pt
-            'extno'=>''    //可选参数，扩展码，用户定义扩展码，只能为数字
-        );
-        //print_r($argv);exit;
-        //构造要post的字符串
-        //echo $argv['content'];
-        foreach ($argv as $key=>$value) {
-            if ($flag!=0) {
-                $params .= "&";
-                $flag = 1;
-            }
-            $params.= $key."="; $params.= urlencode($value);// urlencode($value);
-            $flag = 1;
-        }
-
-        $url = $SMS_location."?".$params; //提交的url地址
-        $con= substr( file_get_contents($url), 0, 1 );  //获取信息发送后的状态
-        if($con == '0'){
-            $data=array('status'=>1,'msg'=>'发送成功');
-        }else{
-            $data=array('status'=>0,'msg'=>'发送失败');
-        }
-        echo json_encode($data);
-    }
-
-    /**
-     * 用户中心-安全-验证
-     */
-    public function check_verify(){
-         $mobile = $_GET['mobile'];
-         $verify = $_GET['verify'];
-
-         if(session('mobile')==$mobile && session('send_code')==$verify){
-             $data = array('status'=>1,'msg'=>'验证码正确');
-         }else{
-             $data = array('status'=>0,'msg'=>'验证码错误');
-         }
-
-          echo json_encode($data);
-    }
-
-    /**
-     * 用户中心-安全-写入
-     */
-    public function phone_write(){
-        $mobile = $_SESSION['mobile'];
-
-        if($mobile){
-
-        $User = M('user');
-        $user_id = $_COOKIE['user_id'];
-        $data_u['user_mobilephone'] = $mobile;
-        $data_u['user_mobilephoneState'] = '1';
-
-        if($_GET['action']){
-            //登陆
-            $where_u['user_mobilephone'] = $mobile;
-            $where_u['user_mobilephoneState'] = 1;
-            $user_result = $User->where($where_u)->find();
-            if($user_result){
-                //已有账户
-                cookie('user_id',$user_result['user_id']);
-                cookie('is_login',true);
-
-                $data = array('status'=>1,'msg'=>'成功');
-            }
-            else{
-                //首次登录
-                $random = $this->get_random($User,'user_name','01PH');
-                $data_u['user_name'] = $random;
-                $data_u['user_password'] = $random;
-                $data_u['user_exptime']= date("Y-m-d H:i:s");
-                $data_u['user_state'] = 1;
-                $result =  $User->data($data_u)->add();
-                if($result){
-                    //写入状态
-                    $user_result = $User->where($where_u)->find();
-                    if($user_result){
-                        cookie('user_id',$user_result['user_id']);
-                        cookie('is_login',true);
-
-                        $data = array('status'=>1,'msg'=>'登录成功');
-                    }else{
-                        $data = array('status'=>0,'msg'=>'登录失败');
-                    }
-
-                }else{
-                    $data = array('status'=>0,'msg'=>'登录失败');
-                }
-            }
-
-        }
-        else{
-            //手机绑定验证
-            $result =  $User->where(array('user_id'=>$user_id))->save($data_u);
-
-            if($result){
-                $data = array('status'=>1,'msg'=>'绑定成功');
-            }else{
-                $data = array('status'=>0,'msg'=>'绑定失败');
-            }
-        }
-        }
-        else{
-            $data = array('status'=>0,'msg'=>'操作失败');
-        }
-        session('mobile',null);
-        session('send_code',null);
-        echo json_encode($data);
-    }
-
-    /**
-     * 获取随机
+     * Get random
      * @param $model
      * @param $where
      * @param $sign
@@ -1293,7 +980,7 @@ if ($result){
     }
 
     /**
-     * 取消支付
+     * Cancel payment
      */
     public function cancel_pay(){
         $id = $_GET['id'];
@@ -1301,46 +988,18 @@ if ($result){
             $Rec  = M('user_recharge');
            $result =  $Rec->where(array('id'=>$id))->delete();
            if($result){
-               $data = array('status'=>1,'msg'=>'取消成功');
+               $data = array('status'=>1,'msg'=>'Cancel success');
            }else{
-               $data = array('status'=>0,'msg'=>'取消失败');
+               $data = array('status'=>0,'msg'=>'Cancel failed');
            }
         }else{
-            $data = array('status'=>0,'msg'=>'取消失败');
+            $data = array('status'=>0,'msg'=>'Cancel failed');
         }
 
         echo json_encode($data);
     }
 
-    /**
-     * 建立账户信息
-     */
-    public function set_acct(){
-        if($_GET){
-            $where['user_id'] = cookie('user_id');
-            $bank = $_GET['bank'];
-            $name = $_GET['name'];
-            $acct = $_GET['acct'];
 
-            $Acc = M('user_account');
-            $data_new = array(
-                'acct_name'=>$name,
-                'acct_bank'=>$bank,
-                'acct_account'=>$acct
-            );
-            $result = $Acc->where($where)->save($data_new);
-
-            if($result){
-                $data = array('status'=>'1','msg'=>'提交成功');
-            }else{
-                $data = array('status'=>'0','msg'=>'提交失败');
-            }
-        }else{
-            $data = array('status'=>'0','msg'=>'提交失败');
-        }
-
-
-
-     echo json_encode($data);
-    }
 }
+
+?>

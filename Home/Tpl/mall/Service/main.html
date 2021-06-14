@@ -66,7 +66,7 @@
                                             class="tipstool defaultcolor updatenickname"
                                             title="Click to modify nickname">{$nickname}</a><!--（username：{$user_name}）--></i>
 
-											<li><span style="font-size:15px">{$gold_coin}&nbsp;Gold&nbsp;&nbsp;&nbsp;&nbsp;{$gold_coins}&nbsp;L coin</span></li>
+											<li><span style="font-size:15px">{$gold_coin}&nbsp;Gold&nbsp;&nbsp;&nbsp;&nbsp;{$gold_coins}&nbsp;gold coins</span></li>
 											
 											
 											</div>
@@ -92,9 +92,9 @@
 							   
 							   <span class="welcome1">&nbsp;</span>
                                    <!-- <em>
-                                        <a href="#">普通会员</a>
+                                        <a href="#">Ordinary member</a>
                                     </em>
-                                    <p><a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">成为卖家</a>
+                                    <p><a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">Become a seller</a>
                                     </p>-->
                                 </div>
 								
@@ -109,15 +109,15 @@
 						
 						<!--
                                 <i class="sc"><a href="javascript:void(0);" class="chanView"
-                                        data-value="CollectFocus">收藏</a>：{$FavorCount}</i>
+                                        data-value="CollectFocus">Favorites</a>：{$FavorCount}</i>
                                 <i class="down"><a href="javascript:void(0);" class="chanView"
-                                        data-value="Down_Upload">下载</a>：{$DownCount}</i>
+                                        data-value="Down_Upload">download</a>：{$DownCount}</i>
                                 <i class="mess"><a href="javascript:void(0);" class="chanView"
-                                        data-value="StationMsg">消息</a>：{$msg}</i></span>
+                                        data-value="StationMsg">news</a>：{$msg}</i></span>
 										
 									-->	
 										
-					                 <!-- <i class="sc1"> <h2>推荐设计师</h2></i>					
+					                 <!-- <i class="sc1"> <h2>Recommend designer</h2></i>
 										
 										</div>
 
@@ -151,7 +151,7 @@
 		
 <a href="http://127.0.0.1:81/index.php/single/personal/user_id/{$list.user_id}.html" title="{$list.user_nickname}" target="_blank">
 <img src="{$list.user_pic}"></a>
-<p><span>{$list.user_fabu}</span>件作品</p>
+<p><span>{$list.user_fabu}</span>Works</p>
 
 </div>
   </volist>
@@ -166,7 +166,7 @@
 			                        <div class="infos"><span>
 						
 										
-					                  <i class="sc1"> <h2>最新公告</h2></i>					
+					                  <i class="sc1"> <h2>Latest Announcement</h2></i>
 										
 										</div>
 	
@@ -196,11 +196,11 @@
 							
 						<span>&nbsp;</span>
 						<!--
-						<a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">成为卖家</a>
+						<a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">Become a seller</a>
 							 <if condition="$info['user_veri'] eq 1">
-							   <a href="javascript:void(0);" onclick="renzheng()">提现</a>
+							   <a href="javascript:void(0);" onclick="renzheng()">withdraw</a>
 							   <else/>
-							   <a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">成为卖家</a>
+							   <a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">Become a seller</a>
 							   </if>
 							   -->
 						</div>
@@ -227,7 +227,7 @@
 				
 				
 				
-				<!--   右侧广告
+				<!--   Right ad
 				
                 <div class="smlb fr">
                     <ul>
@@ -265,14 +265,14 @@
      <include file="Public/footer" />
 
 
-    <!--提现-->
+    <!--withdraw-->
     <script type="text/javascript">
         function withdrawal() {
             $.getJSON('/index.php/Ajax/withdrawal', '', function (data) {
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 3000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
                 else if (data.status == '2') {
@@ -281,7 +281,7 @@
                     $("#coin").val(data.coin);
                     layer.open({
                         type: 1,
-                        title: '申请提现',
+                        title: 'Apply for withdrawal',
                         content: $('#tixian'),
                         area: ['500px', '345px']
                     });
@@ -298,7 +298,7 @@
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 3000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 3000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
  
@@ -312,7 +312,7 @@
 
 		
 		
-        /* 提交*/
+        /* submit*/
         function tijiao() {
 
             var cash = $("#cash").val();
@@ -323,7 +323,7 @@
 
 
             if (cash == '' || account == '' || account_name == '' || account_bank == '') {
-                layer.msg('请输入完整！', { icon: 5 })
+                layer.msg('Please enter complete！', { icon: 5 })
             } else {
 
                 layer.closeAll();
@@ -341,11 +341,11 @@
 
 
         }
-        /* 取消*/
+        /* cancel*/
         function quxiao() {
             layer.closeAll();
         }
-        /* 金额*/
+        /* Amount*/
         function panduan_cash() {
             $('#tijiao').attr('onclick', '');
             var cash = $("#cash").val();
@@ -362,7 +362,7 @@
             }
             if (!isNaN(cash)) {
                 if (cash - coin > 0) {
-                    layer.msg('余额不足！', { icon: 7 });
+                    layer.msg('Insufficient balance！', { icon: 7 });
                 } else {
                     if (cash - low >= 0) {
                         if (cash - tall <= 0) {
@@ -374,17 +374,17 @@
                             }
 
                         } else {
-                            layer.msg('最高限额为' + tall + "￥", { icon: 7 });
+                            layer.msg('The maximum limit is' + tall + "￥", { icon: 7 });
                         }
                     } else {
-                        layer.msg('最低限额为' + low + "￥", { icon: 7 });
+                        layer.msg('The minimum limit is' + low + "￥", { icon: 7 });
                     }
                 }
             } else {
-                layer.msg('请输入数字！', { icon: 5 })
+                layer.msg('Please key in numbers！', { icon: 5 })
             }
         }
-        /*账户*/
+        /*Account*/
         function panduan_acc() {
             var account = $("#account").val();
             var tip_1 = $("#tip_1").val();
@@ -401,14 +401,14 @@
                     $('#tijiao').attr('onclick', 'tijiao()')
                 }
             } else {
-                layer.msg('请输入数字！', { icon: 5 })
+                layer.msg('Please key in numbers！', { icon: 5 })
             }
         }
 		
 		
 		
 		
-		/* 签到*/
+		/* Sign in*/
 		
 	        function qiandao() {
 			
@@ -416,7 +416,7 @@
                 if (data.status == '0') {
                     layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                     })
                 }
                 else if (data.status == '2') {
@@ -425,7 +425,7 @@
 
 				      layer.msg(data.msg, {
                         icon: 4,
-                        time: 5000 //2秒关闭（如果不配置，默认是3秒）
+                        time: 5000 //2 seconds to close (if not configured, the default is 3 seconds)
                    })
                }
 
@@ -449,7 +449,7 @@
 		
 		
     </script>
-    <!--修改昵称-->
+    <!--change username-->
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -457,10 +457,10 @@
             $(".updatenickname").click(function () {
                 var nickname = $(this).text();
                 layer.prompt({
-                    title: '修改用户昵称',
+                    title: 'Modify user nickname',
                     formType: 0,
                     value: nickname,
-                    info: '注：昵称在2-20字之间(不能有特殊字符)'
+                    info: 'Note: The nickname is between 2-20 characters (no special characters are allowed)'
                 }, function (value) {
 
                     $.post('/index.php/Ajax/ModifyNick?t=' + Math.random(), { nickname: value }, function (data) {
@@ -482,7 +482,7 @@
         });
 
     </script>
-    <!--左侧菜单选项卡-->
+    <!--Left menu tab-->
     <script type="text/javascript">
         $(document).ready(function () {
             var SiteUrl = $('#SiteUrl').val();
@@ -500,7 +500,7 @@
         })
 
     </script>
-    <!--异步调用-->
+    <!--Asynchronous call-->
     <script type="text/javascript">
         $(document).ready(function () {
             var action_show = $("#action").val();
@@ -555,7 +555,7 @@
 
     </script>
 
-    <!--时间问候
+    <!--Time greeting
     <script type="text/javascript">
         $(document).ready(function () {
             var d = new Date();
@@ -563,13 +563,13 @@
             var welcome = "";
 
             if (t >= 7 && t < 12) {
-                welcome += "上午好!"
+                welcome += "good morning!"
             } else if (t >= 12 && t <= 13) {
-                welcome += "中午好!"
+                welcome += "good afternoon!"
             } else if (t > 13 && t <= 17) {
-                welcome += "下午好!"
+                welcome += "good afternoon!"
             } else {
-                welcome += "晚上好!"
+                welcome += "good evening!"
             }
             $('.welcome').html(welcome);
         })
@@ -583,23 +583,22 @@
             <br>
             <input type="hidden" id="tip_1" value='0'>
             <input type="hidden" id="tip_2" value='0'>
-            &nbsp; &nbsp; &nbsp;最低提现：<input type="text" id="low" style="height: 20px;width: 60px"
-                disabled>￥&nbsp;最高提现：<input type="text" id="tall" style="height: 20px;width: 60px" disabled>￥
-            &nbsp;账户余额：<input type="text" id='coin' style="height: 20px;width: 90px" disabled>￥<br><br>
-            &nbsp; &nbsp; &nbsp;提现金额：<input type="text" id="cash" style="height: 20px;width: 60px"
+            &nbsp; &nbsp; &nbsp;Minimum withdrawal：<input type="text" id="low" style="height: 20px;width: 60px"
+                disabled>￥&nbsp;Maximum withdrawal：<input type="text" id="tall" style="height: 20px;width: 60px" disabled>￥
+            &nbsp;Account Balance：<input type="text" id='coin' style="height: 20px;width: 90px" disabled>￥<br><br>
+            &nbsp; &nbsp; &nbsp;Withdrawal Amount：<input type="text" id="cash" style="height: 20px;width: 60px"
                 onchange="panduan_cash()">￥<br><br>
-            &nbsp; &nbsp; &nbsp;开户行：&nbsp; <input type="text" value="{$acc_info.acct_name}" id="account_bank"
+            &nbsp; &nbsp; &nbsp;Account Bank：&nbsp; <input type="text" value="{$acc_info.acct_name}" id="account_bank"
                 style="height: 20px;width: 150px"><br><br>
 
-            &nbsp; &nbsp; &nbsp;户名： &nbsp; &nbsp; <input type="text" value="{$acc_info.acct_name}" id="account_name"
+            &nbsp; &nbsp; &nbsp;Account name： &nbsp; &nbsp; <input type="text" value="{$acc_info.acct_name}" id="account_name"
                 style="height: 20px;width: 150px"><br><br>
-            &nbsp; &nbsp; &nbsp;账号： &nbsp; &nbsp; <input type="text" value="{$acc_info.acct_account}" id="account"
+            &nbsp; &nbsp; &nbsp;account number： &nbsp; &nbsp; <input type="text" value="{$acc_info.acct_account}" id="account"
                 style="height: 20px;width: 150px" onchange="panduan_acc()"><br><br>
-            <!--      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<input type="radio" name="method">微信&nbsp;-->
-            &nbsp; &nbsp; &nbsp;提交申请：<a href="javascript:void(0)" id="tijiao" onclick="tijiao()">&nbsp; &nbsp; &nbsp;
-                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 20px;">提交</span></a> &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp;submit application：<a href="javascript:void(0)" id="tijiao" onclick="tijiao()">&nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-size: 20px;">submit</span></a> &nbsp; &nbsp; &nbsp;
             &nbsp; &nbsp;&nbsp;<a onclick="quxiao()" href="javascript:void (0)">&nbsp;&nbsp; &nbsp;<span
-                    style="font-size: 20px;">取消</span></a>
+                    style="font-size: 20px;">cancel</span></a>
         </div>
 
     </div>

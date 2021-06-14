@@ -1,20 +1,13 @@
-    <title>信息修改-头像修改</title>
+    <title>Information modification-avatar modification</title>
 
     <div class="rtmain">
-        <div class="hdtitle clearfix">
-            <ul class="fl clearfix">
-                <li class="on"><a href="javascript:void(0);" class="inter_chanView" data-value="ModifyData">信息修改</a></li>
-                <li><a href="javascript:void(0);" class="inter_chanView" data-value="StationMsg">站内消息</a></li>
-                <li ><a href="javascript:void(0);" class="inter_chanView" data-value="AnswerQuestion">有问必答</a></li>
-            </ul>
-        </div>
+
         <div class="uspictm clearfix">
             <div class="title">
                 <ul class="clearfix">
-                    <li id="fit" class="on"><a href="javascript:void (0)">头像管理</a></li>
-                    <li><a href="javascript:void (0)">密码</a></li>
-                   <!-- <li><a href="javascript:void (0)">地址管理</a></li>-->
-                    <li><a href="javascript:void(0);" class="chanView" data-value="ToBeSeller">成为卖家</a></li>
+                    <li id="fit" class="on"><a href="javascript:void (0)">Avatar management</a></li>
+                    <li><a href="javascript:void (0)">Password</a></li>
+			
                 </ul>
             </div>
             <div class="list_show">
@@ -35,16 +28,16 @@
                 <ul class="clearfix fl" id="avatarlist" style="margin-left:150px;" >
                     <li>
                         <img src="__IMG__/nophoto.gif" height="144" width="144" onerror="__IMG__/nophoto.gif"><br />
-                        头像180 x 180					</li>
+                        Avatar180 x 180					</li>
                     <li>
                         <img src="__IMG__/nophoto.gif" height="72" width="72" onerror="__IMG__/nophoto.gif"><br />
-                        头像90 x 90					</li>
+                        Avatar90 x 90					</li>
                     <li>
                         <img src="__IMG__/nophoto.gif" height="36" width="36" onerror="__IMG__/nophoto.gif"><br />
-                        头像45 x 45					</li>
+                        Avatar45 x 45					</li>
                     <li>
                         <img src="__IMG__/nophoto.gif" height="24" width="24" onerror="__IMG__/nophoto.gif"><br />
-                        头像30 x 30					</li>
+                        Avatar30 x 30					</li>
                 </ul>
             </div>
                 </div>
@@ -52,43 +45,19 @@
                     <div class="contms">
                         <form id="myform" action="{:U('Service/ModifyPass')}" method="post">
                             <dl>
-                                <dt>您的登录名：<i>{$info.user_name}</i>，密码可以为6-20位英文字母、数字和"_"，但下划线不能在最后。</dt>
+                                <dt>Your login name：<i>{$info.user_name}</i>，The password can be 6-20 English letters, numbers and "_", but the underscore cannot be at the end.</dt>
 
-                                <dd><label>原密码：</label><span><input type="password" name="password" id="password" class="webtxt" placeholder=""></span><div id="passwordTip" ></div></dd>
+                                <dd><label>Old password：</label><span><input type="password" name="password" id="password" class="webtxt" placeholder=""></span><div id="passwordTip" ></div></dd>
 
-                                <dd><label>新密码：</label><span><input type="password" name="new_password" id="newpassword" class="webtxt" placeholder=""></span><div id="newpasswordTip" ></div></dd>
-                                <dd><label>重复新密码：</label><span><input type="password" id="renewpassword" class="webtxt" placeholder=""></span><div id="renewpasswordTip" ></div></dd>
+                                <dd><label>New password：</label><span><input type="password" name="new_password" id="newpassword" class="webtxt" placeholder=""></span><div id="newpasswordTip" ></div></dd>
+                                <dd><label>Repeat new password：</label><span><input type="password" id="renewpassword" class="webtxt" placeholder=""></span><div id="renewpasswordTip" ></div></dd>
 
-                                <dd><input type="submit"  id="do_submit" class="webtn" value="保  存"></dd>
+                                <dd><input type="submit"  id="do_submit" class="webtn" value="Save"></dd>
                             </dl>
                         </form>
                     </div>
                 </div>
-               <!-- <div class="lists" style="display: none;">
-                    <div class="memo">注：地址用于发货，请务必真实，所填信息完全保密，请放心填写。<a class="green"href="javascript:add();">添加地址</a></div>
 
-                    <div class="tabs pt30">
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <th width="5%">姓名</th>
-                                <th width="20%">电话</th>
-                                <th width="30%">地址</th>
-                                <th width="30%">发票抬头</th>
-                                <th width="15%">操作</th>
-                            </tr>
-                            <tr >
-                                <td >夏夏</td>
-                                <td>15105657905</td>
-                                <td>合肥</td>
-                                <td></td>
-                                <td><a href="javascript:edit(1361);">修改</a><a style="margin-left:20px;background:orange;" href="javascript:del(1361);">删除</a></td>
-                            </tr>
-
-                        </table>
-                        <div class="pages">
-                        </div>
-                    </div>
-                </div>-->
                 <div class="lists" style="display: none;">
 
                 </div>
@@ -132,7 +101,7 @@
                                 //alert(oRet.message);
                             }
                         } catch (e) {
-                            //alert('上传失败，请重试!');
+                            //alert('Upload failed, please try again!');
                         }
                     }
                 });
@@ -141,7 +110,7 @@
             });
         });
     </script>
-    <!--选项卡-->
+    <!--Tab-->
     <script type="text/javascript">
         $(document).ready(function () {
             $(".title ul li").click(function(){
@@ -156,12 +125,12 @@
 
     </script>
 
-    <!--表单验证-->
+    <!--form validation-->
   <script type="text/javascript">
     $(function(){
             $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
-            $("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
-            $("#newpassword").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"}).ajaxValidator({
+            $("#password").formValidator({onshow:"Please enter the password",onfocus:"Between 6-20 digits"}).inputValidator({min:6,max:20,onerror:"Between 6-20 digits"});
+            $("#newpassword").formValidator({onshow:"Please enter the password",onfocus:"Between 6-20 digits"}).inputValidator({min:6,max:20,onerror:"Between 6-20 digits"}).ajaxValidator({
                 type : "get",
                 url : "/index.php/public/check_pass",
                 data :"",
@@ -176,17 +145,17 @@
                     }
                 },
                 buttons: $("#dosubmit"),
-                onerror : "密码中有特殊字符",
-                onwait : "验证中"
+                onerror : "There are special characters in the password",
+                onwait : "Verifying"
             });
-            $("#renewpassword").formValidator({onshow:"确认密码",onfocus:"请输入两次密码不同。",oncorrect:"密码输入一致"}).compareValidator({desid:"newpassword",operateor:"=",onerror:"请输入两次密码不同。"});
+            $("#renewpassword").formValidator({onshow:"Confirm password",onfocus:"Please enter a different password twice.",oncorrect:"Password input is consistent"}).compareValidator({desid:"newpassword",operateor:"=",onerror:"Please enter a different password twice."});
 
         });
    /*  $("#do_submit").click(function () {
          //alert(123)
      })*/
     </script>
-    <!--内部异步调用-->
+    <!--Internal asynchronous call-->
     <script type="text/javascript">
         $(document).ready(function () {
 

@@ -2,41 +2,33 @@
     <div class="hdtitle clearfix">
         <ul class="fl clearfix">
             <if condition="$info">
-                <li class="on"><a href="javascript:void(0)">编辑作品</a></li>
-                <else/><li class="on"><a href="javascript:void(0)">上传作品</a></li>
+                <li class="on"><a href="javascript:void(0)">Edit works</a></li>
+                <else/><li class="on"><a href="javascript:void(0)">Upload work</a></li>
             </if>
 
         </ul>
     </div>
     <form action="{:U('Service/MaterialUpload')}" method="post" id="up_form" target="_blank">
         <div class="ulfroms">
-          <!--   <ul class="tlepic clearfix tlc1" style="width: 230px">
-               <li>完善资料</li>
-                <li>手机验证</li>
-                <if condition="$info">
-                    <li class="on">编辑素材</li>
-                    <else/><li class="on">上传素材</li>
-                </if>
-				</ul>
--->
+
             
     <div class="upload-des">
         <ul class="upload-des-list">
-            <li class="list-style-blue">上传AE模板、视频素材包等打包文件，请点击“添加模板/压缩包”，您需要同时添加压缩包及预览视频2个文件</li>
-            <li class="list-style-blue">账户中满10个未提交审核的素材，上传将停止，提交审核后“开始”可继续</li>
-            <li class="list-style-blue">上传素材后，请尽快完善素材信息，只有填写好信息的素材才会被审核</li>
-            <li class="list-style-blue">请确保作品为原创，视频清晰，上传违规内容将影响账户权重降低素材排名</li>
+            <li class="list-style-blue">To upload packaged files such as AE template, video material package, etc., please click "Add template/compressed package", you need to add two files of compressed package and preview video at the same time</li>
+            <li class="list-style-blue">If the account is full of 10 materials that have not been submitted for review, the upload will stop, and the "start" can continue after submitting for review</li>
+            <li class="list-style-blue">After uploading the material, please complete the material information as soon as possible, only the material with the information filled in will be reviewed</li>
+            <li class="list-style-blue">Please ensure that the work is original and the video is clear. Uploading illegal content will affect the account weight and reduce the material ranking</li>
         </ul>
     </div>
 			
 			
             <ul class="formsd biaoti" style="display:none">
 			
-                <li><label>作品标题：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
-                <li><label>作品标价：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">金币</span></li>
-                <li><label>搜索标签：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>Title of Work：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>The price of the work：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">金币</span></li>
+                <li><label>Search tags：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
 
-                <li><label>所属栏目：</label>
+                <li><label>Belonging to the column：</label>
                    <select style="width:200px;height:30px;" name="cate" id="cate">
                        <if condition="$edit_cate">
                            <option value="{$edit_cate.path}-{$edit_cate.cid}" >{$edit_cate.name}</option>
@@ -70,19 +62,19 @@
 -->
 <div class="wordlist clearfix">
     <u style="padding-left:190px; font-size:16px;" >
-        <label>半价销售：</label>
+        <label>Half price sale：</label>
             <if condition="$info['is_half'] eq 1">
                 <input type="checkbox" id="is_half" name="is_half" checked></li>
                 <else/><input type="checkbox" id="is_half" name="is_half"></li>  
             </if>
             &nbsp;
-            <label>透明通道：</label>
+            <label>Transparent channel：</label>
 <if condition="$info['is_typ'] eq 1">
     <input type="checkbox" id="is_type" name="is_type" checked></li>
     <else/><input type="checkbox" id="is_type" name="is_type"></li>
 </if>
 &nbsp;
-<label>无缝循环：</label>
+<label>Seamless loop：</label>
 <if condition="$info['is_typ1'] eq 1">
     <input type="checkbox" id="is_type1" name="is_type1" checked></li>
     <else/><input type="checkbox" id="is_type1" name="is_type1"></li>
@@ -91,14 +83,14 @@
 </div>
 
         <nav class="upload-web-nav">
-            <div><a class="cur" href="/Seller/upload_web">上传视频、模版、压缩包</a></div>
-            <div><a href="/Seller/upload_render">上传定制样片</a></div>
+            <div><a class="cur" href="/Seller/upload_web">Upload videos, templates, compressed packages</a></div>
+            <div><a href="/Seller/upload_render">Upload customized samples</a></div>
         </nav>
 
                 <if condition="$info['opus_fileurl']">
-                    <li><label>上传文件：</label>上传源文件<input type="radio"  class="opus_method" name="method" value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" checked> </li>
+                    <li><label>upload files：</label>Upload source files<input type="radio"  class="opus_method" name="method" value="1" >&nbsp;&nbsp;&nbsp;Add file download link<input type="radio" name="method" value="2" class="opus_method" checked> </li>
                     <else/>
-                    <li><label>上传文件：</label>上传源文件<input type="radio" checked  class="opus_method" name="method"  value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" > </li>
+                    <li><label>upload files：</label>Upload source files<input type="radio" checked  class="opus_method" name="method"  value="1" >&nbsp;&nbsp;&nbsp;Add file download link<input type="radio" name="method" value="2" class="opus_method" > </li>
                 </if>
                     <li class="down_url" style="display: none"><label>外部下载链接：</label><input type="text" class="webtxt"  id="down_url" name="down_url" value="{$info.opus_fileurl}"></li>
                     <li class="down_url" style="display: none"><label>密码：</label><input type="text" class="webtxt"  id="pass" name="pass" value="{$info.opus_zippass}"></li>
@@ -106,7 +98,7 @@
                  </ul>
 
             <div class="wordlist clearfix yuan">
-                <div class="nmse fl">源文件上传：</div>
+                <div class="nmse fl">Source file upload：</div>
                 <div class="btn fl"><a href="javascript:;" onClick="$('#yuanjian').click();"><img src="__IMG__/dhscbtn.png"></a></div>
                 <input type="hidden" id="yuanjian_s" name="yuanjian" value="{$info.opus_source}">
                 <input type="file" id="yuanjian" name="file" value="" style="display:none"  onchange="ajaxFileUpload('yuanjian')">
@@ -117,7 +109,7 @@
             </div>
 
             <div class="wordlist clearfix">
-                <div class="nmse fl">视频上传：</div>
+                <div class="nmse fl">Video upload：</div>
                 <div class="btn fl"><a href="javascript:;" onClick="$('#zhanshi').click();"><img src="__IMG__/dhscbtn.png"></a></div>
                 <input type="hidden" id="zhanshi_s" name="zhanshi" value="{$info.opus_pic}">
                 <input type="file" id="zhanshi" name="file"  style="display:none"  onchange="ajaxFileUpload('zhanshi')">
@@ -128,7 +120,7 @@
             </div>
 
 
-            <div  id="imgbt" style="width:200px; height:160px;display:none" ">    <!--4图预览 显示控制框架-->
+            <div  id="imgbt" style="width:200px; height:160px;display:none" ">    <!--4 image preview display control frame-->
 	
                    <li>
                     <img id="img1" width="280" height="160" src="{$info.opus_pic_big}" style="display:none" BORDER=0>
@@ -152,7 +144,7 @@
                 <input type="hidden" name="edit" value="true">
                 <input type="hidden" name="opus_id" value="{$info.opus_id}">
             </if>
-            <div class="btnsd"><input value="提交审核" type="submit" class="pay-btn" /></div>
+            <div class="btnsd"><input value="Submit review" type="submit" class="pay-btn" /></div>
         </div>
     </form>
     <form action="{:U('Upload/upload')}" method="post" enctype="multipart/form-data" id="j-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="j-uploadFile-iframe"></form>
@@ -162,20 +154,20 @@
     head.ready('formvalidator',function(){
 
       $.formValidator.initConfig({autotip:true,formid:"up_form",onerror:function(msg){}});
-     $("#opus_title").formValidator({onshow:"请使用简洁，鲜明的标题",onfocus:"输入作品名称",oncorrect:" 已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
-        $("#opus_price").formValidator({onshow:"价格",onfocus:"请输入价格",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
-      $("#opus_keyword").formValidator({onshow:"此项用于搜索作品，请填写短词语，用减号（-）隔开",onfocus:"添加关键词",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+     $("#opus_title").formValidator({onshow:"Please use concise, clear headlines",onfocus:"Enter the name of the work",oncorrect:" Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
+        $("#opus_price").formValidator({onshow:"价格",onfocus:"请输入价格",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
+      $("#opus_keyword").formValidator({onshow:"This item is used to search for works. Please fill in short words and separate them with a minus sign (-)",onfocus:"Add keywords",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
        if($('.opus_method').eq(0).attr('checked')=='checked'){
-            $("#yuanjian_s").formValidator({onshow:"，支持 'rar', 'zip' 格式，体积在300MB以下",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+            $("#yuanjian_s").formValidator({onshow:"，stand by 'rar', 'zip' format，the volume is less than 300MB",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
         }
-     $("#zhanshi_s").formValidator({onshow:"等待上传，支持'flv', 'mov', 'mp4'格式",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+     $("#zhanshi_s").formValidator({onshow:"Waiting for upload，stand by'flv', 'mov', 'mp4'format",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
     
        if($('.opus_method').eq(1).attr('checked')=='checked'){
-             $("#down_url").formValidator({onshow:"文件下载链接",onfocus:"填写链接",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+             $("#down_url").formValidator({onshow:"File download link",onfocus:"Fill in the link",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
 
        }
 
-        // $("#cate").formValidator({onshow:"所属栏目，必选项",onfocus:"选择栏目",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+
 
 
 
@@ -197,7 +189,7 @@
         $('.down_url').attr('style','display:none')
     </script>
 </if>
-<!--文件方式-->
+<!--File way-->
 <script type="text/javascript">
 
   $('.opus_method').click(function () {
@@ -245,7 +237,7 @@
                                 $('#img1').attr('src',oRet.img5);
 								$('#imgbt').attr('style','display:block')				
 								$('#img1').attr('style','display:block')
-								 $('#zhanshi_sTip').html('<span style="color: red">视频已上传</span>');
+								 $('#zhanshi_sTip').html('<span style="color: red">Video uploaded</span>');
                                }else{
 							   $('.biaoti.').attr('style','display:none')
 							   }
@@ -258,7 +250,7 @@
 
 
 							  
-                               $('#'+name+'Tip').html('<span style="color: red">已上传</span>');
+                               $('#'+name+'Tip').html('<span style="color: red">uploaded</span>');
                                layer.msg(oRet.message);
 
                                /*$('#'+name).attr('src',oRet.filePath);

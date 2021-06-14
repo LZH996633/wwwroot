@@ -8,20 +8,20 @@ class OpusDownloadModel extends Model{
     }
 
     /**
-     * 分页
+     * Pagination
      * @param $num
      * @param $Count
      * @return mixed|string
      */
     public function getPage($num,$Count){
-        import('ORG.Util.Page');// 导入分页类
-        //$count      = $User->where('opus_category="'.$where.'"')->count();// 查询满足要求的总记录数
-        $Page = new Page($Count,$num);// 实例化分页类 传入总记录数和每页显示的记录数
-        // $page -> setConfig('header','个会员');
-        $Page -> setConfig('prev', "<");//(对thinkphp自带分页的格式进行自定义▲▼)
+        import('ORG.Util.Page');// Import pagination class
+        //$count      = $User->where('opus_category="'.$where.'"')->count();// Query the total number of records that meet the requirements
+        $Page = new Page($Count,$num);// Instantiate the paging class, pass in the total number of records and the number of records displayed on each page
+        // $page -> setConfig('header','Members');
+        $Page -> setConfig('prev', "<");//(Customize the format of thinkphp's own pagination▲▼)
         $Page -> setConfig('next','>');
-        $Page -> setConfig('first','首');
-        $Page -> setConfig('last','尾');
+        $Page -> setConfig('first','First');
+        $Page -> setConfig('last','Last');
         $Page -> setConfig('theme',"%first% %upPage% %linkPage% %downPage% %end%");
 
         $page = $Page->show();
@@ -30,13 +30,13 @@ class OpusDownloadModel extends Model{
     }
     public function getDownInfo($where){
         
-        //下载文件详情
+        //Download file details
         $DownInfo = self::$OpusDown->where($where)->find();
               
         return $DownInfo;
     }
     public function getDownCount($where){
-        //下载数量
+        //Number of downloads
         $DownCount = self::$OpusDown->where($where)->count();
         return $DownCount;
     }
@@ -46,7 +46,7 @@ public function getDownSum($where,$port){
 	   return $sum;
 }
     /**
-     * 下载信息列举
+     * Download information list
      * @param $where
      * @param $num
      * @param $p
@@ -55,7 +55,7 @@ public function getDownSum($where,$port){
     public function getDownList($where,$num,$p){
         
         $count = self::$OpusDown->where($where)->count();
-        //分页
+        //Pagination
         $page = $this->getPage($num,$count);
 
         $DownList = self::$OpusDown->where($where)->order('down_time DESC')->page($p.','.$num)->select();

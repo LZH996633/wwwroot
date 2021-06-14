@@ -53,11 +53,11 @@
 				{$OpusDetail.opus_size} MB			</span>-->
 		</div>
 		<if condition="$OpusDetail.is_half eq 0">
-		<div class="userinfo mb-20">List price：<i class="amount">{$OpusDetail.price} </i>元</a></div>
+		<div class="userinfo mb-20">List price：<i class="amount">{$OpusDetail.price} </i>gold coins</a></div>
 		<else/>
 			<div class="userinfo mb-20">
 				This material is free, you only need to download this material
-				<i class="amount">{$half_price}L coin</i>
+				<i class="amount">{$half_price}gold coins</i>
 				
 			</div>
 		</if>
@@ -517,7 +517,7 @@ function down(url){
 			}},
 			error: function(msg) {
 				////alert(msg.status);
-				//alert("ajax安全设置错误\n\n Internet选项->安全->自定义级别->选择'通过域访问数据源'为启用。保存后重启浏览器即可");
+				//alert("ajax security settings error\n\n Internet options->Safety->Custom level->Select "Access data source through domain" to enable. Restart the browser after saving");
 			}
 		});
 	});
@@ -666,10 +666,10 @@ function down(url){
 		$(".graybg").fadeOut();
 		$(".fkmains").hide("fast");
 		$("#pay_form").submit();
-		layer.confirm("请在支付页面完成付款。", {
-			btn: ["我已付款","付款遇到问题"],
+		layer.confirm("Please complete the payment on the payment page。", {
+			btn: ["I have paid","Problem with payment"],
 			icon: 7,
-			title:"账户充值等待付款"
+			title:"Account recharge waiting for payment"
 		}, function(){
 			window.location.reload();
 			layer.close();

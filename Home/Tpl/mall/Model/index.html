@@ -29,7 +29,7 @@
 <body>
 
 
-<h1 id="seodw"LOGO-AE Video Material Download Platform</h1>
+<h1 id="seodw">LOGO-AE Video Material Download Platform</h1>
 <!--Public head-->
 <include file="Public/header"/>
 <div class="clearfix"></div>
@@ -107,7 +107,7 @@
         <div class="fr option">
             <div class="sxpart o3">
 
-                <div class="title">{$sort_color.name}<i></i></div>
+                <div class="title">Color system<i></i></div>
                 <ul class="skmain none pa" style="background-color: gainsboro">
                     <volist name="sort_color['son']" id="color">
                         <li class="" style="background-color:{$color.name}"><a href="{:U('Model/index',array($color['kind']=>$color['id']))}" title="{$color.name}">{$color.name}</a></li>
@@ -116,7 +116,7 @@
 
             </div>
             <div class="sxpart o1">
-                <div class="title">{$sort_software.name}<i></i></div>
+                <div class="title">Resolution<i></i></div>
                 <ul class="namesd pa none" >
                  <volist name="sort_software['son']" id="software">
                      <li><a href="{:U('Model/index',array($software['kind']=>$software['id']))}">{$software.name}</a></li>
@@ -125,7 +125,7 @@
 
             </div>
             <div class="sxpart o2">
-                <div class="title">{$sort_type.name}<i></i></div>
+                <div class="title">Type<i></i></div>
                 <ul class="proportion none pa" >
                     <volist name="sort_type['son']" id="type">
                         <li><a href="{:U('Model/index',array($type['kind']=>$type['id']))}">{$type.name}</a></li>
@@ -134,7 +134,7 @@
 
             </div>
             <div class="sxpart o3">
-                <div class="title">{$sort_scale.name}<i></i></div>
+                <div class="title">Proportion<i></i></div>
                 <ul class="proportion none pa">
                     <volist name="sort_scale['son']" id="scale">
                     <li><a href="{:U('Model/index',array('scale'=>$scale['id']))}">{$scale.name}</a></li>
@@ -145,7 +145,7 @@
 
             <if condition="$is_half eq half">
 
-                    <input type="button" value="view all" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>   
+                    <input type="button" value="查看全部" id="zkzq" style="width:100px;height:32px;line-height:32px;color:#1abd9b;background:#f1f1f1;border:none;cursor:pointer"/>   
 
             <else/> 
 
@@ -199,7 +199,7 @@
 
                     <div style="position:absolute; z-index:2; left:170px; top:3px;font-size:15px;color:#fff;">
 
-                            　　　             Free
+                            　　　             free
                             
                             　　                   </div>
                 
@@ -213,9 +213,9 @@
             </div>
             <div id="pages">
                 <if condition="$count eq 0">
-                    <h2 style="text-align:center;margin-bottom:40px">There are no works under this filter, please try another one！</h2>
+                    <h2 style="text-align:center;margin-bottom:40px">No works under this filter</h2>
                     <else/>
-                <a class="a1">{$count}piece</a>
+                <a class="a1">{$count}pieces</a>
 
               {$page}
                 </if>
@@ -243,7 +243,7 @@
          
         //Mouse away
         function videoStopped() {
-            //Get video tags			
+            //Get video tags
             var e = window.event;
             var obj = e.srcElement;
             //Stop play

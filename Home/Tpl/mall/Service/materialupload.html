@@ -254,15 +254,7 @@
     </div>
 
         <div class="ulfroms">
-          <!--   <ul class="tlepic clearfix tlc1" style="width: 230px">
-               <li>完善资料</li>
-                <li>手机验证</li>
-                <if condition="$info">
-                    <li class="on">编辑素材</li>
-                    <else/><li class="on">上传素材</li>
-                </if>
-				</ul>
--->
+
             
     <div class="upload-des">
         <ul class="upload-des-list">
@@ -286,13 +278,7 @@
 			
 			
 			
-<!--
-                <div class="nmse fl">源文件上传：{$info.data}</div>
-                <div class="btn fl"><a href="javascript:;" onClick="$('#yuanjian').click();"><img src="__IMG__/dhscbtn.png"></a></div>
-                <input type="hidden" id="yuanjian_s" name="yuanjian" value="{$info.opus_source}">
-                <input type="file" id="yuanjian" name="file" value="" style="display:none"  onchange="ajaxFileUpload('yuanjian')">
-				
-		-->	
+
 				
 
 				
@@ -365,7 +351,7 @@
            
 			
 			
-			 <div  id="imgb" style="width:100%; height:100px; background-color:#F5F5F5; text-align:center; ">    <!--上传 显示控制框架-->
+			 <div  id="imgb" style="width:100%; height:100px; background-color:#F5F5F5; text-align:center; ">    <!--Upload display control frame-->
 	
                 <p id="pid" style="padding-top:30px;">No upload tasks yet..</p>
   
@@ -388,6 +374,7 @@
 			
                 <li><label>Title of Work：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
                 <li><label>The price of the work：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">Gold</span></li>
+                <li><label>The Gold coins of the work：</label><input type="text" class="webtxt"  id="opus_prices" name="opus_prices" value="{$info.prices}"><span style="line-height:34px;margin-left:10px;">Gold coins</span></li>
                 <li><label>Search tags：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
 
                 <li><label>Belonging to the column：</label>
@@ -406,25 +393,11 @@
 
 
 
-              <!-- <li><label>作品分类：</label></li>  
-                <volist name="sort_list" id="list">
-                    <li><label>{$list.name}：</label>
-                        <select name="{$list['kind']}" id="{$list['kind']}" style="width:200px;height:30px;">
-                            <if condition="$edit_list">
-                                <option value="{$edit_list[$list['kind']].id='3'}" >{$edit_list[$list['kind']].name='时尚动感'}</option>
 
-                            </if>
-                            <option value="">默认为空</option>
-                            <volist name="list['second']" id="lists">
-                                 <option value="{$lists.id}" >{$lists.name}</option>
-                            </volist>
-                        </select>
-                    </li>
-                </volist>
--->
+
 <div class="wordlist clearfix">
     <u style="padding-left:190px; font-size:16px;" >
-        <label>Free to convert to L coins：</label>
+        <label>Free to convert to gold coins：</label>
             <if condition="$info['is_half'] eq 1">
                 <input type="checkbox" id="is_half" name="is_half" checked></li>
                 <else/><input type="checkbox" id="is_half" name="is_half"></li>  
@@ -445,16 +418,7 @@
 </div>
 
 
-<!--
-                <if condition="$info['opus_fileurl']">
-                    <li><label>上传文件：</label>上传源文件<input type="radio"  class="opus_method" name="method" value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" checked> </li>
-                    <else/>
-                    <li><label>上传文件：</label>上传源文件<input type="radio" checked  class="opus_method" name="method"  value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" > </li>
-                </if>
-                    <li class="down_url" style="display: none"><label>外部下载链接：</label><input type="text" class="webtxt"  id="down_url" name="down_url" value="{$info.opus_fileurl}"></li>
-                    <li class="down_url" style="display: none"><label>密码：</label><input type="text" class="webtxt"  id="pass" name="pass" value="{$info.opus_zippass}"></li>
 
-				-->	
 					
 					
                  </ul> 
@@ -511,7 +475,7 @@
                 ourl = window.URL.createObjectURL(file); //Temporary file address
             $('#file_type1').text("Choose upload file type：" + otype);
             $('#file_size1').text("Upload file size, total" + osize.toFixed(2) + "MB。");
-            pid.innerHTML = '<span style="color: red">准备上传</span>';
+            pid.innerHTML = '<span style="color: red">Ready to upload</span>';
             console.log("file type：" + otype); //file type
             console.log("File size：" + osize); //File size
 
@@ -541,11 +505,11 @@
             $('.speed_box').show();
             var File = $("#File1").get(0).files[0]; //input file tag
 
-            pid.innerHTML = '<span style="color: red">上传中..请不要随意点击按钮！</span>';
+            pid.innerHTML = '<span style="color: red">Uploading.. Please don\'t click the button arbitrarily!</span>';
 
-            var formData = new FormData(); //创建FormData对象
-            var xhr = $.ajaxSettings.xhr(); //创建并返回XMLHttpRequest对象的回调函数(jQuery中$.ajax中的方法)
-            formData.append("file", File); //将上传name属性名(注意：一定要和 file元素中的name名相同)，和file元素追加到FormData对象中去
+            var formData = new FormData(); //Create FormData object
+            var xhr = $.ajaxSettings.xhr(); //Create and return the callback function of the XMLHttpRequest object (the method in $.ajax in jQuery)
+            formData.append("file", File); //Will upload the name attribute name (note: it must be the same as the name in the file element), and append the file element to the FormData object
 
 
 			  if ($("#speed").html()=="100%") {
@@ -556,7 +520,7 @@
             $.ajax({
                 type: "POST",
                 url: uploadUrl, // Backend server upload address
-                data: formData, // formData数据
+                data: formData, // formData
                 cache: false, // Whether to cache
                 async: true, // Whether to execute asynchronously
                 processData: false, // Whether to process the sent data (must be false to avoid jQuery's default processing of formdata)
@@ -634,7 +598,7 @@
         $("#opus_price").formValidator({onshow:"Price",onfocus:"Please enter the price",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
       $("#opus_keyword").formValidator({onshow:"This item is used to search for works, please fill in short words, separated by (-)",onfocus:"Add keywords separated by (-)",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
        if($('.opus_method').eq(0).attr('checked')=='checked'){
-            $("#yuanjian_s").formValidator({onshow:"，支持 'rar', 'zip' 格式，体积在300MB以下",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
+            $("#yuanjian_s").formValidator({onshow:"，stand by 'rar', 'zip' format，The volume is less than 300MB",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
         }
     // $("#zhanshi_s").formValidator({onshow:"Waiting to upload, support'flv','mov','mp4' format",onfocus:"Use concise titles",oncorrect:"Filled"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"Required"});
 	 
@@ -736,7 +700,7 @@
         function OnProgRess(event) {
             var event = event || window.event;
             //console.log(event);  //Event object
-            console.log("已经上传：" + event.loaded); //Uploaded size (uploaded size, after uploading, it will be equal to the total size of attachments)
+            console.log("Already uploaded：" + event.loaded); //Uploaded size (uploaded size, after uploading, it will be equal to the total size of attachments)
             //console.log(event.total);  //Total size of attachments (fixed)
             var loaded = Math.floor(100 * (event.loaded / event.total)); //Percentage already uploaded  
             $("#speed").html(loaded + "%").css("width", loaded + "%");
@@ -761,7 +725,7 @@
                 type: "POST",
                 url: uploadUrl, // Backend server upload address
                 data: formData, // formData data
-                cache: false, // 是否缓存
+                cache: false, // Whether to cache
                 async: true, // Whether to execute asynchronously
                 processData: false, // Whether to process the sent data (must be false to avoid jQuery's default processing of formdata)
                 contentType: false, // Whether to set the Content-Type request header

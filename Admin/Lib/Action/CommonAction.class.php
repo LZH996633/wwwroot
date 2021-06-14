@@ -1,19 +1,19 @@
 <?php
 header('Content-Type:text/html;charset=UTF-8');
-// 业务基控制器
-//基础调用文件
+// Business-based controller
+//Basic call file
 class CommonAction extends Action {
 	function _initialize() {
-     // 地址栏图标
-        //从本地
+     // Address bar icon
+        //From local
         // $addressbar_icon = '__PUBLIC__/images/logo/bar_icon.ico';
         // $this->assign('addressbar_icon',$addressbar_icon);
-        //从数据库中
+        //From the database
         // $i = M('config')->field('value')->where('id=4')->find();
         // $addressbar_icon = '__ROOT__'.$i['value'];
         // $this->assign('addressbar_icon',$addressbar_icon);
 
-        //加载扩展函数库
+        //Load the extension library
         // Load('extend');
         vendor('sliver.upload');
 
@@ -21,7 +21,7 @@ class CommonAction extends Action {
         $re=str_repeat('&nbsp;', 4);
         $this->assign('repeat',$re);
 
-        //时间处理 去除前导0
+        //Time processing Remove leading 0
         // function clear_0()
         // {
         //     $hour=date("G");
@@ -32,12 +32,12 @@ class CommonAction extends Action {
         //     return  $hour+'-'+$minute+'$secd';
         // }
 
-	    //管理员登陆的信息,用于登录状态判断
+	    //The login information of the administrator is used to judge the login status
         $uid= session('admin_id');
         $this->assign('uid',$uid);
         
 
-        // 管理员信息
+        // Administrator information
         $this->assign('admin_name',session('admin_name'));
        
         if (cookie('admin_pic')) {
@@ -56,7 +56,7 @@ class CommonAction extends Action {
 
 
      
-        // 网站信息
+        // Website information
         $site = M('sys_config');
 
         $title = $site->where('id=2')->getField('value');
@@ -89,7 +89,7 @@ class CommonAction extends Action {
         $shortcut = $site->where('id=18')->getField('value');
         $this->assign('shortcut',$shortcut);
 
-        // footer底部信息
+        // footer bottom information
         // $z = M('config');
 
         // $pspay = $z -> where('id=16')->find();

@@ -111,7 +111,7 @@ function call_phpmailer($username, $password, $FromName, $to, $toName, $subject,
 		echo 9999999999999999;exit;
 //        return "<span style=' font-size:12px;font-weight:bold;text-align:center;color:green;'>邮件发送成功</span>";
         $data['success']=true;
-        $data['message']="邮件发送成功";
+        $data['message']="Mail sent successfully";
         return  $data;
     }
 

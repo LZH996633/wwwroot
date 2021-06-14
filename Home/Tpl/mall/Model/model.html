@@ -85,20 +85,20 @@
                     <div class="title">
                         <!-- <h1>{$OpusDetail.opus_title}</h1> -->
                         <span><i class="view" id="hits">{$OpusDetail.oext_views}</i>
-                            <i class="down" id="xiazai">Download：{$OpusDetail.down} </i>
-                            <i class="down" id="xiazai">Comment：{$coment} </i>
-                                <i class="collection"
-                                id="favorite">Favorites：{$OpusDetail.oext_favorite}</i><i class="down" id="xiazai"><a
-                                    href="{$OpusDetail.opus_video}" rel="external nofollow"
-                                    download="web-001.mp4">Download sample</a></i>
+                            <i class="down" id="Down">Download：{$OpusDetail.down} </i>
+                            <!-- <i class="down" id="Down">Comment：{$coment} </i>-->
+                                 <i class="collection"
+                                 id="favorite">Favorites：{$OpusDetail.oext_favorite}</i><i class="down" id="Down"><a
+                                     href="{$OpusDetail.opus_video}" rel="external nofollow"
+                                     download="web-001.mp4">Download sample</a></i>
 
-                            <li class="quality-checker-wrap"> 
-                                &nbsp; &nbsp;&nbsp;
-								&nbsp; &nbsp;
-                                &nbsp; &nbsp;
-								<!--
-								<input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
-								-->
+                             <li class="quality-checker-wrap">
+                                 &nbsp; &nbsp;&nbsp;
+                                 &nbsp; &nbsp;
+                                 &nbsp; &nbsp;
+                                 <!--
+                                 <input class="btn2" type="button" value="" style="width:85px;height:28px;border:none;background:url(__IMG__/weixin_l24.png)"/>
+                                 -->
 								<a href="{$OpusDetail.opus_pic_big}" title="Since the system randomly extracts any frame for image quality detection, blurring may occur" target="_blank"><font size="3">Image quality inspection</font></a>
                             </li>
                             
@@ -136,7 +136,7 @@
 						<if condition="$OpusDetail.is_half eq 0">
 						<em id="readpoint">{$OpusDetail.price}&nbsp;Gold</em>
 						<else/>
-						<em id="readpoint">{$OpusDetail.prices}&nbsp;L coin</em>
+						<em id="readpoint">{$OpusDetail.prices}&nbsp;gold coins</em>
 						</if>
 						&nbsp;&nbsp;<font color="#1abd9b"
                                 id="bjzq"></font>
@@ -188,7 +188,7 @@
                                 class="gz follow" id="follow">Follow</a></dd>
                         <dd><i>Number of Works：{$OpusCount} </i><a
                                 href="{:U('Single/personal',array('user_id'=>$UserInfo['user_id']))}" target="_blank"
-                                class="kj">【Personal space】</a></dd>
+                                class="kj">【Homepage】</a></dd>
 								<dd><i style="padding-left:72px;color: #44a0d5;">Verified </i></dd>
 
                     </dl>

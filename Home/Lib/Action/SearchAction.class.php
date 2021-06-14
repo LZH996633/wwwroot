@@ -3,13 +3,13 @@
 class SearchAction extends CommonAction{
 
     public function index(){
-        //引用PublicAction
+        //Reference to PublicAction
         $Public = new PublicAction();
         $Public->header();
         $Public->footer();
 
         $Sort = M('sort');
-        //获取传值
+        //Get pass value
         $half = I('half');
         if (I('half')!=''){
             cookie('half',$half);
@@ -22,14 +22,14 @@ class SearchAction extends CommonAction{
         }
         $search = cookie('search');
         $this->assign('search',$search);
-        $tip_order = I('order');//排序
-        $tip_index = I('index');//排序显示
+        $tip_order = I('order');//Sorting
+        $tip_index = I('index');//Sort display
 
 
-        $tip_color = I('color');      //颜色
-        $tip_software = I('software');//软件
-        $tip_scale = I('scale');      //比例
-        $tip_type = I('type');       //类型
+        $tip_color = I('color');      //colour
+        $tip_software = I('software');//software
+        $tip_scale = I('scale');      //proportion
+        $tip_type = I('type');       //Types of
 
         if ($tip_index!=''){
             cookie('tip_index',$tip_index);
@@ -43,20 +43,20 @@ class SearchAction extends CommonAction{
         
         $this->assign(array('tip_index'=>cookie('tip_index')));
 
-        //中部分类
+        //Middle class
         $tip_middle = array(
             'tip_color'=>$tip_color,
             'tip_software'=>$tip_software,
             'tip_scale'=>$tip_scale,
             'tip_type'=>$tip_type
         );
-        //中部分类
+        //Middle class
         foreach ($tip_middle as $key=>$value){
             if($value!=''){
                 cookie($key,$value);
             }
         }
-        //清除
+        //Clear
         if(I('tip_clear')!=''){
             $clear_kind = $Sort->where(array('id'=>I('tip_clear')))->getField('kind');
             cookie('tip_'.$clear_kind,null);
@@ -64,7 +64,7 @@ class SearchAction extends CommonAction{
                 cookie(null,'tip_');
             }
         }
-        //中部分类
+        //Middle class
         $tip_middle_show = array(
             'tip_color'=>cookie('tip_color'),
             'tip_software'=>cookie('tip_software'),
@@ -84,15 +84,15 @@ class SearchAction extends CommonAction{
         }
         $this->assign(array('tip_show'=>$tip_show));
 
-        /*查询条件构建*/
+        /*Query condition construction*/
         $where = null;
         $where = array();
         foreach ($tip_show as $key=>$value){
             $where[$key] = $value['id'];
         }
-       /*查询条件构建结束*/
+       /*End of query condition construction*/
 
-        /*中部查询*/
+        /*Central inquiry*/
         $where_other['kind'] = array('like','other_%');
         $sort_middle = $Sort->where($where_other)->select();
         $middle = array();
@@ -112,7 +112,7 @@ class SearchAction extends CommonAction{
 
         $this->assign(array('sort_color'=>$sort_color,'sort_software'=>$sort_software,'sort_type'=>$sort_type,'sort_scale'=>$sort_scale));
 
-        //精准搜索标识
+        //Accurate search mark
         if(isset($_GET['action'])){
             $where['opus_title'] = $search;
 
@@ -120,14 +120,14 @@ class SearchAction extends CommonAction{
             $where['opus_keyword|opus_title'] = array('like','%'.$search.'%');
         };
 
-        //页码
+        //page number
         if ($_GET['p']=='') {
             $p = 1;
         } else {
             $p = $_GET['p'];
         }
 
-        //查询
+        //Inquire
         $Opus = new OpusModel();
         $SearchListShow = $Opus->getOpusList($path='',$order,$where,$num=20,$p);
 

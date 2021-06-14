@@ -1,7 +1,7 @@
 <?php
 class AdminAction extends CommonAction{
     /**
-     * 修改密码
+     * change Password
      */
     public function person(){
         $Admin = M('sys_admin');
@@ -19,15 +19,15 @@ class AdminAction extends CommonAction{
                 );
                 $result_1 = $Admin->where(array('admin_id'=>$admin_id))->save($data);
                 if($result_1){
-                    $this->redirect('Admin/person','','3','修改成功！');
+                    $this->redirect('Admin/person','','3','Successfully modified！');
 
                 }else{
 
-                    $this->redirect('Admin/person','','3','修改失败！请重试！');
+                    $this->redirect('Admin/person','','3','Fail to edit! Please try again！');
 
                 }
             }else{
-                $this->redirect('Admin/person','','3','修改失败！请重试！');
+                $this->redirect('Admin/person','','3','Fail to edit! Please try again');
             }
 
 
@@ -36,7 +36,7 @@ class AdminAction extends CommonAction{
     }
 
     /**
-     * 个人账户
+     * personal account
      */
     public function account(){
         $Account = new AdminAccountModel();
@@ -47,7 +47,7 @@ class AdminAction extends CommonAction{
             $p = 1;
         }
 
-        $ListShow = $Account->getLinkList($where='',$num=6,$p);
+        $ListShow = $Account->getLinkList($where='',$num=60,$p);
 
         $this->assign($ListShow);
 
@@ -63,7 +63,7 @@ class AdminAction extends CommonAction{
             if($ret){
                 $this->redirect('Admin/ac_add');
             }else{
-                $this->redirect('Admin/ac_add','','2','添加失败');
+                $this->redirect('Admin/ac_add','','2','Add failed');
             }
         }else{
             $this->display('Admin/account/add');
@@ -96,7 +96,7 @@ class AdminAction extends CommonAction{
             if($ret){
                 $this->redirect('Admin/ac_edit?id='.$id);
             }else{
-                $this->redirect('Admin/ac_edit?id='.$id,'','2','编辑失败');
+                $this->redirect('Admin/ac_edit?id='.$id,'','2','Edit failed');
             }
         }else{
             $this->assign('account', $info);
@@ -104,7 +104,7 @@ class AdminAction extends CommonAction{
         }
     }
     /**
-     * 清除缓存
+     * clear cache
      */
     public function cache(){
 
@@ -135,7 +135,7 @@ class AdminAction extends CommonAction{
 
     /**
      * @param $dir
-     * 删除
+     * delete
      */
     public function del_dir($dir){
         $dh=opendir($dir);
@@ -151,7 +151,7 @@ class AdminAction extends CommonAction{
     }
     }
 
-    // 获取文件夹大小
+    // Get folder size
     function getDirSize($dir,$sizeResult='')
     {
         $handle = opendir($dir);
@@ -173,7 +173,7 @@ class AdminAction extends CommonAction{
         return $sizeResult;
     }
 
-    // 单位自动转换函数
+    // Unit automatic conversion function
     function getRealSize($size)
     {
         $kb = 1024;         // Kilobyte

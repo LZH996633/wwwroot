@@ -11,7 +11,7 @@ class UserFocusModel extends Model{
     
 
     /**
-     * 添加关注信息
+     * Add following information
      * @param mixed|string $data
      * @return mixed
      */
@@ -23,7 +23,7 @@ class UserFocusModel extends Model{
     }
 
     /**
-     * 删除关注信息
+     * Delete following information
      * @param array|mixed $where
      * @return int|mixed
      */
@@ -34,7 +34,7 @@ class UserFocusModel extends Model{
     }
 
     /**
-     * 获取关注信息列举
+     * Get the list of concerned information
      * @param $where
      * @return false|mixed|PDOStatement|string|\think\Collection
      */
@@ -46,7 +46,7 @@ class UserFocusModel extends Model{
     }
 
     /**
-     * 关注的添加与取消操作
+     * Followed add and cancel operations
      * @param $data
      * @return int
      */
@@ -54,11 +54,11 @@ class UserFocusModel extends Model{
 
         $result = self::$Focus->where($data)->find();
         if ($result){
-            //已关注，取消关注
+            //Followed, unfollow
             self::$Focus->where($data)->delete();
             return 2;
         }else{
-            //未关注，添加关注
+            //Not followed, add follow
             $data['focus_time'] = date('Y-m-d H:i:s',time());
             self::$Focus->data($data)->add();
             

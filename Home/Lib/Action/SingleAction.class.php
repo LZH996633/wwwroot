@@ -8,15 +8,15 @@ class SingleAction extends CommonAction{
 
 
     /**
-     * 关于我们
+     * about Us
      */
     public function aboutUS(){
 
-        /*公共头尾引用*/
+        /*Public citation*/
         $Public = new PublicAction();
         $Public->header();
         $Public->footer();
-        /*公共头尾引用结束*/
+        /*End of common head and tail reference*/
         $index =I('show');
        
         if($index==''){
@@ -37,15 +37,15 @@ class SingleAction extends CommonAction{
 
     
     /**
-     * 开店
+     * Become a seller
      */
     public function shopUS(){
 
-        /*公共头尾引用*/
+        /*Public citation*/
         $Public = new PublicAction();
         $Public->header();
         $Public->footer();
-        /*公共头尾引用结束*/
+        /*End of common head and tail reference*/
         $index =I('shop');
        
         if($index==''){
@@ -71,35 +71,35 @@ class SingleAction extends CommonAction{
 
 
     /**
-     * 个人主页
+     * Homepage
      */
     public function personal(){
-        /*公共头尾引用*/
+        /*Public citation*/
         $Public = new PublicAction();
         $Public->header();
         $Public->footer();
 
-        //获取传值
+        //Get pass value
         $user_id = I('user_id');
 
-        //实例化模型
+        //Instantiate model
         $User = new UserModel();
         $Opus = new OpusModel();
 
-        //查询操作
-        /*分页*/
+        //Query operation
+        /*Pagination*/
         if($_GET['p']==''){
             $p = 1;
         }else{
             $p = $_GET['p'];
         }
-        /*查询条件*/
+        /*Query conditions*/
         $where['user_id'] = $user_id;
-        /*个人信息*/
+        /*Personal information*/
         $user_info = $User->getUserInfo(array('user_id'=>$user_id));
         
-        /*作品信息*/
-        $opus_list_show = $Opus->getOpusList($path='',$order='',$where,$num='8',$p);
+        /*Work information*/
+        $opus_list_show = $Opus->getOpusList($path='',$order='',$where,$num='50',$p);
         
         $count = $opus_list_show['count'];
         $page = $opus_list_show['page'];
@@ -112,10 +112,10 @@ class SingleAction extends CommonAction{
     }
 
     /**
-     * 协议
+     * protocol
      */
     public function agreement(){
-        /*公共头尾引用*/
+        /*Public citation*/
         $Public = new PublicAction();
         $Public->header();
         $Public->footer();

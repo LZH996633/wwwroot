@@ -1,0 +1,75 @@
+
+
+
+
+<div class="rtmain">
+        	<div class="hdtitle clearfix">
+            	<ul class="fl clearfix" >
+                	<li class="on"><a href="javascript:void(0)">成为卖家</a></li>
+                </ul>
+            </div>
+            <form  id="myform" action="{:U('Service/ToBeSeller')}" method="post">
+           	<div  id="myform1" class="ulfroms">
+                <ul class="tlepic clearfix tlc1" style="width: 230px" >
+                    <li class="on">完善资料</li>
+
+                </ul>
+                <p class="tipsd">注：所填信息完全保密，请放心填写。</p>
+                <ul class="formsd">
+                    <li><label>您的开户名：</label><input type="text" class="webtxt" name="name" id="realname" value="{$info.acct_name}"></li>
+                    <li><label>您的身份证号：</label><input type="text" class="webtxt" name="idcard" id="idcard" value="{$info.user_idcard}"></li>					
+                    <li><label>您的支付宝账号：</label><input type="text" class="webtxt" name="alipay" id="zhifubao" value="{$info.acct_alipay}"></li>
+                    <li><label>您的开户行名称：</label>
+                    <select name="bankname" id="bankname" style="width:270px;height:30px;">
+                        <option value="{$info.acct_bank}">{$info.acct_bank}</option>
+                    <option value="中国银行" >中国银行</option>
+                    <option value="中国工商银行" >中国工商银行</option>
+                    <option value="中国建设银行" >中国建设银行</option>
+                    <option value="中国交通银行" >中国交通银行</option>
+                    <option value="招商银行" >招商银行</option>
+                    <option value="中国邮政储蓄银行" >中国邮政储蓄银行</option>
+                    <option value="中信银行" >中信银行</option>
+                    <option value="中国农业银行" >中国农业银行</option>
+                    <option value="中国光大银行" >中国光大银行</option>
+                    <option value="中国民生银行" >中国民生银行</option>
+                    <option value="平安银行" >平安银行</option>
+                    <option value="浦发银行" >浦发银行</option>
+                    <option value="兴业银行" >兴业银行</option>
+                    <option value="华夏银行" >华夏银行</option>
+                    <option value="广发银行" >广发银行</option>
+                    <option value="徽商银行" >徽商银行</option>
+                    </select>
+                    </li>
+					<li><label>您的支行信息：</label><input type="text" class="webtxt" name="subbankname" id="subbankname" value="{$info.acct_sbank}"></li>
+                    <li><label>您的银行卡号：</label><input type="text" class="webtxt" name="bankid" id="bankid" value="{$info.acct_account}"></li>
+                    <li><label>您的QQ：</label><input type="text" id="qq" class="webtxt" name="qq" value="{$user_info.user_qq}"></li>
+                </ul>
+                <div class="btnsd"><input value="提交审核" type="submit" class="pay-btn" /></div>
+            </div>
+            </form>
+      	</div>
+
+<script language="JavaScript">
+<!--
+$(function(){
+	
+	  var tsxx = "该信息完全保密，放心填写";
+   
+
+	$.formValidator.initConfig({autotip:true,formid:"myform1",onerror:function(msg){}});
+
+
+    $("#realname").formValidator({onshow:tsxx,onfocus:"请输入开户名"}).regexValidator({regexp:"^([\\u4e00-\\u9fa5]){2,4}$",onerror:"姓名在2-4个汉字之间"});
+			$("#subbankname").formValidator({onshow:tsxx,onfocus:"请输入您的支行信息"}).inputValidator({min:1,onerror:"支行信息不能为空"});
+			$("#idcard").formValidator({onshow:tsxx,onfocus:"请输入您的身份证号码"}).inputValidator({min:18,max:18,onerror:"身份证号码为18位"});			
+			$("#zhifubao").formValidator({onshow:tsxx,onfocus:"请校验支付宝号，因填写错误造成损失自负"}).inputValidator({min:1,onerror:"支付宝号必须填写"});
+ 			$("#bankname").formValidator({onshow:tsxx,onfocus:"请选择所属银行，因填写错误造成损失自负"}).inputValidator({min:1,onerror:"银行账户必须选择"});          
+            $("#bankid").formValidator({onshow:tsxx,onfocus:"请校验银行卡号，因填写错误造成损失自负"}).inputValidator({min:1,onerror:"银行卡号必须填写"});
+
+            $("#qq").formValidator({onshow:tsxx,onfocus:"请填写QQ号，方便我们和你联系"}).inputValidator({min:5,max:12,onerror:"QQ号必须在5-12之间的数字"});
+
+	//$("#mobile").formValidator({onshow:"请输入手机号码",onfocus:"请输入手机号码"}).regexValidator({regexp:"^(1[3-9])\\d{9}$",onerror:"请输入11位手机号码"});
+
+});
+//-->
+</script>

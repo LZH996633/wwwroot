@@ -30,15 +30,15 @@ public function __construct()
     }
 
     /**
-     * 生成栏目导航
+     * Generate column navigation
      * @return false|mixed|PDOStatement|string|\think\Collection
      */
     public function CreateCate(){
         $where['pid'] = 1;
         //$where['location'] = array('neq',0);
-        //获取一级栏目信息
+        //Get first-level column information
         $cates = self::$Classify->where($where)->order('location')->select();
-       //返回值
+       //return value
 
         return $cates;
     }
@@ -86,7 +86,7 @@ public function __construct()
 
     public function getPath($cid){
 
-        //创建查询条件
+        //Create query conditions
         $path = self::$Classify->getFieldByCid($cid,'path');
 
         $result = self::$Classify->where('cid='.$cid)->find();
@@ -97,7 +97,7 @@ public function __construct()
             $cid = $whole['cid'];
         }
 
-        //作品路径
+        //Work path
         $path = $path.'-'.$cid;
 
         return $path;
@@ -111,7 +111,7 @@ public function __construct()
 
         if($cate['type']=='half'){
 
-            //半价模板调用全价模板
+            //Half-price template call full-price template
             $whole['type'] = 'whole';
             $cate = self::$Classify->where($whole)->find();
         }

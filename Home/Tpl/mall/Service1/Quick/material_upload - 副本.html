@@ -1,0 +1,319 @@
+<div class="rtmain" xmlns="http://www.w3.org/1999/html">
+    <div class="hdtitle clearfix">
+        <ul class="fl clearfix">
+            <if condition="$info">
+                <li class="on"><a href="javascript:void(0)">编辑作品</a></li>
+                <else/><li class="on"><a href="javascript:void(0)">上传作品</a></li>
+            </if>
+
+        </ul>
+    </div>
+    <form action="{:U('Service/MaterialUpload')}" method="post" id="up_form" target="_blank">
+        <div class="ulfroms">
+            <ul class="tlepic clearfix tlc1" style="width: 230px">
+               <!-- <li>完善资料</li>
+                <li>手机验证</li>-->
+                <if condition="$info">
+                    <li class="on">编辑素材</li>
+                    <else/><li class="on">上传素材</li>
+                </if>
+
+            </ul>
+            <p class="tipsd">注：请填写完整的信息。</p>
+			
+            <ul class="formsd">
+                <li><label>作品标题：</label><input type="text" class="webtxt"  id="opus_title" name="opus_title" value="{$info.opus_title}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>作品标价：</label><input type="text" class="webtxt"  id="opus_price" name="opus_price" value="{$info.price}"><span style="line-height:34px;margin-left:10px;">金币</span></li>
+                <li><label>搜索标签：</label><input type="text" class="webtxt"  id="opus_keyword" name="opus_keyword" value="{$info.opus_keyword}"><span style="line-height:34px;margin-left:10px;"></span></li>
+                <li><label>半价销售：</label>
+                    <if condition="$info['is_half'] eq 1">
+                        <input type="checkbox" id="is_half" name="is_half" checked></li>
+                        <else/><input type="checkbox" id="is_half" name="is_half"></li>
+                    </if>
+
+                <li><label>所属栏目：</label>
+                   <select style="width:270px;height:30px;" name="cate" id="cate">
+                       <if condition="$edit_cate">
+                           <option value="{$edit_cate.path}-{$edit_cate.cid}" >{$edit_cate.name}</option>
+                       </if>
+                      <volist name="cate_list" id="list">
+                          <option value="{$list.path}-{$list.cid}" >{$list.name}</option>
+                      </volist></select></li>
+                <li><label>作品分类：</label></li>
+                <volist name="sort_list" id="list">
+                    <li><label>{$list.name}：</label>
+                        <select name="{$list['kind']}" id="{$list['kind']}" style="width:270px;height:30px;">
+                            <if condition="$edit_list">
+                                <option value="{$edit_list[$list['kind']].id}" >{$edit_list[$list['kind']].name}</option>
+
+                            </if>
+                            <option value="">请选择</option>
+                            <volist name="list['second']" id="lists">
+                                 <option value="{$lists.id}" >{$lists.name}</option>
+                            </volist>
+                        </select>
+                    </li>
+                </volist>
+                <if condition="$info['opus_fileurl']">
+                    <li><label>上传文件：</label>上传源文件<input type="radio"  class="opus_method" name="method" value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" checked> </li>
+                    <else/>
+                    <li><label>上传文件：</label>上传源文件<input type="radio" checked  class="opus_method" name="method"  value="1" >&nbsp;&nbsp;&nbsp;添加文件下载链接<input type="radio" name="method" value="2" class="opus_method" > </li>
+                </if>
+                    <li class="down_url" style="display: none"><label>外部下载链接：</label><input type="text" class="webtxt"  id="down_url" name="down_url" value="{$info.opus_fileurl}"></li>
+                    <li class="down_url" style="display: none"><label>密码：</label><input type="text" class="webtxt"  id="pass" name="pass" value="{$info.opus_zippass}"></li>
+
+                 </ul>
+
+            <div class="wordlist clearfix yuan">
+                <div class="nmse fl">源文件上传：</div>
+                <div class="btn fl"><a href="javascript:;" onClick="$('#yuanjian').click();"><img src="__IMG__/dhscbtn.png"></a></div>
+                <input type="hidden" id="yuanjian_s" name="yuanjian" value="{$info.opus_source}">
+                <input type="file" id="yuanjian" name="file" value="" style="display:none"  onchange="ajaxFileUpload('yuanjian')">
+                <ul style="margin-left:50px;">
+                    <li></li>
+                </ul>
+                <div id="yuanjian_sTip" ></div>
+            </div>
+
+            <div class="wordlist clearfix">
+                <div class="nmse fl">展示视频上传： </div>
+				
+				
+                <div class="btn fl">
+
+				<video id="video_1" style="margin-top::-30px; width:150px; height:140px; display:none;" controlsList="nodownload" oncontextmenu="return false" controls >
+               <source id="video_2" src="{$info.opus_video}" type="video/mp4">
+               <object id="video_3" data="{$info.opus_video}" width="150" height="110">
+               </object>
+               </video>	
+
+				<a href="javascript:;" onClick="$('#zhanshi').click();">				
+				<img id="video" src="__IMG__/dhscbtn.png"></a>
+				
+				
+
+		
+				
+				
+				</div>
+                <input type="hidden" id="zhanshi_s" name="zhanshi" value="{$info.opus_video}">
+                <input type="file" id="zhanshi" name="file"  style="display:none"  onchange="ajaxFileUpload('zhanshi')">
+                <ul style="margin-left:50px;">
+                    <li></li>
+                </ul>
+                <div id="zhanshi_sTip" ></div>
+            </div>
+            <div class="wordlist clearfix">
+                <div class="nmse fl">视频预览图：</div>
+                <div class="btn fl">
+				
+		        <img id="img" SRC="__IMG__/dhscbtn.png" style="display:block" BORDER=0>		
+				<img id="img1" src="{$info.opus_pic_big}" style="width:150px; height:130px; display:none" BORDER=0>
+				
+				</div>
+             <input type="hidden" id="yulan_s"  placeholder="上传后预览" name="yulan" value="{$info.opus_pic_big}">		
+                <input type="file" id="yulan" name="file"  style="display:none"  onchange="ajaxFileUpload('yulan')">
+                <ul style="margin-left:50px;">
+                    <li></li>
+                </ul>
+                <div id="yulan_sTip" ></div>
+            </div>
+            <if condition="$info">
+                <input type="hidden" name="edit" value="true">
+                <input type="hidden" name="opus_id" value="{$info.opus_id}">
+            </if>
+            <div class="btnsd"><input value="提交审核" type="submit" class="pay-btn" /></div>
+        </div>
+    </form>
+    <form action="{:U('Upload/upload')}" method="post" enctype="multipart/form-data" id="j-uploadFile-form" style="position: absolute;left: -9999px;top: -9999px;" target="j-uploadFile-iframe"></form>
+    <iframe id="j-uploadFile-iframe" name="j-uploadFile-iframe" style="position: absolute;left: -9999px;top: -9999px;"></iframe>
+</div>
+<script type="text/javascript">
+
+	//$(function () {   //     上传文件初始判断   判断 是否上传过 和 空文件上传 或者是 后缀错误
+     //   $("#zhanshi").change(function () {  
+     //       uploadImage();  
+    //    })  
+
+    //    $("#yulan").change(function () {  
+    //        uploadImage1();  
+     //   })  
+
+///
+   // })  
+
+  //  function uploadImage() {  
+   //     // 判断是否有选择上传文件 
+   //     var imgPath = $("#zhanshi").val();  
+       // if (imgPath == "") {  
+           // alert("请选择上传图片！");  
+         //   $('#zhanshi_sTip').html('<span style="color: red">已上传</span>');
+         //   layer.msg(message);
+        //    return;  
+       // }  
+        //判断上传文件的后缀名  
+    //    var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);  
+    //    if (strExtension != 'mp4' && strExtension != 'flv') {  
+        //    && strExtension != 'png' && strExtension != 'bmp') {  
+      //  $('#zhanshi_sTip').html('<span style="color: red">选择格式不对请选择视频格式文件如：.mp4</span>');
+      //       layer.msg('选择格式不对请选择视频格式文件如：.mp4');                     
+       //     
+			
+      //   } 
+      //   else{
+     //       $('#zhanshi_sTip').html('<span style="color: red">已上传</span>');
+       //      layer.msg('已上传');                     
+       //     return;  
+
+      //   }
+  //  }
+
+  // function uploadImage1() {  
+        // 判断是否有选择上传文件 
+    //    var imgPath = $("#yulan").val();  
+
+        //判断上传文件的后缀名  
+    //    var strExtension = imgPath.substr(imgPath.lastIndexOf('.') + 1);  
+    //    if (strExtension != 'jpg' && strExtension != 'gif' && strExtension != 'png' && strExtension != 'bmp') {  
+		
+    //         layer.msg('选择格式不对请选图片格式文件如：.jpg');                     
+       			
+     //    } 
+     //    else{
+      //       layer.msg('已上传');                     
+       //     return;  
+
+      //   }
+  //  }
+
+
+
+
+
+    head.ready('formvalidator',function(){
+
+      $.formValidator.initConfig({autotip:true,formid:"up_form",onerror:function(msg){}});
+     $("#opus_title").formValidator({onshow:"请使用简洁，鲜明的标题",onfocus:"输入作品名称",oncorrect:" 已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+        $("#opus_price").formValidator({onshow:"价格",onfocus:"请输入价格",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+      $("#opus_keyword").formValidator({onshow:"此项用于搜索作品，请填写短词语，用减号（-）隔开",onfocus:"添加关键词",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+       if($('.opus_method').eq(0).attr('checked')=='checked'){
+            $("#yuanjian_s").formValidator({onshow:"，支持 'rar', 'zip' 格式",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+        }
+     $("#zhanshi_s").formValidator({onshow:"视频上传后呈现视频预览，支持'flv', 'mp4' 格式",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+         $("#yulan_s").formValidator({onshow:"视频上传后封面预览，",onfocus:"使用简洁的标题",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+       if($('.opus_method').eq(1).attr('checked')=='checked'){
+             $("#down_url").formValidator({onshow:"文件下载链接",onfocus:"填写链接",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+
+       }
+
+         $("#cate").formValidator({onshow:"所属栏目，必选项",onfocus:"选择栏目",oncorrect:"已填"}).regexValidator({regexp:"notempty",datatype:"enum",onerror:"必填项"});
+
+
+
+
+
+    });
+	
+
+
+
+	
+</script>
+<if condition="$info['opus_fileurl']">
+    <script type="text/javascript">
+
+        $('.yuan').attr('style','display:none');
+        $('.down_url').attr('style','display:block')
+    </script>
+
+    <else/>
+    <script type="text/javascript">
+
+        $('.yuan').attr('style','display:block');
+        $('.down_url').attr('style','display:none')
+    </script>
+</if>
+<!--文件方式-->
+<script type="text/javascript">
+
+  $('.opus_method').click(function () {
+      var i =  $(this).index();
+
+        if(i=='1'){
+            $('.yuan').attr('style','display:block')
+            $('.down_url').attr('style','display:none')
+        }if(i=='2'){
+
+            $('.down_url').attr('style','display:block')
+            $('.yuan').attr('style','display:none')
+        }
+
+    })
+</script>
+
+<script type="text/javascript">
+   function ajaxFileUpload(name){
+
+               var oInp = $('#'+name);
+               var oNewInp = oInp.clone(true);
+               var oForm = $('#j-uploadFile-form');
+               var oIframe = $('#j-uploadFile-iframe');
+               oInp.before(oNewInp);
+
+               oInp.removeAttr('id').removeAttr('class').appendTo(oForm);
+
+               oIframe.on('load', function(e){
+                   oIframe.off('load');
+                   var sRet = this.contentWindow.document.body.innerHTML;
+                   oForm.empty();
+                   if (sRet && sRet.length) {
+                       try {
+                           var oRet = $.parseJSON(sRet);
+                           if (oRet.error == 0) {
+                               $('#'+name+'_s').attr('value',oRet.filePath);
+                               $('#'+name+'Tip').html('<span style="color: red">已上传</span>');
+                               layer.msg(oRet.message);
+                               //oret.img();
+                              // $('#yulan_s55').attr('value',oret.img);
+                               $('#yulan_s').val(oRet.img);
+                               $('#zhanshi_s').val(oRet.video1);
+							   if(oRet.img == ""){
+							   img1.style.display = "none";    //隐藏
+							   img.style.display = "block"   //显示
+							   } else{
+							   $("#img1").attr("src",oRet.img);
+							   img.style.display = "none";
+							   img1.style.display = "block"
+							   }
+							   
+						        if(oRet.video1 == ""){
+							     video_1.style.display = "none";    //隐藏
+							     video.style.display = "block"   //显示
+							    } else{
+							    // $("#video_2").attr("src",oRet.video1);
+								 document.getElementById("video_1").src = oRet.video1;
+								// $("#video_3").attr("data",oRet.video1);
+							     video.style.display = "none";
+							     video_1.style.display = "block"
+							    }					   
+							   
+                            } else if (oRet.error == 5) {
+                              alert(oRet.message); 
+                               $('#'+name+'_s').attr('value',oRet.filePath);
+                               $('#'+name+'Tip').html('<span style="color: red">请选择正确文件格式上传</span>');
+                               layer.msg(oRet.message);
+					  
+                        }
+                       } catch (e) {
+                           //alert('上传失败，请重试!');
+                       }
+                   }
+               });
+
+               oForm.submit();
+
+
+   }
+
+</script>
+
