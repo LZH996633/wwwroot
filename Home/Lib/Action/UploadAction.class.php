@@ -112,7 +112,7 @@ class UploadAction extends CommonAction{
                  $bg_h = 406; // Background image height
 
                  $background = imagecreatetruecolor($bg_w,$bg_h); // Background image canvas
-                 $color = imagecolorallocate($background, 202, 201, 201); // 为真彩色画布创建白色背景，再设置为透明
+                 $color = imagecolorallocate($background, 202, 201, 201); // Create a white background for the true color canvas and set it to transparent
                   imagefill($background, 0, 0, $color); 
                   imageColorTransparent($background, $color); 
                  $pic_count = count($pic_list); 

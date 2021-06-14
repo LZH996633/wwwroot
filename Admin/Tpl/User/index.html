@@ -62,10 +62,7 @@ $(document).ready(function(){
     
     <div class="tools">
         <ul class="toolbar">
-            <!-- <li class="click"><span><img src="__IMG__/t01.png" /></span>添加</li> -->
-            <!-- <li class="click"><span><img src="__IMG__/t02.png" /></span>修改</li> -->
             <li class="click"><span><img src="__IMG__/t03.png" /></span>Delete</li>
-            <!--  <li class="click"><span><img src="__IMG__/t04.png" /></span>统计</li>-->
         </ul>
         <div style="float:right;width:500px;">
 
@@ -78,16 +75,14 @@ $(document).ready(function(){
             </ul>
             <ul class="">
             <li class="sarchbtn"><label>&nbsp;</label>
-			<!-- <input name="" type="button" class="scbtn2" value="导出"/> -->
 			</li>  
             </ul>
             <ul class="toolbar1" style="float:right;">
-                <!-- <li><span><img src="__IMG__/t05.png" /></span>设置</li> -->
             </ul>
         </form>
         </div>
     </div>
-        <!--全选与全不选-->
+        <!--Select all and deselect all-->
         <script type="text/javascript">
 
             function select_all(){
@@ -110,7 +105,7 @@ $(document).ready(function(){
 
             }
         </script>
-        <!--//单选-->
+        <!--//Single choice-->
         <script type='text/javascript'>
 
             function select_it(id){
@@ -122,7 +117,7 @@ $(document).ready(function(){
 
 
         </script>
-       <!--cancel 全部取消-->
+       <!--cancel all of them-->
         <script type='text/javascript'>
 
             function cancel(){
@@ -136,7 +131,7 @@ $(document).ready(function(){
                 }
 
             }
-            <!-- 表单提交 -->
+            <!-- Form submission -->
             function sure(){
                 var  select = document.getElementsByClassName('select');
                 var length = select.length;
@@ -166,12 +161,6 @@ $(document).ready(function(){
             <th>Username</th>
             <th>Nickname</th>
             <th>Mailbox</th>
-                <!--<th>Cell phone</th>-->
-               <!-- <th>籍贯</th> -->
-            <!-- <th>等级</th> -->
-            <!-- <th>用户权限</th> -->
-            <!--<th>账户余额（￥）</th>-->
-            <!-- <th>剩余积分</th> -->
             <th>Registration time</th>
             <th>Banned status</th>
             <th>Operating</th>

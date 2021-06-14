@@ -27,7 +27,7 @@ $(document).ready(function(){
 });
 
 
- /* 图片放大tooltip */
+ /* Picture enlargement tooltip */
 #tooltip{
 width:550px;
 higher:550px;
@@ -93,7 +93,6 @@ higher:550px;
             <th>Reverse side of ID card</th>
             <th>Holding ID card</th>
             <th>Certification status</th>
-    <!--        <th>注册时间</th>   -->
             <th>Operating</th>
             </tr>
         </thead>
@@ -109,12 +108,7 @@ higher:550px;
 		</td>	
 			 <td>
 	<a href="<?php echo ($vo["idcardb_pic"]); ?>" class="tooltip" target="_blank"><img src="<?php echo ($vo["idcardb_pic"]); ?>"  style="max-width:80px; max-height:80px;"/></a>
-		</td>			
-	   <!-- 		<td class="imgtd"><img src="<?php echo ($vo["idcardc_pic"]); ?>" style="height: 80px;width: 80px"/></td>			
-         <td><?php echo ($vo["user_alipay"]); ?></td>   
-            <td><?php echo ($vo["user_bank"]); ?></td>
-            <td><p>手机号：<?php echo ($vo["user_mobilephone"]); ?></p><p>邮箱：<?php echo ($vo["user_email"]); ?></p><p>QQ号：<?php echo ($vo["user_qq"]); ?></p></td>
-			 -->
+		</td>
 			 <td>
 	<a href="<?php echo ($vo["idcardc_pic"]); ?>" class="tooltip" target="_blank"><img src="<?php echo ($vo["idcardc_pic"]); ?>"  style="max-width:80px; max-height:80px;"/></a>
 		</td>	

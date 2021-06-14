@@ -321,7 +321,7 @@ class ServiceAction extends CommonAction {
 
  
 	/**
-	 * 卖家中心首页中心首页 导航
+	 * Seller Center Home Center Home Navigation
 
 	 */
     public function mainheader(){
@@ -364,30 +364,30 @@ class ServiceAction extends CommonAction {
 
         $this->assign(array('msg'=>$msg));
 
-		//获取用户信息
+		//Get user information
 		$User = new UserModel();
 		$UserInfo = $User->getUserInfo($where);
 		$nickname = $UserInfo['user_nickname'];
 		$user_name = $UserInfo['user_name'];
-		$gold_coins = $UserInfo['gold_coins'];   //用户中心  L币显示
-		$user_veri = $UserInfo['user_veri'];   //用户中心  体现判断	
-		$idcard_sta = $UserInfo['idcard_sta'];   //用户中心  实名判断			
+		$gold_coins = $UserInfo['gold_coins'];   //Gold coin display
+		$user_veri = $UserInfo['user_veri'];   // Embody judgment
+		$idcard_sta = $UserInfo['idcard_sta'];   //Real name judgment
 		if ($nickname==null){
 			$nickname = $user_name;
 		}
 		$user_pic = $UserInfo['user_pic'];
-		//获取用户账户信息
+		//Get user account information
 		$UserAccount = new UserAccountModel();
 		$UserAcount = $UserAccount->getAcountInfo($where);
 		$gold_coin = $UserAcount['gold_coin'];
-		//模板赋值
+		//Template assignment
         $this->assign(array('acc_info'=>$UserAcount));
 		$this->assign(array('nickname'=>$nickname,'user_name'=>$user_name,'gold_coin'=>$gold_coin,'gold_coins'=>$gold_coins,'idcard_sta'=>$idcard_sta,'user_veri'=>$user_veri,'user_pic'=>$user_pic));
 
-		//用户下载数信息
+		//User downloads information
 		$OpusDown = new OpusDownloadModel();
 		$DownCount = $OpusDown->getDownCount($where);
-		//用户收藏数信息
+		//User favorites information
 		$OpusFavor = new OpusFavoriteModel();
 		$FavorCount = $OpusFavor->getFavorCount($where);
 
@@ -416,30 +416,30 @@ class ServiceAction extends CommonAction {
 
 
 	/**
-	 * 页码链接URL修改
+	 * Page number link URL modification
 	 * @param $page
 	 * @return string
 	 */
     public function getPageUrl($page){
-		//将html转为string
+		//Convert html to string
 		$page = htmlentities($page);
 
-		//拆分为数组
+		//Split into array
 		$arr = explode(';a',$page);
-		//遍历
+		//Traverse
 		foreach ($arr as $key=>$value){
 			if ($key!='0'){
-				//获取a链接页码
+				//Get a link page number
 				preg_match("/p\\/([0-9])[\\/\\.]/",$value,$match);
 				$page_num = $match[1];
 
-				//替换a链接的href属性
+				//Replace the href attribute of a link
 				$rule = "/\\/index.php(\\/((\\w+)|((\\w+)*\\-(\\w+)*\\-(\\w+)*)))*\\.html/";
 				$replace = "javascript:change_page($page_num)";
 				$arr[$key] = preg_replace($rule,$replace,$value);
 			}
 		}
-		//合并为字符串
+		//Merge into string
 		$page = implode(';a',$arr);
 
 		$page = html_entity_decode($page);
@@ -449,7 +449,7 @@ class ServiceAction extends CommonAction {
 }
 
 	/**
-	 * 日期查询
+	 * Date query
 	 * @param $data
 	 * @param $field
 	 * @return mixed
@@ -485,24 +485,24 @@ class ServiceAction extends CommonAction {
 
 
 	/**
-	 * 收藏操作
+	 * Collection operation
 	 * @param $user_id
 	 * @param $p
 	 */
 	public function Collect($user_id,$p){
 
 		$where['user_id'] = $user_id;
-        //查询收藏信息
+        //Query collection information
 		$Favorite = new OpusFavoriteModel();
 		$FavorList = $Favorite->getFavorList($where);
 
-		//获取收藏作品的opus_id
+		//Get the opus_id of the collection
 		$id_array =array();
 		foreach($FavorList as $key=>$value ){
 			$id_array[]=$value['opus_id'];
 		}
 
-		//获取收藏作品的详情信息
+		//Get the detailed information of the collection
 		$where = null;
 		$where['opus_id'] = array('in',$id_array);
 
@@ -521,7 +521,7 @@ class ServiceAction extends CommonAction {
 }
 
 	/**
-	 * 关注操作
+	 * Follow the operation
 	 * @param $user_id
 	 * @param $p
 	 */
@@ -535,7 +535,7 @@ class ServiceAction extends CommonAction {
 		foreach ($FocusList as $key=>$value){
 			$id_array[] = $value['befocus_id'];
 		}
-		//获取关注用户信息
+		//Obtaining user information
 		$where = null;
 		$where['user_id'] = array('in',$id_array);
 
@@ -552,15 +552,15 @@ class ServiceAction extends CommonAction {
 	}
 
 	/**
-	 * 收藏关注页面显示
+	 * Favorite and follow page display
 	 */
 	public function CollectFocus(){
 
-        //获取传值
+        //Get pass value
 		//$user_id = $_GET['user_id'];
 		$user_id = $_COOKIE['user_id'];
 		$show = $_GET['show'];
-		//页码
+		//page number
 		if ($_GET['p']=='') {
 			$p = 1;
 		} else {
@@ -568,7 +568,7 @@ class ServiceAction extends CommonAction {
 		}
    //var_dump($user_id);     
 	   if ($show=='1'){
-			//显示关注
+			//Show concern
 			$this->Focus($user_id,$p);
 
 		}elseif ($show=='0'){
@@ -578,12 +578,12 @@ class ServiceAction extends CommonAction {
 	   }else{
 		   $p =1;
 		   $show = '0';
-		   //显示关注和收藏
+		   //Show followers and favorites
 
 		   $this->Collect($user_id,$p);
 	   }
 		
-		//显示表识
+		//Display recognition
       $this->assign('show_project',$show);
 		
 	  $this->display('Service/Content/collect_focus');
@@ -591,7 +591,7 @@ class ServiceAction extends CommonAction {
 
 
 	/**
-	 * 下载操作
+	 * Download operation
 	 * @param $user_id
 	 * @param $p
 	 * @param $where
@@ -602,7 +602,7 @@ class ServiceAction extends CommonAction {
 		$start_time = $time[0];
 		$end_time = $time[1];
 
-		//赋值查询时间范围
+		//Assignment query time range
 		$this->assign(array('down_start'=>$start_time,'down_end'=>$end_time));
 
 
@@ -613,7 +613,7 @@ class ServiceAction extends CommonAction {
 		$OpusDown = new OpusDownloadModel();
 
 		$DownListShow = $OpusDown->getDownList($where,$num='10',$p);
-		//URL转换
+		//URL conversion
 		$page = $DownListShow['page'];
 		$page = $this->getPageUrl($page);
 
@@ -626,7 +626,7 @@ class ServiceAction extends CommonAction {
 	}
 
 	/**
-	 * 上传操作
+	 * Upload operation
 	 * @param $user_id
 	 * @param $p
 	 * @param $where
@@ -639,10 +639,10 @@ class ServiceAction extends CommonAction {
 		 $start_time = $time[0];
 		 $end_time = $time[1];
 
-		//赋值查询时间范围
+		//Assignment query time range
 		 $this->assign(array('up_start'=>$start_time,'up_end'=>$end_time,'up_order'=>$order));
 
-		//构建查询时间条件
+		//Build query time conditions
 		 $where = $this->getDateTime($data,$field='opus_createtime');
 
          $where['user_id'] = $user_id;
@@ -667,7 +667,7 @@ class ServiceAction extends CommonAction {
 	}
 
 	/**
-	 * 下载上传页面显示
+	 * Download and upload page display
 	 */
 	public function Down_Upload(){
 
@@ -683,7 +683,7 @@ class ServiceAction extends CommonAction {
 
 		$order = $_GET['order'];
 		
-		//页码
+		//page number
 		if ($_GET['p']=='') {
 			$p = 1;
 		} else {
@@ -691,21 +691,21 @@ class ServiceAction extends CommonAction {
 		}
 
 		if ($show=='1'){
-			//显示上传
+			//Show upload
 			$this->Upload($user_id,$p,$sort,$order);
 
 		}elseif ($show=='0'){
-			//显示下载
+			//Show download
 			$this->Download($user_id,$p,$sort);
 		}
 		else{
 			$show = '0';
-			//默认显示下载
+			//Download by default
 			$p =1;
 			$this->Download($user_id,$p,$sort);
 		}
 
-		//赋值显示标识
+		//Assignment display flag
 		$this->assign('show_project',$show);
 		
 		$this->display('Service/Content/down_upload');
@@ -718,10 +718,10 @@ class ServiceAction extends CommonAction {
 		$start_time = $time[0];
 		$end_time = $time[1];
 
-		//赋值查询时间范围
+		//Assignment query time range
 		$this->assign(array('start'=>$start_time,'end'=>$end_time,'order'=>$order));
 
-		//构建查询时间条件
+		//Build query time conditions
 		$where = $this->getDateTime($sort,$field='custom_time');
 		$where['custom_type'] = '0';
 		$where['custom_buyer'] = $user_id;
@@ -747,10 +747,10 @@ class ServiceAction extends CommonAction {
 		$start_time = $time[0];
 		$end_time = $time[1];
 
-		//赋值查询时间范围
+		//Assignment query time range
 		$this->assign(array('start'=>$start_time,'end'=>$end_time,'order'=>$order));
 
-		//构建查询时间条件
+		//Build query time conditions
 		$where = $this->getDateTime($sort,$field='custom_time');
 		$where['custom_type'] = '1';
 		$where['custom_buyer'] =$user_id;
@@ -774,202 +774,8 @@ class ServiceAction extends CommonAction {
 
 
 
-	/**
-	 * 入账记录操作
-	 * @param $user_id
-	 * @param $p
-	 * @param $sort
-	 * @param $order
-	 */
-	public function DetailRecharge($user_id,$p,$sort,$order){
-		$time = explode(',',$sort);
-
-		$start_time = $time[0];
-		$end_time = $time[1];
-
-
-		//赋值查询时间范围
-		$this->assign(array('recharge_start'=>$start_time,'recharge_end'=>$end_time,'order'=>$order));
-
-		//构建查询时间条件
-		$where = $this->getDateTime($sort,$field='acct_time');
-		$where['user_id'] = $user_id;
-		if ($order!=''){
-			$where['acct_status'] = $order;
-		}
-
-		$UserRecharge = new UserRechargeModel();
-
-		$RechargeListShow = $UserRecharge->getRechargeList($where,$num=50,$p);
-
-		$count = $RechargeListShow['count'];
-		$RechargeList = $RechargeListShow['list'];
-		$complete = 0;$sum = 0;
-
-		foreach ($RechargeList as $key=>$value){
-			$sum = $sum + $value['acct_money'];
-			if ($value['acct_status']==3){
-				$complete = $complete+$value['acct_money'];
-			}
-		}
-		
-
-		$unfinished = $sum-$complete;
-		$page = $RechargeListShow['page'];
-		$page = $this->getPageUrl($page);
-		
-
-
-		$this->assign(array('count_recharge'=>$count,'page_recharge'=>$page,'RechargeList'=>$RechargeList,'sum_recharge'=>$sum,'unfinished_recharge'=>$unfinished,'complete_recharge'=>$complete));
-
-		
-	}
-
-	public function DetailConsume($user_id,$p,$sort){
-		$time = explode(',',$sort);
-
-		$start_time = $time[0];
-		$end_time = $time[1];
-
-
-		//赋值查询时间范围
-		$this->assign(array('con_start'=>$start_time,'con_end'=>$end_time));
-
-		//构建查询时间条件
-		$where = $this->getDateTime($sort,$field='time');
-		$where['user_id'] = $user_id;
-		$where['method_status'] = '0';
-        $where['method'] = '2';
-        $where['over'] = '1';
- 
-		$Consume = new UserConsumeModel();
-		$ConsumeShowList = $Consume->getConsumeList($where,$num=50,$p);
-		$count = $ConsumeShowList['count'];
-
-		$ConsumeList = $ConsumeShowList['list'];
-		$num_con = 0;
-		foreach($ConsumeList as $key=>$value){
-			$num_con = $value['money'] + $num_con;
-		}
-
-		$page = $ConsumeShowList['page'];
-		$page = $this->getPageUrl($page);
-
-		$this->assign(array('count_con'=>$count,'page_con'=>$page,'ConsumeList'=>$ConsumeList,'num_con'=>$num_con));
-	}
-	public function DetailTotal($user_id,$p,$sort,$order){
-		$time = explode(',',$sort);
-
-		$start_time = $time[0];
-		$end_time = $time[1];
-
-
-		//赋值查询时间范围
-		$this->assign(array('total_start'=>$start_time,'total_end'=>$end_time,'order'=>$order));
-
-		//构建查询时间条件
-		$where = $this->getDateTime($sort,$field='time');
-		$where['user_id'] = $user_id;
-        $where['over'] = '1';
-		if ($order!=''){
-			$where['method'] = $order;
-		}
-
-		$Consume = new UserConsumeModel();
-		$ConsumeShowList = $Consume->getConsumeList($where,$num=5,$p);
-		$count = $ConsumeShowList['count'];
-
-		$ConsumeList = $ConsumeShowList['list'];
-
-		$num_income = 0;
-		$num_spend = 0;
-		$num_total = 0;
-		foreach($ConsumeList as $key=>$value){
-			if($value['method_status']=='0'){
-				$num_spend = $value['money'] + $num_spend;
-			}elseif($value['method_status']=='1'){
-				$num_income = $value['money'] + $num_income;
-			}
-			$num_total = $num_total + $value['money'];
-
-		}
-
-		$page = $ConsumeShowList['page'];
-		$page = $this->getPageUrl($page);
-
-		$this->assign(array('count_total'=>$count,'page_total'=>$page,'ConsumeTotal'=>$ConsumeList,'num_total'=>$num_total,'income'=>$num_income,'spend'=>$num_spend));
-	}
-	/**
-	 * 账户明细显示
-	 */
-	public function AccountDetail(){
-		$user_id = $_GET['user_id'];
-		//账户信息
-		$where['user_id'] = $user_id;
-		$UserAcc = new UserAccountModel();
-		$AccInfo = $UserAcc->getAcountInfo($where);
-		$this->assign(array('AccInfo'=>$AccInfo));
-
-		$show = $_GET['show'];
-
-
-		$start_time = $_GET['start'];
-		$end_time = $_GET['end'];
-
-		$sort = $start_time.','.$end_time;
-
-		$order = $_GET['order'];
-
-
-		//页码
-		if ($_GET['p']=='') {
-			$p = 1;
-		} else {
-			$p = $_GET['p'];
-		}
-
-		if ($show=='1'){
-			//显示消费
-			$this->DetailConsume($user_id,$p,$sort);
-
-		}elseif ($show=='0'){
-			//显示充值
-			$this->DetailRecharge($user_id,$p,$sort,$order);
-		}elseif ($show=='2'){
-
-            $this->DetailTotal($user_id,$p,$sort,$order);
-		}elseif($show==''){
-			$show = '0';
-			//默认显示充值
-			$p =1;
-			$this->DetailRecharge($user_id,$p,$sort,$order);
-		}
-
-
-		//赋值显示标识
-		$this->assign('show_project',$show);
-
-		
-		
-		$this->display('Service/Account/account_detail');
-	}
-	//账户安全
-	public function AccountSafe(){
-		$user_id = $_GET['user_id'];
-		//账户信息
-		$where['user_id'] = $user_id;
-		$User = new UserModel();
-		$UserInfo = $User->getUserInfo($where);
-		$this->assign(array('UserInfo'=>$UserInfo));
-
-		if($_POST){
-
-        }
-		
-		$this->display('Service/Account/safety');
-	}
     /**
-	 * 修改密码
+	 * change Password
 	 */
 	public function ModifyPass(){
 		$user_id = $_COOKIE['user_id'];
@@ -991,7 +797,7 @@ class ServiceAction extends CommonAction {
 		}
 	}
 	/**
-	 * 资料修改显示
+	 * Data modification display
 	 */
 	public function ModifyData(){
 		$user_id = $_GET['user_id'];
@@ -1008,14 +814,14 @@ class ServiceAction extends CommonAction {
 	}
 
 	/**
-	 * 站内消息显示
+	 * Station message display
 	 */
 	public function StationMsg(){
 		//  $user_id = $_GET['user_id'];
 		$user_id = $_COOKIE['user_id'];
 		  $where['user_id'] = $user_id;
 		  $where['chat_from'] = '0';
-		//页码
+		//page number
 		if ($_GET['p']=='') {
 			$p = 1;
 		} else {
@@ -1036,7 +842,7 @@ class ServiceAction extends CommonAction {
 
 
 	/**
-	 * 卖家实名认证显示
+	 * Seller’s real-name authentication display
 	 */
 	public function Renzhengdata(){
 		$user_id = $_COOKIE['user_id'];
@@ -1059,7 +865,7 @@ class ServiceAction extends CommonAction {
 
 
 	/**
-	 * 有问必答显示
+	 * Ask and answer display
 	 */
 	public function AnswerQuestion(){
 	//	$user_id = $_GET['user_id'];
@@ -1081,11 +887,11 @@ class ServiceAction extends CommonAction {
 		$count = $ChatListShow['count'];
 
 		$this->assign(array('page'=>$page,'ChatList'=>$ChatList,'count'=>$count));
-		
+
           $this->display('Service/Information/answer_question');
 	}
 
-    //成为卖家
+    //Become a seller
 	public function ToBeSeller(){
 		if($_POST){
 			$name = I('name');
@@ -1094,7 +900,7 @@ class ServiceAction extends CommonAction {
 			$bankname = I('bankname');
 			$subbankname = I('subbankname');
 			$bankid = I('bankid');
-			
+
 			$UserAcc = new UserAccountModel();
 			$User = new UserModel();
 
@@ -1137,11 +943,11 @@ class ServiceAction extends CommonAction {
 		$this->display('Service/Quick/phone');
 	}
 			
-	//素材上传
+	//Material upload
 	public function MaterialUpload(){
 	
 		
-        /*获取传值*/
+        /*Get pass value*/
              $pid = I('pid');
         if($pid!=''){
             cookie('pid',$pid);
@@ -1175,7 +981,7 @@ class ServiceAction extends CommonAction {
 			);
 			$msg = $Chat->where($where_chat)->count();
 			
-			$list1 =  $Chat->where($where_chat)->order('chat_time DESC')->limit(1)->select();		 //倒序显示最新 消息提示
+			$list1 =  $Chat->where($where_chat)->order('chat_time DESC')->limit(1)->select();		 //Display the latest news in reverse order
 		//	dump($list1);
 		$this->assign(array('list1'=>$list1,'msg'=>$msg,'cate_list'=>$cate_list));	
 
@@ -1183,7 +989,7 @@ class ServiceAction extends CommonAction {
 
 	}
 
-	//素材上传
+	//Material upload
 	public function MaterialUploads(){
 	
 		if($_POST){
